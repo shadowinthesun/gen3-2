@@ -1,0 +1,908 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd::DcmDsdServiceTable;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd::DcmDsdServiceTable::DcmDsdService;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd::DcmDsdServiceTable::DcmDsdService::DcmDsdSubService;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd::DcmDsdServiceTable::DcmDsdService::DcmDsdSubService::DcmDsdSubServiceSessionLevelRef;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSession;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSession::DcmDspSessionRow;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSecurity;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSecurity::DcmDspSecurityRow;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspReadDTC;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspReadDTC::DcmDspReadDTCRow;
+import OdxXhtml;
+import OdxXhtml::DIAGSERVICE;
+extension org::eclipse::xtend::util::stdlib::globalvar;
+extension org::eclipse::xtend::util::stdlib::io;
+extension templates::dcm::Dcm_UDS_DSC;
+extension GenerateBsw_Odx_V201;
+extension OdxUtils;
+extension OdxConstants; extension OdxShortNames;
+
+
+/*********************************************************************************************************
+
+                                    RDBI SERVICES
+*********************************************************************************************************/
+
+create DcmDsdService this createRBBIcontainer(DcmDsdServiceTable table,Integer serviceID,String TabFnc,List listRDBI):
+
+    setShortName(validateShortName(DcmDsdRDBI_SHORTNAME()))->
+    setDcmDsdSidTabServiceId(createDcmDsdSidTabId(serviceID))->
+    setDcmDsdSidTabFnc(createDcmDsdSidTabFnc(TabFnc))->
+    setDcmDsdSidTabSubfuncAvail(createDcmDsdSidTabSubfuncAvail(false,this))->
+    setDcmDsdSidTabSidInitFunction(createDcmDsdSidTabSidInitFunction(this,RDBI_TAB_SID_INIT()))->
+    setDcmDsdSidTabScheduler(createDcmDsdSidTabScheduler(this))->
+    table.DcmDsdServices.add(this)
+ ;
+
+createServices(DcmDsdService serviceContainer, List list):
+
+if(!list.isEmpty) then
+(
+    list.forAll(e|updateServices(DcmDsdSubService.newInstance(),e,serviceContainer)->true)
+)
+;
+
+Boolean updateServices(DcmDsdSubService service, DIAGSERVICE diagService, DcmDsdService serviceContainer):
+service.setShortName(validateShortName(DcmDsdSubService_SHORTNAME()+diagService.sHORTNAME))->
+serviceContainer.DcmDsdSubServices.add(service)
+;
+
+create DcmDsdSidTabServiceId this createDcmDsdSidTabId(Integer serviceID):
+setValue(serviceID)
+;
+
+create DcmDsdSidTabFnc this createDcmDsdSidTabFnc(String TabFnc):
+setValue(TabFnc)
+;
+
+
+create DcmDsdSidTabSidInitFunction this createDcmDsdSidTabSidInitFunction(DcmDsdService dcmDsdService,String name):
+setValue(name)->
+dcmDsdService.setDcmDsdSidTabSidInitFunction(this)
+;
+/*********************************************************************************************************
+                                      END OF RDBI SERVICES
+
+*********************************************************************************************************/
+
+/*********************************************************************************************************
+                                      WDBI SERVICES
+
+*********************************************************************************************************/
+
+create DcmDsdService this createWDBIcontainer(Dcm dcm,DcmDsdServiceTable table,Integer serviceID,String TabFnc,List listWDBI):
+
+    let programmingCount=getProgrammingRefCount(listWDBI):
+    let extended_DiagnosticCount=getExtendedDiagRefCount(listWDBI):
+    let service_DiagnosticCount= getServiceDiagnosticRefCount(listWDBI):
+    let defaut_DiagnosticCount= getDefaultDiagnosticRefCount(listWDBI):
+    storeGlobalVar("shortNameList",(List[String]){})->
+    setShortName(validateShortName(DcmDsdWDBI_SHORTNAME()))->
+    setDcmDsdSidTabServiceId(createDcmDsdSidTabId(serviceID))->
+    //setDcmDsdSidTabFnc(createDcmDsdSidTabFnc(TabFnc))->
+    setDcmDsdSidTabSubfuncAvail(createDcmDsdSidTabSubfuncAvail(false,this))->
+    //setDcmDsdSidTabSidInitFunction(createDcmDsdSidTabSidInitFunction(this,"Dcm_Dcm_WDBIInit"))->
+    setDcmDsdSidTabScheduler(createDcmDsdSidTabScheduler(this))->
+    createSessionRef(dcm,programmingCount,extended_DiagnosticCount,service_DiagnosticCount,defaut_DiagnosticCount,this)->
+	listWDBI.createSecurityRef(this,dcm)->
+	updateSecurityRef(dcm,this)->
+    table.DcmDsdServices.add(this)
+ ;
+
+createSecurityRef(DIAGSERVICE service,DcmDsdService dcmDsdService,Dcm dcm):
+let stateModelSDG= service.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME==CONST_STATE_MODEL()):
+let securitySDG=stateModelSDG.sDG.selectFirst(e|e.sD.selectFirst(p|p.value==CONST_SECURITY_ACCESS())!=null):
+if(securitySDG!=null) then
+(
+securitySDG.sDG.forAll(sdg|createSecurityRef(sdg,dcm,dcmDsdService)->true)
+)
+;
+
+createSecurityRef(SDG sdg,Dcm dcm,DcmDsdService dcmDsdService):
+if(sdg.sD.select(sd|sd.value==CONST_SECURITY_LEVEL_3()).size>0) then
+(
+((List)getGlobalVar("shortNameList")).add(CONST_SECURITY_LEVEL_3())
+)->
+if(sdg.sD.select(sd|sd.value==CONST_SECURITY_LEVEL_7()).size>0) then
+(
+((List)getGlobalVar("shortNameList")).add(CONST_SECURITY_LEVEL_7())
+)->
+if(sdg.sD.select(sd|sd.value==CONST_SECURITY_LEVEL_27()).size>0) then
+(
+((List)getGlobalVar("shortNameList")).add(CONST_SECURITY_LEVEL_27())
+)->
+if(sdg.sD.select(sd|sd.value==CONST_SECURITY_LEVEL_65()).size>0) then
+(
+((List)getGlobalVar("shortNameList")).add(CONST_SECURITY_LEVEL_65())
+)
+;
+
+updateSecurityRef(Dcm dcm,DcmDsdService dcmDsdService):
+
+	if(((List)getGlobalVar("shortNameList")).contains(CONST_SECURITY_LEVEL_3())) then
+	(
+	let dcmDsdSidTabSecurityLevelRef= DcmDsdSidTabSecurityLevelRef.newInstance():
+	dcmDsdSidTabSecurityLevelRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSecurity.DcmDspSecurityRows.selectFirst(e|e.shortName==CONST_DCM_SECURITY_LEVEL("3")))->
+	dcmDsdService.DcmDsdSidTabSecurityLevelRefs.add(dcmDsdSidTabSecurityLevelRef)
+	)->
+	if(((List)getGlobalVar("shortNameList")).contains(CONST_SECURITY_LEVEL_7())) then
+	(
+	let dcmDsdSidTabSecurityLevelRef= DcmDsdSidTabSecurityLevelRef.newInstance():
+	dcmDsdSidTabSecurityLevelRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSecurity.DcmDspSecurityRows.selectFirst(e|e.shortName==CONST_DCM_SECURITY_LEVEL("7")))->
+	dcmDsdService.DcmDsdSidTabSecurityLevelRefs.add(dcmDsdSidTabSecurityLevelRef)
+	)->
+	if(((List)getGlobalVar("shortNameList")).contains(CONST_SECURITY_LEVEL_27())) then
+	(
+	let dcmDsdSidTabSecurityLevelRef= DcmDsdSidTabSecurityLevelRef.newInstance():
+	dcmDsdSidTabSecurityLevelRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSecurity.DcmDspSecurityRows.selectFirst(e|e.shortName==CONST_DCM_SECURITY_LEVEL("27")))->
+	dcmDsdService.DcmDsdSidTabSecurityLevelRefs.add(dcmDsdSidTabSecurityLevelRef)
+	)->
+	if(((List)getGlobalVar("shortNameList")).contains(CONST_SECURITY_LEVEL_65())) then
+	(
+	let dcmDsdSidTabSecurityLevelRef= DcmDsdSidTabSecurityLevelRef.newInstance():
+	dcmDsdSidTabSecurityLevelRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSecurity.DcmDspSecurityRows.selectFirst(e|e.shortName==CONST_DCM_SECURITY_LEVEL("65")))->
+	dcmDsdService.DcmDsdSidTabSecurityLevelRefs.add(dcmDsdSidTabSecurityLevelRef)
+	)->
+	if(((List)getGlobalVar("shortNameList")).contains(CONST_SECURITY_LEVEL_66())) then
+	(
+	let dcmDsdSidTabSecurityLevelRef= DcmDsdSidTabSecurityLevelRef.newInstance():
+	dcmDsdSidTabSecurityLevelRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSecurity.DcmDspSecurityRows.selectFirst(e|e.shortName==CONST_DCM_SECURITY_LEVEL("66")))->
+	dcmDsdService.DcmDsdSidTabSecurityLevelRefs.add(dcmDsdSidTabSecurityLevelRef)
+	)->
+	if(((List)getGlobalVar("shortNameList")).contains(CONST_SECURITY_LEVEL_28())) then
+	(
+	let dcmDsdSidTabSecurityLevelRef= DcmDsdSidTabSecurityLevelRef.newInstance():
+	dcmDsdSidTabSecurityLevelRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSecurity.DcmDspSecurityRows.selectFirst(e|e.shortName==CONST_DCM_SECURITY_LEVEL("28")))->
+	dcmDsdService.DcmDsdSidTabSecurityLevelRefs.add(dcmDsdSidTabSecurityLevelRef)
+	)
+
+;
+getProgrammingRefCount(List service):
+JAVA com.bosch.autosartool.importer.odx.mapper.v201.util.MapperUtil.getProgrammingRefCount(java.util.List)
+;
+
+getExtendedDiagRefCount(List service):
+JAVA com.bosch.autosartool.importer.odx.mapper.v201.util.MapperUtil.getExtendedDiagRefCount(java.util.List)
+;
+
+getServiceDiagnosticRefCount(List service):
+JAVA com.bosch.autosartool.importer.odx.mapper.v201.util.MapperUtil.getServiceDiagRefCount(java.util.List)
+;
+
+getDefaultDiagnosticRefCount(List service):
+JAVA com.bosch.autosartool.importer.odx.mapper.v201.util.MapperUtil.getDefaultDiagRefCount(java.util.List)
+;
+
+createSessionRef(Dcm dcm,Integer programmingCount,Integer extended_DiagnosticCount,Integer service_DiagnosticCount,Integer defaut_DiagnosticCount,DcmDsdService dcmDsdService):
+if(programmingCount>0) then
+(
+let dcmDspSecuritySessionRef=DcmDsdSidTabSessionLevelRef.newInstance():
+dcmDspSecuritySessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_PROGRAMMING_SESSION()))->
+dcmDsdService.DcmDsdSidTabSessionLevelRefs.add(dcmDspSecuritySessionRef)
+)->
+if(extended_DiagnosticCount>0) then
+(
+let dcmDspSecuritySessionRef=DcmDsdSidTabSessionLevelRef.newInstance():
+dcmDspSecuritySessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_EXTENDED_DIAGNOSTIC_SESSION()))->
+dcmDsdService.DcmDsdSidTabSessionLevelRefs.add(dcmDspSecuritySessionRef)
+)->
+if(service_DiagnosticCount>0) then
+(
+let dcmDspSecuritySessionRef=DcmDsdSidTabSessionLevelRef.newInstance():
+dcmDspSecuritySessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_SERVICE_DIAG_SESSION()))->
+dcmDsdService.DcmDsdSidTabSessionLevelRefs.add(dcmDspSecuritySessionRef)
+)->
+if(defaut_DiagnosticCount>0) then
+(
+let dcmDspSecuritySessionRef=DcmDsdSidTabSessionLevelRef.newInstance():
+dcmDspSecuritySessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_DEFAULT_SESSION()))->
+dcmDsdService.DcmDsdSidTabSessionLevelRefs.add(dcmDspSecuritySessionRef)
+)
+;
+/*********************************************************************************************************
+                                      END OF WDBI SERVICES
+
+*********************************************************************************************************/
+/*********************************************************************************************************
+                                    DcmDsdService__28_ DcmCommunicationControl
+
+*********************************************************************************************************/
+
+
+create DcmDsdService this  createCCServiceTable(Dcm dcm,DcmDsdServiceTable table, List[REQUEST] listService,Integer serviceId,List listOfCCService):
+let programmingCount=getProgrammingRefCount(listOfCCService):
+let extended_DiagnosticCount=getExtendedDiagRefCount(listOfCCService):
+let service_DiagnosticCount= getServiceDiagnosticRefCount(listOfCCService):
+let defaut_DiagnosticCount= getDefaultDiagnosticRefCount(listOfCCService):
+setShortName(validateShortName(DcmDsdCC_SHORTNAME()))->
+setDcmDsdSidTabFnc(createDcmDsdSidTabFnc(CC_DcmDsdSidTabFnc()))->
+setDcmDsdSidTabSubfuncAvail(createDcmDsdSidTabSubfuncAvail(true,this))->
+setDcmDsdSidTabSidInitFunction(createDcmDsdSidTabSidInitFunction(this,CC_SID_TAB_INIT_FUNC()))->
+setDcmDsdSidTabScheduler(createDcmDsdSidTabScheduler(this))->
+setDcmDsdSidTabServiceId(createDcmDsdSidTabId(serviceId))->
+createSessionRef(dcm,programmingCount,extended_DiagnosticCount,service_DiagnosticCount,defaut_DiagnosticCount,this)->
+if(!listService.isEmpty)
+ then
+ (
+listService.forAll(e|updateCCSubServices(this,e,serviceId)->true)
+ )->
+table.DcmDsdServices.add(this)
+;
+
+
+updateCCSubServices(DcmDsdService subService,REQUEST request,Integer serviceId):
+let paramsId=request.pARAMS.pARAM.select(e|(e.sEMANTIC==CONST_SUBFUNCTION()&&e.sHORTNAME==CC_CONTROL_TYPE())):
+let codedValue= ((CODEDCONST)paramsId.get(0)).cODEDVALUE:
+if( codedValue=="0"||codedValue=="1"||codedValue=="2"||codedValue=="3")then
+(
+createDcmDsdSubService(subService,paramsId,serviceId,DcmDsdSubService_SHORTNAME()+request.sHORTNAME)
+)
+;
+
+
+/*********************************************************************************************************
+                                      END OF DcmDsdService_40_CommunicationControl
+
+*********************************************************************************************************/
+
+/*********************************************************************************************************
+                                    DcmDsdService_2A_ReadDataByPeriodicIdentifier
+
+*********************************************************************************************************/
+
+create DcmDsdService this  createRDBPIServiceTable(List rdbpiServiceList, DcmDsdServiceTable table, List[REQUEST] listService,Integer serviceId):
+ let programmingCount=getProgrammingRefCount(rdbpiServiceList):
+    let extended_DiagnosticCount=getExtendedDiagRefCount(rdbpiServiceList):
+    let service_DiagnosticCount= getServiceDiagnosticRefCount(rdbpiServiceList):
+    let defaut_DiagnosticCount= getDefaultDiagnosticRefCount(rdbpiServiceList):
+setShortName(validateShortName(DcmDsdRDBPI_SHORTNAME()))->
+setDcmDsdSidTabFnc(createDcmDsdSidTabFnc(RDPI_DcmDsdSidTabFnc()))->
+setDcmDsdSidTabSubfuncAvail(createDcmDsdSidTabSubfuncAvail(false,this))->
+setDcmDsdSidTabSidInitFunction(createDcmDsdSidTabSidInitFunction(this,RDPI_DcmDsdSidTabSidInitFunction()))->
+setDcmDsdSidTabScheduler(createDcmDsdSidTabScheduler(this))->
+setDcmDsdSidTabServiceId(createDcmDsdSidTabId(serviceId))->
+//DEFAULT SEESION should not be configured for RDBPI
+createSessionRef(dcm,programmingCount,extended_DiagnosticCount,service_DiagnosticCount,0/*defaut_DiagnosticCount*/,this)->
+table.DcmDsdServices.add(this)
+;
+
+
+create DcmDsdSidTabSessionLevelRef this createDcmDsdSidTabSessionLevelRef(DcmDsdService dcmDsdService,String session):
+setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==session))->
+dcmDsdService.DcmDsdSidTabSessionLevelRefs.add(this)
+;
+/*********************************************************************************************************
+                                      END OF DcmDsdService_2A_ReadDataByPeriodicIdentifier
+
+*********************************************************************************************************/
+
+
+/*********************************************************************************************************
+                                    DcmDsdService_14_ClearDiagnosticInformation
+
+*********************************************************************************************************/
+
+create DcmDsdService this createClearDiagnosticInformationServices(DcmDsdServiceTable table,Integer serviceID):
+setShortName(validateShortName(DcmDsdCDI_SHORTNAME()))->
+setDcmDsdSidTabFnc(createDcmDsdSidTabFnc(CDI_DcmDsdSidTabFnc()))->
+setDcmDsdSidTabSidInitFunction(createDcmDsdSidTabSidInitFunction(this,CDI_DcmDsdSidTabSidInitFunction()))->
+setDcmDsdSidTabSubfuncAvail(createDcmDsdSidTabSubfuncAvail(false,this))->
+setDcmDsdSidTabScheduler(createDcmDsdSidTabScheduler(this))->
+setDcmDsdSidTabServiceId(createDcmDsdSidTabId(serviceID))->
+table.DcmDsdServices.add(this)
+;
+
+
+/*********************************************************************************************************
+                                      END OF ClearDiagnosticInformation
+
+*********************************************************************************************************/
+
+
+/*********************************************************************************************************
+                                    DcmDsdService_2F_InputOutputControlByIdentifier
+
+*********************************************************************************************************/
+create DcmDsdService this  createIOCIserviceTableServices(Dcm dcm,DcmDsdServiceTable table, List[REQUEST] listService,Integer serviceID,List listOfIOCIServices):
+
+if(!listService.isEmpty)
+ then
+ (
+ updateIOCIServices(dcm,listService,this,table,serviceID,listOfIOCIServices)
+ )->
+ table.DcmDsdServices.add(this)
+;
+
+updateIOCIServices(Dcm dcm,List[REQUEST] listService,DcmDsdService service,DcmDsdServiceTable table,Integer serviceId,List listOfIOCIServices):
+let programmingCount=getProgrammingRefCount(listOfIOCIServices):
+  let extended_DiagnosticCount=getExtendedDiagRefCount(listOfIOCIServices):
+  let service_DiagnosticCount= getServiceDiagnosticRefCount(listOfIOCIServices):
+  let defaut_DiagnosticCount= getDefaultDiagnosticRefCount(listOfIOCIServices):
+service.setShortName(validateShortName(DcmDsdIOCI_SHORTNAME()))->
+service.setDcmDsdSidTabServiceId(createDcmDsdSidTabId(serviceId))->
+
+service.setDcmDsdSidTabSubfuncAvail(createDcmDsdSidTabSubfuncAvail(false,service))->
+service.setDcmDsdSidTabFnc(createDcmDsdSidTabFnc(IOCBI_DcmDsdSidTabFnc()))->
+service.setDcmDsdSidTabSidInitFunction(createDcmDsdSidTabSidInitFunction(IOCBI_DcmDsdSidTabSidInitFunction(),service))->
+service.setDcmDsdSidTabScheduler(createDcmDsdSidTabScheduler(CONST_DCM_MAIN_SCHEDULER(),service))->
+createSessionRef(dcm,programmingCount,extended_DiagnosticCount,service_DiagnosticCount,defaut_DiagnosticCount,service)
+;
+/*********************************************************************************************************
+                                      END OF InputOutputControlByIdentifier
+
+*********************************************************************************************************/
+
+
+/*********************************************************************************************************
+									DcmDsdService_85_ControlDTCSetting
+
+*********************************************************************************************************/
+create DcmDsdService this createControlDtcServices(Dcm dcm,DcmDsdServiceTable table, List[REQUEST] listService,Integer serviceID,List listCdtc):
+if(!listService.isEmpty)
+ then
+ (
+ updateControlDtcServices(dcm,listService,this,table,serviceID,listCdtc)
+ )->
+ table.DcmDsdServices.add(this)
+;
+
+
+updateControlDtcServices(Dcm dcm,List[REQUEST] listService,DcmDsdService service,DcmDsdServiceTable table,Integer serviceId,List listCdtc):
+  let programmingCount=getProgrammingRefCount(listCdtc):
+  let extended_DiagnosticCount=getExtendedDiagRefCount(listCdtc):
+  let service_DiagnosticCount= getServiceDiagnosticRefCount(listCdtc):
+  let defaut_DiagnosticCount= getDefaultDiagnosticRefCount(listCdtc):
+service.setShortName(validateShortName(DcmDsdCDTC_SHORTNAME()))->
+service.setDcmDsdSidTabServiceId(createDcmDsdSidTabId(serviceId))->
+service.setDcmDsdSidTabSubfuncAvail(createDcmDsdSidTabSubfuncAvail(true,service))->
+service.setDcmDsdSidTabFnc(createDcmDsdSidTabFnc(CDTC_DcmDsdSidTabFnc()))->
+service.setDcmDsdSidTabSidInitFunction(createDcmDsdSidTabSidInitFunction(CDTC_DcmDsdSidTabSidInitFunction(),service))->
+service.setDcmDsdSidTabScheduler(createDcmDsdSidTabScheduler("DcmMainScheduler",service))->
+createSessionRef(dcm,programmingCount,extended_DiagnosticCount,service_DiagnosticCount,defaut_DiagnosticCount,service)->
+listService.forAll(e|updateControlDtcSettingSubServices(dcm,service,e,serviceId)->true)
+;
+
+create DcmDsdSidTabSidInitFunction this createDcmDsdSidTabSidInitFunction(String value,DcmDsdService service):
+setValue(value)->
+service.setDcmDsdSidTabSidInitFunction(this)
+;
+
+create DcmDsdSidTabScheduler this createDcmDsdSidTabScheduler(String value,DcmDsdService service):
+setValue(value)->
+service.setDcmDsdSidTabScheduler(this)
+;
+
+updateControlDtcSettingSubServices(Dcm dcm,DcmDsdService service,REQUEST controlDtcService,Integer serviceId):
+let paramsId1=controlDtcService.pARAMS.pARAM.select(e|(e.sEMANTIC==CONST_SUBFUNCTION()&&e.sHORTNAME==CONST_CONTROL_DTC_SETTING())):
+let paramsId2=controlDtcService.pARAMS.pARAM.select(e|(e.sEMANTIC==CONST_SERVICE_ID()&&e.sHORTNAME==CONST_SID_RQ())):
+/******************************************
+CHECK THIS !
+******************************************/
+
+let codedValue1= ((CODEDCONST)paramsId1.get(0)).cODEDVALUE:
+let codedValue2= ((CODEDCONST)paramsId2.get(0)).cODEDVALUE:
+if( codedValue1=="1")then
+(
+createDcmDsdSubService(service,paramsId1,serviceId,DcmDsdSubService_SHORTNAME()+controlDtcService.sHORTNAME)
+)
+else if(codedValue1=="2") then
+(
+createDcmDsdSubService(service,paramsId1,serviceId,DcmDsdSubService_SHORTNAME()+controlDtcService.sHORTNAME)
+)/*->
+if(codedValue2=="133") then
+(
+createDcmDsdSubService(service,paramsId2,serviceId,DcmDsdSubService_SHORTNAME()+controlDtcService.sHORTNAME)
+)*/
+;
+
+
+/*********************************************************************************************************
+                                      END OF InputOutputControlByIdentifier
+
+*********************************************************************************************************/
+
+/*********************************************************************************************************
+                                    DIAGNOSTIC SESSION CONTROL SERVICES
+
+*********************************************************************************************************/
+
+/************************************************************************************
+Methods for DcmDsdDervices
+**************************************************************************/
+
+create DcmDsdService this createSessionServices(DcmDsdServiceTable table, List[REQUEST] listService,Integer serviceID):
+ if(!listService.isEmpty)
+ then
+ (
+ updateSessionServices(listService,this,table,serviceID)
+ )->
+ table.DcmDsdServices.add(this)
+;
+
+
+updateSessionServices(List[REQUEST] listService,DcmDsdService service,DcmDsdServiceTable table,Integer serviceId):
+
+service.setShortName(validateShortName(DcmDsdDSC_SHORTNAME()))->
+service.setDcmDsdSidTabFnc(createDcmDsdSidTabFnc(DSC_DcmDsdSidTabFnc()))->
+service.setDcmDsdSidTabServiceId(createDcmDsdSidTabId(serviceId))->
+service.setDcmDsdSidTabSidInitFunction(createDcmDsdSidTabSidInitFunction(service,DSC_DcmDsdSidTabSidInitFunction()))->
+service.setDcmDsdSidTabScheduler(createDcmDsdSidTabScheduler(service))->
+createDcmDsdSidTabSubfuncAvail(true,service)->
+listService.forAll(e|updateSessionSubServices(service,e,serviceId)->true)->
+table.DcmDsdServices.add(service)
+;
+
+updateSessionSubServices(DcmDsdService subService,REQUEST sessionService,Integer serviceId):
+let paramsId=sessionService.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION()&&e.sHORTNAME=="DiagSessionType"):
+let codedValue= ((CODEDCONST)paramsId.get(0)).cODEDVALUE:
+if( codedValue=="1")then
+(
+createDcmDsdSubService(subService,paramsId,serviceId,CONST_DEFAULT_SESSION())
+)
+else if(codedValue=="2") then
+(
+createDcmDsdSubService(subService,paramsId,serviceId,CONST_PROGRAMMING_SESSION())
+)
+else if(codedValue=="3") then
+(
+createDcmDsdSubService(subService,paramsId,serviceId,CONST_EXTENDED_DIAGNOSTIC_SESSION())
+)
+else if(codedValue=="4") then
+(
+createDcmDsdSubService(subService,paramsId,serviceId,CONST_SAFETY_SYSTEM_DIAGNOSTIC_SESSION())
+)
+else if(codedValue=="73") then
+(
+createDcmDsdSubService(subService,paramsId,serviceId,CONST_SERVICE_DIAG_SESSION())
+)
+else if((codedValue.asInteger()>=40) && (codedValue.asInteger()<=126)) then
+(
+createDcmDsdSubService(subService,paramsId,serviceId,getDiagSessionList().selectFirst(e|e.rEQUESTREF.iDREF==sessionService.iD).sHORTNAME)
+)
+;
+create DcmDsdSubServiceSessionLevelRef this createDcmDsdSubServiceSessionLevelRef(DcmDsdSubService sub,DcmDspSessionRow sessionValue):
+setValue(sessionValue)->
+sub.DcmDsdSubServiceSessionLevelRefs.add(this)
+;
+
+
+
+
+create DcmDsdSubServiceSecurityLevelRef this createDcmDsdSubServiceSecurityLevelRef(DcmDsdSubService sub,DcmDspSecurityRow security):
+setValue(security)->
+sub.DcmDsdSubServiceSecurityLevelRefs.add(this)
+;
+
+
+
+
+create DcmDsdSubService this createDcmDsdSubService(DcmDsdService service,List[PARAM] paramsId,Integer serviceId,String shortName):
+let sessionList=(List)getGlobalVar(SESSION_ROWLIST_SHORTNAME()):
+let securityList=(List)getGlobalVar(SecurityRowList_SHORTNAME()):
+setShortName(validateShortName(shortName))->
+setDcmDsdSubServiceId(createDcmDsdSubServiceId(this,(CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()))->
+if(serviceId==16||serviceId==39)then(
+sessionList.get(0).forAll(session|this.DcmDsdSubServiceSessionLevelRefs.add(createDcmDsdSubServiceSessionLevelRef(this,session))->true)
+//securityList.get(0).forAll(security|this.DcmDsdSubServiceSecurityLevelRefs.add(createDcmDsdSubServiceSecurityLevelRef(this,security))->true)->
+)->
+//DcmDsdSubServiceSessionLevelRefs.add(createDcmDsdSubServiceSessionLevelRef(this))->
+service.DcmDsdSubServices.add(this)
+;
+
+
+
+
+
+create DcmDsdSubService this createDcmDsdSubService(DcmDsdService service,List[PARAM] paramId,Integer serviceId):
+let sessionList=(List)getGlobalVar(SESSION_ROWLIST_SHORTNAME()):
+let securityList=(List)getGlobalVar(SecurityRowList_SHORTNAME()):
+setShortName(validateShortName(DcmDsdSubService_SHORTNAME()+((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger())))->
+setDcmDsdSubServiceId(createDcmDsdSubServiceId(this,(CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()))->
+sessionList.get(0).forAll(session|this.DcmDsdSubServiceSessionLevelRefs.add(createDcmDsdSubServiceSessionLevelRef(this,session))->true)->
+//securityList.get(0).forAll(security|this.DcmDsdSubServiceSecurityLevelRefs.add(createDcmDsdSubServiceSecurityLevelRef(this,security))->true)->
+service.DcmDsdSubServices.add(this)
+;
+
+create DcmDsdSubServiceId this createDcmDsdSubServiceId(DcmDsdSubService dcmDsdSubService,Integer codedValue):
+setValue(codedValue)->
+dcmDsdSubService.setDcmDsdSubServiceId(this)
+;
+
+/*****************************************************************************************
+                CREATION OF DcmDsdService__27_ SecurityAccess
+******************************************************************************************/
+
+create DcmDsdService this createSecurityServices(Dcm dcm,DcmDsdServiceTable table, List[REQUEST] listRequest,Integer serviceID):
+ if(!listRequest.isEmpty)
+ then
+ (
+ updateSecurityServices(listRequest,dcm,this,table,serviceID)
+ )->
+ table.DcmDsdServices.add(this)
+;
+
+
+
+
+updateSecurityServices(List[REQUEST] listRequest,Dcm dcm,DcmDsdService service,DcmDsdServiceTable table,Integer serviceId):
+service.setShortName(validateShortName(DcmDsdSA_SHORTNAME()))->
+service.setDcmDsdSidTabFnc(createDcmDsdSidTabFnc(SA_DcmDsdSidTabFnc()))->
+service.setDcmDsdSidTabServiceId(createDcmDsdSidTabId(serviceId))->
+createDcmDsdSidTabSubfuncAvail(true,service)->
+service.setDcmDsdSidTabSidInitFunction(createDcmDsdSidTabSidInitFunction(service,SA_DcmDsdSidTabSidInitFunction()))->
+service.setDcmDsdSidTabScheduler(createDcmDsdSidTabScheduler(service))->
+listRequest.forAll(e|updateSecuritySubServices(service,e,serviceId,dcm)->true)->
+table.DcmDsdServices.add(service)
+;
+
+
+updateSecuritySubServices(DcmDsdService subService,REQUEST securityService,Integer serviceId,Dcm dcm):
+let paramsId=securityService.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION()&&e.sHORTNAME==CONST_SECURITY_ACCESS_TYPE()):
+if(paramsId.size>0)then
+(
+//if((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==3||((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==4)||((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==3)||((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==4)||((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==7)||((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==8)||((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==27)||((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==28)||((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==65)||((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==66))then
+if(!((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()>66&&((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()<95)||((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==0)||((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==127)))then
+(
+createSessionDcmDsdSubService(subService,paramsId,serviceId,securityService,dcm)
+)
+)
+;
+
+create DcmDsdSubService this createSessionDcmDsdSubService(DcmDsdService service,List[PARAM] paramId,Integer serviceId,REQUEST securityRequest,Dcm dcm):
+let sessionList=(List)getGlobalVar(SESSION_ROWLIST_SHORTNAME()):
+let securityList=(List)getGlobalVar(SecurityRowList_SHORTNAME()):
+setShortName(validateShortName(DcmDsdSubService_SHORTNAME()+((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger())))->
+setDcmDsdSubServiceId(createDcmDsdSubServiceId(this,(CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()))->
+//sessionList.get(0).forAll(session|this.DcmDsdSubServiceSessionLevelRefs.add(createDcmDsdSubServiceSessionLevelRef(this,session))->true)->
+//securityList.get(0).forAll(security|this.DcmDsdSubServiceSecurityLevelRefs.add(createDcmDsdSubServiceSecurityLevelRef(this,security))->true)->
+service.DcmDsdSubServices.add(this)->
+updateSessionRef(this,securityRequest,dcm)
+;
+
+updateSessionRef(DcmDsdSubService dcmDsdSubService,REQUEST request,Dcm dcm):
+let service=getDiagSecurityList().selectFirst(e|request.iD==e.rEQUESTREF.iDREF):
+let stateModelSDG= service.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME==CONST_STATE_MODEL()):
+let sessionSDG=stateModelSDG.sDG.selectFirst(e|e.sD.get(0).value==CONST_SESSION()):
+if(sessionSDG!=null) then
+(
+sessionSDG.sDG.forAll(sdg|createSessionRef(sdg,dcm,dcmDsdSubService)->true)
+)
+;
+
+createSessionRef(SDG sdg,Dcm dcm,DcmDsdSubService dcmDsdSubService):
+if(programmingCheck(sdg)) then
+(
+let dcmDspSecuritySessionRef=DcmDsdSubServiceSessionLevelRef.newInstance():
+dcmDspSecuritySessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_PROGRAMMING_SESSION()))->
+dcmDsdSubService.DcmDsdSubServiceSessionLevelRefs.add(dcmDspSecuritySessionRef)
+)->
+if(extendedDiagnosticCheck(sdg)) then
+(
+let dcmDspSecuritySessionRef=DcmDsdSubServiceSessionLevelRef.newInstance():
+dcmDspSecuritySessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_EXTENDED_DIAGNOSTIC_SESSION()))->
+dcmDsdSubService.DcmDsdSubServiceSessionLevelRefs.add(dcmDspSecuritySessionRef)
+)->
+if(serviceDiagnosticCheck(sdg)) then
+(
+let dcmDspSecuritySessionRef=DcmDsdSubServiceSessionLevelRef.newInstance():
+dcmDspSecuritySessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_SERVICE_DIAG_SESSION()))->
+dcmDsdSubService.DcmDsdSubServiceSessionLevelRefs.add(dcmDspSecuritySessionRef)
+)->
+if(defaultCheck(sdg)) then
+(
+let dcmDspSecuritySessionRef=DcmDsdSubServiceSessionLevelRef.newInstance():
+dcmDspSecuritySessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_DEFAULT_SESSION()))->
+dcmDsdSubService.DcmDsdSubServiceSessionLevelRefs.add(dcmDspSecuritySessionRef)
+)
+;
+
+Boolean defaultCheck(SDG sdg):
+if(sdg.sD.select(sd|sd.value=="DefaultSession").size>0 || sdg.sD.select(sd|sd.value=="Default").size>0 ) then
+(
+true
+)
+else
+(
+false
+)
+;
+
+Boolean programmingCheck(SDG sdg):
+if(sdg.sD.select(sd|sd.value=="Programming").size>0) then
+(
+true
+)
+else
+(
+false
+)
+;
+
+Boolean extendedDiagnosticCheck(SDG sdg):
+if(sdg.sD.select(sd|sd.value=="ExtendedDiagnostic").size>0) then
+(
+true
+)
+else
+(
+false
+)
+;
+
+Boolean serviceDiagnosticCheck(SDG sdg):
+if(sdg.sD.select(sd|sd.value=="ServiceDiagnostic").size>0) then
+(
+true
+)
+else
+(
+false
+)
+;
+
+/*****************************************************************************************
+                CREATION OF DcmDsdService__3E_ DcmTesterPresent
+******************************************************************************************/
+
+create DcmDsdService this createTesterServices(DcmDsdServiceTable table, List[REQUEST] listRequest,Integer serviceID):
+ if(!listRequest.isEmpty)
+ then
+ (
+ updateTesterServices(listRequest,this,table,serviceID)
+ )->
+ table.DcmDsdServices.add(this)
+
+;
+
+
+
+updateTesterServices(List[REQUEST] listRequest,DcmDsdService service,DcmDsdServiceTable table,Integer serviceId):
+service.setShortName(validateShortName(DcmDsdTP_SHORTNAME()))->
+service.setDcmDsdSidTabFnc(createDcmDsdSidTabFnc(TP_DcmDsdSidTabFnc()))->
+service.setDcmDsdSidTabServiceId(createDcmDsdSidTabId(serviceId))->
+service.setDcmDsdSidTabSidInitFunction(createDcmDsdSidTabSidInitFunction(service,TP_DcmDsdSidTabSidInitFunction()))->
+service.setDcmDsdSidTabScheduler(createDcmDsdSidTabScheduler(service))->
+createDcmDsdSidTabSubfuncAvail(true,service)->
+table.DcmDsdServices.add(service)->
+listRequest.forAll(e|updateTesterSubServices(service,e,serviceId)->true)
+
+;
+
+
+updateTesterSubServices(DcmDsdService subService,REQUEST securityService,Integer serviceId):
+let paramsId=securityService.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION()):
+if(paramsId.size>0)then
+(
+if(((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==0)||((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==128))then
+(
+createTesterDcmDsdSubService(subService,securityService,paramsId,serviceId)
+)
+)
+;
+
+create DcmDsdSubService this createTesterDcmDsdSubService(DcmDsdService service,REQUEST request,List paramId,Integer serviceId):
+
+ if(serviceId==62)then
+(
+setShortName(validateShortName(DcmDsdSubService_SHORTNAME()+request.sHORTNAME))->
+setDcmDsdSubServiceId(createDcmDsdSubServiceId(((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger())))
+)->
+service.DcmDsdSubServices.add(this)
+;
+
+create DcmDsdSidTabSubfuncAvail this createDcmDsdSidTabSubfuncAvail(Boolean value,DcmDsdService service):
+setValue(value)->
+service.setDcmDsdSidTabSubfuncAvail(this)
+;
+
+/*********************************************************************************************************
+                                      RDTC SERVICES
+
+*********************************************************************************************************/
+
+
+create DcmDsdService this createRDTCcontainer(Dcm dcm,DcmDsdServiceTable table,Integer serviceID,String TabFnc,List listRDTC, List requestList):
+
+    setShortName(validateShortName(DcmDsdRDTC_SHORTNAME()))->
+    setDcmDsdSidTabServiceId(createDcmDsdSidTabId(serviceID))->
+    setDcmDsdSidTabFnc(createDcmDsdSidTabFnc(TabFnc))->
+    setDcmDsdSidTabSubfuncAvail(createDcmDsdSidTabSubfuncAvail(true,this))->
+    setDcmDsdSidTabSidInitFunction(createDcmDsdSidTabSidInitFunction(this,RDTC_DcmDsdSidTabSidInitFunction()))->
+    setDcmDsdSidTabScheduler(createDcmDsdSidTabScheduler(this))->
+    listRDTC.forAll(e|udpateRDTCServices(dcm,this,DcmDsdSubService.newInstance(),e,requestList)->true)->
+    table.DcmDsdServices.add(this)
+ ;
+
+udpateRDTCServices(Dcm dcm,DcmDsdService serviceContainer,DcmDsdSubService subService,DIAGSERVICE diagService,List requestList):
+let request=getRequest(diagService,requestList):
+if((request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION() && ((CODEDCONST)e).cODEDVALUE=="1")).size>0) then
+(
+dcm.DcmConfigSet.DcmDsp.DcmDspReadDTC.DcmDspReadDTCRows.add(createDcmDspReadDTCRow("DcmDspReadDTCRow_01",dcm.DcmConfigSet.DcmDsp,1,CONST_DCM_DSP_REPORT_SUPPORT_DTC()))->
+subService.setShortName(validateShortName(DcmDsdSubService_SHORTNAME()+diagService.sHORTNAME))->
+serviceContainer.DcmDsdSubServices.add(subService)->
+subService.setDcmDsdSubServiceId(createDcmDsdSubServiceId(subService,1))
+)
+else if((request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION() && ((CODEDCONST)e).cODEDVALUE=="2")).size>0) then
+(
+dcm.DcmConfigSet.DcmDsp.DcmDspReadDTC.DcmDspReadDTCRows.add(createDcmDspReadDTCRow("DcmDspReadDTCRow_02",dcm.DcmConfigSet.DcmDsp,2,CONST_DCM_DSP_REPORT_SUPPORT_DTC()))->
+subService.setShortName(validateShortName(DcmDsdSubService_SHORTNAME()+diagService.sHORTNAME))->
+serviceContainer.DcmDsdSubServices.add(subService)->
+subService.setDcmDsdSubServiceId(createDcmDsdSubServiceId(subService,2))
+)
+else if((request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION() && ((CODEDCONST)e).cODEDVALUE=="4")).size>0) then
+(
+dcm.DcmConfigSet.DcmDsp.DcmDspReadDTC.DcmDspReadDTCRows.add(createDcmDspReadDTCRow("DcmDspReadDTCRow_04",dcm.DcmConfigSet.DcmDsp,4,CONST_DCM_DSP_REPORT_DATA_RECORD_BY_DTC()))->
+subService.setShortName(validateShortName(DcmDsdSubService_SHORTNAME()+diagService.sHORTNAME))->
+serviceContainer.DcmDsdSubServices.add(subService)->
+subService.setDcmDsdSubServiceId(createDcmDsdSubServiceId(subService,4))
+)
+else if((request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION() && ((CODEDCONST)e).cODEDVALUE=="6")).size>0) then
+(
+dcm.DcmConfigSet.DcmDsp.DcmDspReadDTC.DcmDspReadDTCRows.add(createDcmDspReadDTCRow("DcmDspReadDTCRow_06",dcm.DcmConfigSet.DcmDsp,6,CONST_DCM_DSP_REPORT_DATA_RECORD_BY_DTC()))->
+subService.setShortName(validateShortName(DcmDsdSubService_SHORTNAME()+diagService.sHORTNAME))->
+serviceContainer.DcmDsdSubServices.add(subService)->
+subService.setDcmDsdSubServiceId(createDcmDsdSubServiceId(subService,6))
+)
+else if((request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION() && ((CODEDCONST)e).cODEDVALUE=="10")).size>0) then
+(
+dcm.DcmConfigSet.DcmDsp.DcmDspReadDTC.DcmDspReadDTCRows.add(createDcmDspReadDTCRow("DcmDspReadDTCRow_0A",dcm.DcmConfigSet.DcmDsp,10,CONST_DCM_DSP_REPORT_SUPPORT_DTC()))->
+subService.setShortName(validateShortName(DcmDsdSubService_SHORTNAME()+diagService.sHORTNAME))->
+serviceContainer.DcmDsdSubServices.add(subService)->
+subService.setDcmDsdSubServiceId(createDcmDsdSubServiceId(subService,10))
+)
+;
+
+create DcmDsdSubServiceId createDcmDsdSubServiceId(Integer value):
+setValue(value)
+;
+
+REQUEST getRequest(DIAGSERVICE diagService,List requestList):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getRequest(OdxXhtml.DIAGSERVICE,java.util.List)
+;
+/*********************************************************************************************************
+                                      END OF RDTC SERVICES
+
+*********************************************************************************************************/
+
+create DcmDspReadDTCRow this createDcmDspReadDTCRow(String shortName,DcmDsp dcmDsp,Integer subFncLevel,String subFncServHandlr):
+setShortName(validateShortName(shortName))->
+setDcmDspDTCInfoSubFuncLevel(createDcmDspDTCInfoSubFuncLevel(subFncLevel,this))->
+//setDcmDspDTCSubFuncServHandler(createDcmDspDTCSubFuncServHandler(subFncServHandlr,this))->
+dcmDsp.DcmDspReadDTC.DcmDspReadDTCRows.add(this)
+;
+
+create DcmDspDTCInfoSubFuncLevel this createDcmDspDTCInfoSubFuncLevel(Integer subFncLevel,DcmDspReadDTCRow dcmDspReadDTCRow):
+setValue(subFncLevel)->
+dcmDspReadDTCRow.setDcmDspDTCInfoSubFuncLevel(this)
+;
+
+create DcmDspDTCSubFuncServHandler this createDcmDspDTCSubFuncServHandler(String subFncHandlr,DcmDspReadDTCRow dcmDspReadDTCRow):
+setValue(subFncHandlr)->
+dcmDspReadDTCRow.setDcmDspDTCSubFuncServHandler(this)
+;
+
+create DcmDsdSidTabScheduler this createDcmDsdSidTabScheduler(DcmDsdService service):
+setValue(CONST_DCM_MAIN_SCHEDULER())->
+service.setDcmDsdSidTabScheduler(this)
+;
+
+/********************************************************************************************************************************
+                                        Routine Control Services
+*********************************************************************************************************************************/
+
+create DcmDsdService this createRCContainer(Dcm dcm,DcmDsdServiceTable table,Integer serviceID,String TabFnc,List listRC,List requestList):
+    storeGlobalVar("shortNameList",(List[String]){})->
+    setShortName(validateShortName(DcmDsdRC_SHORTNAME()))->
+    setDcmDsdSidTabServiceId(createDcmDsdSidTabId(serviceID))->
+    setDcmDsdSidTabFnc(createDcmDsdSidTabFnc(TabFnc))->
+    setDcmDsdSidTabSubfuncAvail(createDcmDsdSidTabSubfuncAvail(true,this))->
+    setDcmDsdSidTabSidInitFunction(createDcmDsdSidTabSidInitFunction(this,RC_SID_TAB_INIT_FUNC()))->
+    setDcmDsdSidTabScheduler(createDcmDsdSidTabScheduler(this))->
+    listRC.forAll(e|udpateRCServices(dcm,this,DcmDsdSubService.newInstance(),e,requestList)->true)->
+    table.DcmDsdServices.add(this)
+ ;
+
+
+udpateRCServices(Dcm dcm,DcmDsdService serviceContainer,DcmDsdSubService subService,DIAGSERVICE diagService,List requestList):
+let request=getRequest(diagService,requestList):
+if((request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION() && ((CODEDCONST)e).cODEDVALUE=="1")).size>0 && serviceContainer.DcmDsdSubServices.selectFirst(e|e.shortName==RC_DCM_SUBSERVICE_START_ROUTINE())==null && !((List)getGlobalVar("shortNameList")).contains(RC_DCM_SUBSERVICE_START_ROUTINE())) then
+(
+subService.setShortName(validateShortName(RC_DCM_SUBSERVICE_START_ROUTINE()))->
+serviceContainer.DcmDsdSubServices.add(subService)->
+subService.setDcmDsdSubServiceId(createDcmDsdSubServiceId(subService,1))->
+((List)getGlobalVar("shortNameList")).add(subService.shortName)
+)
+else if((request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION() && ((CODEDCONST)e).cODEDVALUE=="2")).size>0 && serviceContainer.DcmDsdSubServices.selectFirst(e|e.shortName==RC_DCM_SUBSERVICE_STOP_ROUTINE())==null&& !((List)getGlobalVar("shortNameList")).contains(RC_DCM_SUBSERVICE_STOP_ROUTINE())) then
+(
+subService.setShortName(validateShortName(RC_DCM_SUBSERVICE_STOP_ROUTINE()))->
+serviceContainer.DcmDsdSubServices.add(subService)->
+subService.setDcmDsdSubServiceId(createDcmDsdSubServiceId(subService,2))->
+((List)getGlobalVar("shortNameList")).add(subService.shortName)
+)
+else if((request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION() && ((CODEDCONST)e).cODEDVALUE=="3")).size>0 && serviceContainer.DcmDsdSubServices.selectFirst(e|e.shortName==RC_DCM_SUBSERVICE_REQ_ROUTINE_RESULTS())==null&& !((List)getGlobalVar("shortNameList")).contains("DcmsubService_requestRoutineResult")) then
+(
+subService.setShortName(validateShortName(RC_DCM_SUBSERVICE_REQ_ROUTINE_RESULTS()))->
+serviceContainer.DcmDsdSubServices.add(subService)->
+subService.setDcmDsdSubServiceId(createDcmDsdSubServiceId(subService,3))->
+((List)getGlobalVar("shortNameList")).add(subService.shortName)
+)
+;
+
+
+/*******************************************************************************************************************************
+								DDDI Services
+********************************************************************************************************************************/
+
+create DcmDsdService this createDDDIContainer(Dcm dcm,DcmDsdServiceTable table,Integer serviceID,String TabFnc,List listDDDI,List requestList):
+    storeGlobalVar("dddishortNameList",(List[String]){})->
+    setShortName(validateShortName(DcmDsdDDDI_SHORTNAME()))->
+    setDcmDsdSidTabServiceId(createDcmDsdSidTabId(serviceID))->
+    setDcmDsdSidTabFnc(createDcmDsdSidTabFnc(TabFnc))->
+    setDcmDsdSidTabSubfuncAvail(createDcmDsdSidTabSubfuncAvail(true,this))->
+    setDcmDsdSidTabSidInitFunction(createDcmDsdSidTabSidInitFunction(DDDI_DcmDsdSidTabSidInitFunction()))->
+    setDcmDsdSidTabScheduler(createDcmDsdSidTabScheduler(this))->
+    listDDDI.forAll(e|udpateDDDIServices(dcm,this,DcmDsdSubService.newInstance(),e,requestList,table)->true)->
+    table.DcmDsdServices.add(this)
+ ;
+
+udpateDDDIServices(Dcm dcm,DcmDsdService serviceContainer,DcmDsdSubService subService,DIAGSERVICE diagService,List requestList,DcmDsdServiceTable table):
+let request=getRequest(diagService,requestList):
+if((request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION() && ((CODEDCONST)e).cODEDVALUE=="1")).size>0 && !((List)getGlobalVar("dddishortNameList")).contains(CONSTANT_DYNAMICALLY_DEFINE_BY_DID())) then
+(
+subService.setShortName(validateShortName(CONSTANT_DYNAMICALLY_DEFINE_BY_DID()))->
+serviceContainer.DcmDsdSubServices.add(subService)->
+subService.setDcmDsdSubServiceId(createDcmDsdSubServiceId(subService,1))->
+((List)getGlobalVar("dddishortNameList")).add(subService.shortName)
+)
+else if((request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION() && ((CODEDCONST)e).cODEDVALUE=="2")).size>0 && !((List)getGlobalVar("dddishortNameList")).contains(CONSTANT_DYNAMICALLY_DEFINE_BY_ADDRESS())) then
+(
+subService.setShortName(validateShortName(CONSTANT_DYNAMICALLY_DEFINE_BY_ADDRESS()))->
+serviceContainer.DcmDsdSubServices.add(subService)->
+subService.setDcmDsdSubServiceId(createDcmDsdSubServiceId(subService,2))->
+((List)getGlobalVar("dddishortNameList")).add(subService.shortName)->
+createMemoryDidTable(dcm,table)
+)
+else if((request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION() && ((CODEDCONST)e).cODEDVALUE=="3")).size>0 && !((List)getGlobalVar("dddishortNameList")).contains(CONSTANT_CLEAR_DYNAMICALLY_DEFINED())) then
+(
+subService.setShortName(validateShortName(CONSTANT_CLEAR_DYNAMICALLY_DEFINED()))->
+serviceContainer.DcmDsdSubServices.add(subService)->
+subService.setDcmDsdSubServiceId(createDcmDsdSubServiceId(subService,3))->
+((List)getGlobalVar("dddishortNameList")).add(subService.shortName)
+)
+;
+
+
+/*******************************************************************************************************************************
+								Memory
+********************************************************************************************************************************/
+
+create DcmDsdService this  createMemoryDidTable(Dcm dcm,DcmDsdServiceTable table):
+ // storeGlobalVar("dddishortNameList",(List[String]){})->
+    setShortName(validateShortName(DcmDsdRMBA_SHORTNAME()))->
+    setDcmDsdSidTabServiceId(createDcmDsdSidTabId(35))->
+    setDcmDsdSidTabFnc(createDcmDsdSidTabFnc(RMBA_DcmDsdSidTabFnc()))->
+    setDcmDsdSidTabSubfuncAvail(createDcmDsdSidTabSubfuncAvail(false,this))->
+    setDcmDsdSidTabSidInitFunction(createDcmDsdSidTabSidInitFunction(RMBA_DcmDsdSidTabSidInitFunction()))->
+    setDcmDsdSidTabScheduler(createDcmDsdSidTabScheduler(this))->
+     table.DcmDsdServices.add(this)
+;
+

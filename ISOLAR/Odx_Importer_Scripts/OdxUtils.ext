@@ -1,0 +1,470 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+import system::cantopology;
+import fibexcore::corecommunication;
+import fibexcore::coretopology;
+import system::cancommunication;
+import system::flexraycommunication;
+import system::flexraytopology;
+import system::transportprotocols;
+import OdxXhtml;
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspData;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDataInfo;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDidSignal::DcmDspDidDataRef;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspData::DcmDspDataUsePort;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspData::DcmDspDiagnosisScaling;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemDataElementClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemDataElementClass::DemExternalCSDataElementClass;
+import emf;
+import java::lang;
+extension GenerateBsw_Odx_V201;
+extension org::eclipse::xtend::util::stdlib::io;
+extension org::eclipse::xtend::util::stdlib::globalvar;
+extension templates::mathlib;
+extension OdxConstants; extension OdxShortNames;
+extension  templates::EcuExtractor;
+// validation for shortName
+String validateShortName(String shortName):
+let temp={}:
+temp.add(shortName)->
+if(temp.get(0).contains("__"))then
+(
+validate(temp,temp.get(0),temp.get(0).replaceAll("__","_"))
+)->
+if(temp.get(0).contains(" "))
+then
+(
+validate(temp,temp.get(0),temp.get(0).replaceAll(" ",""))
+)->
+if(temp.get(0).contains("-"))
+then
+(
+validate(temp,temp.get(0),temp.get(0).replaceAll("-",""))
+)->
+if(temp.get(0).endsWith("_"))
+then
+(
+validate(temp,temp.get(0),temp.get(0).subString(0,temp.get(0).length-1))
+)->
+if(temp.get(0).startsWith("_"))
+then
+(
+validate(temp,temp.get(0),temp.get(0).subString(1,temp.get(0).length))
+)->
+temp.get(0)
+;
+
+validate(List temp,String original,String edited):
+temp.remove(original)->
+temp.add(edited)->
+temp
+;
+
+DATAOBJECTPROP getDop(PARAM param,REQUEST request, BASEVARIANT baseVariant,ECUVARIANT ecuVariant,PROTOCOL protocol):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxDopMapperUtil.getDopFromTable(OdxXhtml.PARAM,org.eclipse.emf.ecore.EObject,OdxXhtml.BASEVARIANT,OdxXhtml.ECUVARIANT,OdxXhtml.PROTOCOL)
+;
+
+
+getEndofPduList(ECUVARIANT ecuVaraint, BASEVARIANT bv, PROTOCOL protocol):
+let endOfPduList = getPduList(ecuVaraint,bv,protocol):
+// add null check
+getOdxRoot().dIAGLAYERCONTAINER.eCUSHAREDDATAS.eCUSHAREDDATA.forAll(e|endOfPduList.addAll(e.dIAGDATADICTIONARYSPEC.eNDOFPDUFIELDS.eNDOFPDUFIELD)->true)->
+endOfPduList
+;
+
+
+getPduList(ECUVARIANT ecuVaraint, BASEVARIANT bv, PROTOCOL protocol):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getEndofPduList(OdxXhtml.ECUVARIANT,OdxXhtml.BASEVARIANT,OdxXhtml.PROTOCOL)
+;
+
+getMuxList(ECUVARIANT ecuVariant, BASEVARIANT bv, PROTOCOL protocol):
+let muxList={}:
+ecuVariant.dIAGDATADICTIONARYSPEC.mUXS.mUX.forAll(e|muxList.add(e)->true)->
+bv.dIAGDATADICTIONARYSPEC.mUXS.mUX.forAll(e|muxList.add(e)->true)->
+protocol.dIAGDATADICTIONARYSPEC.mUXS.mUX.forAll(e|muxList.add(e)->true)->
+//getOdxRoot().dIAGLAYERCONTAINER.eCUSHAREDDATAS.eCUSHAREDDATA.forAll(e|muxList.addAll(e.dIAGDATADICTIONARYSPEC.mUXS.mUX.forAll)->true)->
+muxList
+;
+
+getStructureList(PROTOCOL protocol):
+let structureList = getStructureList(getecuVariant(),getbaseVariant(),protocol):
+getOdxRoot().dIAGLAYERCONTAINER.eCUSHAREDDATAS.eCUSHAREDDATA.forAll(e|structureList.addAll(e.dIAGDATADICTIONARYSPEC.sTRUCTURES.sTRUCTURE)->true)->
+structureList
+;
+
+getStructureList(ECUVARIANT ecuVaraint, BASEVARIANT bv, PROTOCOL protocol):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getStructureList(OdxXhtml.ECUVARIANT,OdxXhtml.BASEVARIANT,OdxXhtml.PROTOCOL)
+;
+Void setOdxMap(Object element, Object name, Object value ):
+JAVA com.bosch.autosartool.importer.common.utils.CommonHashMapUtil.setMap(java.lang.Object,java.lang.Object,java.lang.Object);
+
+Void getOdxMap( Object element, Object name ):
+JAVA com.bosch.autosartool.importer.common.utils.CommonHashMapUtil.getMap(java.lang.Object,java.lang.Object);
+
+getOdxHashMap():
+JAVA com.bosch.autosartool.importer.common.utils.CommonHashMapUtil.getHashMap();
+
+clearOdxMap():
+JAVA com.bosch.autosartool.importer.common.utils.CommonHashMapUtil.clearMap();
+
+getBytePos(PARAM param):
+JAVA  com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getBytePos(OdxXhtml.PARAM);
+
+getEobjectParent(Object element):
+JAVA com.bosch.autosartool.importer.common.utils.ImporterCommonUtils.getEobjectParent(java.lang.Object);
+
+getChild(Object element):
+JAVA com.bosch.autosartool.importer.common.utils.ImporterCommonUtils.getEobjectChild(java.lang.Object);
+
+Boolean isObjectInstanceOf(EObject element,String element):
+JAVA com.bosch.autosartool.importer.common.utils.ImporterCommonUtils.isObjectInstanceOf(org.eclipse.emf.ecore.EObject,java.lang.String);
+
+getLongValue(Integer value):
+JAVA com.bosch.autosartool.importer.common.utils.ImporterCommonUtils.getLongValue(java.lang.Integer)
+;
+
+
+Boolean programmingCheck(SDG sdg):
+if(sdg.sD.select(sd|sd.value.toLowerCase().contains("programming")).size>0) then
+(
+true
+)
+else
+(
+false
+)
+;
+
+
+Boolean defaultCheck(SDG sdg):
+if(sdg.sD.select(sd|sd.value.toLowerCase().contains("default")).size>0) then
+(
+true
+)
+else
+(
+false
+)
+;
+
+Boolean extendedDiagnosticCheck(SDG sdg):
+if(sdg.sD.select(sd|sd.value.toLowerCase().contains("extendeddiagnostic")).size>0) then
+(
+true
+)
+else
+(
+false
+)
+;
+
+Boolean serviceDiagnosticCheck(SDG sdg):
+if(sdg.sD.select(sd|sd.value.toLowerCase().contains("servicediagnostic")).size>0) then
+(
+true
+)
+else
+(
+false
+)
+;
+
+Boolean eCUProgrammingCaptureCheck(SDG sdg):
+if(sdg.sD.select(sd|sd.value.toLowerCase().contains("ECU_Programming_Session_Capture_Idle_mode")).size>0) then
+(
+true
+)
+else
+(
+false
+)
+;
+
+Boolean eCUProgrammingCheck(SDG sdg):
+if(sdg.sD.select(sd|sd.value.toLowerCase().contains("ECU_Programming_Session_Idle_mode")).size>0) then
+(
+true
+)
+else
+(
+false
+)
+;
+
+getFunctionalGroup():
+getOdxRoot().dIAGLAYERCONTAINER.fUNCTIONALGROUPS.fUNCTIONALGROUP.selectFirst(e|e.iD==getbaseVariant().pARENTREFS.pARENTREF.selectFirst(p|FUNCTIONALGROUPREF.isInstance(p)).iDREF)
+;
+
+getProtocol():
+getOdxRoot().dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.selectFirst(e|e.iD==getbaseVariant().pARENTREFS.pARENTREF.selectFirst(p|PROTOCOLREF.isInstance(p)).iDREF)
+;
+
+getDOP(String idRef):
+let list={}:
+// add null checks
+if(getbaseVariant().dIAGDATADICTIONARYSPEC!=null && getbaseVariant().dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS!=null &&
+getbaseVariant().dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS.dATAOBJECTPROP!=null) then
+(
+list.addAll(getbaseVariant().dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS.dATAOBJECTPROP)
+)->
+if(getecuVariant().dIAGDATADICTIONARYSPEC!=null && getecuVariant().dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS!=null &&
+getecuVariant().dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS.dATAOBJECTPROP!=null) then
+(
+list.addAll(getecuVariant().dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS.dATAOBJECTPROP)
+)->
+if(getProtocol().dIAGDATADICTIONARYSPEC!=null && getProtocol().dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS!=null &&
+getProtocol().dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS.dATAOBJECTPROP!=null) then
+(
+list.addAll(getProtocol().dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS.dATAOBJECTPROP)
+)->
+if(getFunctionalGroup().dIAGDATADICTIONARYSPEC!=null && getFunctionalGroup().dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS!=null &&
+getFunctionalGroup().dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS.dATAOBJECTPROP!=null) then
+(
+list.addAll(getFunctionalGroup().dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS.dATAOBJECTPROP)
+)->
+getOdxRoot().dIAGLAYERCONTAINER.eCUSHAREDDATAS.eCUSHAREDDATA.forAll(e|list.addAll(e.dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS.dATAOBJECTPROP)->true)->
+list.selectFirst(e|e.iD==idRef)
+;
+
+create DcmDspDataType this createDcmDspDataType(DATAOBJECTPROP dop, DcmDspData dcmDspData):
+let diagCodedType=dop.dIAGCODEDTYPE:
+if(diagCodedType.bASEDATATYPE.toString()==CONST_A_UINT32())then
+ (
+ setValue(CONST_UINT32())
+ )else if(diagCodedType.bASEDATATYPE.toString()==CONST_A_UINT8())then
+ (
+ setValue(CONST_UINT8())
+ )else if(diagCodedType.bASEDATATYPE.toString()==CONST_A_UINT16())then
+ (
+ setValue(CONST_UINT16())
+ )else if(diagCodedType.bASEDATATYPE.toString()==CONST_A_SINT32())then
+ (
+ setValue(CONST_SINT16())
+ )else if(diagCodedType.bASEDATATYPE.toString()==CONST_A_SINT8())then
+ (
+ setValue(CONST_SINT8())
+ )else if(diagCodedType.bASEDATATYPE.toString()==CONST_A_SINT16())then
+ (
+ setValue("SINT16")
+ )
+ else
+ (
+ setValue(CONST_UINT32())
+ )->
+ dcmDspData.setDcmDspDataType(this)
+ ;
+
+List getPosResponse(ECUVARIANT ecuVariant, BASEVARIANT baseVariant, PROTOCOL protocol):
+let list = getPosResponseFromJava(getecuVariant(),getbaseVariant(),getOdxRoot().dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.selectFirst(e|e.iD==getbaseVariant().pARENTREFS.pARENTREF.selectFirst(p|PROTOCOLREF.isInstance(p)).iDREF)):
+if(getFunctionalGroup()!=null && getFunctionalGroup().pOSRESPONSES()!= null && getFunctionalGroup.pOSRESPONSES.pOSRESPONSE!= null) then
+(
+list.addAll(getFunctionalGroup().pOSRESPONSES.pOSRESPONSE)
+)->
+getOdxRoot().dIAGLAYERCONTAINER.eCUSHAREDDATAS.eCUSHAREDDATA.forAll(e|list.addAll(e.pOSRESPONSES.pOSRESPONSE)->true)->
+list
+;
+
+List getPosResponseFromJava(ECUVARIANT ecuVariant, BASEVARIANT baseVariant,PROTOCOL protocol):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getPosResponse(OdxXhtml.ECUVARIANT,OdxXhtml.BASEVARIANT,OdxXhtml.PROTOCOL)
+;
+/*
+ create DemDataElementDataSize this createDemDataElementDataSize(DATAOBJECTPROP dop,DemExternalCSDataElementClass demExternalCSDataElementClass):
+let codedtype = dop.dIAGCODEDTYPE:
+let stdType= (LEADINGLENGTHINFOTYPE) codedtype:
+setValue(getBitLength(codedtype))->
+demExternalCSDataElementClass.setDemDataElementDataSize(this)
+;
+
+getBitLength(DIAGCODEDTYPE codedType):
+JAVA com.bosch.autosartool.iporter.odx.mapper.v201.util.OdxMapperUtil.getBitLength(OdxXhtml.DIAGCODEDTYPE)
+;
+
+create DemDataElementUsePort this createDemDataElementUsePort(Boolean value,DemExternalCSDataElementClass demExternalCSDataElementClass):
+setValue(value)->
+demExternalCSDataElementClass.setDemDataElementUsePort(this)
+;
+
+create DemDataElementReadFnc this createDemDataElementReadFnc(String value,DemExternalCSDataElementClass demExternalCSDataElementClass):
+setValue(value)->
+demExternalCSDataElementClass.setDemDataElementReadFnc(this)
+;
+*/
+
+
+/******************************************************************************************************************************
+										CAN ID calculation
+*******************************************************************************************************************************/
+
+createCANIDs(List dmList):
+let dm = dmList.get(0):
+let comParamRefs = dm.cOMPARAMREFS.cOMPARAMREF:
+let dataPage=getOdxComRoot().cOMPARAMSPEC.cOMPARAMS.cOMPARAM.selectFirst(e|e.sHORTNAME.contains("J1939DataPage")):
+if(dataPage!=null)then(
+comParamRefs.forAll(e|getComParams(e)->true)->
+if(((String)getGlobalVar("Priority")) == null) then
+(
+storeGlobalVar("Priority",getOdxComRoot().cOMPARAMSPEC.cOMPARAMS.cOMPARAM.selectFirst(e|e.sHORTNAME.contains("MessagePriority")).pHYSICALDEFAULTVALUE)
+)->
+if(((String)getGlobalVar("PDUFormat")) == null) then
+(
+storeGlobalVar("PDUFormat",getOdxComRoot().cOMPARAMSPEC.cOMPARAMS.cOMPARAM.selectFirst(e|e.sHORTNAME.contains("PDUFormat")).pHYSICALDEFAULTVALUE)
+)->
+if(((String)getGlobalVar("PDUSpecific")) == null) then
+(
+storeGlobalVar("PDUSpecific",getOdxComRoot().cOMPARAMSPEC.cOMPARAMS.cOMPARAM.selectFirst(e|e.sHORTNAME.contains("PDUSpecific")).pHYSICALDEFAULTVALUE)
+)->
+
+generateCANID(dataPage.pHYSICALDEFAULTVALUE)
+)
+else
+(
+0
+)
+;
+
+getComParams(COMPARAMREF comParamRef):
+let comParam= getOdxComRoot().cOMPARAMSPEC.cOMPARAMS.cOMPARAM.selectFirst(e|e.iD==comParamRef.iDREF):
+if(comParam.sHORTNAME.contains("MessagePriority")) then
+(
+storeGlobalVar("Priority",comParamRef.vALUE)
+)
+else if(comParam.sHORTNAME.contains("J1939PDUFormat")) then
+(
+storeGlobalVar("PDUFormat",comParamRef.vALUE)
+)
+else if(comParam.sHORTNAME.contains("CP_J1939PDUSpecific")) then
+(
+storeGlobalVar("PDUSpecific",comParamRef.vALUE)
+)
+;
+
+List getSAandDA(Integer input):
+let list= {}:
+let last16=bitwiseAnd(input,65535):
+list.add(bitwiseAnd(last16,255))->
+list.add(shiftRight(last16,8))->
+list
+;
+
+
+getPgnAckRqst(Long identifier):
+shiftLeftOperandApi(convertStringToInteger(bitWiseAnd(hexString(shiftRightOperand(identifier,16).toString()),hexString("255"))),8)
+;
+
+shiftLeftOperandApi(Long id,Integer num):
+shiftLeftOperand(id,num)
+;
+
+
+
+
+getIdentiferFromPduToFrameMapping(PduToFrameMapping pduToFrameMapping):
+
+if(pduToFrameMapping.frame.getReferencingObjects().typeSelect(CanFrameTriggering).size>0)then
+(
+((CanFrameTriggering)(pduToFrameMapping.frame.getReferencingObjects().typeSelect(CanFrameTriggering).get(0))).identifier
+)
+;
+
+getCanIdAckAndRqst(Integer pgn):
+bitwiseOr(bitwiseOr(bitwiseOr(bitwiseOr( bitwiseOr(shiftLeft(getPriority(),26),shiftLeft(getReserved(),25)) , shiftLeft(getDataPage(),24)),shiftLeft( getPF(pgn),8)) ,shiftLeft(getDA(pgn),8)),shiftLeft(getSA(pgn),0))
+;
+
+getPriority():6;
+
+getReserved():0;
+
+getDataPage():0;
+
+getPF(Integer pgn): bitwiseAnd(pgn,65280);
+
+getDA(Integer pgn):
+if(pgn==59904)then(
+254
+)else if(pgn==59392)then
+(
+255
+);
+
+getSA(Integer pgn):
+254
+;
+
+
+
+generateCANID(String dataPage):
+let priority= ((String)getGlobalVar("Priority")).asInteger():
+let PDUFormat = ((String)getGlobalVar("PDUFormat")).asInteger():
+let PDUSpecific = ((String)getGlobalVar("PDUSpecific")).asInteger():
+if(dataPage.contains("Page 0")) then
+(
+bitwiseOr(shiftLeft(bitwiseOr(shiftLeft(priority,2),0),24),bitwiseOr(shiftLeft(PDUFormat,16),bitwiseOr(shiftLeft(PDUSpecific,8),PDUFormat)))
+)
+else if(dataPage.contains("Page 1")) then
+(
+bitwiseOr(shiftLeft(bitwiseOr(shiftLeft(priority,2),1),24),bitwiseOr(shiftLeft(PDUFormat,16),bitwiseOr(shiftLeft(PDUSpecific,8),PDUFormat)))
+)
+;
+
+/******************************************************************************************************************************
+										DebouncePassedThreshold negative value caluclation
+*******************************************************************************************************************************/
+
+int convertHextoNegative(Integer value):
+let constant= {}:
+if(value<= 255) then
+(
+constant.add(255)
+)->
+if(value<= 65535) then
+(
+constant.add(65535)
+)->
+if(value<= 524287) then
+(
+constant.add(524287)
+)->
+(bitwiseAnd(bitwiseXor(value,524287),constant.get(0)) + 1)*(-1)
+;
+
+Integer shiftRight(Integer a, Integer distance):
+ JAVA com.bosch.autosartool.importer.common.utils.ImporterCommonUtils.shiftRight(java.lang.Integer,java.lang.Integer)
+;
+
+Integer shiftLeft(Integer a, Integer distance):
+JAVA com.bosch.autosartool.importer.common.utils.ImporterCommonUtils.shiftLeft(java.lang.Integer,java.lang.Integer)
+;
+
+bitwiseAnd(Integer a, Integer b):
+JAVA com.bosch.autosartool.importer.common.utils.ImporterCommonUtils.bitwiseAnd(java.lang.Integer,java.lang.Integer)
+;
+
+bitwiseOr(Integer a, Integer b):
+JAVA com.bosch.autosartool.importer.common.utils.ImporterCommonUtils.bitwiseOr(java.lang.Integer,java.lang.Integer)
+;
+
+bitwiseXor(Integer a, Integer b):
+ JAVA com.bosch.autosartool.importer.common.utils.ImporterCommonUtils.bitwiseXor(java.lang.Integer,java.lang.Integer)
+;
+
+
+getReminderValue(Integer value1, Integer value2):
+JAVA  com.bosch.autosartool.importer.common.utils.MathUtils.computeRemainder(java.lang.Integer,java.lang.Integer);
+
+getIntValue(Integer value):
+JAVA  com.bosch.autosartool.importer.common.utils.ImporterCommonUtils.getIntValue(java.lang.Integer);

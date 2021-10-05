@@ -1,0 +1,619 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSecurity;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSecurity::DcmDspSecurityRow;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutine;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspStartRoutineOut;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspStartRoutineIn;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineStopIn;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineStopOut;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineAuthorization;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineRequestResIn;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineRequestResOut;
+//import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspStartRoutineOut::DcmDspStartRoutineOutSignal;
+//import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspStartRoutineIn::DcmDspStartRoutineInSignal;
+
+import OdxXhtml;
+
+extension GenerateBsw_Odx_V201;
+extension DcmServicesCreation;
+extension templates::dcm::Dcm_UDS_DSC;
+extension Dcm_UDS_SA;
+extension org::eclipse::xtend::util::stdlib::io;
+extension org::eclipse::xtend::util::stdlib::globalvar;
+extension org::eclipse::xtend::util::stdlib::crossref;
+extension OdxUtils;
+extension EcuExtractor;
+extension OdxConstants; extension OdxShortNames;
+
+mapRCServices(Dcm dcm,List rcList,List requestList):
+let identifierList=(List[String]){}:
+
+rcList.forAll(e|getIdentifiers(e,requestList,identifierList)->true)->
+identifierList.forAll(e|MapSubfunction(dcm,e,requestList,rcList)->true)->
+storeGlobalVar("shortNameList",(List[String]){})
+;
+
+getIdentifiers(DIAGSERVICE service, List requestList,List list):
+let request=requestList.selectFirst(e|e.iD==service.rEQUESTREF.iDREF):
+let idParam =request.pARAMS.pARAM.selectFirst(e|e.sEMANTIC=="ID" && CODEDCONST.isInstance(e)):
+let identifier=((CODEDCONST)idParam).cODEDVALUE:
+if(list.contains(identifier)) then
+(
+list
+)
+else
+(
+list.add(identifier)->
+list
+)
+;
+
+create DcmDspRoutine this MapSubfunction(Dcm dcm,String identifier,List requestList,List rcList):
+let serviceList = {}:
+let dcmDspRoutineInfo= DcmDspRoutineInfo.newInstance():
+let dcmDspRoutineAuthorization=DcmDspRoutineAuthorization.newInstance():
+let refferedSessionList={}:
+let refferedSecurityList={}:
+rcList.forAll(e|filterService(identifier,e,requestList,serviceList)->true)->
+setShortName(RC_DCM_DSP_ROUTINE_PREFIX()+identifier)->
+setDcmDspRoutineUsePort(createDcmDspRoutineUsePort(this))->
+setDcmDspStopRoutineSupported(createDcmDspStopRoutineSupported(this))->
+setDcmDspRoutineFixedLength(createDcmDspRoutineFixedLength(this))->
+setDcmDspRoutineIdentifier(createDcmDspRoutineIdentifier(this,identifier))->
+//setDcmDspStartRoutineFnc(createDcmDspStartRoutineFnc(identifier,this))->
+//setDcmDspStopRoutineFnc(createDcmDspStopRoutineFnc(identifier,this))->
+//setDcmDspRequestResultsRoutineFnc(createDcmDspRequestResultsRoutineFnc(identifier,this))->
+dcmDspRoutineInfo.setShortName(RC_DCM_DSP_ROUTINE_INFO_PREFIX()+identifier)->
+serviceList.forAll(e|mapSubFunction(dcm,e,requestList,this,dcmDspRoutineInfo,dcmDspRoutineAuthorization,refferedSessionList,refferedSecurityList)->true)->
+dcmDspRoutineInfo.setDcmDspRoutineAuthorization(dcmDspRoutineAuthorization)->
+this.setDcmDspRoutineInfoRef(createDcmDspRoutineInfoRef(dcmDspRoutineInfo,this))->
+dcm.DcmConfigSet.DcmDsp.DcmDspRoutineInfos.add(dcmDspRoutineInfo)->
+dcm.DcmConfigSet.DcmDsp.DcmDspRoutines.add(this)
+;
+
+
+filterService(String identifierValue,DIAGSERVICE service,List requestList,List serviceList):
+let request=requestList.selectFirst(e|e.iD==service.rEQUESTREF.iDREF):
+let idParam =request.pARAMS.pARAM.selectFirst(e|e.sEMANTIC=="ID" && CODEDCONST.isInstance(e)):
+let identifier=((CODEDCONST)idParam).cODEDVALUE:
+if(identifierValue==identifier) then
+serviceList.add(service)
+;
+
+
+mapSubFunction(Dcm dcm,DIAGSERVICE service,List requestList,DcmDspRoutine dcmDspRoutine,DcmDspRoutineInfo dcmDspRoutineInfo,DcmDspRoutineAuthorization dcmDspRoutineAuthorization,List refferedSessionList,List refferedSecurityList):
+let request=requestList.selectFirst(e|e.iD==service.rEQUESTREF.iDREF):
+let posResponseList=getPosResponse(getecuVariant(),getbaseVariant(),getOdxRoot().dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.selectFirst(e|e.iD==getbaseVariant().pARENTREFS.pARENTREF.selectFirst(p|PROTOCOLREF.isInstance(p)).iDREF)):
+let posResponse=posResponseList.selectFirst(e|e.iD==service.pOSRESPONSEREFS.pOSRESPONSEREF.get(0).iDREF):
+let param=request.pARAMS.pARAM.selectFirst(e|e.sEMANTIC==CONST_SERVICE_ID()):
+let subFncParam=request.pARAMS.pARAM.selectFirst(e|e.sEMANTIC==CONST_SUBFUNCTION() && CODEDCONST.isInstance(e)):
+let reqCodedValue=((CODEDCONST)subFncParam).cODEDVALUE:
+
+if(reqCodedValue=="1") then
+(
+createDcmDspStartRoutineIn(request,dcmDspRoutineInfo)->
+createDcmDspStartRoutineOut(posResponse,dcmDspRoutineInfo)->
+updateDcmDspRoutineAuthorization(dcm,service,dcmDspRoutineAuthorization,refferedSessionList,refferedSecurityList)
+)
+
+else if(reqCodedValue=="2") then
+(
+createDcmDspRoutineStopIn(request,dcmDspRoutineInfo)->
+createDcmDspRoutineStopOut(posResponse,dcmDspRoutineInfo)->
+updateDcmDspRoutineAuthorization(dcm,service,dcmDspRoutineAuthorization,refferedSessionList,refferedSecurityList)
+)
+
+else if(reqCodedValue=="3") then
+(
+dcmDspRoutine.setDcmDspRequestResultsRoutineSupported(createDcmDspRequestResultsRoutineSupported(dcmDspRoutine))->
+createDcmDspRoutineRequestResIn(request,dcmDspRoutineInfo)->
+createDcmDspRoutineRequestResOut(posResponse,dcmDspRoutineInfo)->
+updateDcmDspRoutineAuthorization(dcm,service,dcmDspRoutineAuthorization,refferedSessionList,refferedSecurityList)
+)
+;
+
+
+create DcmDspRoutineRequestResIn this createDcmDspRoutineRequestResIn(REQUEST request,DcmDspRoutineInfo dcmDspRoutineInfo):
+let dataParam = request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()):
+if(dataParam.size>0) then
+(
+let initialPosition= getBytePos(dataParam.get(0)):
+setShortName(validateShortName(RC_DCM_DSP_ROUTINE_REQ_RES_IN_PREFIX()+request.sHORTNAME))->
+dataParam.forAll(param|DcmDspRoutineRequestResInSignals.add(createDcmDspRoutineRequestResInSignal(this,param,initialPosition))->true)->
+if(DcmDspRoutineRequestResInSignals.size>0) then
+(
+dcmDspRoutineInfo.setDcmDspRoutineRequestResIn(this)
+)
+)
+;
+
+create DcmDspRoutineRequestResInSignal this createDcmDspRoutineRequestResInSignal(DcmDspRoutineRequestResIn dcmDspRoutineRequestResIn,PARAM param,Integer initialPosition):
+setShortName(validateShortName(param.sHORTNAME))->
+//setDcmDspRoutineSignalLength(createDcmDspRoutineSignalLength(param,this))->
+setDcmDspRoutineSignalPos(createDcmDspRoutineSignalPos(param,this,initialPosition))->
+setDcmDspRoutineSignalType(createDcmDspRoutineSignalType(param,this))
+;
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineRequestResIn::DcmDspRoutineRequestResInSignal::DcmDspRoutineSignalLength this createDcmDspRoutineSignalLength(PARAM param,DcmDspRoutineRequestResInSignal dcmDspRoutineRequestResInSignal):
+let diagCodedType=((CODEDCONST)param).dIAGCODEDTYPE:
+setValue(getBitLength(diagCodedType))->
+dcmDspRoutineRequestResInSignal.setDcmDspRoutineSignalLength(this)
+;
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineRequestResIn::DcmDspRoutineRequestResInSignal::DcmDspRoutineSignalPos this createDcmDspRoutineSignalPos(PARAM param,DcmDspRoutineRequestResInSignal dcmDspRoutineRequestResInSignal,Integer initialPosition):
+setValue((getBytePosition(param)-initialPosition)*8)->
+dcmDspRoutineRequestResInSignal.setDcmDspRoutineSignalPos(this)
+;
+
+
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineRequestResIn::DcmDspRoutineRequestResInSignal::DcmDspRoutineSignalType this createDcmDspRoutineSignalType(PARAM param,DcmDspRoutineRequestResInSignal dcmDspRoutineRequestResInSignal):
+let diagCodedType=((CODEDCONST)param).dIAGCODEDTYPE:
+setValue(getDataType(diagCodedType))->
+dcmDspRoutineRequestResInSignal.setDcmDspRoutineSignalType(this)
+;
+
+
+create DcmDspRoutineRequestResOut this createDcmDspRoutineRequestResOut(POSRESPONSE posResponse,DcmDspRoutineInfo dcmDspRoutineInfo):
+let dataParam = request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()):
+if(dataParam.size>0) then
+(
+let initialPosition= getBytePos(dataParam.get(0)):
+setShortName(validateShortName(RC_DCM_DSP_ROUTINE_REQ_RES_OUT_PREFIX()+posResponse.sHORTNAME))->
+dataParam.forAll(param|DcmDspRoutineRequestResOutSignals.add(createDcmDspRoutineRequestResOutSignal(this,param,initialPosition))->true)->
+if(DcmDspRoutineRequestResOutSignals.size>0) then
+(
+dcmDspRoutineInfo.setDcmDspRoutineRequestResOut(this)
+)
+)
+;
+
+create DcmDspRoutineRequestResOutSignal this createDcmDspRoutineRequestResOutSignal(DcmDspRoutineRequestResOut dcmDspRoutineRequestResOut,PARAM param,Integer initialPosition):
+setShortName(validateShortName(param.sHORTNAME))->
+//setDcmDspRoutineSignalLength(createDcmDspRoutineSignalLength(param,this))->
+setDcmDspRoutineSignalPos(createDcmDspRoutineSignalPos(param,this,initialPosition))->
+setDcmDspRoutineSignalType(createDcmDspRoutineSignalType(param,this))
+;
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineRequestResOut::DcmDspRoutineRequestResOutSignal::DcmDspRoutineSignalLength this createDcmDspRoutineSignalLength(PARAM param,DcmDspRoutineRequestResOutSignal dcmDspRoutineRequestResOutSignal):
+let diagCodedType=((CODEDCONST)param).dIAGCODEDTYPE:
+setValue(getBitLength(diagCodedType))->
+dcmDspRoutineRequestResOutSignal.setDcmDspRoutineSignalLength(this)
+;
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineRequestResOut::DcmDspRoutineRequestResOutSignal::DcmDspRoutineSignalPos this createDcmDspRoutineSignalPos(PARAM param,DcmDspRoutineRequestResOutSignal dcmDspRoutineRequestResOutSignal,Integer initialPosition):
+setValue((getBytePosition(param)-initialPosition)*8)->
+dcmDspRoutineRequestResOutSignal.setDcmDspRoutineSignalPos(this)
+;
+
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineRequestResOut::DcmDspRoutineRequestResOutSignal::DcmDspRoutineSignalType this createDcmDspRoutineSignalType(PARAM param,DcmDspRoutineRequestResOutSignal dcmDspRoutineRequestResOutSignal):
+let diagCodedType=((CODEDCONST)param).dIAGCODEDTYPE:
+setValue(getDataType(diagCodedType))->
+dcmDspRoutineRequestResOutSignal.setDcmDspRoutineSignalType(this)
+;
+
+updateDcmDspRoutineAuthorization(Dcm dcm,DIAGSERVICE service,DcmDspRoutineAuthorization dcmDspRoutineAuthorization,List refferedSessionList,List refferedSecurityList):
+let stateModelSDG= service.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME==CONST_STATE_MODEL()):
+let sessionSDG=stateModelSDG.sDG.selectFirst(e|e.sD.get(0).value==CONST_SESSION()):
+let securitySDG=stateModelSDG.sDG.select(e|e.sD.get(0).value==CONST_SECURITY_ACCESS()):
+let securityList=(List)getGlobalVar(SecurityRowList_SHORTNAME()):
+if(sessionSDG!=null) then
+(
+sessionSDG.sDG.forAll(sdg|createSessionRef(sdg,dcm,dcmDspRoutineAuthorization,refferedSessionList)->true)
+)->
+if(securitySDG!=null) then
+(
+createSecurityReference(dcmDspRoutineAuthorization,securitySDG,securityList,refferedSecurityList)
+)
+;
+
+Boolean programmingCheck(SDG sdg):
+if(sdg.sD.select(sd|sd.value.toLowerCase().contains("programming")).size>0) then
+(
+true
+)
+else
+(
+false
+)
+;
+
+createSessionRef(SDG sdg,Dcm dcm,DcmDspRoutineAuthorization dcmDspDidRead,List refferedSessionList):
+if(programmingCheck(sdg)&&!refferedSessionList.contains(CONST_PROGRAMMING_SESSION())) then
+(
+let defaultSession=dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_PROGRAMMING_SESSION()):
+let dcmDspDidReadSessionRef=DcmDspRoutineSessionRef.newInstance():
+//info("GET REFERENCING="+((EObject)defaultSession).getReferencingObjects())->
+//if(!(dcmDspDidRead.DcmDspRoutineSessionRefs.select(e|defaultSession.getReferencingObjects().contains(e)).size>0)) then
+refferedSessionList.add(CONST_PROGRAMMING_SESSION())->
+dcmDspDidReadSessionRef.setValue(defaultSession)->
+dcmDspDidRead.DcmDspRoutineSessionRefs.add(dcmDspDidReadSessionRef)
+
+)->
+if(extendedDiagnosticCheck(sdg)&&!refferedSessionList.contains(CONST_EXTENDED_DIAGNOSTIC_SESSION())) then
+(
+let dcmDspDidReadSessionRef=DcmDspRoutineSessionRef.newInstance():
+refferedSessionList.add(CONST_EXTENDED_DIAGNOSTIC_SESSION())->
+dcmDspDidReadSessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_EXTENDED_DIAGNOSTIC_SESSION()))->
+dcmDspDidRead.DcmDspRoutineSessionRefs.add(dcmDspDidReadSessionRef)
+)->
+if(serviceDiagnosticCheck(sdg)&&!refferedSessionList.contains(CONST_SERVICE_DIAG_SESSION())) then
+(
+let dcmDspDidReadSessionRef=DcmDspRoutineSessionRef.newInstance():
+refferedSessionList.add(CONST_SERVICE_DIAG_SESSION())->
+dcmDspDidReadSessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_SERVICE_DIAG_SESSION()))->
+dcmDspDidRead.DcmDspRoutineSessionRefs.add(dcmDspDidReadSessionRef)
+)->
+if(defaultCheck(sdg)&&!refferedSessionList.contains(CONST_DEFAULT_SESSION())) then
+(
+let dcmDspDidReadSessionRef=DcmDspRoutineSessionRef.newInstance():
+refferedSessionList.add(CONST_DEFAULT_SESSION())->
+dcmDspDidReadSessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_DEFAULT_SESSION()))->
+dcmDspDidRead.DcmDspRoutineSessionRefs.add(dcmDspDidReadSessionRef)
+)->
+if(eCUProgrammingCheck(sdg) && !refferedSessionList.contains(CONST_ECU_PROGRAMMING())) then
+(
+let dcmDspDidReadSessionRef=DcmDspDidReadSessionRef.newInstance():
+sessionReferedList.add(CONST_ECU_PROGRAMMING())->
+dcmDspDidReadSessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_ECU_PROGRAMMING()))->
+dcmDspDidRead.DcmDspDidReadSessionRefs.add(dcmDspDidReadSessionRef)
+)->
+if(eCUProgrammingCaptureCheck(sdg) && !refferedSessionList.contains(CONST_ECU_PROGRAMMING_CAPTURE())) then
+(
+let dcmDspDidReadSessionRef=DcmDspDidReadSessionRef.newInstance():
+sessionReferedList.add(CONST_ECU_PROGRAMMING_CAPTURE())->
+dcmDspDidReadSessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_ECU_PROGRAMMING_CAPTURE()))->
+dcmDspDidRead.DcmDspDidReadSessionRefs.add(dcmDspDidReadSessionRef)
+)
+;
+
+Boolean defaultCheck(SDG sdg):
+if(sdg.sD.select(sd|sd.value.toLowerCase().contains("default")).size>0) then
+(
+true
+)
+else
+(
+false
+)
+;
+
+Boolean extendedDiagnosticCheck(SDG sdg):
+if(sdg.sD.select(sd|sd.value.toLowerCase().contains("extendeddiagnostic")).size>0) then
+(
+true
+)
+else
+(
+false
+)
+;
+
+Boolean serviceDiagnosticCheck(SDG sdg):
+if(sdg.sD.select(sd|sd.value.toLowerCase().contains("servicediagnostic")).size>0) then
+(
+true
+)
+else
+(
+false
+)
+;
+
+createSecurityReference(DcmDspRoutineAuthorization dcmDspRoutineAuthorization,List securitySdgList,List securityList,List refferedSecurityList):
+if((List)securitySdgList.sDG.sD.select(e|e.value==CONST_SECURITY_LEVEL_3()).size>0&&!refferedSecurityList.contains(CONST_SECURITY_LEVEL_3()))then
+(
+securityList.get(0).forAll(security|if(security.shortName==CONST_DCM_SECURITY_LEVEL("3"))then(createDcmDspRoutineSecurityLevelRef(dcmDspRoutineAuthorization,security)->refferedSecurityList.add(CONST_SECURITY_LEVEL_3()))->true)
+)->
+if((List)securitySdgList.sDG.sD.select(e|e.value==CONST_SECURITY_LEVEL_27()).size>0&&!refferedSecurityList.contains(CONST_SECURITY_LEVEL_27()))then
+(
+securityList.get(0).forAll(security|if(security.shortName==CONST_DCM_SECURITY_LEVEL("27"))then(createDcmDspRoutineSecurityLevelRef(dcmDspRoutineAuthorization,security)->refferedSecurityList.add(CONST_SECURITY_LEVEL_27()))->true)
+)->
+if((List)securitySdgList.sDG.sD.select(e|e.value==CONST_SECURITY_LEVEL_28()).size>0&&!refferedSecurityList.contains(CONST_SECURITY_LEVEL_28()))then
+(
+securityList.get(0).forAll(security|if(security.shortName==CONST_DCM_SECURITY_LEVEL("28"))then(createDcmDspRoutineSecurityLevelRef(dcmDspRoutineAuthorization,security)->refferedSecurityList.add(CONST_SECURITY_LEVEL_28()))->true)
+)->
+if((List)securitySdgList.sDG.sD.select(e|e.value==CONST_SECURITY_LEVEL_4()).size>0&&!refferedSecurityList.contains(CONST_SECURITY_LEVEL_4()))then
+(
+securityList.get(0).forAll(security|if(security.shortName==CONST_DCM_SECURITY_LEVEL("4"))then(createDcmDspRoutineSecurityLevelRef(dcmDspRoutineAuthorization,security)->refferedSecurityList.add(CONST_SECURITY_LEVEL_4()))->true)
+)->
+if((List)securitySdgList.sDG.sD.select(e|e.value==CONST_SECURITY_LEVEL_65()).size>0&&!refferedSecurityList.contains(CONST_SECURITY_LEVEL_65()))then
+(
+securityList.get(0).forAll(security|if(security.shortName==CONST_DCM_SECURITY_LEVEL("65"))then(createDcmDspRoutineSecurityLevelRef(dcmDspRoutineAuthorization,security)->refferedSecurityList.add(CONST_SECURITY_LEVEL_65()))->true)
+)->
+if((List)securitySdgList.sDG.sD.select(e|e.value==CONST_SECURITY_LEVEL_66()).size>0&&!refferedSecurityList.contains(CONST_SECURITY_LEVEL_66()))then
+(
+securityList.get(0).forAll(security|if(security.shortName==CONST_DCM_SECURITY_LEVEL("66"))then(createDcmDspRoutineSecurityLevelRef(dcmDspRoutineAuthorization,security)->refferedSecurityList.add(CONST_SECURITY_LEVEL_66()))->true)
+)->
+if((List)securitySdgList.sDG.sD.select(e|e.value==CONST_SECURITY_LEVEL_7()).size>0&&!refferedSecurityList.contains(CONST_SECURITY_LEVEL_7()))then
+(
+securityList.get(0).forAll(security|if(security.shortName==CONST_DCM_SECURITY_LEVEL("7"))then(createDcmDspRoutineSecurityLevelRef(dcmDspRoutineAuthorization,security)->refferedSecurityList.add(CONST_SECURITY_LEVEL_7()))->true)
+)->
+if((List)securitySdgList.sDG.sD.select(e|e.value==CONST_SECURITY_LEVEL_8()).size>0&&!refferedSecurityList.contains(CONST_SECURITY_LEVEL_8()))then
+(
+securityList.get(0).forAll(security|if(security.shortName==CONST_DCM_SECURITY_LEVEL("8"))then(createDcmDspRoutineSecurityLevelRef(dcmDspRoutineAuthorization,security)->refferedSecurityList.add(CONST_SECURITY_LEVEL_8())->true))
+)
+;
+
+create DcmDspRoutineSecurityLevelRef this createDcmDspRoutineSecurityLevelRef(DcmDspRoutineAuthorization dcmDspRoutineAuthorization,DcmDspSecurityRow securityValue):
+setValue(securityValue)->
+dcmDspRoutineAuthorization.DcmDspRoutineSecurityLevelRefs.add(this)
+;
+
+create DcmDspRoutineStopOut this createDcmDspRoutineStopOut(POSRESPONSE posResponse,DcmDspRoutineInfo dcmDspRoutineInfo):
+let dataParam = posResponse.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()):
+if(dataParam.size>0) then
+(
+let initialPosition= getBytePos(dataParam.get(0)):
+setShortName(validateShortName(RC_DCM_DSP_ROUTINE_STOP_OUT_PREFIX()+posResponse.sHORTNAME))->
+dataParam.forAll(param|DcmDspRoutineStopOutSignals.add(createDcmDspRoutineStopOutSignal(this,param,initialPosition))->true)->
+if(DcmDspRoutineStopOutSignals.size>0) then
+(
+dcmDspRoutineInfo.setDcmDspRoutineStopOut(this)
+)
+)
+;
+
+
+create DcmDspRoutineStopOutSignal this createDcmDspRoutineStopOutSignal(DcmDspRoutineStopOut dcmDspRoutineStopOut,PARAM param,Integer initialPosition):
+setShortName(validateShortName(param.sHORTNAME))->
+//setDcmDspRoutineSignalLength(createDcmDspRoutineSignalLength(this,param))->
+setDcmDspRoutineSignalPos(createDcmDspRoutineSignalPos(this,param,initialPosition))->
+setDcmDspRoutineSignalType(createDcmDspRoutineSignalType(this,param))->
+dcmDspRoutineStopOut.DcmDspRoutineStopOutSignals.add(this)
+;
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineStopOut::DcmDspRoutineStopOutSignal::DcmDspRoutineSignalLength this createDcmDspRoutineSignalLength(DcmDspRoutineStopOutSignal dcmDspRoutineStopOutSignal,PARAM param):
+let diagCodedType=((CODEDCONST)param).dIAGCODEDTYPE:
+setValue(getBitLength(diagCodedType))->
+dcmDspRoutineStopOutSignal.setDcmDspRoutineSignalLength(this)
+;
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineStopOut::DcmDspRoutineStopOutSignal::DcmDspRoutineSignalPos this createDcmDspRoutineSignalPos(DcmDspRoutineStopOutSignal dcmDspRoutineStopOutSignal,PARAM param,Integer initialPosition):
+setValue((getBytePosition(param)-initialPosition)*8)->
+dcmDspRoutineStopOutSignal.setDcmDspRoutineSignalPos(this)
+;
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineStopOut::DcmDspRoutineStopOutSignal::DcmDspRoutineSignalType this createDcmDspRoutineSignalType(DcmDspRoutineStopOutSignal dcmDspRoutineStopOutSignal,PARAM param):
+let diagCodedType=((CODEDCONST)param).dIAGCODEDTYPE:
+setValue(getDataType(diagCodedType))->
+dcmDspRoutineStopOutSignal.setDcmDspRoutineSignalType(this)
+;
+/*
+List getPosResponseList(ECUVARIANT ecuVariant, BASEVARIANT baseVariant, PROTOCOL protocol):
+let list = getPosResponse(getecuVariant(),getbaseVariant(),getOdxRoot().dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.selectFirst(e|e.iD==getbaseVariant().pARENTREFS.pARENTREF.selectFirst(p|PROTOCOLREF.isInstance(p)).iDREF)):
+if(getFunctionalGroup()!=null && getFunctionalGroup().pOSRESPONSES()!= null && getFunctionalGroup.pOSRESPONSES.pOSRESPONSE!= null) then
+(
+list.addAll(getFunctionalGroup().pOSRESPONSES.pOSRESPONSE)
+)
+;
+
+List getPosResponse(ECUVARIANT ecuVariant, BASEVARIANT baseVariant, PROTOCOL protocol):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getPosResponse(OdxXhtml.ECUVARIANT,OdxXhtml.BASEVARIANT,OdxXhtml.PROTOCOL);
+*/
+
+create DcmDspRoutineStopIn this createDcmDspRoutineStopIn(REQUEST request,DcmDspRoutineInfo dcmDspRoutineInfo):
+let dataParam = request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()):
+if(dataParam.size>0) then
+(
+let initialPosition= getBytePos(dataParam.get(0)):
+setShortName(validateShortName(RC_DCM_DSP_ROUTINE_STOP_IN_PREFIX()+request.sHORTNAME))->
+dataParam.forAll(param|DcmDspRoutineStopInSignals.add(createDcmDspRoutineStopInSignal(param,this,initialPosition))->true)->
+if(DcmDspRoutineStopInSignals.size>0) then
+(
+dcmDspRoutineInfo.setDcmDspRoutineStopIn(this)
+)
+)
+;
+
+create DcmDspRoutineStopInSignal this createDcmDspRoutineStopInSignal(PARAM param,DcmDspRoutineStopIn dcmDspRoutineStopIn,Integer initialPosition):
+setShortName(validateShortName(param.sHORTNAME))->
+//setDcmDspRoutineSignalLength(createDcmDspRoutineSignalLength(param,this))->
+setDcmDspRoutineSignalPos(createDcmDspRoutineSignalPos(param,this,initialPosition))->
+setDcmDspRoutineSignalType(createDcmDspRoutineSignalType(param,this))->
+dcmDspRoutineStopIn.DcmDspRoutineStopInSignals.add(this)
+;
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineStopIn::DcmDspRoutineStopInSignal::DcmDspRoutineSignalLength this createDcmDspRoutineSignalLength(PARAM param, DcmDspRoutineStopInSignal dcmDspRoutineStopInSignal):
+let diagCodedType=((CODEDCONST)param).dIAGCODEDTYPE:
+setValue(getBitLength(diagCodedType))->
+dcmDspRoutineStopInSignal.setDcmDspRoutineSignalLength(this)
+;
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineStopIn::DcmDspRoutineStopInSignal::DcmDspRoutineSignalPos this createDcmDspRoutineSignalPos(PARAM param,DcmDspRoutineStopInSignal dcmDspRoutineStopInSignal,Integer initialPosition):
+setValue((getBytePosition(param)-initialPosition)*8)->
+dcmDspRoutineStopInSignal.setDcmDspRoutineSignalPos(this)
+;
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspRoutineStopIn::DcmDspRoutineStopInSignal::DcmDspRoutineSignalType this createDcmDspRoutineSignalType(PARAM param,DcmDspRoutineStopInSignal dcmDspRoutineStopInSignal):
+let diagCodedType=((CODEDCONST)param).dIAGCODEDTYPE:
+setValue(getDataType(diagCodedType))->
+dcmDspRoutineStopInSignal.setDcmDspRoutineSignalType(this)
+;
+
+create DcmDspRoutineInfoRef this createDcmDspRoutineInfoRef(DcmDspRoutineInfo dcmDspRoutineInfo,DcmDspRoutine dcmDspRoutine):
+setValue(dcmDspRoutineInfo)->
+dcmDspRoutine.setDcmDspRoutineInfoRef(this)
+;
+
+DATAOBJECTPROP getDop(PARAM param,REQUEST request, BASEVARIANT baseVariant,ECUVARIANT ecuVariant,PROTOCOL protocol):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxDopMapperUtil.getDopFromTable(OdxXhtml.PARAM,org.eclipse.emf.ecore.EObject,OdxXhtml.BASEVARIANT,OdxXhtml.ECUVARIANT,OdxXhtml.PROTOCOL)
+ ;
+
+create DcmDspStartRoutineIn this createDcmDspStartRoutineIn(REQUEST request,DcmDspRoutineInfo dcmDspRoutineInfo):
+let dop=getDop(request.pARAMS.pARAM.selectFirst(e|e.sEMANTIC==CONST_DATA()),request,getbaseVariant(),getecuVariant(), getOdxRoot().dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.selectFirst(e|e.iD==getbaseVariant().pARENTREFS.pARENTREF.selectFirst(p|PROTOCOLREF.isInstance(p)).iDREF)):
+let dataParam = request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()):
+if(dataParam.size>0) then
+(
+let initialPosition = getBytePos(dataParam.get(0)):
+setShortName(validateShortName(RC_DCM_DSP_START_ROUTINE_IN_PREFIX()+request.sHORTNAME))->
+dataParam.forAll(param|DcmDspStartRoutineInSignals.add(createDcmDspStartRoutineInSignal(this,dop,param,initialPosition))->true)->
+if(DcmDspStartRoutineInSignals.size>0) then
+(
+dcmDspRoutineInfo.setDcmDspStartRoutineIn(this)
+)
+)
+;
+
+create DcmDspStartRoutineInSignal this createDcmDspStartRoutineInSignal(DcmDspStartRoutineIn dcmDspStartRoutineIn,DATAOBJECTPROP dop,PARAM param,Integer initialPosition):
+//setDcmDspRoutineSignalLength(createDcmDspRoutineInSignalLength(dop,this))->
+setDcmDspRoutineSignalPos(createDcmDspRoutineInSignalPos(param,this,initialPosition))->
+setDcmDspRoutineSignalType(createDcmDspRoutineSignalType(dop,this))->
+setShortName(validateShortName(param.sHORTNAME))->
+dcmDspStartRoutineIn.DcmDspStartRoutineInSignals.add(this)
+;
+
+
+create DcmDspStartRoutineOut this createDcmDspStartRoutineOut(POSRESPONSE posResponse, DcmDspRoutineInfo dcmDspRoutineInfo):
+let dataParam = posResponse.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()):
+if(dataParam.size>0) then
+(
+let initialPosition= getBytePos(dataParam.get(0)):
+setShortName(validateShortName(RC_DCM_DSP_START_ROUTINE_OUT_PREFIX()+posResponse.sHORTNAME))->
+dataParam.forAll(param|DcmDspStartRoutineOutSignals.add(createDcmDspStartRoutineOutSignal(this,param,initialPosition))->true)->
+if(DcmDspStartRoutineOutSignals.size>0) then
+(
+dcmDspRoutineInfo.setDcmDspStartRoutineOut(this)
+)
+)
+;
+
+create DcmDspStartRoutineOutSignal this createDcmDspStartRoutineOutSignal(DcmDspStartRoutineOut dcmDspStartRoutineOut,PARAM param,Integer initialPosition):
+//setDcmDspRoutineSignalLength(createDcmDspRoutineSignalLength(param,this))->
+setDcmDspRoutineSignalPos(createDcmDspRoutineSignalPos(param,this,initialPosition))->
+setShortName(validateShortName(param.sHORTNAME))->
+setDcmDspRoutineSignalType(createDcmDspRoutineSignalType(param,this))->
+dcmDspStartRoutineOut.DcmDspStartRoutineOutSignals.add(this)
+;
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspStartRoutineOut::DcmDspStartRoutineOutSignal::DcmDspRoutineSignalLength this createDcmDspRoutineSignalLength(PARAM param,DcmDspStartRoutineOutSignal dcmDspStartRoutineOutSignal):
+let diagCodedType=((CODEDCONST)param).dIAGCODEDTYPE:
+setValue(getBitLength(diagCodedType))->
+dcmDspStartRoutineOutSignal.setDcmDspRoutineSignalLength(this)
+;
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspStartRoutineIn::DcmDspStartRoutineInSignal::DcmDspRoutineSignalLength this createDcmDspRoutineInSignalLength(DATAOBJECTPROP dop,DcmDspStartRoutineInSignal dcmDspStartRoutineInSignal):
+let diagCodedType=dop.dIAGCODEDTYPE:
+setValue(getBitLength(diagCodedType))->
+dcmDspStartRoutineInSignal.setDcmDspRoutineSignalLength(this)
+;
+
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspStartRoutineIn::DcmDspStartRoutineInSignal::DcmDspRoutineSignalType this createDcmDspRoutineSignalType(DATAOBJECTPROP dop, DcmDspStartRoutineInSignal dcmDspStartRoutineInSignal):
+let diagCodedType=dop.dIAGCODEDTYPE:
+setValue(getDataType(diagCodedType))->
+dcmDspStartRoutineInSignal.setDcmDspRoutineSignalType(this)
+;
+
+getBitLength(DIAGCODEDTYPE diagCodedType):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getBitLength(OdxXhtml.DIAGCODEDTYPE)
+;
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspStartRoutineOut::DcmDspStartRoutineOutSignal::DcmDspRoutineSignalPos this createDcmDspRoutineSignalPos(PARAM param,DcmDspStartRoutineOutSignal dcmDspStartRoutineOutSignal,Integer initialPosition):
+setValue((getBytePosition(param)-initialPosition)*8)->
+dcmDspStartRoutineOutSignal.setDcmDspRoutineSignalPos(this)
+;
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspStartRoutineOut::DcmDspStartRoutineOutSignal::DcmDspRoutineSignalType this createDcmDspRoutineSignalType(PARAM param,DcmDspStartRoutineOutSignal dcmDspStartRoutineOutSignal):
+let diagCodedType=((CODEDCONST)param).dIAGCODEDTYPE:
+setValue(getDataType(diagCodedType))->
+dcmDspStartRoutineOutSignal.setDcmDspRoutineSignalType(this)
+;
+
+create AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspRoutineInfo::DcmDspStartRoutineIn::DcmDspStartRoutineInSignal::DcmDspRoutineSignalPos this createDcmDspRoutineInSignalPos(PARAM param,DcmDspStartRoutineInSignal dcmDspStartRoutineInSignal,Integer initialPosition):
+setValue((getBytePosition(param)-initialPosition)*8)->
+dcmDspStartRoutineInSignal.setDcmDspRoutineSignalPos(this)
+;
+
+getBytePosition(PARAM param):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getBytePos(OdxXhtml.PARAM)
+;
+
+create DcmDspRequestResultsRoutineFnc this createDcmDspRequestResultsRoutineFnc(String value,DcmDspRoutine dcmDspRoutine):
+setValue(RC_DCM_DSP_REQ_RES_ROUTINE_FNC_PREFIX()+value)->
+dcmDspRoutine.setDcmDspRequestResultsRoutineFnc(this)
+;
+
+create DcmDspStartRoutineFnc this createDcmDspStartRoutineFnc(String value,DcmDspRoutine dcmDspRoutine):
+setValue(RC_DCM_DSP_START_ROUTINE_FNC_PREFIX()+value)->
+dcmDspRoutine.setDcmDspStartRoutineFnc(this)
+;
+
+create DcmDspStopRoutineFnc this createDcmDspStopRoutineFnc(String value,DcmDspRoutine dcmDspRoutine):
+setValue(RC_DCM_DSP_STOP_ROUTINE_FNC_PREFIX()+value)->
+dcmDspRoutine.setDcmDspStopRoutineFnc(this)
+;
+
+create DcmDspRoutineUsePort this createDcmDspRoutineUsePort(DcmDspRoutine dcmDspRoutine):
+setValue(RC_DcmDspRoutineUsePort_VALUE())->
+dcmDspRoutine.setDcmDspRoutineUsePort(this)
+;
+
+create DcmDspStopRoutineSupported this createDcmDspStopRoutineSupported(DcmDspRoutine dcmDspRoutine):
+setValue(RC_DcmDspStopRoutineSupported_VALUE())->
+dcmDspRoutine.setDcmDspStopRoutineSupported(this)
+;
+
+create DcmDspRoutineFixedLength this createDcmDspRoutineFixedLength(DcmDspRoutine dcmDspRoutine):
+setValue(RC_DcmDspRoutineFixedLength_VALUE())->
+dcmDspRoutine.setDcmDspRoutineFixedLength(this)
+;
+
+create DcmDspRoutineIdentifier this createDcmDspRoutineIdentifier(DcmDspRoutine dcmDspRoutine,String codedValue):
+setValue(codedValue.asInteger())->
+dcmDspRoutine.setDcmDspRoutineIdentifier(this)
+;
+
+create DcmDspRequestResultsRoutineSupported this createDcmDspRequestResultsRoutineSupported(DcmDspRoutine dcmDspRoutine):
+setValue(RC_DcmDspRequestResultsRoutineSupported_VALUE())->
+dcmDspRoutine.setDcmDspRequestResultsRoutineSupported(this)
+;
+
+
+String getDataType(DIAGCODEDTYPE diagCodedType):
+
+ if(diagCodedType.bASEDATATYPE.toString()==CONST_A_UINT32())then
+ (
+ CONST_UINT32()
+ )else if(diagCodedType.bASEDATATYPE.toString()==CONST_A_UINT8())then
+ (
+ CONST_UINT8()
+ )else if(diagCodedType.bASEDATATYPE.toString()==CONST_A_UINT16())then
+ (
+ CONST_UINT16()
+ )else if(diagCodedType.bASEDATATYPE.toString()==CONST_A_SINT32())then
+ (
+ CONST_SINT32()
+ )else if(diagCodedType.bASEDATATYPE.toString()==CONST_A_SINT8())then
+ (
+ CONST_SINT8()
+ )else if(diagCodedType.bASEDATATYPE.toString()==CONST_A_SINT16())then
+ (
+  CONST_SINT16()
+ )
+;
+
+String generateShortName(String name,List list):
+
+JAVA com.bosch.autosartool.importer.odx.mapper.v201.util.MapperUtil.generateShortName(java.lang.String, java.util.List)
+;

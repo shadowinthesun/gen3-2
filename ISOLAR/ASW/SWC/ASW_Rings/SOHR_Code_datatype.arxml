@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Auto generated XML Component Description for model SOHR_Code
+Model version                : 1.295
+Simulink Coder version       : Simulink Coder 9.1 (R2019a) 23-Nov-2018
+XML source code generated on : Wed Sep 23 11:13:27 2020
+Model Checksum               : 2315110857 3471568094 1506870779 1031191965
+-->
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>SOHR_Code_pkg</SHORT-NAME>
+            <AR-PACKAGES>
+                <AR-PACKAGE>
+                    <SHORT-NAME>SOHR_Code_dt</SHORT-NAME>
+                    <ELEMENTS>
+                        <IMPLEMENTATION-DATA-TYPE UUID="7aed2e5d-b516-5d61-e7e6-127e14740ab4">
+                            <SHORT-NAME>Float</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/SwBaseTypes/float32</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <COMPU-METHOD UUID="a5db6cb7-2dda-5b19-7e8d-ca6a793adf0d">
+                            <SHORT-NAME>Identcl</SHORT-NAME>
+                            <CATEGORY>IDENTICAL</CATEGORY>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        </COMPU-METHOD>
+                        <UNIT UUID="39ead5b4-eafb-5814-449c-9773380bcdc5">
+                            <SHORT-NAME>NoUnit</SHORT-NAME>
+                            <FACTOR-SI-TO-UNIT>1</FACTOR-SI-TO-UNIT>
+                            <OFFSET-SI-TO-UNIT>0</OFFSET-SI-TO-UNIT>
+                        </UNIT>
+                        <IMPLEMENTATION-DATA-TYPE UUID="d66fa84b-a59b-57b0-c3c9-f2b0d3421dc1">
+                            <SHORT-NAME>Boolean</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/SwBaseTypes/boolean</BASE-TYPE-REF>
+                                        <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOHR_Code_pkg/SOHR_Code_dt/COMPU_Boolean</COMPU-METHOD-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <COMPU-METHOD UUID="708b709a-6d84-5857-b5f9-b3bcd24d574b">
+                            <SHORT-NAME>COMPU_Boolean</SHORT-NAME>
+                            <CATEGORY>TEXTTABLE</CATEGORY>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                            <COMPU-INTERNAL-TO-PHYS>
+                                <COMPU-SCALES>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>FALSE</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>TRUE</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                </COMPU-SCALES>
+                            </COMPU-INTERNAL-TO-PHYS>
+                        </COMPU-METHOD>
+                        <IMPLEMENTATION-DATA-TYPE UUID="bcf39d7f-4e3e-5a7e-da57-1b73c13470d5">
+                            <SHORT-NAME>UInt8</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/SwBaseTypes/uint8</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="d0182db9-a404-5403-416f-938459ac234e">
+                            <SHORT-NAME>rt_Array_Float_6</SHORT-NAME>
+                            <CATEGORY>ARRAY</CATEGORY>
+                            <SUB-ELEMENTS>
+                                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="3fbd36d2-83e7-5df4-d076-f44e01d1be89">
+                                    <SHORT-NAME>rt_Array_Float_6</SHORT-NAME>
+                                    <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                                    <ARRAY-SIZE>6</ARRAY-SIZE>
+                                    <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/Float</IMPLEMENTATION-DATA-TYPE-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                            </SUB-ELEMENTS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                    </ELEMENTS>
+                    <AR-PACKAGES>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>ApplDataTypes</SHORT-NAME>
+                            <ELEMENTS>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="e0aac30c-91da-5b84-3016-a7f155f28a67">
+                                    <SHORT-NAME>Float</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOHR_Code_pkg/SOHR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOHR_Code_pkg/SOHR_Code_dt/ApplDataTypes/DataConstrs/DC_Float</DATA-CONSTR-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="59948552-8b27-5d1e-15af-c66cdfb3964a">
+                                    <SHORT-NAME>Boolean</SHORT-NAME>
+                                    <CATEGORY>BOOLEAN</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOHR_Code_pkg/SOHR_Code_dt/COMPU_Boolean</COMPU-METHOD-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="37fad924-5753-5eff-59c5-6189d1578a81">
+                                    <SHORT-NAME>UInt8</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOHR_Code_pkg/SOHR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOHR_Code_pkg/SOHR_Code_dt/ApplDataTypes/DataConstrs/DC_UInt8</DATA-CONSTR-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="4f5a3a21-4a55-50f6-def0-4cfe6e27c602">
+                                    <SHORT-NAME>Appl_KtSOHR_r_SOHCoefficient_Table</SHORT-NAME>
+                                    <CATEGORY>CURVE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <SW-CALPRM-AXIS-SET>
+                                                    <SW-CALPRM-AXIS>
+                                                        <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                                        <CATEGORY>COM_AXIS</CATEGORY>
+                                                        <SW-AXIS-GROUPED>
+                                                            <SHARED-AXIS-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/ApplDataTypes/Appl_KxSOHR_r_SOHCoefficient</SHARED-AXIS-TYPE-REF>
+                                                        </SW-AXIS-GROUPED>
+                                                    </SW-CALPRM-AXIS>
+                                                </SW-CALPRM-AXIS-SET>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOHR_Code_pkg/SOHR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOHR_Code_pkg/SOHR_Code_dt/ApplDataTypes/DataConstrs/DC_BaseType_KtSOHR_r_SOHCoefficient_Table</DATA-CONSTR-REF>
+                                                <SW-RECORD-LAYOUT-REF DEST="SW-RECORD-LAYOUT">/SOHR_Code_pkg/SOHR_Code_dt/ApplDataTypes/RecordLayouts/Cur_f32</SW-RECORD-LAYOUT-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="89ccae15-8120-52cb-1073-31f926b41516">
+                                    <SHORT-NAME>Appl_KxSOHR_r_SOHCoefficient</SHORT-NAME>
+                                    <CATEGORY>COM_AXIS</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <SW-CALPRM-AXIS-SET>
+                                                    <SW-CALPRM-AXIS>
+                                                        <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                                        <SW-AXIS-INDIVIDUAL>
+                                                            <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOHR_Code_pkg/SOHR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                            <SW-MAX-AXIS-POINTS>6</SW-MAX-AXIS-POINTS>
+                                                            <SW-MIN-AXIS-POINTS>6</SW-MIN-AXIS-POINTS>
+                                                            <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOHR_Code_pkg/SOHR_Code_dt/ApplDataTypes/DataConstrs/DC_BaseType_KxSOHR_r_SOHCoefficient</DATA-CONSTR-REF>
+                                                        </SW-AXIS-INDIVIDUAL>
+                                                    </SW-CALPRM-AXIS>
+                                                </SW-CALPRM-AXIS-SET>
+                                                <SW-RECORD-LAYOUT-REF DEST="SW-RECORD-LAYOUT">/SOHR_Code_pkg/SOHR_Code_dt/ApplDataTypes/RecordLayouts/Distr_f32_M</SW-RECORD-LAYOUT-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                            </ELEMENTS>
+                            <AR-PACKAGES>
+                                <AR-PACKAGE>
+                                    <SHORT-NAME>DataConstrs</SHORT-NAME>
+                                    <ELEMENTS>
+                                        <DATA-CONSTR UUID="5b32936c-71ff-52c8-cbab-9bc3617fa927">
+                                            <SHORT-NAME>DC_Float</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="INFINITE"/>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="INFINITE"/>
+                                                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="96fca8e6-b52b-587a-0bcd-a1458a88543f">
+                                            <SHORT-NAME>DC_UInt8</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">255</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="aa7b80f7-fab8-5d1b-13ac-e69a99dad3ca">
+                                            <SHORT-NAME>DC_BaseType_KtSOHR_r_SOHCoefficient_Table</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">-1000000</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1000000</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="68877146-b420-5b13-61a2-61195a4d3672">
+                                            <SHORT-NAME>DC_BaseType_KxSOHR_r_SOHCoefficient</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">-1000000</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1000000</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                    </ELEMENTS>
+                                </AR-PACKAGE>
+                                <AR-PACKAGE>
+                                    <SHORT-NAME>RecordLayouts</SHORT-NAME>
+                                    <ELEMENTS>
+                                        <SW-RECORD-LAYOUT UUID="b415df6f-102e-5426-e9d7-40dbb8f28bc3">
+                                            <SHORT-NAME>Cur_f32</SHORT-NAME>
+                                            <SW-RECORD-LAYOUT-GROUP>
+                                                <SHORT-LABEL>Cur_f32</SHORT-LABEL>
+                                                <CATEGORY>COLUMN_DIR</CATEGORY>
+                                                <SW-RECORD-LAYOUT-GROUP-AXIS>0</SW-RECORD-LAYOUT-GROUP-AXIS>
+                                                <SW-RECORD-LAYOUT-GROUP-INDEX>X</SW-RECORD-LAYOUT-GROUP-INDEX>
+                                                <SW-RECORD-LAYOUT-GROUP-FROM>1</SW-RECORD-LAYOUT-GROUP-FROM>
+                                                <SW-RECORD-LAYOUT-GROUP-TO>-1</SW-RECORD-LAYOUT-GROUP-TO>
+                                                <SW-RECORD-LAYOUT-V>
+                                                    <SHORT-LABEL>Val</SHORT-LABEL>
+                                                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/SwBaseTypes/float32</BASE-TYPE-REF>
+                                                    <SW-RECORD-LAYOUT-V-AXIS>0</SW-RECORD-LAYOUT-V-AXIS>
+                                                    <SW-RECORD-LAYOUT-V-PROP>VALUE</SW-RECORD-LAYOUT-V-PROP>
+                                                    <SW-RECORD-LAYOUT-V-INDEX>X</SW-RECORD-LAYOUT-V-INDEX>
+                                                </SW-RECORD-LAYOUT-V>
+                                            </SW-RECORD-LAYOUT-GROUP>
+                                        </SW-RECORD-LAYOUT>
+                                        <SW-RECORD-LAYOUT UUID="c3e966e5-3134-5c42-2ad8-b22f76f13392">
+                                            <SHORT-NAME>Distr_f32_M</SHORT-NAME>
+                                            <SW-RECORD-LAYOUT-GROUP>
+                                                <SHORT-LABEL>X</SHORT-LABEL>
+                                                <CATEGORY>INDEX_INCR</CATEGORY>
+                                                <SW-RECORD-LAYOUT-GROUP-AXIS>1</SW-RECORD-LAYOUT-GROUP-AXIS>
+                                                <SW-RECORD-LAYOUT-GROUP-FROM>1</SW-RECORD-LAYOUT-GROUP-FROM>
+                                                <SW-RECORD-LAYOUT-GROUP-TO>-1</SW-RECORD-LAYOUT-GROUP-TO>
+                                                <SW-RECORD-LAYOUT-V>
+                                                    <SHORT-LABEL>VALUE</SHORT-LABEL>
+                                                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/SwBaseTypes/float32</BASE-TYPE-REF>
+                                                    <SW-RECORD-LAYOUT-V-AXIS>1</SW-RECORD-LAYOUT-V-AXIS>
+                                                    <SW-RECORD-LAYOUT-V-PROP>VALUE</SW-RECORD-LAYOUT-V-PROP>
+                                                </SW-RECORD-LAYOUT-V>
+                                            </SW-RECORD-LAYOUT-GROUP>
+                                        </SW-RECORD-LAYOUT>
+                                    </ELEMENTS>
+                                </AR-PACKAGE>
+                            </AR-PACKAGES>
+                        </AR-PACKAGE>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>DataTypeMappings</SHORT-NAME>
+                            <ELEMENTS>
+                                <DATA-TYPE-MAPPING-SET UUID="60f35f2b-4cce-53b5-fb7b-a0bddba6680f">
+                                    <SHORT-NAME>SOHR_CodeDataTypeMappingsSet</SHORT-NAME>
+                                    <DATA-TYPE-MAPS>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/ApplDataTypes/Float</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/Float</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/ApplDataTypes/Boolean</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/Boolean</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/ApplDataTypes/UInt8</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/UInt8</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/ApplDataTypes/Appl_KtSOHR_r_SOHCoefficient_Table</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/rt_Array_Float_6</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/ApplDataTypes/Appl_KxSOHR_r_SOHCoefficient</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/rt_Array_Float_6</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                    </DATA-TYPE-MAPS>
+                                </DATA-TYPE-MAPPING-SET>
+                            </ELEMENTS>
+                        </AR-PACKAGE>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>Ground</SHORT-NAME>
+                            <ELEMENTS>
+                                <CONSTANT-SPECIFICATION UUID="331e279f-01a3-5a99-6835-bfd5f5a87a32">
+                                    <SHORT-NAME>KtSOHR_r_SOHCoefficient_Table</SHORT-NAME>
+                                    <VALUE-SPEC>
+                                        <APPLICATION-VALUE-SPECIFICATION>
+                                            <SHORT-LABEL>KtSOHR_r_SOHCoefficient_Table</SHORT-LABEL>
+                                            <CATEGORY>CURVE</CATEGORY>
+                                            <SW-VALUE-CONT>
+                                                <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                                                <SW-ARRAYSIZE>
+                                                    <V>6</V>
+                                                </SW-ARRAYSIZE>
+                                                <SW-VALUES-PHYS>
+                                                    <V>1</V>
+                                                    <V>0.98000001907348633</V>
+                                                    <V>0.949999988079071</V>
+                                                    <V>0.89999997615814209</V>
+                                                    <V>0.85000002384185791</V>
+                                                    <V>0.800000011920929</V>
+                                                </SW-VALUES-PHYS>
+                                            </SW-VALUE-CONT>
+                                        </APPLICATION-VALUE-SPECIFICATION>
+                                    </VALUE-SPEC>
+                                </CONSTANT-SPECIFICATION>
+                                <CONSTANT-SPECIFICATION UUID="2d917cd3-51a2-55fa-038f-56f5a21af384">
+                                    <SHORT-NAME>KxSOHR_r_SOHCoefficient</SHORT-NAME>
+                                    <VALUE-SPEC>
+                                        <APPLICATION-VALUE-SPECIFICATION>
+                                            <SHORT-LABEL>KxSOHR_r_SOHCoefficient</SHORT-LABEL>
+                                            <CATEGORY>COM_AXIS</CATEGORY>
+                                            <SW-VALUE-CONT>
+                                                <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                                                <SW-ARRAYSIZE>
+                                                    <V>6</V>
+                                                </SW-ARRAYSIZE>
+                                                <SW-VALUES-PHYS>
+                                                    <V>0</V>
+                                                    <V>18340</V>
+                                                    <V>35850</V>
+                                                    <V>70730</V>
+                                                    <V>93650</V>
+                                                    <V>104950</V>
+                                                </SW-VALUES-PHYS>
+                                            </SW-VALUE-CONT>
+                                        </APPLICATION-VALUE-SPECIFICATION>
+                                    </VALUE-SPEC>
+                                </CONSTANT-SPECIFICATION>
+                            </ELEMENTS>
+                        </AR-PACKAGE>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>SwAddrMethods</SHORT-NAME>
+                            <ELEMENTS>
+                                <SW-ADDR-METHOD UUID="6fcb118b-2d13-5b05-c485-a9c568334cd3">
+                                    <SHORT-NAME>CODE</SHORT-NAME>
+                                    <SECTION-TYPE>CODE</SECTION-TYPE>
+                                </SW-ADDR-METHOD>
+                                <SW-ADDR-METHOD UUID="45d503db-4ccb-5164-189c-b27e0e9d5126">
+                                    <SHORT-NAME>CONST</SHORT-NAME>
+                                    <SECTION-TYPE>CONST</SECTION-TYPE>
+                                </SW-ADDR-METHOD>
+                                <SW-ADDR-METHOD UUID="e6f4ed8d-0a85-542d-ad4b-8e5df904274e">
+                                    <SHORT-NAME>VAR</SHORT-NAME>
+                                    <SECTION-TYPE>VAR</SECTION-TYPE>
+                                </SW-ADDR-METHOD>
+                            </ELEMENTS>
+                        </AR-PACKAGE>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>SwBaseTypes</SHORT-NAME>
+                            <ELEMENTS>
+                                <SW-BASE-TYPE UUID="0a5ccbaf-2ae6-574c-1255-0b294db95470">
+                                    <SHORT-NAME>float32</SHORT-NAME>
+                                    <CATEGORY>FIXED_LENGTH</CATEGORY>
+                                    <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+                                    <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
+                                    <NATIVE-DECLARATION>float32</NATIVE-DECLARATION>
+                                </SW-BASE-TYPE>
+                                <SW-BASE-TYPE UUID="763f9b90-ab88-5287-2d0f-58b64d2ba026">
+                                    <SHORT-NAME>boolean</SHORT-NAME>
+                                    <CATEGORY>FIXED_LENGTH</CATEGORY>
+                                    <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+                                    <BASE-TYPE-ENCODING>BOOLEAN</BASE-TYPE-ENCODING>
+                                    <NATIVE-DECLARATION>boolean</NATIVE-DECLARATION>
+                                </SW-BASE-TYPE>
+                                <SW-BASE-TYPE UUID="0342db1a-b939-5121-6a6c-68a107a4a345">
+                                    <SHORT-NAME>uint8</SHORT-NAME>
+                                    <CATEGORY>FIXED_LENGTH</CATEGORY>
+                                    <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+                                    <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+                                    <NATIVE-DECLARATION>uint8</NATIVE-DECLARATION>
+                                </SW-BASE-TYPE>
+                            </ELEMENTS>
+                        </AR-PACKAGE>
+                    </AR-PACKAGES>
+                </AR-PACKAGE>
+            </AR-PACKAGES>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

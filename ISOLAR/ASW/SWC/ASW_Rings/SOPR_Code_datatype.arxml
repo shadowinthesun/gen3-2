@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Auto generated XML Component Description for model SOPR_Code
+Model version                : 1.295
+Simulink Coder version       : Simulink Coder 9.1 (R2019a) 23-Nov-2018
+XML source code generated on : Thu Dec 10 17:47:58 2020
+Model Checksum               : 979966434 807006152 1704403129 89002045
+-->
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>SOPR_Code_pkg</SHORT-NAME>
+            <AR-PACKAGES>
+                <AR-PACKAGE>
+                    <SHORT-NAME>SOPR_Code_dt</SHORT-NAME>
+                    <ELEMENTS>
+                        <IMPLEMENTATION-DATA-TYPE UUID="9b4d06bd-61b1-54c7-68ca-8727a88bd70b">
+                            <SHORT-NAME>Float</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOPR_Code_pkg/SOPR_Code_dt/SwBaseTypes/float32</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <COMPU-METHOD UUID="78d783e7-856b-52c9-3ec0-2254e290c645">
+                            <SHORT-NAME>Identcl</SHORT-NAME>
+                            <CATEGORY>IDENTICAL</CATEGORY>
+                            <UNIT-REF DEST="UNIT">/SOPR_Code_pkg/SOPR_Code_dt/NoUnit</UNIT-REF>
+                        </COMPU-METHOD>
+                        <UNIT UUID="0d0b7c15-8753-552d-05aa-0cc6cd520c53">
+                            <SHORT-NAME>NoUnit</SHORT-NAME>
+                            <FACTOR-SI-TO-UNIT>1</FACTOR-SI-TO-UNIT>
+                            <OFFSET-SI-TO-UNIT>0</OFFSET-SI-TO-UNIT>
+                        </UNIT>
+                        <IMPLEMENTATION-DATA-TYPE UUID="7790afef-a597-516b-b376-c0e4b8b387cf">
+                            <SHORT-NAME>Boolean</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOPR_Code_pkg/SOPR_Code_dt/SwBaseTypes/boolean</BASE-TYPE-REF>
+                                        <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOPR_Code_pkg/SOPR_Code_dt/COMPU_Boolean</COMPU-METHOD-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <COMPU-METHOD UUID="5cff14ff-04db-5955-fbb0-5b2d57aa7957">
+                            <SHORT-NAME>COMPU_Boolean</SHORT-NAME>
+                            <CATEGORY>TEXTTABLE</CATEGORY>
+                            <UNIT-REF DEST="UNIT">/SOPR_Code_pkg/SOPR_Code_dt/NoUnit</UNIT-REF>
+                            <COMPU-INTERNAL-TO-PHYS>
+                                <COMPU-SCALES>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>FALSE</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>TRUE</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                </COMPU-SCALES>
+                            </COMPU-INTERNAL-TO-PHYS>
+                        </COMPU-METHOD>
+                        <IMPLEMENTATION-DATA-TYPE UUID="42859519-5c34-5ff7-980c-ef8842924c3d">
+                            <SHORT-NAME>TeVSDR_e_CurrentFlowState</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOPR_Code_pkg/SOPR_Code_dt/SwBaseTypes/uint8</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <COMPU-METHOD UUID="4c5a61f7-0fc7-5f31-511b-a7079a52a17c">
+                            <SHORT-NAME>COMPU_TeVSDR_e_CurrentFlowState</SHORT-NAME>
+                            <CATEGORY>TEXTTABLE</CATEGORY>
+                            <UNIT-REF DEST="UNIT">/SOPR_Code_pkg/SOPR_Code_dt/NoUnit</UNIT-REF>
+                            <COMPU-INTERNAL-TO-PHYS>
+                                <COMPU-SCALES>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeVSDR_e_CurFlowStateInit</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeVSDR_e_CurFlowStateChrg</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeVSDR_e_CurFlowStateDischrg</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeVSDR_e_CurFlowStateInvalid</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                </COMPU-SCALES>
+                            </COMPU-INTERNAL-TO-PHYS>
+                        </COMPU-METHOD>
+                        <IMPLEMENTATION-DATA-TYPE UUID="1b543767-00f2-5fb8-d6ca-9a93860df01a">
+                            <SHORT-NAME>TeHVSR_e_StateMode</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOPR_Code_pkg/SOPR_Code_dt/SwBaseTypes/uint8</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <COMPU-METHOD UUID="ae8aeac6-20e6-5387-71a3-3a2618153f93">
+                            <SHORT-NAME>COMPU_TeHVSR_e_StateMode</SHORT-NAME>
+                            <CATEGORY>TEXTTABLE</CATEGORY>
+                            <UNIT-REF DEST="UNIT">/SOPR_Code_pkg/SOPR_Code_dt/NoUnit</UNIT-REF>
+                            <COMPU-INTERNAL-TO-PHYS>
+                                <COMPU-SCALES>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeReserved</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeInitial</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeStandBy</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModePrecharge</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">4</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">4</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeNormalDischarge</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">5</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">5</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeWarningPowerReduction</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">6</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">6</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModePowerReduction</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">7</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">7</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModePreChargeFailed</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">8</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">8</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModePowerHoldMode</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">9</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">9</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeShutdown</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">10</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">10</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeServiceMode</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">11</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">11</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeReady</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">12</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">12</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeAC_ChargeMode</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">13</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">13</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeEndOfCharge</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">14</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">14</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeDC_ChargeMode</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">15</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">15</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeSystemErr</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">16</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">16</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeTempChargState</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">17</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">17</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeHeatPreChgState</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">18</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">18</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeHeatingState</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">19</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">19</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeHeatFinishState</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                </COMPU-SCALES>
+                            </COMPU-INTERNAL-TO-PHYS>
+                        </COMPU-METHOD>
+                        <IMPLEMENTATION-DATA-TYPE UUID="f684cb35-66d0-5fd3-053c-4b8bd95ba2d2">
+                            <SHORT-NAME>UInt8</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOPR_Code_pkg/SOPR_Code_dt/SwBaseTypes/uint8</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                    </ELEMENTS>
+                    <AR-PACKAGES>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>ApplDataTypes</SHORT-NAME>
+                            <ELEMENTS>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="fd0d2026-33fd-5695-7e3d-4e232b1f3558">
+                                    <SHORT-NAME>Float</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOPR_Code_pkg/SOPR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOPR_Code_pkg/SOPR_Code_dt/ApplDataTypes/DataConstrs/DC_Float</DATA-CONSTR-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="54fa8443-e011-57ff-195e-99ee0703141f">
+                                    <SHORT-NAME>Boolean</SHORT-NAME>
+                                    <CATEGORY>BOOLEAN</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOPR_Code_pkg/SOPR_Code_dt/COMPU_Boolean</COMPU-METHOD-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="efcc6be4-97b0-5c84-3456-2bdd01d8cd44">
+                                    <SHORT-NAME>TeVSDR_e_CurrentFlowState</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOPR_Code_pkg/SOPR_Code_dt/COMPU_TeVSDR_e_CurrentFlowState</COMPU-METHOD-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="edb15530-90ea-5aee-d9a3-4f78f5cf74f5">
+                                    <SHORT-NAME>TeHVSR_e_StateMode</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOPR_Code_pkg/SOPR_Code_dt/COMPU_TeHVSR_e_StateMode</COMPU-METHOD-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="ad01d186-f567-51ce-7930-1abcc067581f">
+                                    <SHORT-NAME>UInt8</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOPR_Code_pkg/SOPR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOPR_Code_pkg/SOPR_Code_dt/ApplDataTypes/DataConstrs/DC_UInt8</DATA-CONSTR-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                            </ELEMENTS>
+                            <AR-PACKAGES>
+                                <AR-PACKAGE>
+                                    <SHORT-NAME>DataConstrs</SHORT-NAME>
+                                    <ELEMENTS>
+                                        <DATA-CONSTR UUID="579a9496-03fc-5fe2-17d7-e36ef66942f2">
+                                            <SHORT-NAME>DC_Float</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="INFINITE"/>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="INFINITE"/>
+                                                        <UNIT-REF DEST="UNIT">/SOPR_Code_pkg/SOPR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="5aec67fd-076e-58b0-a690-483193eeceff">
+                                            <SHORT-NAME>DC_UInt8</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">255</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/SOPR_Code_pkg/SOPR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                    </ELEMENTS>
+                                </AR-PACKAGE>
+                            </AR-PACKAGES>
+                        </AR-PACKAGE>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>DataTypeMappings</SHORT-NAME>
+                            <ELEMENTS>
+                                <DATA-TYPE-MAPPING-SET UUID="94f6ebd8-d6b4-556a-21a1-c2a47491e365">
+                                    <SHORT-NAME>SOPR_CodeDataTypeMappingsSet</SHORT-NAME>
+                                    <DATA-TYPE-MAPS>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOPR_Code_pkg/SOPR_Code_dt/ApplDataTypes/Float</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOPR_Code_pkg/SOPR_Code_dt/Float</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOPR_Code_pkg/SOPR_Code_dt/ApplDataTypes/Boolean</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOPR_Code_pkg/SOPR_Code_dt/Boolean</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOPR_Code_pkg/SOPR_Code_dt/ApplDataTypes/TeVSDR_e_CurrentFlowState</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOPR_Code_pkg/SOPR_Code_dt/TeVSDR_e_CurrentFlowState</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOPR_Code_pkg/SOPR_Code_dt/ApplDataTypes/TeHVSR_e_StateMode</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOPR_Code_pkg/SOPR_Code_dt/TeHVSR_e_StateMode</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOPR_Code_pkg/SOPR_Code_dt/ApplDataTypes/UInt8</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOPR_Code_pkg/SOPR_Code_dt/UInt8</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                    </DATA-TYPE-MAPS>
+                                </DATA-TYPE-MAPPING-SET>
+                            </ELEMENTS>
+                        </AR-PACKAGE>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>SwAddrMethods</SHORT-NAME>
+                            <ELEMENTS>
+                                <SW-ADDR-METHOD UUID="48d20356-165b-58c9-5f92-7bc02f7c5e0b">
+                                    <SHORT-NAME>CODE</SHORT-NAME>
+                                    <SECTION-TYPE>CODE</SECTION-TYPE>
+                                </SW-ADDR-METHOD>
+                                <SW-ADDR-METHOD UUID="1894456c-cd05-5f6e-56e2-d7f9be30c0cb">
+                                    <SHORT-NAME>CONST</SHORT-NAME>
+                                    <SECTION-TYPE>CONST</SECTION-TYPE>
+                                </SW-ADDR-METHOD>
+                                <SW-ADDR-METHOD UUID="29dc80c3-5597-53ed-8f43-44e0567f3d8a">
+                                    <SHORT-NAME>VAR</SHORT-NAME>
+                                    <SECTION-TYPE>VAR</SECTION-TYPE>
+                                </SW-ADDR-METHOD>
+                            </ELEMENTS>
+                        </AR-PACKAGE>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>SwBaseTypes</SHORT-NAME>
+                            <ELEMENTS>
+                                <SW-BASE-TYPE UUID="24cae98a-e0e6-5349-060e-26f217270e5c">
+                                    <SHORT-NAME>float32</SHORT-NAME>
+                                    <CATEGORY>FIXED_LENGTH</CATEGORY>
+                                    <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+                                    <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
+                                    <NATIVE-DECLARATION>float32</NATIVE-DECLARATION>
+                                </SW-BASE-TYPE>
+                                <SW-BASE-TYPE UUID="ab888f13-7563-5177-b080-9be948ba09e9">
+                                    <SHORT-NAME>boolean</SHORT-NAME>
+                                    <CATEGORY>FIXED_LENGTH</CATEGORY>
+                                    <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+                                    <BASE-TYPE-ENCODING>BOOLEAN</BASE-TYPE-ENCODING>
+                                    <NATIVE-DECLARATION>boolean</NATIVE-DECLARATION>
+                                </SW-BASE-TYPE>
+                                <SW-BASE-TYPE UUID="1a379254-d00c-5a52-9af5-db155a2d149d">
+                                    <SHORT-NAME>uint8</SHORT-NAME>
+                                    <CATEGORY>FIXED_LENGTH</CATEGORY>
+                                    <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+                                    <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+                                    <NATIVE-DECLARATION>uint8</NATIVE-DECLARATION>
+                                </SW-BASE-TYPE>
+                            </ELEMENTS>
+                        </AR-PACKAGE>
+                    </AR-PACKAGES>
+                </AR-PACKAGE>
+            </AR-PACKAGES>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,1000 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Auto generated XML Component Description for model VSDR_Code
+Model version                : 1.295
+Simulink Coder version       : Simulink Coder 9.1 (R2019a) 23-Nov-2018
+XML source code generated on : Mon Jan 11 22:53:39 2021
+Model Checksum               : 2281519017 2485767007 2529845072 551926346
+-->
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>VSDR_Code_pkg</SHORT-NAME>
+            <AR-PACKAGES>
+                <AR-PACKAGE>
+                    <SHORT-NAME>VSDR_Code_dt</SHORT-NAME>
+                    <ELEMENTS>
+                        <IMPLEMENTATION-DATA-TYPE UUID="4324c2f6-038d-5c38-6bed-e280dd673465">
+                            <SHORT-NAME>Float</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/SwBaseTypes/float32</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <COMPU-METHOD UUID="9d087fb0-471b-5487-454d-c544d1b03d95">
+                            <SHORT-NAME>Identcl</SHORT-NAME>
+                            <CATEGORY>IDENTICAL</CATEGORY>
+                            <UNIT-REF DEST="UNIT">/VSDR_Code_pkg/VSDR_Code_dt/NoUnit</UNIT-REF>
+                        </COMPU-METHOD>
+                        <UNIT UUID="e04ea295-4bde-5f69-ba78-72f505d89b26">
+                            <SHORT-NAME>NoUnit</SHORT-NAME>
+                            <FACTOR-SI-TO-UNIT>1</FACTOR-SI-TO-UNIT>
+                            <OFFSET-SI-TO-UNIT>0</OFFSET-SI-TO-UNIT>
+                        </UNIT>
+                        <IMPLEMENTATION-DATA-TYPE UUID="b85800f7-44f0-57fa-1de6-a8f4e10837fb">
+                            <SHORT-NAME>Boolean</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/SwBaseTypes/boolean</BASE-TYPE-REF>
+                                        <COMPU-METHOD-REF DEST="COMPU-METHOD">/VSDR_Code_pkg/VSDR_Code_dt/COMPU_Boolean</COMPU-METHOD-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <COMPU-METHOD UUID="b925f4bc-6946-58a2-baa6-cc9f763ab468">
+                            <SHORT-NAME>COMPU_Boolean</SHORT-NAME>
+                            <CATEGORY>TEXTTABLE</CATEGORY>
+                            <UNIT-REF DEST="UNIT">/VSDR_Code_pkg/VSDR_Code_dt/NoUnit</UNIT-REF>
+                            <COMPU-INTERNAL-TO-PHYS>
+                                <COMPU-SCALES>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>FALSE</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>TRUE</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                </COMPU-SCALES>
+                            </COMPU-INTERNAL-TO-PHYS>
+                        </COMPU-METHOD>
+                        <IMPLEMENTATION-DATA-TYPE UUID="0bc8b822-1e2d-5a3a-7499-b9be70cf8278">
+                            <SHORT-NAME>rt_Array_Boolean_96</SHORT-NAME>
+                            <CATEGORY>ARRAY</CATEGORY>
+                            <SUB-ELEMENTS>
+                                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="d65137c3-ca4c-5bc9-41b8-8dd03e7141df">
+                                    <SHORT-NAME>rt_Array_Boolean_96</SHORT-NAME>
+                                    <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                                    <ARRAY-SIZE>96</ARRAY-SIZE>
+                                    <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/Boolean</IMPLEMENTATION-DATA-TYPE-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                            </SUB-ELEMENTS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="10ff5adb-835b-5d41-36a7-cecbc565ccbd">
+                            <SHORT-NAME>rt_Array_Float_2</SHORT-NAME>
+                            <CATEGORY>ARRAY</CATEGORY>
+                            <SUB-ELEMENTS>
+                                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="43c32e12-2f92-5414-f831-d2ad0a96df07">
+                                    <SHORT-NAME>rt_Array_Float_2</SHORT-NAME>
+                                    <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                                    <ARRAY-SIZE>2</ARRAY-SIZE>
+                                    <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/Float</IMPLEMENTATION-DATA-TYPE-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                            </SUB-ELEMENTS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="21d64767-9318-59aa-94a8-b13478020c2d">
+                            <SHORT-NAME>rt_Array_Boolean_2</SHORT-NAME>
+                            <CATEGORY>ARRAY</CATEGORY>
+                            <SUB-ELEMENTS>
+                                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="c222378b-bd9c-5ae8-c902-211335992d79">
+                                    <SHORT-NAME>rt_Array_Boolean_2</SHORT-NAME>
+                                    <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                                    <ARRAY-SIZE>2</ARRAY-SIZE>
+                                    <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/Boolean</IMPLEMENTATION-DATA-TYPE-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                            </SUB-ELEMENTS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="deff9657-4cca-5289-5230-229697531d56">
+                            <SHORT-NAME>TeHVSR_e_StateMode</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/SwBaseTypes/uint8</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <COMPU-METHOD UUID="4d4a48a8-64a1-56b6-4e2f-5e0a3aa6ba99">
+                            <SHORT-NAME>COMPU_TeHVSR_e_StateMode</SHORT-NAME>
+                            <CATEGORY>TEXTTABLE</CATEGORY>
+                            <UNIT-REF DEST="UNIT">/VSDR_Code_pkg/VSDR_Code_dt/NoUnit</UNIT-REF>
+                            <COMPU-INTERNAL-TO-PHYS>
+                                <COMPU-SCALES>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeReserved</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeInitial</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeStandBy</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModePrecharge</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">4</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">4</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeNormalDischarge</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">5</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">5</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeWarningPowerReduction</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">6</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">6</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModePowerReduction</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">7</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">7</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModePreChargeFailed</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">8</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">8</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModePowerHoldMode</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">9</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">9</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeShutdown</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">10</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">10</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeServiceMode</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">11</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">11</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeReady</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">12</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">12</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeAC_ChargeMode</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">13</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">13</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeEndOfCharge</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">14</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">14</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeDC_ChargeMode</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">15</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">15</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeSystemErr</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">16</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">16</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeTempChargState</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">17</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">17</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeHeatPreChgState</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">18</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">18</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeHeatingState</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">19</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">19</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeHeatFinishState</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                </COMPU-SCALES>
+                            </COMPU-INTERNAL-TO-PHYS>
+                        </COMPU-METHOD>
+                        <IMPLEMENTATION-DATA-TYPE UUID="7c7ed037-26a3-55d5-b60c-1dd0889746d9">
+                            <SHORT-NAME>rt_Array_Boolean_8</SHORT-NAME>
+                            <CATEGORY>ARRAY</CATEGORY>
+                            <SUB-ELEMENTS>
+                                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="67bdd5c8-2e26-5ad1-e26f-35f7ecdc691b">
+                                    <SHORT-NAME>rt_Array_Boolean_8</SHORT-NAME>
+                                    <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                                    <ARRAY-SIZE>8</ARRAY-SIZE>
+                                    <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/Boolean</IMPLEMENTATION-DATA-TYPE-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                            </SUB-ELEMENTS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="7b226965-b650-532b-a952-31d37b7e16c3">
+                            <SHORT-NAME>UInt8</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/SwBaseTypes/uint8</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="19b8ce92-af3e-5cb1-a5cc-7680ff4d8ddf">
+                            <SHORT-NAME>TeVSDR_e_CurrentFlowState</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/SwBaseTypes/uint8</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <COMPU-METHOD UUID="82803c32-c718-5da7-ac0c-3c752779865a">
+                            <SHORT-NAME>COMPU_TeVSDR_e_CurrentFlowState</SHORT-NAME>
+                            <CATEGORY>TEXTTABLE</CATEGORY>
+                            <UNIT-REF DEST="UNIT">/VSDR_Code_pkg/VSDR_Code_dt/NoUnit</UNIT-REF>
+                            <COMPU-INTERNAL-TO-PHYS>
+                                <COMPU-SCALES>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeVSDR_e_CurFlowStateInit</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeVSDR_e_CurFlowStateChrg</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeVSDR_e_CurFlowStateDischrg</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeVSDR_e_CurFlowStateInvalid</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                </COMPU-SCALES>
+                            </COMPU-INTERNAL-TO-PHYS>
+                        </COMPU-METHOD>
+                        <IMPLEMENTATION-DATA-TYPE UUID="6b60a025-4c11-5f97-8526-16248d1f41d8">
+                            <SHORT-NAME>rt_Array_Float_8</SHORT-NAME>
+                            <CATEGORY>ARRAY</CATEGORY>
+                            <SUB-ELEMENTS>
+                                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="25d02453-d197-565e-74c6-e1cf8bae32d2">
+                                    <SHORT-NAME>rt_Array_Float_8</SHORT-NAME>
+                                    <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                                    <ARRAY-SIZE>8</ARRAY-SIZE>
+                                    <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/Float</IMPLEMENTATION-DATA-TYPE-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                            </SUB-ELEMENTS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="40aee4a6-6d6e-50e2-4512-7616742ea605">
+                            <SHORT-NAME>UInt16</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/SwBaseTypes/uint16</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                    </ELEMENTS>
+                    <AR-PACKAGES>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>ApplDataTypes</SHORT-NAME>
+                            <ELEMENTS>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="88f5dc44-6496-5b00-02bf-4708b2b79219">
+                                    <SHORT-NAME>Float</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/VSDR_Code_pkg/VSDR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/DataConstrs/DC_Float</DATA-CONSTR-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="128de09b-9190-51c4-daf9-3992c4ed24d0">
+                                    <SHORT-NAME>Boolean</SHORT-NAME>
+                                    <CATEGORY>BOOLEAN</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/VSDR_Code_pkg/VSDR_Code_dt/COMPU_Boolean</COMPU-METHOD-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-ARRAY-DATA-TYPE UUID="22e8dbc9-09d0-5b46-f74c-c373fbc738b0">
+                                    <SHORT-NAME>rt_Array_Boolean_96</SHORT-NAME>
+                                    <CATEGORY>ARRAY</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                    <ELEMENT>
+                                        <SHORT-NAME>rt_Array_Boolean_96</SHORT-NAME>
+                                        <CATEGORY>BOOLEAN</CATEGORY>
+                                        <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/Boolean</TYPE-TREF>
+                                        <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                        <MAX-NUMBER-OF-ELEMENTS>96</MAX-NUMBER-OF-ELEMENTS>
+                                    </ELEMENT>
+                                </APPLICATION-ARRAY-DATA-TYPE>
+                                <APPLICATION-ARRAY-DATA-TYPE UUID="0298627c-fd05-5213-f6fd-2ee223a8f13f">
+                                    <SHORT-NAME>rt_Array_Float_2</SHORT-NAME>
+                                    <CATEGORY>ARRAY</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                    <ELEMENT>
+                                        <SHORT-NAME>rt_Array_Float_2</SHORT-NAME>
+                                        <CATEGORY>VALUE</CATEGORY>
+                                        <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/Float</TYPE-TREF>
+                                        <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                        <MAX-NUMBER-OF-ELEMENTS>2</MAX-NUMBER-OF-ELEMENTS>
+                                    </ELEMENT>
+                                </APPLICATION-ARRAY-DATA-TYPE>
+                                <APPLICATION-ARRAY-DATA-TYPE UUID="7219e50d-23ce-5e1c-e770-0cd17976e45a">
+                                    <SHORT-NAME>rt_Array_Boolean_2</SHORT-NAME>
+                                    <CATEGORY>ARRAY</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                    <ELEMENT>
+                                        <SHORT-NAME>rt_Array_Boolean_2</SHORT-NAME>
+                                        <CATEGORY>BOOLEAN</CATEGORY>
+                                        <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/Boolean</TYPE-TREF>
+                                        <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                        <MAX-NUMBER-OF-ELEMENTS>2</MAX-NUMBER-OF-ELEMENTS>
+                                    </ELEMENT>
+                                </APPLICATION-ARRAY-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="e1331637-81d6-5e64-9fc4-3d78f4d4822f">
+                                    <SHORT-NAME>TeHVSR_e_StateMode</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/VSDR_Code_pkg/VSDR_Code_dt/COMPU_TeHVSR_e_StateMode</COMPU-METHOD-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-ARRAY-DATA-TYPE UUID="c18f63cb-2298-5afb-1b87-f6a9954afb88">
+                                    <SHORT-NAME>rt_Array_Boolean_8</SHORT-NAME>
+                                    <CATEGORY>ARRAY</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                    <ELEMENT>
+                                        <SHORT-NAME>rt_Array_Boolean_8</SHORT-NAME>
+                                        <CATEGORY>BOOLEAN</CATEGORY>
+                                        <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/Boolean</TYPE-TREF>
+                                        <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                        <MAX-NUMBER-OF-ELEMENTS>8</MAX-NUMBER-OF-ELEMENTS>
+                                    </ELEMENT>
+                                </APPLICATION-ARRAY-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="db9d173b-7e93-5322-867f-c2e68fa9d077">
+                                    <SHORT-NAME>UInt8</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/VSDR_Code_pkg/VSDR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/DataConstrs/DC_UInt8</DATA-CONSTR-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="c8e50843-4270-5ef4-2cca-19a00e561266">
+                                    <SHORT-NAME>TeVSDR_e_CurrentFlowState</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/VSDR_Code_pkg/VSDR_Code_dt/COMPU_TeVSDR_e_CurrentFlowState</COMPU-METHOD-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="1230aba7-c02c-5a83-37eb-27d682c1d1e4">
+                                    <SHORT-NAME>Appl_KtVSDR_k_HallLargeFilterCoef_Table</SHORT-NAME>
+                                    <CATEGORY>CURVE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <SW-CALPRM-AXIS-SET>
+                                                    <SW-CALPRM-AXIS>
+                                                        <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                                        <CATEGORY>COM_AXIS</CATEGORY>
+                                                        <SW-AXIS-GROUPED>
+                                                            <SHARED-AXIS-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/Appl_KxVSDR_k_HallLargeFilterCoef</SHARED-AXIS-TYPE-REF>
+                                                        </SW-AXIS-GROUPED>
+                                                    </SW-CALPRM-AXIS>
+                                                </SW-CALPRM-AXIS-SET>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/VSDR_Code_pkg/VSDR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/DataConstrs/DC_BaseType_KtVSDR_k_HallLargeFilterCoef_Table</DATA-CONSTR-REF>
+                                                <SW-RECORD-LAYOUT-REF DEST="SW-RECORD-LAYOUT">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/RecordLayouts/Cur_f32</SW-RECORD-LAYOUT-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="92c80d2a-e6d1-53c4-6bb5-9d31d9a2f4d0">
+                                    <SHORT-NAME>Appl_KxVSDR_k_HallLargeFilterCoef</SHORT-NAME>
+                                    <CATEGORY>COM_AXIS</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <SW-CALPRM-AXIS-SET>
+                                                    <SW-CALPRM-AXIS>
+                                                        <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                                        <SW-AXIS-INDIVIDUAL>
+                                                            <COMPU-METHOD-REF DEST="COMPU-METHOD">/VSDR_Code_pkg/VSDR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                            <SW-MAX-AXIS-POINTS>8</SW-MAX-AXIS-POINTS>
+                                                            <SW-MIN-AXIS-POINTS>8</SW-MIN-AXIS-POINTS>
+                                                            <DATA-CONSTR-REF DEST="DATA-CONSTR">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/DataConstrs/DC_BaseType_KxVSDR_k_HallLargeFilterCoef</DATA-CONSTR-REF>
+                                                        </SW-AXIS-INDIVIDUAL>
+                                                    </SW-CALPRM-AXIS>
+                                                </SW-CALPRM-AXIS-SET>
+                                                <SW-RECORD-LAYOUT-REF DEST="SW-RECORD-LAYOUT">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/RecordLayouts/Distr_f32_M</SW-RECORD-LAYOUT-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="0ee7d5a9-fa9e-50e2-79e0-964e646bd3a9">
+                                    <SHORT-NAME>Appl_KtVSDR_k_HallSmallFilterCoef_Table</SHORT-NAME>
+                                    <CATEGORY>CURVE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <SW-CALPRM-AXIS-SET>
+                                                    <SW-CALPRM-AXIS>
+                                                        <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                                        <CATEGORY>COM_AXIS</CATEGORY>
+                                                        <SW-AXIS-GROUPED>
+                                                            <SHARED-AXIS-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/Appl_KxVSDR_k_HallSmallFilterCoef</SHARED-AXIS-TYPE-REF>
+                                                        </SW-AXIS-GROUPED>
+                                                    </SW-CALPRM-AXIS>
+                                                </SW-CALPRM-AXIS-SET>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/VSDR_Code_pkg/VSDR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/DataConstrs/DC_BaseType_KtVSDR_k_HallSmallFilterCoef_Table</DATA-CONSTR-REF>
+                                                <SW-RECORD-LAYOUT-REF DEST="SW-RECORD-LAYOUT">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/RecordLayouts/Cur_f32</SW-RECORD-LAYOUT-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="d49ae4eb-c0cd-5f30-beca-6a321f9ab060">
+                                    <SHORT-NAME>Appl_KxVSDR_k_HallSmallFilterCoef</SHORT-NAME>
+                                    <CATEGORY>COM_AXIS</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <SW-CALPRM-AXIS-SET>
+                                                    <SW-CALPRM-AXIS>
+                                                        <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                                        <SW-AXIS-INDIVIDUAL>
+                                                            <COMPU-METHOD-REF DEST="COMPU-METHOD">/VSDR_Code_pkg/VSDR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                            <SW-MAX-AXIS-POINTS>8</SW-MAX-AXIS-POINTS>
+                                                            <SW-MIN-AXIS-POINTS>8</SW-MIN-AXIS-POINTS>
+                                                            <DATA-CONSTR-REF DEST="DATA-CONSTR">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/DataConstrs/DC_BaseType_KxVSDR_k_HallSmallFilterCoef</DATA-CONSTR-REF>
+                                                        </SW-AXIS-INDIVIDUAL>
+                                                    </SW-CALPRM-AXIS>
+                                                </SW-CALPRM-AXIS-SET>
+                                                <SW-RECORD-LAYOUT-REF DEST="SW-RECORD-LAYOUT">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/RecordLayouts/Distr_f32_M</SW-RECORD-LAYOUT-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="57dc73a9-4fe5-5042-a0ae-de4658046a59">
+                                    <SHORT-NAME>UInt16</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/VSDR_Code_pkg/VSDR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/DataConstrs/DC_UInt16</DATA-CONSTR-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                            </ELEMENTS>
+                            <AR-PACKAGES>
+                                <AR-PACKAGE>
+                                    <SHORT-NAME>DataConstrs</SHORT-NAME>
+                                    <ELEMENTS>
+                                        <DATA-CONSTR UUID="d9eb5004-2aaa-5881-a9dd-96c32c3b08cd">
+                                            <SHORT-NAME>DC_Float</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="INFINITE"/>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="INFINITE"/>
+                                                        <UNIT-REF DEST="UNIT">/VSDR_Code_pkg/VSDR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="71b2462c-354c-5a15-31f0-f296adaa0490">
+                                            <SHORT-NAME>DC_UInt8</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">255</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/VSDR_Code_pkg/VSDR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="c3a043dd-d1f8-5b1d-b9de-3dbe9bf3a8f7">
+                                            <SHORT-NAME>DC_BaseType_KtVSDR_k_HallLargeFilterCoef_Table</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">-1000000</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1000000</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/VSDR_Code_pkg/VSDR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="55498d2e-2a04-5815-aabc-4a620f4a2f28">
+                                            <SHORT-NAME>DC_BaseType_KxVSDR_k_HallLargeFilterCoef</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">-1000000</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1000000</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/VSDR_Code_pkg/VSDR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="16208140-4d00-5600-4e9e-785e42dba0ab">
+                                            <SHORT-NAME>DC_BaseType_KtVSDR_k_HallSmallFilterCoef_Table</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">-1000000</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1000000</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/VSDR_Code_pkg/VSDR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="2e1f1911-b67c-5d74-4c17-36b25612eea6">
+                                            <SHORT-NAME>DC_BaseType_KxVSDR_k_HallSmallFilterCoef</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">-1000000</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1000000</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/VSDR_Code_pkg/VSDR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="43abf43b-9571-5d52-d6eb-4dfa4e2673c9">
+                                            <SHORT-NAME>DC_UInt16</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">65535</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/VSDR_Code_pkg/VSDR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                    </ELEMENTS>
+                                </AR-PACKAGE>
+                                <AR-PACKAGE>
+                                    <SHORT-NAME>RecordLayouts</SHORT-NAME>
+                                    <ELEMENTS>
+                                        <SW-RECORD-LAYOUT UUID="9032286b-232e-5535-8546-4761a0a054db">
+                                            <SHORT-NAME>Cur_f32</SHORT-NAME>
+                                            <SW-RECORD-LAYOUT-GROUP>
+                                                <SHORT-LABEL>Cur_f32</SHORT-LABEL>
+                                                <CATEGORY>COLUMN_DIR</CATEGORY>
+                                                <SW-RECORD-LAYOUT-GROUP-AXIS>0</SW-RECORD-LAYOUT-GROUP-AXIS>
+                                                <SW-RECORD-LAYOUT-GROUP-INDEX>X</SW-RECORD-LAYOUT-GROUP-INDEX>
+                                                <SW-RECORD-LAYOUT-GROUP-FROM>1</SW-RECORD-LAYOUT-GROUP-FROM>
+                                                <SW-RECORD-LAYOUT-GROUP-TO>-1</SW-RECORD-LAYOUT-GROUP-TO>
+                                                <SW-RECORD-LAYOUT-V>
+                                                    <SHORT-LABEL>Val</SHORT-LABEL>
+                                                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/SwBaseTypes/float32</BASE-TYPE-REF>
+                                                    <SW-RECORD-LAYOUT-V-AXIS>0</SW-RECORD-LAYOUT-V-AXIS>
+                                                    <SW-RECORD-LAYOUT-V-PROP>VALUE</SW-RECORD-LAYOUT-V-PROP>
+                                                    <SW-RECORD-LAYOUT-V-INDEX>X</SW-RECORD-LAYOUT-V-INDEX>
+                                                </SW-RECORD-LAYOUT-V>
+                                            </SW-RECORD-LAYOUT-GROUP>
+                                        </SW-RECORD-LAYOUT>
+                                        <SW-RECORD-LAYOUT UUID="bd461869-62dd-548f-64c8-0f454c4de84d">
+                                            <SHORT-NAME>Distr_f32_M</SHORT-NAME>
+                                            <SW-RECORD-LAYOUT-GROUP>
+                                                <SHORT-LABEL>X</SHORT-LABEL>
+                                                <CATEGORY>INDEX_INCR</CATEGORY>
+                                                <SW-RECORD-LAYOUT-GROUP-AXIS>1</SW-RECORD-LAYOUT-GROUP-AXIS>
+                                                <SW-RECORD-LAYOUT-GROUP-FROM>1</SW-RECORD-LAYOUT-GROUP-FROM>
+                                                <SW-RECORD-LAYOUT-GROUP-TO>-1</SW-RECORD-LAYOUT-GROUP-TO>
+                                                <SW-RECORD-LAYOUT-V>
+                                                    <SHORT-LABEL>VALUE</SHORT-LABEL>
+                                                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/SwBaseTypes/float32</BASE-TYPE-REF>
+                                                    <SW-RECORD-LAYOUT-V-AXIS>1</SW-RECORD-LAYOUT-V-AXIS>
+                                                    <SW-RECORD-LAYOUT-V-PROP>VALUE</SW-RECORD-LAYOUT-V-PROP>
+                                                </SW-RECORD-LAYOUT-V>
+                                            </SW-RECORD-LAYOUT-GROUP>
+                                        </SW-RECORD-LAYOUT>
+                                    </ELEMENTS>
+                                </AR-PACKAGE>
+                            </AR-PACKAGES>
+                        </AR-PACKAGE>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>DataTypeMappings</SHORT-NAME>
+                            <ELEMENTS>
+                                <DATA-TYPE-MAPPING-SET UUID="460b752a-33f0-596c-4467-35c560f302ad">
+                                    <SHORT-NAME>VSDR_CodeDataTypeMappingsSet</SHORT-NAME>
+                                    <DATA-TYPE-MAPS>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/Float</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/Float</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/Boolean</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/Boolean</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-ARRAY-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/rt_Array_Boolean_96</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/rt_Array_Boolean_96</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-ARRAY-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/rt_Array_Float_2</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/rt_Array_Float_2</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-ARRAY-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/rt_Array_Boolean_2</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/rt_Array_Boolean_2</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/TeHVSR_e_StateMode</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/TeHVSR_e_StateMode</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-ARRAY-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/rt_Array_Boolean_8</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/rt_Array_Boolean_8</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/UInt8</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/UInt8</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/TeVSDR_e_CurrentFlowState</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/TeVSDR_e_CurrentFlowState</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/Appl_KtVSDR_k_HallLargeFilterCoef_Table</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/rt_Array_Float_8</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/Appl_KxVSDR_k_HallLargeFilterCoef</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/rt_Array_Float_8</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/Appl_KtVSDR_k_HallSmallFilterCoef_Table</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/rt_Array_Float_8</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/Appl_KxVSDR_k_HallSmallFilterCoef</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/rt_Array_Float_8</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/ApplDataTypes/UInt16</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/VSDR_Code_pkg/VSDR_Code_dt/UInt16</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                    </DATA-TYPE-MAPS>
+                                </DATA-TYPE-MAPPING-SET>
+                            </ELEMENTS>
+                        </AR-PACKAGE>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>Ground</SHORT-NAME>
+                            <ELEMENTS>
+                                <CONSTANT-SPECIFICATION UUID="e959b559-1bb9-5242-9968-61f74279a8b9">
+                                    <SHORT-NAME>KtVSDR_k_HallLargeFilterCoef_Table</SHORT-NAME>
+                                    <VALUE-SPEC>
+                                        <APPLICATION-VALUE-SPECIFICATION>
+                                            <SHORT-LABEL>KtVSDR_k_HallLargeFilterCoef_Table</SHORT-LABEL>
+                                            <CATEGORY>CURVE</CATEGORY>
+                                            <SW-VALUE-CONT>
+                                                <UNIT-REF DEST="UNIT">/VSDR_Code_pkg/VSDR_Code_dt/NoUnit</UNIT-REF>
+                                                <SW-ARRAYSIZE>
+                                                    <V>8</V>
+                                                </SW-ARRAYSIZE>
+                                                <SW-VALUES-PHYS>
+                                                    <V>0.10000000149011612</V>
+                                                    <V>0.18000000715255737</V>
+                                                    <V>0.20000000298023224</V>
+                                                    <V>0.30000001192092896</V>
+                                                    <V>0.5</V>
+                                                    <V>0.60000002384185791</V>
+                                                    <V>0.800000011920929</V>
+                                                    <V>1</V>
+                                                </SW-VALUES-PHYS>
+                                            </SW-VALUE-CONT>
+                                        </APPLICATION-VALUE-SPECIFICATION>
+                                    </VALUE-SPEC>
+                                </CONSTANT-SPECIFICATION>
+                                <CONSTANT-SPECIFICATION UUID="63130371-d7a9-55a4-a347-9ce0d87f92a2">
+                                    <SHORT-NAME>KtVSDR_k_HallSmallFilterCoef_Table</SHORT-NAME>
+                                    <VALUE-SPEC>
+                                        <APPLICATION-VALUE-SPECIFICATION>
+                                            <SHORT-LABEL>KtVSDR_k_HallSmallFilterCoef_Table</SHORT-LABEL>
+                                            <CATEGORY>CURVE</CATEGORY>
+                                            <SW-VALUE-CONT>
+                                                <UNIT-REF DEST="UNIT">/VSDR_Code_pkg/VSDR_Code_dt/NoUnit</UNIT-REF>
+                                                <SW-ARRAYSIZE>
+                                                    <V>8</V>
+                                                </SW-ARRAYSIZE>
+                                                <SW-VALUES-PHYS>
+                                                    <V>0.10000000149011612</V>
+                                                    <V>0.18000000715255737</V>
+                                                    <V>0.20000000298023224</V>
+                                                    <V>0.30000001192092896</V>
+                                                    <V>0.5</V>
+                                                    <V>0.60000002384185791</V>
+                                                    <V>0.800000011920929</V>
+                                                    <V>1</V>
+                                                </SW-VALUES-PHYS>
+                                            </SW-VALUE-CONT>
+                                        </APPLICATION-VALUE-SPECIFICATION>
+                                    </VALUE-SPEC>
+                                </CONSTANT-SPECIFICATION>
+                                <CONSTANT-SPECIFICATION UUID="21cbfc8a-4645-501a-a7b5-f63cd1b47ad5">
+                                    <SHORT-NAME>KxVSDR_k_HallLargeFilterCoef</SHORT-NAME>
+                                    <VALUE-SPEC>
+                                        <APPLICATION-VALUE-SPECIFICATION>
+                                            <SHORT-LABEL>KxVSDR_k_HallLargeFilterCoef</SHORT-LABEL>
+                                            <CATEGORY>COM_AXIS</CATEGORY>
+                                            <SW-VALUE-CONT>
+                                                <UNIT-REF DEST="UNIT">/VSDR_Code_pkg/VSDR_Code_dt/NoUnit</UNIT-REF>
+                                                <SW-ARRAYSIZE>
+                                                    <V>8</V>
+                                                </SW-ARRAYSIZE>
+                                                <SW-VALUES-PHYS>
+                                                    <V>0</V>
+                                                    <V>5</V>
+                                                    <V>10</V>
+                                                    <V>50</V>
+                                                    <V>100</V>
+                                                    <V>150</V>
+                                                    <V>200</V>
+                                                    <V>300</V>
+                                                </SW-VALUES-PHYS>
+                                            </SW-VALUE-CONT>
+                                        </APPLICATION-VALUE-SPECIFICATION>
+                                    </VALUE-SPEC>
+                                </CONSTANT-SPECIFICATION>
+                                <CONSTANT-SPECIFICATION UUID="01d7e0a4-5d05-5181-ca82-453ec32f4794">
+                                    <SHORT-NAME>KxVSDR_k_HallSmallFilterCoef</SHORT-NAME>
+                                    <VALUE-SPEC>
+                                        <APPLICATION-VALUE-SPECIFICATION>
+                                            <SHORT-LABEL>KxVSDR_k_HallSmallFilterCoef</SHORT-LABEL>
+                                            <CATEGORY>COM_AXIS</CATEGORY>
+                                            <SW-VALUE-CONT>
+                                                <UNIT-REF DEST="UNIT">/VSDR_Code_pkg/VSDR_Code_dt/NoUnit</UNIT-REF>
+                                                <SW-ARRAYSIZE>
+                                                    <V>8</V>
+                                                </SW-ARRAYSIZE>
+                                                <SW-VALUES-PHYS>
+                                                    <V>0</V>
+                                                    <V>5</V>
+                                                    <V>10</V>
+                                                    <V>50</V>
+                                                    <V>100</V>
+                                                    <V>150</V>
+                                                    <V>200</V>
+                                                    <V>300</V>
+                                                </SW-VALUES-PHYS>
+                                            </SW-VALUE-CONT>
+                                        </APPLICATION-VALUE-SPECIFICATION>
+                                    </VALUE-SPEC>
+                                </CONSTANT-SPECIFICATION>
+                            </ELEMENTS>
+                        </AR-PACKAGE>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>SwAddrMethods</SHORT-NAME>
+                            <ELEMENTS>
+                                <SW-ADDR-METHOD UUID="1608554b-1781-5c46-6d33-90e6b8637873">
+                                    <SHORT-NAME>CODE</SHORT-NAME>
+                                    <SECTION-TYPE>CODE</SECTION-TYPE>
+                                </SW-ADDR-METHOD>
+                                <SW-ADDR-METHOD UUID="babc3b64-bf06-5a28-1aa9-0255cff292ca">
+                                    <SHORT-NAME>CONST</SHORT-NAME>
+                                    <SECTION-TYPE>CONST</SECTION-TYPE>
+                                </SW-ADDR-METHOD>
+                                <SW-ADDR-METHOD UUID="5a3840a5-6d33-560e-ca58-795a168bda94">
+                                    <SHORT-NAME>VAR</SHORT-NAME>
+                                    <SECTION-TYPE>VAR</SECTION-TYPE>
+                                </SW-ADDR-METHOD>
+                            </ELEMENTS>
+                        </AR-PACKAGE>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>SwBaseTypes</SHORT-NAME>
+                            <ELEMENTS>
+                                <SW-BASE-TYPE UUID="e7d9b197-3357-53c2-ead0-4e0daba3b4a6">
+                                    <SHORT-NAME>float32</SHORT-NAME>
+                                    <CATEGORY>FIXED_LENGTH</CATEGORY>
+                                    <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+                                    <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
+                                    <NATIVE-DECLARATION>float32</NATIVE-DECLARATION>
+                                </SW-BASE-TYPE>
+                                <SW-BASE-TYPE UUID="5dd6caeb-3274-5f4c-2ddc-0db6936d97e0">
+                                    <SHORT-NAME>boolean</SHORT-NAME>
+                                    <CATEGORY>FIXED_LENGTH</CATEGORY>
+                                    <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+                                    <BASE-TYPE-ENCODING>BOOLEAN</BASE-TYPE-ENCODING>
+                                    <NATIVE-DECLARATION>boolean</NATIVE-DECLARATION>
+                                </SW-BASE-TYPE>
+                                <SW-BASE-TYPE UUID="7366a004-84de-513b-1a3a-deb508b643d2">
+                                    <SHORT-NAME>uint8</SHORT-NAME>
+                                    <CATEGORY>FIXED_LENGTH</CATEGORY>
+                                    <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+                                    <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+                                    <NATIVE-DECLARATION>uint8</NATIVE-DECLARATION>
+                                </SW-BASE-TYPE>
+                                <SW-BASE-TYPE UUID="0b7570fd-e36f-588b-eb24-e47120ba8d3c">
+                                    <SHORT-NAME>uint16</SHORT-NAME>
+                                    <CATEGORY>FIXED_LENGTH</CATEGORY>
+                                    <BASE-TYPE-SIZE>16</BASE-TYPE-SIZE>
+                                    <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+                                    <NATIVE-DECLARATION>uint16</NATIVE-DECLARATION>
+                                </SW-BASE-TYPE>
+                            </ELEMENTS>
+                        </AR-PACKAGE>
+                    </AR-PACKAGES>
+                </AR-PACKAGE>
+            </AR-PACKAGES>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

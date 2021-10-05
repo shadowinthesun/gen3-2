@@ -1,0 +1,226 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+import AUTOSAR_Dem::EcucModuleDefs;
+import AUTOSAR_Dem::EcucModuleDefs::Dem;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemExtendedDataRecordClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemGeneralRB;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemGeneralRB::DemEventCategory;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemOperationCycle;
+extension OdxConstants; extension OdxShortNames;
+//import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemOBDSupport;
+
+create DemGeneral this createDemGeneral():
+	setShortName(DemGeneral_SHORTNAME())->
+	// Commenting this as it is not required for UDS
+	//DemDataElementClass.add(createDemExtendedDataRecordClass())->
+	setDemAgingCycleCounterProcessing(createDemAgingCycleCounterProcessing(DemAgingCycleCounterProcessing_VALUE()))->
+	setDemBswErrorBufferSize(createDemBswErrorBufferSize(DemBswErrorBufferSize_VALUE()))->
+	setDemDtcStatusAvailabilityMask(createDemDtcStatusAvailabilityMask(DemDtcStatusAvailabilityMask_VALUE()))->
+	setDemDevErrorDetect(createDemDevErrorDetect(DemDevErrorDetect_VALUE()))->
+	setDemEventCombinationSupport(createDemEventCombinationSupport(DemEventCombinationSupport_VALUE()))->
+	setDemExtendedDataCapture(createDemExtendedDataCapture(DemExtendedDataCapture_VALUE()))->
+	setDemTypeOfFreezeFrameRecordNumeration(createDemTypeOfFreezeFrameRecordNumeration(DemTypeOfFreezeFrameRecordNumeration_VALUE()))->
+	setDemMaxNumberEventEntryMirror(createDemMaxNumberEventEntryMirror(DemMaxNumberEventEntryMirror_VALUE()))->
+	setDemMaxNumberEventEntryPermanent(createDemMaxNumberEventEntryPermanent(DemMaxNumberEventEntryPermanent_VALUE()))->
+	setDemMaxNumberEventEntryPrimary(createDemMaxNumberEventEntryPrimary(DemMaxNumberEventEntryPrimary_VALUE()))->
+	setDemMaxNumberEventEntrySecondary(createDemMaxNumberEventEntrySecondary(DemMaxNumberEventEntrySecondary_VALUE()))->
+	setDemOBDSupport(createDemOBDSupport(DemOBDSupport_VALUE()))->
+	setDemOccurrenceCounterProcessing(createDemOccurrenceCounterProcessing(DemOccurrenceCounterProcessing_VALUE()))->
+	setDemOperationCycleStatusStorage(createDemOperationCycleStatusStorage(DemOperationCycleStatusStorage_VALUE()))->
+	setDemPTOSupport(createDemPTOSupport(DemPTOSupport_VALUE()))->
+	setDemStorageConditionSupport(createDemStorageConditionSupport(DemStorageConditionSupport_VALUE()))->
+	setDemTriggerDcmReports(createDemTriggerDcmReports(DemTriggerDcmReports_VALUE()))->
+	//setDemTaskTime(createDemTaskTime())->
+	setDemFreezeFrameCapture(createDemFreezeFrameCapture(DemFreezeFrameCapture_VALUE()))->
+	setDemTypeOfDTCSupported(createDemTypeOfDTCSupported(DemTypeOfDTCSupported_VALUE()))->
+	setDemDTCSuppressionSupport(createDemDTCSuppressionSupport(DemDTCSuppressionSupport_VALUE()))->
+	setDemDebounceCounterBasedSupport(createDemDebounceCounterBasedSupport(DemDebounceCounterBasedSupport_VALUE()))->
+	setDemDebounceTimeBasedSupport(createDemDebounceTimeBasedSupport(DemDebounceTimeBasedSupport_VALUE()))->
+	setDemEnableConditionSupport(createDemEnableConditionSupport(DemEnableConditionSupport_VALUE()))->
+	setDemMaxNumberPrestoredFF(createDemMaxNumberPrestoredFF(DemMaxNumberPrestoredFF_VALUE()))->
+	setDemStatusBitStorageTestFailed(createDemStatusBitStorageTestFailed(DemStatusBitStorageTestFailed_VALUE()))->
+	setDemTriggerMonitorInitBeforeClearOk(createDemTriggerMonitorInitBeforeClearOk(DemTriggerMonitorInitBeforeClearOk_VALUE()))->
+	setDemTriggerFiMReports(createDemTriggerFiMReports(DemTriggerFiMReports_VALUE()))->
+	setDemVersionInfoApi(creatDemVersionInfoApi(DemVersionInfoApi_VALUE()))->
+	setDemGeneralRB(createDemGeneralRB())->
+	DemOperationCycles.add(createDemOperationCycle())->
+	setDemTaskTime(createDemTaskTime(DemTaskTime_VALUE()))
+
+;
+
+create DemTaskTime this createDemTaskTime(Real value):
+setValue(value)
+;
+create DemOperationCycle this createDemOperationCycle():
+setShortName(DemOperationCycleType_VALUE())->
+setDemOperationCycleType(createDemOperationCycleType())
+;
+
+create DemOperationCycleType this createDemOperationCycleType():
+setValue(DemOperationCycleType_VALUE())
+;
+
+create DemGeneralRB this createDemGeneralRB():
+setDemSupportFailureDependency(createDemSupportFailureDependency())->
+setDemAgingCounterType(createDemAgingCounterType())->
+DemEventCategories.add(createDemEventCategory())->
+/* pmk1hc : Add defaut value for DemMaxNumberEventEntryEventBuffer */
+setDemMaxNumberEventEntryEventBuffer(createDemMaxNumberEventEntryEventBuffer(DemMaxNumberEventEntryEventBuffer_VALUE()))
+;
+
+create DemMaxNumberEventEntryEventBuffer this createDemMaxNumberEventEntryEventBuffer(Integer value):
+setValue(value)
+;
+
+create DemEventCategory this createDemEventCategory():
+setDem_EventCategoryId(createDem_EventCategoryId())
+;
+
+create Dem_EventCategoryId this createDem_EventCategoryId():
+setValue(Dem_EventCategoryId_VALUE())
+;
+
+create DemSupportFailureDependency this createDemSupportFailureDependency():
+setValue(DemSupportFailureDependency_VALUE())
+;
+
+create DemAgingCounterType this createDemAgingCounterType():
+setValue(DemAgingCounterType_VALUE())
+;
+create DemExtendedDataRecordClass this createDemExtendedDataRecordClass():
+setShortName(DemExtendedDataRecordClass_SHORTNAME())->
+setDemExtendedDataRecordUpdate(demExtendedDataRecordUpdateValue(DemExtendedDataRecordUpdate_VALUE()))
+;
+
+create DemExtendedDataRecordUpdate this demExtendedDataRecordUpdateValue(String value):
+setValue(value)
+;
+
+create DemAgingCycleCounterProcessing this createDemAgingCycleCounterProcessing(String value):
+setValue(value)
+;
+
+create DemBswErrorBufferSize this createDemBswErrorBufferSize(Integer value):
+setValue(value)
+;
+create DemDtcStatusAvailabilityMask this createDemDtcStatusAvailabilityMask(Integer value):
+setValue(value)
+;
+
+create DemDevErrorDetect this createDemDevErrorDetect(Boolean value):
+setValue(value)
+;
+
+create DemEventCombinationSupport this createDemEventCombinationSupport(String value):
+setValue(value)
+;
+
+create DemExtendedDataCapture this createDemExtendedDataCapture(String value):
+setValue(value)
+;
+
+create DemTypeOfFreezeFrameRecordNumeration this createDemTypeOfFreezeFrameRecordNumeration(String value):
+setValue(value)
+;
+
+create DemMaxNumberEventEntryMirror this createDemMaxNumberEventEntryMirror(Integer value):
+setValue(value)
+;
+
+create DemMaxNumberEventEntryPermanent this createDemMaxNumberEventEntryPermanent(Integer value):
+setValue(value)
+;
+
+create DemMaxNumberEventEntryPrimary this createDemMaxNumberEventEntryPrimary(Integer value):
+setValue(value)
+;
+
+create DemMaxNumberEventEntrySecondary this createDemMaxNumberEventEntrySecondary(Integer value):
+setValue(value)
+;
+
+create DemOBDSupport this createDemOBDSupport(Boolean value):
+setValue(value)
+;
+
+create DemOccurrenceCounterProcessing this createDemOccurrenceCounterProcessing(String value):
+setValue(value)
+;
+
+create DemOperationCycleStatusStorage this createDemOperationCycleStatusStorage(Boolean value):
+setValue(value)
+;
+
+create DemPTOSupport this createDemPTOSupport(Boolean value):
+setValue(value)
+;
+
+create DemStorageConditionSupport this createDemStorageConditionSupport(Boolean value):
+setValue(value)
+;
+
+create DemTriggerMonitorInitBeforeClearOk this createDemTriggerMonitorInitBeforeClearOk(Boolean value):
+setValue(value)
+;
+
+create DemTriggerDcmReports this createDemTriggerDcmReports(Boolean value):
+setValue(value)
+;
+
+create DemTaskTime this createDemTaskTime(Float value):
+setValue(value)
+;
+
+create DemTypeOfDTCSupported this createDemTypeOfDTCSupported(String value):
+setValue(value)
+;
+
+create DemDTCSuppressionSupport this createDemDTCSuppressionSupport(Boolean value):
+setValue(value)
+;
+
+create DemDebounceCounterBasedSupport this createDemDebounceCounterBasedSupport(Boolean value):
+setValue(value)
+;
+
+create DemDebounceTimeBasedSupport this createDemDebounceTimeBasedSupport(Boolean value):
+setValue(value)
+;
+
+create DemEnableConditionSupport this createDemEnableConditionSupport(Boolean value):
+setValue(value)
+;
+
+create DemMaxNumberPrestoredFF this createDemMaxNumberPrestoredFF(Integer value):
+setValue(value)
+;
+
+create DemStatusBitStorageTestFailed this createDemStatusBitStorageTestFailed(Boolean value):
+setValue(value)
+;
+
+create DemTriggerFiMReports this createDemTriggerFiMReports(Boolean value):
+setValue(value)
+;
+
+create DemVersionInfoApi this creatDemVersionInfoApi(Boolean value):
+setValue(value)
+;
+
+create DemFreezeFrameCapture this createDemFreezeFrameCapture(String value):
+setValue(value)
+;

@@ -1,0 +1,345 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp;
+import OdxXhtml;
+import OdxXhtml::DIAGSERVICE;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSecurity;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSecurity::DcmDspSecurityRow;
+
+extension org::eclipse::xtend::util::stdlib::io;
+extension org::eclipse::xtend::util::stdlib::props;
+extension org::eclipse::xtend::util::stdlib::globalvar;
+extension org::eclipse::xtend::util::stdlib::counter;
+extension GenerateBsw_Odx_V201;
+extension OdxUtils;
+extension OdxConstants; extension OdxShortNames;
+/*********************************************************************************
+                            CREATION OF DcmDspSecurity
+**********************************************************************************/
+
+
+
+create DcmDspSecurity this DcmDspSecurityCreation(Dcm dcm,BASEVARIANT selectedBaseVariant,ECUVARIANT selectedEcuVariant,List listrequest):
+storeGlobalVar("GetSeedCounter",0)->
+storeGlobalVar("ComapreKeyCounter",0)->
+counterReset(getGlobalVar("GetSeedCounter"))->
+counterReset(getGlobalVar("ComapreKeyCounter"))->
+setShortName(CONST_DcmDspSecurity())->
+if(!listrequest.isEmpty) then
+(
+listrequest.createDcmDspSecurityRow(dcm,this, selectedBaseVariant, selectedEcuVariant)
+)->
+setDcmDspSecurityStoreSeed(createDcmDspSecurityStoreSeed())->
+setDcmDspSecurityDelayTimerMonitor(createDcmDspSecurityDelayTimerMonitor())->
+setDcmDspSecurityNRCExceedNoOfAttempt(createDcmDspSecurityNRCExceedNoOfAttempt())
+;
+
+create DcmDspSecurityDelayTimerMonitor this createDcmDspSecurityDelayTimerMonitor():
+setValue(CONST_DcmDspSecurityDelayTimerMonitor())
+;
+
+create DcmDspSecurityNRCExceedNoOfAttempt this createDcmDspSecurityNRCExceedNoOfAttempt():
+setValue(CONST_DcmDspSecurityNRCExceedNoOfAttempt())
+;
+
+create DcmDspSecurityStoreSeed this createDcmDspSecurityStoreSeed():
+setValue(CONST_DcmDspSecurityStoreSeed())
+;
+/*********************************************************************************
+                            CREATION OF DcmDspSecurityRow
+**********************************************************************************/
+
+create DcmDspSecurityRow this createDcmDspSecurityRow(REQUEST list,Dcm dcm,DcmDspSecurity dcmdspSecurity,BASEVARIANT selectedBaseVariant,ECUVARIANT selectedEcuVariant):
+let securityList=(PARAM)list.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION()&& e.sHORTNAME==CONST_SECURITY_ACCESS_TYPE()):
+
+
+/**************************************
+Security Key list from Request
+************************************/
+let securityKeyList=(PARAM)list.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()&& e.sHORTNAME=="SecurityKey"&&VALUE.isInstance(e)):
+
+
+//let securitySeedPosRes=selectedBaseVariant.pOSRESPONSES.pOSRESPONSE.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()&& e.sHORTNAME=="SecuritySeed"&&VALUE.isInstance(e)):
+
+
+/*****************************************************
+Request Id of that particular request
+*****************************************************/
+let requestid=list.iD:
+
+
+/*****************************************************
+Fetching Positive response Id list from service using request Id
+*****************************************************/
+
+let positiveResponseIdList=getDiagSecurityList().select(e|e.rEQUESTREF.iDREF==requestid).get(0).pOSRESPONSEREFS.pOSRESPONSEREF.iDREF:
+
+/************************************************************
+List of Positive Response
+***********************************************************/
+
+let listOfPositiveResponse=getPosResponse(selectedEcuVariant,selectedBaseVariant,null):
+
+/************************************************************
+List of DataObjectProp
+***********************************************************/
+
+let listOfDataObjectProp=selectedBaseVariant.dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS.dATAOBJECTPROP:
+/************************************************************
+global List of dcmdspsecurity row
+***********************************************************/
+let dcmDspSecurityRowList=(List[DcmDspSecurityRow]){}:
+let a = (((CODEDCONST)securityList.get(0).cODEDVALUE.asInteger())+1)/2 :
+
+//if(((CODEDCONST)securityList.get(0).cODEDVALUE.asInteger()>0)&&((CODEDCONST)securityList.get(0).cODEDVALUE.asInteger()<=126))then
+if((!((CODEDCONST)securityList.get(0).cODEDVALUE.asInteger()>66&&((CODEDCONST)securityList.get(0).cODEDVALUE.asInteger()<95)||((CODEDCONST)securityList.get(0).cODEDVALUE.asInteger()==0)||((CODEDCONST)securityList.get(0).cODEDVALUE.asInteger()==127)))&&securityKeyList.size >0)then
+(
+
+setShortName(validateShortName(CONST_DcmDspSecurityRow_PREFIX()+(((CODEDCONST)securityList.get(0)).cODEDVALUE.asInteger())/2))->
+
+setDcmDspSecurityCompareKeyFnc(createDcmDspSecurityCompareKeyFnc(this))->
+
+setDcmDspSecurityGetSeedFnc(createDcmDspSecurityGetSeedFnc(this))->
+
+setDcmDspSecurityLevel(createDcmDspSecurityLevel(a))->
+
+setDcmDspSecurityUsePort(createDcmDspSecurityUsePort(this))->
+
+setDcmDspSecurityDelayTime(createDcmDspSecurityDelayTime(this,DcmDspSecurityDelayTime_VALUE()))->
+
+setDcmDspSecurityDelayTimeOnBoot(createDcmDspSecurityDelayTimeOnBoot(this,DcmDspSecurityDelayTimeOnBoot_VALUE()))->
+
+setDcmDspSecurityNumAttDelay(createDcmDspSecurityNumAttDelay(this,DcmDspSecurityNumAttDelay_VALUE()))->
+
+setDcmDspSecurityNumAttLock(createDcmDspSecurityNumAttLockDefault(this))->
+
+createDcmDspSecuritySessionRef(list,dcm,this)->
+
+
+/*************************************************************
+
+if SecurityKeylist has a param then set  DcmDspSecurityKeySize
+**************************************************************/
+if(securityKeyList.size>0)then
+(
+setDcmDspSecurityKeySize(createDcmDspSecurityKeySize(this,getDOP((securityKeyList.get(0)).dOPREF.iDREF)))->
+
+setDcmDspSecuritySeedSize(createDcmDspSecuritySeedSize_Equal2KeySize(this,getDOP((securityKeyList.get(0)).dOPREF.iDREF)))
+
+)->
+
+/*NHAN_ADD_START
+if(securityKeyList.size == 0)then
+(
+setDcmDspSecurityKeySize(createDcmDspSecurityKeySizeDefault(this))
+
+)->
+NHAN_ADD_END*/
+/*************************************************************
+
+if positiveResponseIdList has a param then set  DcmDspSecuritySeedSize
+**************************************************************/
+
+if(positiveResponseIdList.size>0)then
+(
+/*******************************************************************************
+If there is a positive response for that request then set DcmDspSecuritySeedSize
+********************************************************************************/
+if((listOfPositiveResponse.select(e|e.iD==positiveResponseIdList.get(0))).pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()&& e.sHORTNAME=="SecuritySeed"&&VALUE.isInstance(e)).size>0) then
+(
+
+/*******************************************************************************************
+DIAGCODEDTYPE is sent by fetching it from listOfDataProp where Positive ResponseId is matched
+*********************************************************************************************/
+let string = listOfPositiveResponse.select(e|e.iD==positiveResponseIdList.get(0)).pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()&& e.sHORTNAME=="SecuritySeed"&&VALUE.isInstance(e)).get(0).dOPREF.iDREF:
+setDcmDspSecuritySeedSize(createDcmDspSecuritySeedSize(this,getDOP(string).dIAGCODEDTYPE))
+)
+)->
+
+/*NHAN_ADD_START
+if((listOfPositiveResponse.select(e|e.iD==positiveResponseIdList.get(0))).pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()&& e.sHORTNAME=="SecuritySeed"&&VALUE.isInstance(e)).size==0)then
+(
+
+setDcmDspSecuritySeedSize(createDcmDspSecuritySeedSizeDefault(this))
+
+)->
+NHAN_ADD_END*/
+
+dcmdspSecurity.DcmDspSecurityRows.add(this)->
+dcmDspSecurityRowList.add(dcmdspSecurity.DcmDspSecurityRows)
+
+)->
+if(dcmDspSecurityRowList.size>0)then
+     (
+      storeGlobalVar(SecurityRowList_SHORTNAME(),dcmDspSecurityRowList)
+      )
+;
+
+createDcmDspSecuritySessionRef(REQUEST request,Dcm dcm, DcmDspSecurityRow dcmDspSecurityRow):
+//setValue(dcm.DcmConfigSet.DcmDsd.DcmDsdServiceTables.DcmDsdServices.)
+let service=getDiagSecurityList().selectFirst(e|request.iD==e.rEQUESTREF.iDREF):
+let stateModelSDG= service.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME==CONST_STATE_MODEL()):
+let sessionSDG=stateModelSDG.sDG.selectFirst(e|e.sD.selectFirst(p|p.value==CONST_SESSION())!=null):
+if(sessionSDG!=null) then
+(
+sessionSDG.sDG.forAll(sdg|createSessionRef(sdg,dcm,dcmDspSecurityRow)->true)
+)->
+""
+;
+
+create DcmDspSecuritySessionRef this createSessionRef(SDG sdg,Dcm dcm, DcmDspSecurityRow dcmDspSecurityRow):
+if(programmingCheck(sdg)==true) then
+(
+let dcmDspSecuritySessionRef=DcmDspSecuritySessionRef.newInstance():
+dcmDspSecuritySessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_PROGRAMMING_SESSION()))->
+dcmDspSecurityRow.DcmDspSecuritySessionRefs.add(dcmDspSecuritySessionRef)
+)->
+if(extendedDiagnosticCheck(sdg)==true) then
+(
+let dcmDspSecuritySessionRef=DcmDspSecuritySessionRef.newInstance():
+dcmDspSecuritySessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_EXTENDED_DIAGNOSTIC_SESSION()))->
+dcmDspSecurityRow.DcmDspSecuritySessionRefs.add(dcmDspSecuritySessionRef)
+)->
+if(defaultCheck(sdg)==true) then
+(
+let dcmDspSecuritySessionRef=DcmDspSecuritySessionRef.newInstance():
+dcmDspSecuritySessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_DEFAULT_SESSION()))->
+dcmDspSecurityRow.DcmDspSecuritySessionRefs.add(dcmDspSecuritySessionRef)
+)->
+if(serviceDiagnosticCheck(sdg)) then
+(
+let dcmDspSecuritySessionRef=DcmDspSecuritySessionRef.newInstance():
+dcmDspSecuritySessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_SERVICE_DIAG_SESSION()))->
+dcmDspSecurityRow.DcmDspSecuritySessionRefs.add(dcmDspSecuritySessionRef)
+)->
+if(eCUProgrammingCaptureCheck(sdg)) then
+(
+let dcmDspSecuritySessionRef=DcmDspSecuritySessionRef.newInstance():
+dcmDspSecuritySessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_ECU_PROGRAMMING_CAPTURE()))->
+dcmDspSecurityRow.DcmDspSecuritySessionRefs.add(dcmDspSecuritySessionRef)
+)->
+if(eCUProgrammingCheck(sdg)) then
+(
+let dcmDspSecuritySessionRef=DcmDspSecuritySessionRef.newInstance():
+dcmDspSecuritySessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_ECU_PROGRAMMING()))->
+dcmDspSecurityRow.DcmDspSecuritySessionRefs.add(dcmDspSecuritySessionRef)
+)
+;
+
+create DcmDspSecurityCompareKeyFnc this createDcmDspSecurityCompareKeyFnc(DcmDspSecurityRow dcmDspSecurityRow):
+setValue(CONST_DcmDspSecurityCompareKeyFnc() + "_" + counterGet(getGlobalVar("ComapreKeyCounter")))->
+counterInc(getGlobalVar("ComapreKeyCounter"))->
+dcmDspSecurityRow.setDcmDspSecurityCompareKeyFnc(this)
+
+;
+
+create DcmDspSecurityGetSeedFnc this createDcmDspSecurityGetSeedFnc(DcmDspSecurityRow dcmDspSecurityRow):
+setValue(CONST_DcmDspSecurityGetSeedFnc() + "_" + counterGet(getGlobalVar("GetSeedCounter")))->
+counterInc(getGlobalVar("GetSeedCounter"))->
+dcmDspSecurityRow.setDcmDspSecurityGetSeedFnc(this)
+;
+
+create DcmDspSecurityDelayTime this createDcmDspSecurityDelayTime(DcmDspSecurityRow dcmdspSecurityRow,Real value):
+setValue(value)->
+dcmdspSecurityRow.setDcmDspSecurityDelayTime(this)
+;
+
+
+create DcmDspSecurityDelayTimeOnBoot this createDcmDspSecurityDelayTimeOnBoot(DcmDspSecurityRow dcmdspSecurityRow,Real value):
+setValue(value)->
+dcmdspSecurityRow.setDcmDspSecurityDelayTimeOnBoot(this)
+;
+
+create DcmDspSecurityNumAttDelay this createDcmDspSecurityNumAttDelay(DcmDspSecurityRow dcmdspSecurityRow,Integer value):
+setValue(value)->
+dcmdspSecurityRow.setDcmDspSecurityNumAttDelay(this)
+;
+
+
+/*********************************************************************************
+                            CREATION OF DcmDspSecurityKeySize
+**********************************************************************************/
+create DcmDspSecurityKeySize this createDcmDspSecurityKeySize(DcmDspSecurityRow dcmdspSecurityRow,DATAOBJECTPROP dop):
+let codedtype = dop.dIAGCODEDTYPE:
+let stdType= (LEADINGLENGTHINFOTYPE) codedtype:
+setValue(setvalue(codedtype)/8)->
+dcmdspSecurityRow.setDcmDspSecurityKeySize(this)
+ ;
+
+//NHAN_ADD_START
+create DcmDspSecuritySeedSize this createDcmDspSecuritySeedSize_Equal2KeySize(DcmDspSecurityRow dcmdspSecurityRow,DATAOBJECTPROP dop):
+let codedtype = dop.dIAGCODEDTYPE:
+let stdType= (LEADINGLENGTHINFOTYPE) codedtype:
+setValue(setvalue(codedtype)/8)->
+dcmdspSecurityRow.setDcmDspSecuritySeedSize(this)
+;
+
+//NHAN_ADD_END
+
+/*********************************************************************************
+                            CREATION OF DcmDspSecuritySeedSize
+**********************************************************************************/
+
+create DcmDspSecuritySeedSize this createDcmDspSecuritySeedSize(DcmDspSecurityRow dcmdspSecurityRow,DIAGCODEDTYPE dop):
+let stdType=(LEADINGLENGTHINFOTYPE)dop:
+setValue(setvalue(dop)/8)->
+dcmdspSecurityRow.setDcmDspSecuritySeedSize(this)
+ ;
+
+
+ /*******************************************************************************************************
+  Method setvalue  calls Java method getBitLength() which returns bit length for the given DIAGCODEDTYPE
+ *********************************************************************************************************/
+ setvalue(DIAGCODEDTYPE dop):
+ JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getBitLength(OdxXhtml.DIAGCODEDTYPE);
+
+/*********************************************************************************
+                            CREATION OF DcmDspSecurityLevel
+**********************************************************************************/
+
+
+create DcmDspSecurityLevel this createDcmDspSecurityLevel(Integer value):
+setValue(value)
+;
+
+
+
+/*********************************************************************************
+                            CREATION OF DcmDspSecurityUsePort
+**********************************************************************************/
+
+create DcmDspSecurityUsePort this createDcmDspSecurityUsePort(DcmDspSecurityRow dcmdspSecurityRow):
+setValue(CONST_DcmDspSecurityUsePort())->
+dcmdspSecurityRow.setDcmDspSecurityUsePort(this)
+;
+
+//NHAN_ADD_START
+create DcmDspSecurityKeySize this createDcmDspSecurityKeySizeDefault(DcmDspSecurityRow dcmdspSecurityRow):
+setValue(DcmDspSecurityKeySizeDefault_VALUE())
+;
+
+create DcmDspSecuritySeedSize this createDcmDspSecuritySeedSizeDefault(DcmDspSecurityRow dcmdspSecurityRow):
+setValue(DcmDspSecuritySeedSizeDefault_VALUE())
+;
+
+create DcmDspSecurityNumAttLock this createDcmDspSecurityNumAttLockDefault(DcmDspSecurityRow dcmdspSecurityRow):
+setValue(DcmDspSecurityNumAttLockDefault_VALUE())
+;
+
+//NHAN_ADD_END

@@ -1,0 +1,319 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+import OdxXhtml;
+import AUTOSAR_Dem::EcucModuleDefs;
+import AUTOSAR_Dem::EcucModuleDefs::Dem;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemIndicator;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemDataElementClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemDataElementClass::DemExternalCSDataElementClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemGeneralJ1939;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemGeneralJ1939::DemJ1939FreezeFrameClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemGeneralJ1939::DemSPNClass;
+
+extension org::eclipse::xtend::util::stdlib::io;
+extension GenerateBsw_Odx_V201;
+extension OdxUtils;
+extension OdxConstants; extension OdxShortNames;
+createDMContainer(Dem dem,List serviceList,List requestList):
+serviceList.forAll(e|mapDMService(dem,e,requestList))
+;
+
+mapDMService(Dem dem,DIAGSERVICE service,List requestList):
+let request=requestList.selectFirst(e|e.iD==service.rEQUESTREF.iDREF):
+let ecuSharedData= getOdxRoot().dIAGLAYERCONTAINER.eCUSHAREDDATAS.eCUSHAREDDATA:
+let posResponseList=updateList(ecuSharedData):
+let posResponse=posResponseList.selectFirst(e|e.iD==service.pOSRESPONSEREFS.pOSRESPONSEREF.get(0).iDREF):
+let requestParam=request.pARAMS.pARAM.selectFirst(e|e.sEMANTIC=="VALUE" && e.sHORTNAME=="PGN"):
+
+if(!(dem.DemGeneral.DemIndicators.select(e|e.shortName==RDTC_Protect_Lamp_CONST()).size>0) &&
+posResponse.pARAMS.pARAM.select(e|VALUE.isInstance(e) && e.sHORTNAME=="ProtectLamp").size>0) then
+(
+dem.DemGeneral.DemGeneralJ1939.setDemProtectLampIndicatorRef(createDemProtectLampIndicatorRef(dem,posResponse))
+)->
+
+if(!(dem.DemGeneral.DemIndicators.select(e|e.shortName==RDTC_Amber_Warning_Lamp_CONST()).size>0) &&
+posResponse.pARAMS.pARAM.select(e|VALUE.isInstance(e) && e.sHORTNAME=="AmberLamp").size>0) then
+(
+dem.DemGeneral.DemGeneralJ1939.setDemAmberWarningLampIndicatorRef(createDemAmberWarningLampIndicatorRef(dem,posResponse))
+)->
+
+if(!(dem.DemGeneral.DemIndicators.select(e|e.shortName==RDTC_Red_Stop_Lamp_CONST()).size>0) &&
+posResponse.pARAMS.pARAM.select(e|VALUE.isInstance(e) && e.sHORTNAME=="RedLamp").size>0) then
+(
+dem.DemGeneral.DemGeneralJ1939.setDemRedStopLampIndicatorRef(createDemRedStopLampIndicatorRef(dem,posResponse))
+)->
+
+if(!(dem.DemGeneral.DemIndicators.select(e|e.shortName==RDTC_MalFunction_Ind_Lamp_CONST()).size>0) &&
+posResponse.pARAMS.pARAM.select(e|VALUE.isInstance(e) && e.sHORTNAME=="MIL").size>0) then
+(
+dem.DemGeneral.setDemMILIndicatorRef(createDemMILIndicatorRef(dem,posResponse))
+)
+;
+
+updateList(List ecuSharedData):
+let posResponseList=getPosResponse(getecuVariant(),getbaseVariant(),getOdxRoot().dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.selectFirst(e|e.iD==getbaseVariant().pARENTREFS.pARENTREF.selectFirst(p|PROTOCOLREF.isInstance(p)).iDREF)):
+if(ecuSharedData!=null) then (
+ecuSharedData.forAll(sharedData|posResponseList.addAll(sharedData.pOSRESPONSES.pOSRESPONSE))
+)->
+posResponseList
+;
+
+/*
+List getPosResponse(ECUVARIANT ecuVariant, BASEVARIANT baseVariant, PROTOCOL protocol):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getPosResponse(OdxXhtml.ECUVARIANT,OdxXhtml.BASEVARIANT,OdxXhtml.PROTOCOL);
+*/
+
+create DemIndicatorID this createDemIndicatorID(DemIndicator demIndicator,Integer id):
+setValue(id)->
+demIndicator.setDemIndicatorID(this)
+;
+
+create DemProtectLampIndicatorRef this createDemProtectLampIndicatorRef(Dem dem,POSRESPONSE posResponse):
+let param= posResponse.pARAMS.pARAM.selectFirst(e|e.sEMANTIC=="VALUE" && e.sHORTNAME=="Protect Lamp"):
+let protectLampIndicator= DemIndicator.newInstance():
+protectLampIndicator.setShortName(RDTC_Protect_Lamp_CONST())->
+protectLampIndicator.setDemIndicatorID(createDemIndicatorID(protectLampIndicator,3))->
+dem.DemGeneral.DemIndicators.add(protectLampIndicator)->
+setValue(protectLampIndicator)->
+dem.DemGeneral.DemGeneralJ1939.setDemProtectLampIndicatorRef(this)
+
+;
+
+create DemAmberWarningLampIndicatorRef this createDemAmberWarningLampIndicatorRef(Dem dem,POSRESPONSE posResponse):
+let param= posResponse.pARAMS.pARAM.selectFirst(e|e.sEMANTIC=="VALUE" && e.sHORTNAME=="AmberLamp"):
+let amberLampIndicator=DemIndicator.newInstance():
+amberLampIndicator.setShortName(RDTC_Amber_Warning_Lamp_CONST())->
+amberLampIndicator.setDemIndicatorID(createDemIndicatorID(amberLampIndicator,2))->
+dem.DemGeneral.DemIndicators.add(amberLampIndicator)->
+setValue(amberLampIndicator)->
+dem.DemGeneral.DemGeneralJ1939.setDemAmberWarningLampIndicatorRef(this)
+
+;
+
+create DemRedStopLampIndicatorRef this createDemRedStopLampIndicatorRef(Dem dem,POSRESPONSE posResponse):
+let param= posResponse.pARAMS.pARAM.selectFirst(e|e.sEMANTIC=="VALUE" && e.sHORTNAME=="RedLamp"):
+let redStopLampIndicator=DemIndicator.newInstance():
+redStopLampIndicator.setShortName(RDTC_Red_Stop_Lamp_CONST())->
+redStopLampIndicator.setDemIndicatorID(createDemIndicatorID(redStopLampIndicator,1))->
+dem.DemGeneral.DemIndicators.add(redStopLampIndicator)->
+setValue(redStopLampIndicator)->
+dem.DemGeneral.DemGeneralJ1939.setDemRedStopLampIndicatorRef(this)
+;
+
+create DemMILIndicatorRef this createDemMILIndicatorRef(Dem dem, POSRESPONSE posResponse):
+let param= posResponse.pARAMS.pARAM.selectFirst(e|e.sEMANTIC=="VALUE" && e.sHORTNAME=="RedLamp"):
+let milIndicator=DemIndicator.newInstance():
+milIndicator.setShortName(RDTC_MalFunction_Ind_Lamp_CONST())->
+milIndicator.setDemIndicatorID(createDemIndicatorID(milIndicator,0))->
+dem.DemGeneral.DemIndicators.add(milIndicator)->
+setValue(milIndicator)->
+dem.DemGeneral.setDemMILIndicatorRef(this)
+;
+
+updateDM4Service(Dem dem):
+let demJ1939FreezeFrameClass = DemJ1939FreezeFrameClass.newInstance():
+demJ1939FreezeFrameClass.setShortName(DemJ1939FreezeFrameClass_SHORTNAME())->
+dem.DemGeneral.DemGeneralJ1939.DemSPNClass.createSPNReference(demJ1939FreezeFrameClass)
+;
+
+updateDM4Service(DIAGSERVICE service,Dem dem):
+let protocol= getOdxRoot().dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.select(e|e.iD==getbaseVariant().pARENTREFS.pARENTREF.selectFirst(p|PROTOCOLREF.isInstance(p)).iDREF):
+let posResponseList= getPosResponseList(getecuVariant(),getbaseVariant(),protocol.get(0)):
+let endOfPDUlist=getEndofPduList(getecuVariant(),getbaseVariant(),protocol.get(0)):
+let structureList = getStructureList(protocol.get(0)):
+let posResponse=posResponseList.selectFirst(e|e.iD==service.pOSRESPONSEREFS.pOSRESPONSEREF.get(0).iDREF):
+posResponse.pARAMS.pARAM.forAll(param| if(VALUE.isInstance(param)) then
+(
+createDemSPNClass(param,dem,endOfPDUlist,structureList)
+)->true)
+;
+
+create DemJ1939FreezeFrameClass this createDemJ1939FreezeFrameClass(Dem dem, STRUCTURE structure):
+setShortName(structure.sHORTNAME)->
+dem.DemGeneral.DemGeneralJ1939.DemJ1939FreezeFrameClass.add(this)
+;
+
+createDemSPNClass(VALUE param,Dem dem,List endOfPDUlist,List structureList):
+let endOfPDU=endOfPDUlist.selectFirst(e|e.iD==param.dOPREF.iDREF):
+let structure=structureList.selectFirst(e|e.iD==endOfPDU.bASICSTRUCTUREREF.iDREF):
+//let paramList=structure.pARAMS.pARAM.select(e|VALUE.isInstance(e) && (e.sHORTNAME.contains("Standard") ||  e.sHORTNAME.contains("VehicleManufacturer") || e.sHORTNAME.contains("ESA-8736_DM4_MSI_CNHi_struct") || e.sHORTNAME.contains("ESA-8736_DM4_Full_struct"))):
+let param = structure.pARAMS.pARAM.selectFirst(e|e.sHORTNAME.contains("ESA_8736_DM4_Full_struct")):
+//paramList.forAll(param|
+let full_struct=structureList.selectFirst(e|e.iD==param.dOPREF.iDREF):
+let demFreezeFrameClass_FullStruct= createDemJ1939FreezeFrameClass(dem,full_struct):
+demFreezeFrameClass_FullStruct.setShortName(param.sHORTNAME)->
+full_struct.pARAMS.pARAM.createDemSPNClass(structureList,dem,demFreezeFrameClass_FullStruct)
+;
+
+
+
+createDemSPNClass(VALUE param, List structureList,Dem dem,DemJ1939FreezeFrameClass demFreezeFrameClass_FullStruct):
+let structure=structureList.selectFirst(e|e.iD==param.dOPREF.iDREF):
+let demJ1939FreezeFrameClass=createDemJ1939FreezeFrameClass(dem,structure):
+structure.pARAMS.pARAM.forAll(param|createDemSPNClass(param,dem,demJ1939FreezeFrameClass,demFreezeFrameClass_FullStruct)->true)
+;
+
+create DemSPNClass this createDemSPNClass(PARAM param,Dem dem,DemJ1939FreezeFrameClass demJ1939FreezeFrameClass,DemJ1939FreezeFrameClass demFreezeFrameClass_FullStruct):
+// fix me: SPN ID to be set after ETAS update
+setDemSPNId(createDemSPNId(this,1))->
+dem.DemGeneral.DemGeneralJ1939.DemSPNClass.add(this)->
+demJ1939FreezeFrameClass.DemSPNClassRefs.add(createDemSPNClassRef(this,demJ1939FreezeFrameClass))->
+demFreezeFrameClass_FullStruct.DemSPNClassRefs.add(createDemSPNClassRef(this,demFreezeFrameClass_FullStruct))->
+updateDemSPNDataElementClassRef(param,this,dem)->
+if(param.sHORTNAME.startsWith("SPN")) then
+(
+let subString= param.sHORTNAME.subString(4,param.sHORTNAME.length):
+let index=subString.toCharList().indexOf("_"):
+setShortName(validateShortName(subString.subString(index+1,subString.length)))->
+setDemSPNId(createDemSPNId(this,subString.subString(0,index).asInteger()))
+)
+else
+(
+setShortName(validateShortName(param.sHORTNAME))
+)
+;
+
+create DemSPNClassRef this createDemSPNClassRef(DemSPNClass demSPNClass,DemJ1939FreezeFrameClass demJ1939FreezeFrameClass):
+setValue(demSPNClass)->
+demJ1939FreezeFrameClass.DemSPNClassRefs.add(this)
+;
+create DemSPNId this createDemSPNId(DemSPNClass demSPNClass,Integer value):
+setValue(value)->
+demSPNClass.setDemSPNId(this)
+;
+
+updateDemSPNDataElementClassRef(VALUE param,DemSPNClass demSPNClass,Dem dem):
+let dopList= getDOPList():
+let dop=dopList.selectFirst(dop|dop.sHORTNAME== param.dOPSNREF.sHORTNAME):
+if(dop!=null) then
+(
+dem.DemGeneral.DemDataElementClass.add(createDemDataElementClass(dop,demSPNClass))
+)
+else
+(
+let dop=dopList.selectFirst(dop|dop.iD== param.dOPREF.iDREF):
+if(dop!=null) then
+(
+dem.DemGeneral.DemDataElementClass.add(createDemDataElementClass(dop,demSPNClass))
+)
+)
+;
+
+create DemDataElementClass this createDemDataElementClass(DATAOBJECTPROP dop,DemSPNClass demSPNClass):
+setShortName(validateShortName(DemDataElementClass_SHORTNAME_PREFIX()+dop.sHORTNAME))->
+setDemExternalCSDataElementClass(createDemExternalCSDataElementClass(dop,demSPNClass,this))
+;
+
+create DemExternalCSDataElementClass this createDemExternalCSDataElementClass(DATAOBJECTPROP dop,DemSPNClass demSPNClass,DemDataElementClass demDataElementClass):
+setShortName(validateShortName(dop.sHORTNAME))->
+setDemDataElementDataSize(createDemDataElementDataSize(dop,this))->
+setDemDataElementUsePort(createDemDataElementUsePort(DemDataElementUsePort_VALUE(),this))->
+setDemDataElementReadFnc(createDemDataElementReadFnc(DemDataElementReadFnc_SHORTNAME_PREFIX()+dop.sHORTNAME,this))->
+demDataElementClass.setDemExternalCSDataElementClass(this)->
+demSPNClass.setDemSPNDataElementClassRef(createDemSPNDataElementClassRef(this,demSPNClass))
+;
+
+
+create DemDataElementDataSize this createDemDataElementDataSize(DATAOBJECTPROP dop,DemExternalCSDataElementClass demExternalCSDataElementClass):
+let codedtype = dop.dIAGCODEDTYPE:
+let stdType= (LEADINGLENGTHINFOTYPE) codedtype:
+(
+	if((getBitLength(codedtype)/8)==0)then
+	(
+		setValue(1)
+	)
+	else
+	(
+		setValue((getBitLength(codedtype)/8))
+	)
+)->
+demExternalCSDataElementClass.setDemDataElementDataSize(this)
+;
+
+getBitLength(DIAGCODEDTYPE codedType):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getBitLength(OdxXhtml.DIAGCODEDTYPE)
+;
+
+create DemDataElementUsePort this createDemDataElementUsePort(Boolean value,DemExternalCSDataElementClass demExternalCSDataElementClass):
+setValue(value)->
+demExternalCSDataElementClass.setDemDataElementUsePort(this)
+;
+
+create DemDataElementReadFnc this createDemDataElementReadFnc(String value,DemExternalCSDataElementClass demExternalCSDataElementClass):
+setValue(value)->
+demExternalCSDataElementClass.setDemDataElementReadFnc(this)
+;
+
+create DemSPNDataElementClassRef this createDemSPNDataElementClassRef(DemExternalCSDataElementClass demExternalCSDataElementClass,DemSPNClass demSPNClass):
+setValue(demExternalCSDataElementClass)->
+demSPNClass.setDemSPNDataElementClassRef(this)
+;
+
+getDOPList():
+let protocol= getOdxRoot().dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.select(e|e.iD==getbaseVariant().pARENTREFS.pARENTREF.selectFirst(p|PROTOCOLREF.isInstance(p)).iDREF):
+let dopList=getDOPList(getecuVariant(),getbaseVariant(),protocol.get(0)):
+getOdxRoot().dIAGLAYERCONTAINER.eCUSHAREDDATAS.eCUSHAREDDATA.forAll(e|dopList.addAll(e.dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS.dATAOBJECTPROP)->true)->
+dopList
+;
+
+
+getDOPList(ECUVARIANT ecuVariant, BASEVARIANT baseVariant,PROTOCOL protocol):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getDOP(OdxXhtml.ECUVARIANT,OdxXhtml.BASEVARIANT,OdxXhtml.PROTOCOL)
+;
+
+getStructureList(PROTOCOL protocol):
+let structureList = getStructureList(getecuVariant(),getbaseVariant(),protocol):
+getOdxRoot().dIAGLAYERCONTAINER.eCUSHAREDDATAS.eCUSHAREDDATA.forAll(e|structureList.addAll(e.dIAGDATADICTIONARYSPEC.sTRUCTURES.sTRUCTURE)->true)->
+structureList
+;
+
+getEndofPduList(ECUVARIANT ecuVaraint, BASEVARIANT bv, PROTOCOL protocol):
+let endOfPduList = getPduList(ecuVaraint,bv,protocol):
+// add null check
+getOdxRoot().dIAGLAYERCONTAINER.eCUSHAREDDATAS.eCUSHAREDDATA.forAll(e|endOfPduList.addAll(e.dIAGDATADICTIONARYSPEC.eNDOFPDUFIELDS.eNDOFPDUFIELD)->true)->
+endOfPduList
+;
+
+getPduList(ECUVARIANT ecuVaraint, BASEVARIANT bv, PROTOCOL protocol):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getEndofPduList(OdxXhtml.ECUVARIANT,OdxXhtml.BASEVARIANT,OdxXhtml.PROTOCOL)
+;
+
+getStructureList(ECUVARIANT ecuVaraint, BASEVARIANT bv, PROTOCOL protocol):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getStructureList(OdxXhtml.ECUVARIANT,OdxXhtml.BASEVARIANT,OdxXhtml.PROTOCOL)
+;
+
+List getPosResponseList(ECUVARIANT ecuVariant, BASEVARIANT baseVariant, PROTOCOL protocol):
+let posResponseList={}:
+posResponseList.addAll(getPosResponse(ecuVariant,baseVariant,protocol))->
+getOdxRoot().dIAGLAYERCONTAINER.eCUSHAREDDATAS.eCUSHAREDDATA.forAll(e|posResponseList.addAll(e.pOSRESPONSES.pOSRESPONSE)->true)->
+posResponseList
+;
+
+/*
+List getPosResponse(ECUVARIANT ecuVariant, BASEVARIANT baseVariant, PROTOCOL protocol):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getPosResponse(OdxXhtml.ECUVARIANT,OdxXhtml.BASEVARIANT,OdxXhtml.PROTOCOL);
+*/
+
+createSPNReference(DemSPNClass demSPNClass,DemJ1939FreezeFrameClass demJ1939FreezeFrameClass):
+let demSPNClassRef=createDemSPNClassRef(demSPNClass):
+DemJ1939FreezeFrameClass.DemSPNClassRefs.add(demSPNClassRef)
+;
+
+create DemSPNClassRef this createDemSPNClassRef(DemSPNClass demSPNClass):
+setValue(demSPNClass)
+;

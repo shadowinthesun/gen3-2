@@ -1,0 +1,38 @@
+
+/*
+	The Extension DemUtil.ext is used to act as utility. This fetches the data which is configured
+	from AUTOSAR DEM service dependencies and creating and updating the Dem Module.
+
+	History:-
+
+	Created On		: 29-01-2014
+	Created By		: Karthikeyan K
+	Modified On		:
+
+*/
+
+
+/* Importing of AUTOSAR software packages. */
+
+import system::swmapping;
+import components;
+import components::instancerefs;
+import internalbehavior;
+import swcinternalbehavior;
+import swcinternalbehavior::servicemapping;
+import servicemapping;
+import serviceneeds;
+
+
+extension OdxConstants; extension OdxShortNames;
+
+
+extension templates::EcuExtractor;
+
+ /*	The Inclusion of built-in OAW specific Extensions. used to find the "getReferencingObjects()" for Containers */
+extension org::eclipse::xtend::util::stdlib::crossref;
+
+ /*	The Inclusion of built-in OAW specific Extensions. used for IO functionalities */
+extension org::eclipse::xtend::util::stdlib::io;
+
+

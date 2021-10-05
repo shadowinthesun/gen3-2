@@ -1,0 +1,23 @@
+import OdxXhtml;
+import AUTOSAR_Dem::EcucModuleDefs;
+import AUTOSAR_Dem::EcucModuleDefs::Dem;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet::DemEventParameter;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet::DemEventParameter::DemEventClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet::DemEventParameter::DemEventClassRB;
+
+create DemEventClassRB this createDemEventClassRB(DemEventParameter demEventParameter):
+setDemEventBufferTime(createDemEventBufferTime(this))->
+setDemEventCurable(createDemEventCurable(this))->
+demEventParameter.setDemEventClassRB(this)
+;
+
+create DemEventBufferTime this createDemEventBufferTime(DemEventClassRB demEventClassRB):
+// validation fix
+setValue(0)->
+demEventClassRB.setDemEventBufferTime(this)
+;
+
+create DemEventCurable this createDemEventCurable(DemEventClassRB demEventClassRB):
+setValue(true)
+;

@@ -1,0 +1,1230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Auto generated XML Component Description for model SOHR_Code
+Model version                : 1.295
+Simulink Coder version       : Simulink Coder 9.1 (R2019a) 23-Nov-2018
+XML source code generated on : Wed Sep 23 11:13:27 2020
+Model Checksum               : 2315110857 3471568094 1506870779 1031191965
+-->
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>CalibrationComponents</SHORT-NAME>
+      <ELEMENTS>
+        <PARAMETER-SW-COMPONENT-TYPE UUID="10590b39-8167-5c25-9bff-62986cb6ca5d">
+          <SHORT-NAME>SOHR</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE UUID="278bb21a-280e-56d2-79e1-c790c0932a0b">
+              <SHORT-NAME>SOHR_Pport</SHORT-NAME>
+              <PROVIDED-COM-SPECS>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_Ah_AvailableCapacityInst_MaxVal</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>57.900001525878906</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_AvailableCapacityInst_MaxVal</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_Ah_AvailableCapacityInst_minVal</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_AvailableCapacityInst_minVal</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_Ah_AvailableCapacity_MaxVal</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>57.900001525878906</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_AvailableCapacity_MaxVal</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_Ah_AvailableCapacity_minVal</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>36.159999847412109</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_AvailableCapacity_minVal</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_Ah_InitialAccumCharge</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_InitialAccumCharge</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_Ah_OvrdValue_AccumCharge</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_OvrdValue_AccumCharge</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_Ah_OvrdValue_AvailableCapacity</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>57.900001525878906</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_OvrdValue_AvailableCapacity</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_Ah_OvrdValue_AvailableCapacityInst</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>57.900001525878906</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_OvrdValue_AvailableCapacityInst</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_Ah_UpdateIncrement</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>5500</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_UpdateIncrement</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_Pct_BatteryPackSOH_MaxVal</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>100</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Pct_BatteryPackSOH_MaxVal</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_Pct_BatteryPackSOH_minVal</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>80</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Pct_BatteryPackSOH_minVal</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_Pct_LowSOH_flt_Set</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>80</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Pct_LowSOH_flt_Set</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_Pct_OvrdValue_BatteryPackSOH</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>100</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Pct_OvrdValue_BatteryPackSOH</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_t_LowSOH_flt_Set</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>1</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_t_LowSOH_flt_Set</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_b_LowSOH_flt_En</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_b_LowSOH_flt_En</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_b_OvrdCond_AccumCharge</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_b_OvrdCond_AccumCharge</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_b_OvrdCond_AvailableCapacity</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_b_OvrdCond_AvailableCapacity</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_b_OvrdCond_AvailableCapacityInst</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_b_OvrdCond_AvailableCapacityInst</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_b_OvrdCond_BatteryPackSOH</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_b_OvrdCond_BatteryPackSOH</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_b_SOHRank_En</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_b_SOHRank_En</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_k_LowSOH_flt_Val</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_k_LowSOH_flt_Val</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOHR_Pport_KeSOHR_k_SOHRank_Val</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_k_SOHRank_Val</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="PARAMETER-INTERFACE">/CalibrationComponents/SOHR_if</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+          </PORTS>
+          <DATA-TYPE-MAPPING-REFS>
+            <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/SOHR_Code_pkg/SOHR_Code_dt/DataTypeMappings/SOHR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+          </DATA-TYPE-MAPPING-REFS>
+        </PARAMETER-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
+      <SHORT-NAME>SOHR_Code_pkg</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>SOHR_Code_swc</SHORT-NAME>
+          <ELEMENTS>
+            <APPLICATION-SW-COMPONENT-TYPE UUID="06c3bd45-c74d-5981-f8b5-d5be55b13bf2">
+              <SHORT-NAME>SOHR_Code</SHORT-NAME>
+              <PORTS>
+                <R-PORT-PROTOTYPE UUID="74fe17cd-0688-515d-638a-ab96499e56ae">
+                  <SHORT-NAME>VeVSDR_q_AccuChgCoulombs</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeVSDR_q_AccuChgCoulombs/VeVSDR_q_AccuChgCoulombs</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOHR_Code_pkg/SOHR_Code_if/VeVSDR_q_AccuChgCoulombs</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="10a0b75b-110b-5461-1d2d-c73c5cdddc77">
+                  <SHORT-NAME>VeCSCR_T_AvgCellTempMod</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeCSCR_T_AvgCellTempMod/VeCSCR_T_AvgCellTempMod</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOHR_Code_pkg/SOHR_Code_if/VeCSCR_T_AvgCellTempMod</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="1b36c7dd-863a-5559-5626-b8fee8e65a0b">
+                  <SHORT-NAME>VeCSCR_T_MinCellTempMod</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeCSCR_T_MinCellTempMod/VeCSCR_T_MinCellTempMod</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOHR_Code_pkg/SOHR_Code_if/VeCSCR_T_MinCellTempMod</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="8438a385-c644-5eed-2a09-88d4e8f69f6f">
+                  <SHORT-NAME>VeSOCR_Pct_DisplayPackSOC</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeSOCR_Pct_DisplayPackSOC/VeSOCR_Pct_DisplayPackSOC</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOHR_Code_pkg/SOHR_Code_if/VeSOCR_Pct_DisplayPackSOC</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="cf295238-66db-5dc4-2e1d-f027f89561b8">
+                  <SHORT-NAME>VeLLSR_b_IntEEP_Invalid</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeLLSR_b_IntEEP_Invalid/VeLLSR_b_IntEEP_Invalid</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOHR_Code_pkg/SOHR_Code_if/VeLLSR_b_IntEEP_Invalid</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="62d77789-a92c-5ca0-63b1-3d45e88aa541">
+                  <SHORT-NAME>VeLLSR_b_ExtEEP_Invalid</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeLLSR_b_ExtEEP_Invalid/VeLLSR_b_ExtEEP_Invalid</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOHR_Code_pkg/SOHR_Code_if/VeLLSR_b_ExtEEP_Invalid</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="00ab44f6-b1ba-53cb-80c8-815e425fc1eb">
+                  <SHORT-NAME>VeLLSR_Ah_AccumChargeExt</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeLLSR_Ah_AccumChargeExt/VeLLSR_Ah_AccumChargeExt</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOHR_Code_pkg/SOHR_Code_if/VeLLSR_Ah_AccumChargeExt</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="09340c22-6013-5e3c-063d-309c8e143add">
+                  <SHORT-NAME>VeLLSR_b_ClearDTC</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeLLSR_b_ClearDTC/VeLLSR_b_ClearDTC</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOHR_Code_pkg/SOHR_Code_if/VeLLSR_b_ClearDTC</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="ee959947-e6bb-574c-797d-6e64f1535d0e">
+                  <SHORT-NAME>VeSOHR_Ah_AccumCharge</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_Ah_AccumCharge/VeSOHR_Ah_AccumCharge</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_Ah_AccumCharge</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="c5067d4a-d165-5a91-90bd-00c4dc6562c6">
+                  <SHORT-NAME>VeSOHR_Ah_AccumChargeRounded</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_Ah_AccumChargeRounded/VeSOHR_Ah_AccumChargeRounded</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_Ah_AccumChargeRounded</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="4eab8083-a2ca-5771-fee5-4a56679f9637">
+                  <SHORT-NAME>VeSOHR_Pct_BatteryPackSOH</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_Pct_BatteryPackSOH/VeSOHR_Pct_BatteryPackSOH</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_Pct_BatteryPackSOH</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="4900dc83-5498-5e63-1e2b-f50df2394bbc">
+                  <SHORT-NAME>VeSOHR_Ah_AvailableCapacity</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_Ah_AvailableCapacity/VeSOHR_Ah_AvailableCapacity</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_Ah_AvailableCapacity</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="c950f1c1-d1c6-52a9-54e0-e64e719acf7a">
+                  <SHORT-NAME>VeSOHR_Ah_AvailableCapacityInst</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_Ah_AvailableCapacityInst/VeSOHR_Ah_AvailableCapacityInst</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_Ah_AvailableCapacityInst</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="24727d90-bd64-5e7d-a93b-7412cb45019c">
+                  <SHORT-NAME>VeSOHR_k_LowSOH_flt</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_k_LowSOH_flt/VeSOHR_k_LowSOH_flt</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_k_LowSOH_flt</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="3dd29ff0-39f3-50fb-d00a-00330a14491f">
+                  <SHORT-NAME>VeSOHR_k_SOHRank</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_k_SOHRank/VeSOHR_k_SOHRank</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOHR_Code_pkg/SOHR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_k_SOHRank</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="7f438276-b0d5-5e2e-a19e-af074b034522">
+                  <SHORT-NAME>SOHR_Rport</SHORT-NAME>
+                  <REQUIRED-INTERFACE-TREF DEST="PARAMETER-INTERFACE">/CalibrationComponents/SOHR_if</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+              </PORTS>
+              <INTERNAL-BEHAVIORS>
+                <SWC-INTERNAL-BEHAVIOR UUID="2bdd869a-d0fd-5eb3-f994-cda43e66eecc">
+                  <SHORT-NAME>SOHR_Code</SHORT-NAME>
+                  <CONSTANT-VALUE-MAPPING-REFS>
+                    <CONSTANT-VALUE-MAPPING-REF DEST="CONSTANT-SPECIFICATION-MAPPING-SET">/SOHR_Code_datatype_AVS_pkg/SOHR_Code_datatype_AVS_MappingSet</CONSTANT-VALUE-MAPPING-REF>
+                  </CONSTANT-VALUE-MAPPING-REFS>
+                  <DATA-TYPE-MAPPING-REFS>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/SOHR_Code_pkg/SOHR_Code_dt/DataTypeMappings/SOHR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                  </DATA-TYPE-MAPPING-REFS>
+                  <EXCLUSIVE-AREAS>
+                    <EXCLUSIVE-AREA UUID="298c2c39-2ce8-593b-d962-7669faf51bb8">
+                      <SHORT-NAME>EA_NeSOHR_Ah_AccumCharge</SHORT-NAME>
+                    </EXCLUSIVE-AREA>
+                  </EXCLUSIVE-AREAS>
+                  <EVENTS>
+                    <TIMING-EVENT UUID="7d725862-3f56-530c-6ca9-12e977589b1b">
+                      <SHORT-NAME>Event_Run_SOHR_250ms</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Code/Run_SOHR_250ms</START-ON-EVENT-REF>
+                      <PERIOD>0.25</PERIOD>
+                    </TIMING-EVENT>
+                  </EVENTS>
+                  <HANDLE-TERMINATION-AND-RESTART>NO-SUPPORT</HANDLE-TERMINATION-AND-RESTART>
+                  <PER-INSTANCE-MEMORYS>
+                    <PER-INSTANCE-MEMORY UUID="84096687-bc43-5713-75a4-ad6fc33d3029">
+                      <SHORT-NAME>NeSOHR_Ah_AccumCharge</SHORT-NAME>
+                      <INIT-VALUE />
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/Float</IMPLEMENTATION-DATA-TYPE-REF>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE>NeSOHR_Ah_AccumCharge_Float</TYPE>
+                      <TYPE-DEFINITION>Float</TYPE-DEFINITION>
+                    </PER-INSTANCE-MEMORY>
+                  </PER-INSTANCE-MEMORYS>
+                  <RUNNABLES>
+                    <RUNNABLE-ENTITY UUID="06fc327a-3e93-5b23-78aa-0474ccdc9a7d">
+                      <SHORT-NAME>Runnable_Init</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SYMBOL>SOHR_Code_Init</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="b05e5998-9f17-550b-5d0b-a5926012d743">
+                      <SHORT-NAME>Run_SOHR_250ms</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <RUNS-INSIDE-EXCLUSIVE-AREA-REFS>
+                        <RUNS-INSIDE-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Code/EA_NeSOHR_Ah_AccumCharge</RUNS-INSIDE-EXCLUSIVE-AREA-REF>
+                      </RUNS-INSIDE-EXCLUSIVE-AREA-REFS>
+                      <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <DATA-READ-ACCESSS>
+                        <VARIABLE-ACCESS UUID="6f47f1f7-1dd1-59b6-2bb6-59ea1df72ab5">
+                          <SHORT-NAME>IN_VeCSCR_T_AvgCellTempMod_VeCSCR_T_AvgCellTempMod</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/VeCSCR_T_AvgCellTempMod</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeCSCR_T_AvgCellTempMod/VeCSCR_T_AvgCellTempMod</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="cb55719e-1e42-5dde-ffcc-2e3896c1d341">
+                          <SHORT-NAME>IN_VeCSCR_T_MinCellTempMod_VeCSCR_T_MinCellTempMod</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/VeCSCR_T_MinCellTempMod</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeCSCR_T_MinCellTempMod/VeCSCR_T_MinCellTempMod</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="278ebaa7-0530-5671-8767-6a7d7745d14b">
+                          <SHORT-NAME>IN_VeLLSR_Ah_AccumChargeExt_VeLLSR_Ah_AccumChargeExt</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/VeLLSR_Ah_AccumChargeExt</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeLLSR_Ah_AccumChargeExt/VeLLSR_Ah_AccumChargeExt</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="a20ea07e-6b49-5586-7b94-f14e45baa3e6">
+                          <SHORT-NAME>IN_VeLLSR_b_ClearDTC_VeLLSR_b_ClearDTC</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/VeLLSR_b_ClearDTC</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeLLSR_b_ClearDTC/VeLLSR_b_ClearDTC</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="4c81b343-d4d8-539f-468a-a960da712da8">
+                          <SHORT-NAME>IN_VeLLSR_b_ExtEEP_Invalid_VeLLSR_b_ExtEEP_Invalid</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/VeLLSR_b_ExtEEP_Invalid</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeLLSR_b_ExtEEP_Invalid/VeLLSR_b_ExtEEP_Invalid</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="50497a4f-eba5-5aac-6880-2808a9b87932">
+                          <SHORT-NAME>IN_VeLLSR_b_IntEEP_Invalid_VeLLSR_b_IntEEP_Invalid</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/VeLLSR_b_IntEEP_Invalid</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeLLSR_b_IntEEP_Invalid/VeLLSR_b_IntEEP_Invalid</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="7121bdd9-dd3e-5917-b8a9-40d174465d1e">
+                          <SHORT-NAME>IN_VeSOCR_Pct_DisplayPackSOC_VeSOCR_Pct_DisplayPackSOC</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/VeSOCR_Pct_DisplayPackSOC</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeSOCR_Pct_DisplayPackSOC/VeSOCR_Pct_DisplayPackSOC</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="c802c5d8-99bd-555f-1c8f-75da68dbd774">
+                          <SHORT-NAME>IN_VeVSDR_q_AccuChgCoulombs_VeVSDR_q_AccuChgCoulombs</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/VeVSDR_q_AccuChgCoulombs</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeVSDR_q_AccuChgCoulombs/VeVSDR_q_AccuChgCoulombs</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                      </DATA-READ-ACCESSS>
+                      <DATA-SEND-POINTS>
+                        <VARIABLE-ACCESS UUID="666bdced-c0f8-5ebd-795b-bbaed4689361">
+                          <SHORT-NAME>OUT_VeSOHR_Ah_AccumCharge_VeSOHR_Ah_AccumCharge</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/VeSOHR_Ah_AccumCharge</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_Ah_AccumCharge/VeSOHR_Ah_AccumCharge</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="5b4587fb-ecda-5a5a-f833-753dbba46cf4">
+                          <SHORT-NAME>OUT_VeSOHR_Ah_AccumChargeRounded_VeSOHR_Ah_AccumChargeRounded</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/VeSOHR_Ah_AccumChargeRounded</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_Ah_AccumChargeRounded/VeSOHR_Ah_AccumChargeRounded</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="7b7945b5-d86f-582f-f97f-15c9775249cb">
+                          <SHORT-NAME>OUT_VeSOHR_Pct_BatteryPackSOH_VeSOHR_Pct_BatteryPackSOH</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/VeSOHR_Pct_BatteryPackSOH</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_Pct_BatteryPackSOH/VeSOHR_Pct_BatteryPackSOH</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="35f2b49e-cba9-5ad6-0a2f-e65bbbb0e50e">
+                          <SHORT-NAME>OUT_VeSOHR_Ah_AvailableCapacity_VeSOHR_Ah_AvailableCapacity</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/VeSOHR_Ah_AvailableCapacity</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_Ah_AvailableCapacity/VeSOHR_Ah_AvailableCapacity</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="fd40e8af-e323-5e1c-7add-811b434e0b5c">
+                          <SHORT-NAME>OUT_VeSOHR_Ah_AvailableCapacityInst_VeSOHR_Ah_4116f3b1f2bf6fcd</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/VeSOHR_Ah_AvailableCapacityInst</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_Ah_AvailableCapacityInst/VeSOHR_Ah_AvailableCapacityInst</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="9e0b3ba8-7e9d-5301-d58b-a8fb3faf4913">
+                          <SHORT-NAME>OUT_VeSOHR_k_LowSOH_flt_VeSOHR_k_LowSOH_flt</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/VeSOHR_k_LowSOH_flt</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_k_LowSOH_flt/VeSOHR_k_LowSOH_flt</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="a2f2c04b-b8de-5332-b37e-8d6a5cca64a0">
+                          <SHORT-NAME>OUT_VeSOHR_k_SOHRank_VeSOHR_k_SOHRank</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/VeSOHR_k_SOHRank</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_if/VeSOHR_k_SOHRank/VeSOHR_k_SOHRank</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                      </DATA-SEND-POINTS>
+                      <PARAMETER-ACCESSS>
+                        <PARAMETER-ACCESS UUID="f0030cc1-bcaa-5a11-fbdd-941178eeece9">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_Ah_AvailableCapacityInst_MaxVal</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_AvailableCapacityInst_MaxVal</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="180b54f3-1974-56e9-d771-860c8ebd9bae">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_Ah_AvailableCapacityInst_minVal</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_AvailableCapacityInst_minVal</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="0e0d6f2d-24de-564b-544e-da7e0f8746fd">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_Ah_AvailableCapacity_MaxVal</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_AvailableCapacity_MaxVal</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="c4b0f96f-10c9-5581-93e5-0f6f041d0ebe">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_Ah_AvailableCapacity_minVal</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_AvailableCapacity_minVal</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="b68ede14-106e-5fcf-d515-3e3c8d0ea0d6">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_Ah_OvrdValue_AccumCharge</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_OvrdValue_AccumCharge</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="657aed00-a467-5835-bd55-018559c6c251">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_Ah_OvrdValue_AvailableCapacity</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_OvrdValue_AvailableCapacity</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="040497f6-5ec0-5e68-ba75-a655cfd091ac">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_Ah_OvrdValue_AvailableCapacityInst</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_OvrdValue_AvailableCapacityInst</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="cec3fa1f-5a74-5e6a-3c5f-ffbcbbeb970b">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_Ah_UpdateIncrement</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Ah_UpdateIncrement</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="a919e4be-e769-5a0b-32cb-8ef26f264047">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_Pct_BatteryPackSOH_MaxVal</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Pct_BatteryPackSOH_MaxVal</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="d5cd789c-952a-5c4f-54cc-ce70171ab436">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_Pct_BatteryPackSOH_minVal</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Pct_BatteryPackSOH_minVal</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="6e56570e-8674-56dd-2e55-f031825d56ab">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_Pct_LowSOH_flt_Set</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Pct_LowSOH_flt_Set</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="155dda9b-14fc-5159-81e1-09ffbca53f7a">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_Pct_OvrdValue_BatteryPackSOH</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_Pct_OvrdValue_BatteryPackSOH</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="7657df23-1522-5b07-d8da-4d30a5eb58ef">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_b_LowSOH_flt_En</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_b_LowSOH_flt_En</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="a5873289-3e94-54b8-d0a4-09aac78a10e6">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_b_OvrdCond_AccumCharge</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_b_OvrdCond_AccumCharge</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="4c88032d-ca39-5f8e-2a14-25318911a702">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_b_OvrdCond_AvailableCapacity</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_b_OvrdCond_AvailableCapacity</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="e40767d1-7f55-5299-d657-16ff70701b2b">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_b_OvrdCond_AvailableCapacityInst</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_b_OvrdCond_AvailableCapacityInst</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="779fc38e-019d-529b-2d28-745473143bcd">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_b_OvrdCond_BatteryPackSOH</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_b_OvrdCond_BatteryPackSOH</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="1587dbdf-13dd-523e-879c-622290313e2a">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_b_SOHRank_En</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_b_SOHRank_En</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="b89f0b70-bee0-5b8a-f63e-37e10280ca93">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_k_LowSOH_flt_Val</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_k_LowSOH_flt_Val</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="0c10c781-84a6-53e0-59b6-ec6fccbfb4bd">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_k_SOHRank_Val</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_k_SOHRank_Val</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="f15e1a50-d545-5508-eb3a-e6633409c344">
+                          <SHORT-NAME>CALPRM_SOHR_Rport_KeSOHR_t_LowSOH_flt_Set</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOHR_if/KeSOHR_t_LowSOH_flt_Set</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="e89612e8-b5c8-52f8-d1e4-038ca32bba21">
+                          <SHORT-NAME>SCALPRM_KtSOHR_r_SOHCoefficient_Table</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <LOCAL-PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Code/KtSOHR_r_SOHCoefficient_Table</LOCAL-PARAMETER-REF>
+                          </ACCESSED-PARAMETER>
+                          <SW-DATA-DEF-PROPS>
+                            <SW-DATA-DEF-PROPS-VARIANTS>
+                              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                <SW-CALPRM-AXIS-SET>
+                                  <SW-CALPRM-AXIS>
+                                    <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                    <SW-AXIS-GROUPED>
+                                      <AR-PARAMETER>
+                                        <LOCAL-PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Code/KxSOHR_r_SOHCoefficient</LOCAL-PARAMETER-REF>
+                                      </AR-PARAMETER>
+                                    </SW-AXIS-GROUPED>
+                                  </SW-CALPRM-AXIS>
+                                </SW-CALPRM-AXIS-SET>
+                              </SW-DATA-DEF-PROPS-CONDITIONAL>
+                            </SW-DATA-DEF-PROPS-VARIANTS>
+                          </SW-DATA-DEF-PROPS>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="157e995c-180c-56f0-6a42-ccc55d09eb5c">
+                          <SHORT-NAME>SCALPRM_KxSOHR_r_SOHCoefficient</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <LOCAL-PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Code/KxSOHR_r_SOHCoefficient</LOCAL-PARAMETER-REF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                      </PARAMETER-ACCESSS>
+                      <SYMBOL>Run_SOHR_250ms</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                  </RUNNABLES>
+                  <SERVICE-DEPENDENCYS>
+                    <SWC-SERVICE-DEPENDENCY UUID="36028fc7-aea2-5fa6-fbac-e7f4adb518e0">
+                      <SHORT-NAME>SwcNv_NeSOHR_Ah_AccumCharge</SHORT-NAME>
+                      <ASSIGNED-DATAS>
+                        <ROLE-BASED-DATA-ASSIGNMENT>
+                          <ROLE>ramBlock</ROLE>
+                          <USED-PIM-REF DEST="PER-INSTANCE-MEMORY">/SOHR_Code_pkg/SOHR_Code_swc/SOHR_Code/SOHR_Code/NeSOHR_Ah_AccumCharge</USED-PIM-REF>
+                        </ROLE-BASED-DATA-ASSIGNMENT>
+                      </ASSIGNED-DATAS>
+                      <SERVICE-NEEDS>
+                        <NV-BLOCK-NEEDS>
+                          <SHORT-NAME>SwcNv_NeSOHR_Ah_AccumCharge</SHORT-NAME>
+                          <RESTORE-AT-START>true</RESTORE-AT-START>
+                          <STORE-AT-SHUTDOWN>true</STORE-AT-SHUTDOWN>
+                        </NV-BLOCK-NEEDS>
+                      </SERVICE-NEEDS>
+                    </SWC-SERVICE-DEPENDENCY>
+                  </SERVICE-DEPENDENCYS>
+                  <SHARED-PARAMETERS>
+                    <PARAMETER-DATA-PROTOTYPE UUID="569cbb0e-11d9-5a24-effa-91ea3b24857b">
+                      <SHORT-NAME>KtSOHR_r_SOHCoefficient_Table</SHORT-NAME>
+                      <CATEGORY>CURVE</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/ApplDataTypes/Appl_KtSOHR_r_SOHCoefficient_Table</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KtSOHR_r_SOHCoefficient_Table</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/SOHR_Code_pkg/SOHR_Code_dt/Ground/KtSOHR_r_SOHCoefficient_Table</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="5a202055-a14d-56a2-33ac-61b51f3b130b">
+                      <SHORT-NAME>KxSOHR_r_SOHCoefficient</SHORT-NAME>
+                      <CATEGORY>COM_AXIS</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOHR_Code_pkg/SOHR_Code_dt/ApplDataTypes/Appl_KxSOHR_r_SOHCoefficient</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KxSOHR_r_SOHCoefficient</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/SOHR_Code_pkg/SOHR_Code_dt/Ground/KxSOHR_r_SOHCoefficient</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                  </SHARED-PARAMETERS>
+                  <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+                </SWC-INTERNAL-BEHAVIOR>
+              </INTERNAL-BEHAVIORS>
+            </APPLICATION-SW-COMPONENT-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

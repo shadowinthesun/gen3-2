@@ -1,0 +1,2524 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Auto generated XML Component Description for model HMIR_Code
+Model version                : 1.294
+Simulink Coder version       : Simulink Coder 9.1 (R2019a) 23-Nov-2018
+XML source code generated on : Thu Jul 30 06:02:32 2020
+Model Checksum               : 1059387373 828745217 1349415520 3828709571
+-->
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>CalibrationComponents</SHORT-NAME>
+      <ELEMENTS>
+        <PARAMETER-SW-COMPONENT-TYPE UUID="3700dd4a-710c-5c71-85f0-4c80bb4219b3">
+          <SHORT-NAME>HMIR</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE UUID="8686ac1e-58af-586f-8a70-b7a69297a021">
+              <SHORT-NAME>HMIR_Pport</SHORT-NAME>
+              <PROVIDED-COM-SPECS>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_Ah_BattRatedCap</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>55</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_Ah_BattRatedCap</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_Ah_CellCapacity</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>55</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_Ah_CellCapacity</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_I_MaxChargeCur</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>18.299999237060547</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_I_MaxChargeCur</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_Pct_PackSocDashHundred</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>97</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_Pct_PackSocDashHundred</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_Pct_PackSocDashZero</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>3</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_Pct_PackSocDashZero</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_U_BattRatedVoltageValue</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>350.39999389648438</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_U_BattRatedVoltageValue</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_U_CellDischCutVoltage</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>2.7999999523162842</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_U_CellDischCutVoltage</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_U_MaxChargeVol</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>403.20001220703125</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_U_MaxChargeVol</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_U_MinChargeVol</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>268.79998779296875</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_U_MinChargeVol</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_kE_BattRatedEnergyValue</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>19.299999237060547</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_kE_BattRatedEnergyValue</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_kl_ElectricRangeDTE_Value</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>250</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_kl_ElectricRangeDTE_Value</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_kl_TotalDrivenBatOvrdVal</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>100</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_kl_TotalDrivenBatOvrdVal</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_PRTVer</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>110105</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_PRTVer</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_b_TotalDrivenBatOvrd</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_b_TotalDrivenBatOvrd</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_BattManucCodeVal</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>6</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattManucCodeVal</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_BattNum</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>1</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattNum</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_BattPackParallel</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>1</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattPackParallel</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_BattPackSerial</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>96</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattPackSerial</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_BattSum</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>1</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattSum</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_BattTypeValue</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>4</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattTypeValue</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_CellNum</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>96</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_CellNum</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_CodeL</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>10</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_CodeL</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_FaultSum</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>29</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_FaultSum</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_HWVer</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>2</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_HWVer</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_MaxCellIndex</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>96</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MaxCellIndex</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_MaxTNumPack</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>1</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MaxTNumPack</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_MaxTempIndex</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>16</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MaxTempIndex</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_MaxVNumPack</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>1</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MaxVNumPack</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_MinCellIndex</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>1</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MinCellIndex</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_MinTNumPack</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>1</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MinTNumPack</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_MinTempIndex</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>1</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MinTempIndex</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_MinVNumPack</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>1</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MinVNumPack</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HMIR_Pport_KeHMIR_k_TempNum</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>16</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_TempNum</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="PARAMETER-INTERFACE">/CalibrationComponents/HMIR_if</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+          </PORTS>
+          <DATA-TYPE-MAPPING-REFS>
+            <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/HMIR_Code_pkg/HMIR_Code_dt/DataTypeMappings/HMIR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+          </DATA-TYPE-MAPPING-REFS>
+        </PARAMETER-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
+      <SHORT-NAME>HMIR_Code_pkg</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>HMIR_Code_swc</SHORT-NAME>
+          <ELEMENTS>
+            <APPLICATION-SW-COMPONENT-TYPE UUID="495fe7b1-5e30-57df-960e-c0d92f4639f3">
+              <SHORT-NAME>HMIR_Code</SHORT-NAME>
+              <PORTS>
+                <R-PORT-PROTOTYPE UUID="aa6f5c93-c404-56ea-c053-c912d0bdb769">
+                  <SHORT-NAME>VeSOCR_Pct_DisplayPackSOC</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeSOCR_Pct_DisplayPackSOC/VeSOCR_Pct_DisplayPackSOC</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeSOCR_Pct_DisplayPackSOC</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="caf56847-1230-55af-6daa-0e6d483e3c31">
+                  <SHORT-NAME>VeHMIR_kl_ElectricRangeDTE</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_kl_ElectricRangeDTE/VeHMIR_kl_ElectricRangeDTE</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_kl_ElectricRangeDTE</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="5a4aba17-45c2-55bf-f6a1-5d97a65cc007">
+                  <SHORT-NAME>VeHMIR_k_BattType</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattType/VeHMIR_k_BattType</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattType</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="252e5508-563e-5de0-0ccd-34138f4c3072">
+                  <SHORT-NAME>VeHMIR_U_BattRatedVoltage</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_U_BattRatedVoltage/VeHMIR_U_BattRatedVoltage</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_U_BattRatedVoltage</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="c612bebe-56e5-5031-45a4-b1e4868fd596">
+                  <SHORT-NAME>VeHMIR_kE_BattRatedEnergy</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_kE_BattRatedEnergy/VeHMIR_kE_BattRatedEnergy</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_kE_BattRatedEnergy</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="956b6e29-c4d0-58b2-5fa4-f7ed6e71cc09">
+                  <SHORT-NAME>VeHMIR_k_BattManucCode</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattManucCode/VeHMIR_k_BattManucCode</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattManucCode</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="84903c40-b8a7-53d7-c8d8-945316a6f82f">
+                  <SHORT-NAME>VeHMIR_kl_TotalDrivenBat</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_kl_TotalDrivenBat/VeHMIR_kl_TotalDrivenBat</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_kl_TotalDrivenBat</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="17e4024f-43b8-5355-0868-f78fd8b8cffd">
+                  <SHORT-NAME>VeHMIR_Pct_BatteryPackSOC</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_Pct_BatteryPackSOC/VeHMIR_Pct_BatteryPackSOC</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_Pct_BatteryPackSOC</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="ad2667d0-8879-5c8a-2304-9a4daccf81b1">
+                  <SHORT-NAME>VeHMIR_Ah_CellCapacity</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_Ah_CellCapacity/VeHMIR_Ah_CellCapacity</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_Ah_CellCapacity</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="773dfdb2-dbba-51e3-a74e-a0e7d36ba759">
+                  <SHORT-NAME>VeHMIR_U_CellDischCutVoltage</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_U_CellDischCutVoltage/VeHMIR_U_CellDischCutVoltage</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_U_CellDischCutVoltage</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="1dbd96a5-d137-59e5-7706-869f27b0173a">
+                  <SHORT-NAME>VeHMIR_k_BattPackParallel</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattPackParallel/VeHMIR_k_BattPackParallel</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattPackParallel</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="f423e74d-30ae-5143-fb47-d536694a9ffc">
+                  <SHORT-NAME>VeHMIR_k_BattPackSerial</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattPackSerial/VeHMIR_k_BattPackSerial</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattPackSerial</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="aeb5f9d4-95f0-5976-8956-6554eca95840">
+                  <SHORT-NAME>VeHMIR_Ah_BattRatedCap</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_Ah_BattRatedCap/VeHMIR_Ah_BattRatedCap</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_Ah_BattRatedCap</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="01609e6a-9bfe-5a55-c366-103951c387ec">
+                  <SHORT-NAME>VeHMIR_k_TempNum</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_TempNum/VeHMIR_k_TempNum</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_TempNum</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="66bcd970-1598-5960-da97-3b96b5b140a5">
+                  <SHORT-NAME>VeHMIR_k_CellNum</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_CellNum/VeHMIR_k_CellNum</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_CellNum</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="b127a986-b822-509f-943a-58c2d44f21f0">
+                  <SHORT-NAME>VeHMIR_k_HWVer</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_HWVer/VeHMIR_k_HWVer</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_HWVer</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="55c59989-deaf-5749-ed55-cd2e653dd7da">
+                  <SHORT-NAME>VeHMIR_k_PRTVer</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_PRTVer/VeHMIR_k_PRTVer</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt32</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_PRTVer</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="b5fb90f8-95bd-5092-ba04-8dcdb1fdc291">
+                  <SHORT-NAME>VeHMIR_k_CodeL</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_CodeL/VeHMIR_k_CodeL</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_CodeL</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="813fd320-8731-5f6a-b1ce-a2275bd14043">
+                  <SHORT-NAME>VeHMIR_k_FaultSum</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_FaultSum/VeHMIR_k_FaultSum</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_FaultSum</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="49161098-fb9f-5a74-7e29-134501f8304a">
+                  <SHORT-NAME>VeHMIR_k_BattNum</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattNum/VeHMIR_k_BattNum</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattNum</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="3cae04b5-9c6d-5cb8-7e18-92fd0a727f0d">
+                  <SHORT-NAME>VeHMIR_k_BattSum</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattSum/VeHMIR_k_BattSum</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattSum</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="a13d8111-5d9f-54c1-0a3c-2b2cab429172">
+                  <SHORT-NAME>VeHMIR_k_MaxCellIndex</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MaxCellIndex/VeHMIR_k_MaxCellIndex</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MaxCellIndex</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="f348ab12-6873-5c50-1099-9f7ffb73dcc8">
+                  <SHORT-NAME>VeHMIR_k_MinCellIndex</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MinCellIndex/VeHMIR_k_MinCellIndex</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MinCellIndex</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="7edfb128-e00f-5bf6-2406-cbb8bb339b7d">
+                  <SHORT-NAME>VeHMIR_k_MaxTempIndex</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MaxTempIndex/VeHMIR_k_MaxTempIndex</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MaxTempIndex</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="09d1e911-fd15-55bf-8276-7c0f044d52db">
+                  <SHORT-NAME>VeHMIR_k_MinTempIndex</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MinTempIndex/VeHMIR_k_MinTempIndex</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MinTempIndex</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="5900b1bf-1e62-54a0-6ed2-d0d84bdfc515">
+                  <SHORT-NAME>VeHMIR_k_MaxVNumPack</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MaxVNumPack/VeHMIR_k_MaxVNumPack</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MaxVNumPack</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="7891623a-21cf-5a2b-c75a-7f420d818e30">
+                  <SHORT-NAME>VeHMIR_k_MinTNumPack</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MinTNumPack/VeHMIR_k_MinTNumPack</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MinTNumPack</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="d9fb3cc2-a0b1-5f2b-86e0-7ba2c76942c4">
+                  <SHORT-NAME>VeHMIR_k_MinVNumPack</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MinVNumPack/VeHMIR_k_MinVNumPack</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MinVNumPack</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="ff6e88b9-01f7-54af-f19e-6be69c173f85">
+                  <SHORT-NAME>VeHMIR_k_MaxTNumPack</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MaxTNumPack/VeHMIR_k_MaxTNumPack</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MaxTNumPack</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="dbb8a496-848f-5f86-199d-0742060f718c">
+                  <SHORT-NAME>VeHMIR_I_MaxChargeCur</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_I_MaxChargeCur/VeHMIR_I_MaxChargeCur</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_I_MaxChargeCur</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="4a85a4e5-4b16-5138-d717-396c1d84e63e">
+                  <SHORT-NAME>VeHMIR_U_MaxChargeVol</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_U_MaxChargeVol/VeHMIR_U_MaxChargeVol</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_U_MaxChargeVol</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="9b1e0c00-a794-5fb0-59a8-1f5386f57d64">
+                  <SHORT-NAME>VeHMIR_U_MinChargeVol</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_U_MinChargeVol/VeHMIR_U_MinChargeVol</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HMIR_Code_pkg/HMIR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_U_MinChargeVol</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="5491a2a8-9e81-5e41-fdc6-a21dd1e3ba74">
+                  <SHORT-NAME>HMIR_Rport</SHORT-NAME>
+                  <REQUIRED-INTERFACE-TREF DEST="PARAMETER-INTERFACE">/CalibrationComponents/HMIR_if</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+              </PORTS>
+              <INTERNAL-BEHAVIORS>
+                <SWC-INTERNAL-BEHAVIOR UUID="7df07ec2-5631-5245-fbaa-90ce475f2cc9">
+                  <SHORT-NAME>HMIR_Code</SHORT-NAME>
+                  <CONSTANT-VALUE-MAPPING-REFS>
+                    <CONSTANT-VALUE-MAPPING-REF DEST="CONSTANT-SPECIFICATION-MAPPING-SET">/HMIR_Code_datatype_AVS_pkg/HMIR_Code_datatype_AVS_MappingSet</CONSTANT-VALUE-MAPPING-REF>
+                  </CONSTANT-VALUE-MAPPING-REFS>
+                  <DATA-TYPE-MAPPING-REFS>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/HMIR_Code_pkg/HMIR_Code_dt/DataTypeMappings/HMIR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                  </DATA-TYPE-MAPPING-REFS>
+                  <EVENTS>
+                    <TIMING-EVENT UUID="911c6b68-7fc8-5575-70b3-af40de86d81b">
+                      <SHORT-NAME>Event_Run_HMIR_500ms</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Code/Run_HMIR_500ms</START-ON-EVENT-REF>
+                      <PERIOD>0.5</PERIOD>
+                    </TIMING-EVENT>
+                  </EVENTS>
+                  <HANDLE-TERMINATION-AND-RESTART>NO-SUPPORT</HANDLE-TERMINATION-AND-RESTART>
+                  <RUNNABLES>
+                    <RUNNABLE-ENTITY UUID="98e2c5e7-29d6-58ac-1cf5-0863d3e5c679">
+                      <SHORT-NAME>Runnable_Init</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <DATA-SEND-POINTS>
+                        <VARIABLE-ACCESS UUID="3e888b03-a8c7-53ca-bc23-33ce11d9f39c">
+                          <SHORT-NAME>OUT_VeHMIR_kl_ElectricRangeDTE_VeHMIR_kl_ElectricRangeDTE</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_kl_ElectricRangeDTE</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_kl_ElectricRangeDTE/VeHMIR_kl_ElectricRangeDTE</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="d93db386-2a8a-56b7-9fe1-2d0d51d42883">
+                          <SHORT-NAME>OUT_VeHMIR_k_BattType_VeHMIR_k_BattType</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_BattType</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattType/VeHMIR_k_BattType</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="a90621c4-0972-54af-49b7-4a585d82dea7">
+                          <SHORT-NAME>OUT_VeHMIR_U_BattRatedVoltage_VeHMIR_U_BattRatedVoltage</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_U_BattRatedVoltage</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_U_BattRatedVoltage/VeHMIR_U_BattRatedVoltage</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="3eb4a9b9-df62-59b7-ba14-1c4fdc30f725">
+                          <SHORT-NAME>OUT_VeHMIR_kE_BattRatedEnergy_VeHMIR_kE_BattRatedEnergy</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_kE_BattRatedEnergy</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_kE_BattRatedEnergy/VeHMIR_kE_BattRatedEnergy</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="ec0f21d2-84c9-5c2f-f076-5d4acac6d293">
+                          <SHORT-NAME>OUT_VeHMIR_k_BattManucCode_VeHMIR_k_BattManucCode</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_BattManucCode</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattManucCode/VeHMIR_k_BattManucCode</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="5d60e071-8a23-588a-32d5-267bc67965fb">
+                          <SHORT-NAME>OUT_VeHMIR_Ah_CellCapacity_VeHMIR_Ah_CellCapacity</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_Ah_CellCapacity</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_Ah_CellCapacity/VeHMIR_Ah_CellCapacity</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="1029e90c-7ea3-592c-1a77-59c60dbe58c8">
+                          <SHORT-NAME>OUT_VeHMIR_U_CellDischCutVoltage_VeHMIR_U_CellDischCutVoltage</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_U_CellDischCutVoltage</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_U_CellDischCutVoltage/VeHMIR_U_CellDischCutVoltage</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="257730d7-76c5-5651-594b-877893362679">
+                          <SHORT-NAME>OUT_VeHMIR_k_BattPackParallel_VeHMIR_k_BattPackParallel</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_BattPackParallel</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattPackParallel/VeHMIR_k_BattPackParallel</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="ff80959c-5740-5c19-2885-6a4ee3ac6244">
+                          <SHORT-NAME>OUT_VeHMIR_k_BattPackSerial_VeHMIR_k_BattPackSerial</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_BattPackSerial</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattPackSerial/VeHMIR_k_BattPackSerial</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="9592cb66-4dc9-5482-ec39-17a5a2c2757f">
+                          <SHORT-NAME>OUT_VeHMIR_Ah_BattRatedCap_VeHMIR_Ah_BattRatedCap</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_Ah_BattRatedCap</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_Ah_BattRatedCap/VeHMIR_Ah_BattRatedCap</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="9332d1a5-2e28-5163-a649-1ecc5872e4f5">
+                          <SHORT-NAME>OUT_VeHMIR_k_TempNum_VeHMIR_k_TempNum</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_TempNum</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_TempNum/VeHMIR_k_TempNum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="4a27aa4d-3562-5cc4-7d74-e48c4590f448">
+                          <SHORT-NAME>OUT_VeHMIR_k_CellNum_VeHMIR_k_CellNum</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_CellNum</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_CellNum/VeHMIR_k_CellNum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="3fc1308b-b993-55b0-c9ad-8ff9a01ae312">
+                          <SHORT-NAME>OUT_VeHMIR_k_HWVer_VeHMIR_k_HWVer</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_HWVer</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_HWVer/VeHMIR_k_HWVer</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="6c7e120a-4801-5957-b426-89a6f2ea19d6">
+                          <SHORT-NAME>OUT_VeHMIR_k_PRTVer_VeHMIR_k_PRTVer</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_PRTVer</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_PRTVer/VeHMIR_k_PRTVer</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="7d7d619d-03c5-5787-84bc-022982e4b26d">
+                          <SHORT-NAME>OUT_VeHMIR_k_CodeL_VeHMIR_k_CodeL</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_CodeL</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_CodeL/VeHMIR_k_CodeL</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="d23ce2d0-c5c7-5ddb-cd6c-3f37349afc0d">
+                          <SHORT-NAME>OUT_VeHMIR_k_FaultSum_VeHMIR_k_FaultSum</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_FaultSum</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_FaultSum/VeHMIR_k_FaultSum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="eca70295-b3bf-541c-7813-74a0e05de72a">
+                          <SHORT-NAME>OUT_VeHMIR_k_BattNum_VeHMIR_k_BattNum</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_BattNum</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattNum/VeHMIR_k_BattNum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="0e9e5311-0cc8-5e23-1548-db658c0abbf6">
+                          <SHORT-NAME>OUT_VeHMIR_k_BattSum_VeHMIR_k_BattSum</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_BattSum</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattSum/VeHMIR_k_BattSum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="de28d12e-0ec1-5342-031c-f0bc7e45f0ee">
+                          <SHORT-NAME>OUT_VeHMIR_k_MaxCellIndex_VeHMIR_k_MaxCellIndex</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_MaxCellIndex</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MaxCellIndex/VeHMIR_k_MaxCellIndex</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="8dda95ba-5c12-598b-dfe9-2cbf48740bf4">
+                          <SHORT-NAME>OUT_VeHMIR_k_MinCellIndex_VeHMIR_k_MinCellIndex</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_MinCellIndex</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MinCellIndex/VeHMIR_k_MinCellIndex</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="be4fa06d-a813-5b92-3c4d-4db76e9d3a3e">
+                          <SHORT-NAME>OUT_VeHMIR_k_MaxTempIndex_VeHMIR_k_MaxTempIndex</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_MaxTempIndex</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MaxTempIndex/VeHMIR_k_MaxTempIndex</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="7780487a-329a-5571-194f-c35a0ca915cf">
+                          <SHORT-NAME>OUT_VeHMIR_k_MinTempIndex_VeHMIR_k_MinTempIndex</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_MinTempIndex</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MinTempIndex/VeHMIR_k_MinTempIndex</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="3c550133-94ba-56d6-9fb4-f8b8bb4d75bc">
+                          <SHORT-NAME>OUT_VeHMIR_k_MaxVNumPack_VeHMIR_k_MaxVNumPack</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_MaxVNumPack</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MaxVNumPack/VeHMIR_k_MaxVNumPack</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="a679a559-77fe-5628-16a6-92decdae7e8b">
+                          <SHORT-NAME>OUT_VeHMIR_k_MinTNumPack_VeHMIR_k_MinTNumPack</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_MinTNumPack</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MinTNumPack/VeHMIR_k_MinTNumPack</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="4ae724d8-7edb-553b-77f5-473cb5deb534">
+                          <SHORT-NAME>OUT_VeHMIR_k_MinVNumPack_VeHMIR_k_MinVNumPack</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_MinVNumPack</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MinVNumPack/VeHMIR_k_MinVNumPack</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="f17d878b-e6d5-5d8a-871b-e0ad2be64675">
+                          <SHORT-NAME>OUT_VeHMIR_k_MaxTNumPack_VeHMIR_k_MaxTNumPack</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_MaxTNumPack</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MaxTNumPack/VeHMIR_k_MaxTNumPack</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="408918f0-5a35-5b2d-bca6-6c766f4fd3e8">
+                          <SHORT-NAME>OUT_VeHMIR_I_MaxChargeCur_VeHMIR_I_MaxChargeCur</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_I_MaxChargeCur</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_I_MaxChargeCur/VeHMIR_I_MaxChargeCur</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="51399c88-5f98-5610-84dd-db8623f2772a">
+                          <SHORT-NAME>OUT_VeHMIR_U_MaxChargeVol_VeHMIR_U_MaxChargeVol</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_U_MaxChargeVol</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_U_MaxChargeVol/VeHMIR_U_MaxChargeVol</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="cc564194-5c72-5202-ba22-e0e3e2420486">
+                          <SHORT-NAME>OUT_VeHMIR_U_MinChargeVol_VeHMIR_U_MinChargeVol</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_U_MinChargeVol</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_U_MinChargeVol/VeHMIR_U_MinChargeVol</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                      </DATA-SEND-POINTS>
+                      <PARAMETER-ACCESSS>
+                        <PARAMETER-ACCESS UUID="baa75fb3-c4d3-52b0-2ff8-6cd22cf966a0">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_Ah_BattRatedCap</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_Ah_BattRatedCap</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="baf06fb6-038c-568c-02c6-975ef4b990ef">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_Ah_CellCapacity</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_Ah_CellCapacity</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="a484ab03-ded1-54c4-537f-b54e008d14a0">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_I_MaxChargeCur</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_I_MaxChargeCur</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="a158e65b-1200-58f7-476f-092d408c877a">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_U_BattRatedVoltageValue</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_U_BattRatedVoltageValue</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="fec425b7-1e64-578f-7346-608122fa24ee">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_U_CellDischCutVoltage</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_U_CellDischCutVoltage</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="6cd23886-a6dd-50e8-93f2-b79bcc6443b0">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_U_MaxChargeVol</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_U_MaxChargeVol</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="82fa5f28-d62f-598e-0510-cf396cf64bb9">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_U_MinChargeVol</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_U_MinChargeVol</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="37b7a67e-aa6e-5e9f-6231-ca6139897e0d">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_kE_BattRatedEnergyValue</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_kE_BattRatedEnergyValue</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="ad22d3b6-e3f4-544c-5597-8b2941adf00b">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_BattManucCodeVal</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattManucCodeVal</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="0da5e357-cf25-5afb-6bff-b74e3d590ba7">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_BattNum</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattNum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="7e8ea289-eeab-5496-e5d0-c3a43394caaf">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_BattPackParallel</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattPackParallel</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="5025979b-fc38-5647-dd7c-c2214fd72a3a">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_BattPackSerial</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattPackSerial</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="1a8b3aa6-6dcd-54af-680e-9a643210ea2d">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_BattSum</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattSum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="0df7cc11-f054-535a-afe9-6407960d107e">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_BattTypeValue</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattTypeValue</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="30c7c412-8e49-549f-c61a-cfeb2f9b1822">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_CellNum</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_CellNum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="9cc92445-4101-52c8-485d-b0251c9fab1e">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_CodeL</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_CodeL</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="04834842-fed2-5ce1-a50a-ff0a86cfa6f8">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_FaultSum</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_FaultSum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="1856f169-8227-596c-1508-d880f9f6a19a">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_HWVer</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_HWVer</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="fbe96816-5b8f-52b2-3a3c-929059d7710b">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_MaxCellIndex</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MaxCellIndex</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="c004a507-b62b-584c-9b4d-6504dae69ab0">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_MaxTNumPack</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MaxTNumPack</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="5f3c0e48-0ccd-5a9a-e4f0-261bf903507d">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_MaxTempIndex</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MaxTempIndex</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="328cb774-d2df-5992-fdf7-d52bfb6c2c51">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_MaxVNumPack</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MaxVNumPack</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="f2869caf-eaf4-5596-f642-2f1bf7c225ff">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_MinCellIndex</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MinCellIndex</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="17d8954b-8b44-53b8-2423-d58c46620c1c">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_MinTNumPack</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MinTNumPack</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="b782ff6b-2b05-533b-2921-9d0eb1cf7bbd">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_MinTempIndex</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MinTempIndex</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="9553a6c9-7943-5f7e-7e79-e5b9ff0bddb5">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_MinVNumPack</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MinVNumPack</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="592922c4-6df0-5236-15d8-b4c9a049642c">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_PRTVer</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_PRTVer</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="54747992-e2d9-54f7-0c61-a16dacfa345e">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_TempNum</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_TempNum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="317bc6f4-1eb6-5b65-112f-4d84cd26229a">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_kl_ElectricRangeDTE_Value</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_kl_ElectricRangeDTE_Value</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                      </PARAMETER-ACCESSS>
+                      <SYMBOL>HMIR_Code_Init</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="3c32a0a9-64cd-5daa-aa53-bcb1ff3572cf">
+                      <SHORT-NAME>Run_HMIR_500ms</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <DATA-READ-ACCESSS>
+                        <VARIABLE-ACCESS UUID="2c76a163-d367-5890-540b-3e44c8bde53c">
+                          <SHORT-NAME>IN_VeSOCR_Pct_DisplayPackSOC_VeSOCR_Pct_DisplayPackSOC</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeSOCR_Pct_DisplayPackSOC</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeSOCR_Pct_DisplayPackSOC/VeSOCR_Pct_DisplayPackSOC</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                      </DATA-READ-ACCESSS>
+                      <DATA-SEND-POINTS>
+                        <VARIABLE-ACCESS UUID="a7d98d71-251e-5cba-d489-3998f067525a">
+                          <SHORT-NAME>OUT_VeHMIR_kl_ElectricRangeDTE_VeHMIR_kl_ElectricRangeDTE</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_kl_ElectricRangeDTE</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_kl_ElectricRangeDTE/VeHMIR_kl_ElectricRangeDTE</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="c7b4bc9a-8679-523c-97c8-253dcc8a44ae">
+                          <SHORT-NAME>OUT_VeHMIR_k_BattType_VeHMIR_k_BattType</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_BattType</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattType/VeHMIR_k_BattType</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="a323cae5-e5e3-5fef-5db9-23791fa0a1ff">
+                          <SHORT-NAME>OUT_VeHMIR_U_BattRatedVoltage_VeHMIR_U_BattRatedVoltage</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_U_BattRatedVoltage</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_U_BattRatedVoltage/VeHMIR_U_BattRatedVoltage</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="903738c0-fdd2-5841-f874-39a248e858f6">
+                          <SHORT-NAME>OUT_VeHMIR_kE_BattRatedEnergy_VeHMIR_kE_BattRatedEnergy</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_kE_BattRatedEnergy</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_kE_BattRatedEnergy/VeHMIR_kE_BattRatedEnergy</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="f8faa172-ec7d-5e47-940d-8e9dd8e55f2b">
+                          <SHORT-NAME>OUT_VeHMIR_k_BattManucCode_VeHMIR_k_BattManucCode</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_BattManucCode</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattManucCode/VeHMIR_k_BattManucCode</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="b79c4acb-0a44-5dbf-98ae-b0dabfc803ad">
+                          <SHORT-NAME>OUT_VeHMIR_kl_TotalDrivenBat_VeHMIR_kl_TotalDrivenBat</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_kl_TotalDrivenBat</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_kl_TotalDrivenBat/VeHMIR_kl_TotalDrivenBat</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="24ce036f-c997-595f-f3fd-d93e19d9756e">
+                          <SHORT-NAME>OUT_VeHMIR_Pct_BatteryPackSOC_VeHMIR_Pct_BatteryPackSOC</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_Pct_BatteryPackSOC</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_Pct_BatteryPackSOC/VeHMIR_Pct_BatteryPackSOC</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="dc429079-3fa3-5128-af61-bd919f0d9987">
+                          <SHORT-NAME>OUT_VeHMIR_Ah_CellCapacity_VeHMIR_Ah_CellCapacity</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_Ah_CellCapacity</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_Ah_CellCapacity/VeHMIR_Ah_CellCapacity</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="caf517b2-641c-5252-36ed-85b5ebb3fb54">
+                          <SHORT-NAME>OUT_VeHMIR_U_CellDischCutVoltage_VeHMIR_U_CellDischCutVoltage</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_U_CellDischCutVoltage</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_U_CellDischCutVoltage/VeHMIR_U_CellDischCutVoltage</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="1d01096a-0344-5b71-7b18-a963f539bdc0">
+                          <SHORT-NAME>OUT_VeHMIR_k_BattPackParallel_VeHMIR_k_BattPackParallel</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_BattPackParallel</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattPackParallel/VeHMIR_k_BattPackParallel</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="ed4ddb2b-6d7f-5529-5f8c-40297fc7e948">
+                          <SHORT-NAME>OUT_VeHMIR_k_BattPackSerial_VeHMIR_k_BattPackSerial</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_BattPackSerial</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattPackSerial/VeHMIR_k_BattPackSerial</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="e43c8109-663c-50c8-ba0f-97371ca841e8">
+                          <SHORT-NAME>OUT_VeHMIR_Ah_BattRatedCap_VeHMIR_Ah_BattRatedCap</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_Ah_BattRatedCap</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_Ah_BattRatedCap/VeHMIR_Ah_BattRatedCap</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="4b55e3b7-5f1c-57de-1c6e-2487b0107f88">
+                          <SHORT-NAME>OUT_VeHMIR_k_TempNum_VeHMIR_k_TempNum</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_TempNum</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_TempNum/VeHMIR_k_TempNum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="508a6d57-b9a6-56b8-49e0-9aace0810772">
+                          <SHORT-NAME>OUT_VeHMIR_k_CellNum_VeHMIR_k_CellNum</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_CellNum</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_CellNum/VeHMIR_k_CellNum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="514487ca-085e-56f2-3670-fd76a000d0fa">
+                          <SHORT-NAME>OUT_VeHMIR_k_HWVer_VeHMIR_k_HWVer</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_HWVer</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_HWVer/VeHMIR_k_HWVer</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="eaeda4cd-3343-55ab-3b56-b187d8f59604">
+                          <SHORT-NAME>OUT_VeHMIR_k_PRTVer_VeHMIR_k_PRTVer</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_PRTVer</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_PRTVer/VeHMIR_k_PRTVer</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="d4c73df8-5b34-56bf-3126-3d33b28b45e4">
+                          <SHORT-NAME>OUT_VeHMIR_k_CodeL_VeHMIR_k_CodeL</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_CodeL</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_CodeL/VeHMIR_k_CodeL</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="3907cda3-bde6-5093-c459-4d6dd7bcc65f">
+                          <SHORT-NAME>OUT_VeHMIR_k_FaultSum_VeHMIR_k_FaultSum</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_FaultSum</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_FaultSum/VeHMIR_k_FaultSum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="dc7b6cbd-7ff2-573d-e13b-3b92c95d8afe">
+                          <SHORT-NAME>OUT_VeHMIR_k_BattNum_VeHMIR_k_BattNum</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_BattNum</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattNum/VeHMIR_k_BattNum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="bc6d39fd-55c7-5947-2fa9-7246b15b4583">
+                          <SHORT-NAME>OUT_VeHMIR_k_BattSum_VeHMIR_k_BattSum</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_BattSum</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_BattSum/VeHMIR_k_BattSum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="b4956e37-c96d-5bca-7cfc-c8f9c5df2ad6">
+                          <SHORT-NAME>OUT_VeHMIR_k_MaxCellIndex_VeHMIR_k_MaxCellIndex</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_MaxCellIndex</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MaxCellIndex/VeHMIR_k_MaxCellIndex</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="7e656d93-8854-5a0d-53d5-fc88a896f67f">
+                          <SHORT-NAME>OUT_VeHMIR_k_MinCellIndex_VeHMIR_k_MinCellIndex</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_MinCellIndex</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MinCellIndex/VeHMIR_k_MinCellIndex</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="20e0f465-24b9-5664-6cb4-f0215919d661">
+                          <SHORT-NAME>OUT_VeHMIR_k_MaxTempIndex_VeHMIR_k_MaxTempIndex</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_MaxTempIndex</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MaxTempIndex/VeHMIR_k_MaxTempIndex</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="963fdf32-e3d5-52c0-b2a9-d738f900c18f">
+                          <SHORT-NAME>OUT_VeHMIR_k_MinTempIndex_VeHMIR_k_MinTempIndex</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_MinTempIndex</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MinTempIndex/VeHMIR_k_MinTempIndex</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="751da22b-b027-5581-d225-7d5f8b13cdb3">
+                          <SHORT-NAME>OUT_VeHMIR_k_MaxVNumPack_VeHMIR_k_MaxVNumPack</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_MaxVNumPack</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MaxVNumPack/VeHMIR_k_MaxVNumPack</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="b1259aba-d331-557d-073e-dc53ac8fc3a6">
+                          <SHORT-NAME>OUT_VeHMIR_k_MinTNumPack_VeHMIR_k_MinTNumPack</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_MinTNumPack</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MinTNumPack/VeHMIR_k_MinTNumPack</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="59b2a69f-fb71-57ed-0f39-842e2e7460ef">
+                          <SHORT-NAME>OUT_VeHMIR_k_MinVNumPack_VeHMIR_k_MinVNumPack</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_MinVNumPack</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MinVNumPack/VeHMIR_k_MinVNumPack</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="7becb9c0-0761-5901-fdd3-74d29e794d96">
+                          <SHORT-NAME>OUT_VeHMIR_k_MaxTNumPack_VeHMIR_k_MaxTNumPack</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_k_MaxTNumPack</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_k_MaxTNumPack/VeHMIR_k_MaxTNumPack</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="8ce61611-7f67-5dae-684a-5aaee84bf3ab">
+                          <SHORT-NAME>OUT_VeHMIR_I_MaxChargeCur_VeHMIR_I_MaxChargeCur</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_I_MaxChargeCur</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_I_MaxChargeCur/VeHMIR_I_MaxChargeCur</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="7d8a6883-e2d3-51cc-8b22-5711ee4852d6">
+                          <SHORT-NAME>OUT_VeHMIR_U_MaxChargeVol_VeHMIR_U_MaxChargeVol</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_U_MaxChargeVol</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_U_MaxChargeVol/VeHMIR_U_MaxChargeVol</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="ccbee314-d932-5328-7c86-603373c23ab9">
+                          <SHORT-NAME>OUT_VeHMIR_U_MinChargeVol_VeHMIR_U_MinChargeVol</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeHMIR_U_MinChargeVol</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeHMIR_U_MinChargeVol/VeHMIR_U_MinChargeVol</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                      </DATA-SEND-POINTS>
+                      <PARAMETER-ACCESSS>
+                        <PARAMETER-ACCESS UUID="27abf072-e7f6-5f4d-e434-c52c9d3d92e4">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_Ah_BattRatedCap</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_Ah_BattRatedCap</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="d0624965-5ee8-5170-7120-4b693aeaa5ae">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_Ah_CellCapacity</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_Ah_CellCapacity</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="4cbab12d-5d30-5545-d485-7bb5e7331dab">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_I_MaxChargeCur</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_I_MaxChargeCur</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="dfcc540e-6141-5159-3428-7c7b1804cee9">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_Pct_PackSocDashHundred</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_Pct_PackSocDashHundred</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="e0be279f-7307-5e69-94f4-4b0586113309">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_Pct_PackSocDashZero</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_Pct_PackSocDashZero</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="7e7f7e53-db5d-54fc-adca-1058e9de81cc">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_U_BattRatedVoltageValue</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_U_BattRatedVoltageValue</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="56a1f06a-008a-5283-21e1-e60c04b71082">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_U_CellDischCutVoltage</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_U_CellDischCutVoltage</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="d08d332e-f8d6-518f-b7f1-cf466a81c0e0">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_U_MaxChargeVol</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_U_MaxChargeVol</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="dd40fd6c-a7b0-5011-dd32-1862694a659e">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_U_MinChargeVol</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_U_MinChargeVol</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="4439a578-dbef-59c9-d82d-57c8a3b6d9c4">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_b_TotalDrivenBatOvrd</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_b_TotalDrivenBatOvrd</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="d2f51527-6591-53de-136a-98f9f83284e7">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_kE_BattRatedEnergyValue</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_kE_BattRatedEnergyValue</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="c1dd9c98-118c-5438-9abc-b041d22ddea9">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_BattManucCodeVal</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattManucCodeVal</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="91e1fd52-947e-5c35-b1ca-aacfd8476444">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_BattNum</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattNum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="ca07cacf-a55e-51b4-37a0-00941fcf140c">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_BattPackParallel</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattPackParallel</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="9bd46c13-e19c-5d1b-e06f-aca4d49312d5">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_BattPackSerial</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattPackSerial</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="8cc081e9-6e4c-532b-3768-2221fb408f10">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_BattSum</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattSum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="6b41515d-4fb1-5c61-79f0-d8d84e0a5232">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_BattTypeValue</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_BattTypeValue</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="8c1fc5dc-2fef-5f18-c477-0b119f6ce426">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_CellNum</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_CellNum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="3514ee37-9268-5b0e-2f77-0b7f85fb479d">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_CodeL</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_CodeL</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="8a55de18-3cbf-5fb6-9761-6cc26ea1b938">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_FaultSum</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_FaultSum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="8b8e09ce-fd00-54ad-42c5-edc1691b08a3">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_HWVer</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_HWVer</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="510730ed-5b67-5a6a-1f3d-22e39eba6094">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_MaxCellIndex</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MaxCellIndex</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="c854c92d-f741-505b-e0b5-f770cdf86c5e">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_MaxTNumPack</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MaxTNumPack</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="d4f6bffa-8eb5-515d-5dfd-7406c66f4348">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_MaxTempIndex</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MaxTempIndex</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="fde77585-8b37-5e2b-fec5-d67244a2d77f">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_MaxVNumPack</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MaxVNumPack</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="35e42c7b-38c5-51ec-39a3-0c1d890b1ee9">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_MinCellIndex</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MinCellIndex</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="77f1e849-6075-5141-b890-eb47fe3f2fec">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_MinTNumPack</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MinTNumPack</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="1fc41d02-d394-58f2-7c8b-af1d1daf9777">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_MinTempIndex</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MinTempIndex</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="46877f24-5b8f-519a-ae94-fe6867528e98">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_MinVNumPack</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_MinVNumPack</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="e566dadf-8b26-5a2c-3b05-4dba785bc0bb">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_PRTVer</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_PRTVer</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="d94cef49-8f25-593d-58c0-e26e664af276">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_k_TempNum</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_k_TempNum</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="476eab56-4c1a-59fd-29cf-1457e95d7fcc">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_kl_ElectricRangeDTE_Value</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_kl_ElectricRangeDTE_Value</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="4373155d-8ed2-507b-612b-c2549dc226ee">
+                          <SHORT-NAME>CALPRM_HMIR_Rport_KeHMIR_kl_TotalDrivenBatOvrdVal</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HMIR_if/KeHMIR_kl_TotalDrivenBatOvrdVal</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="8aa3b66b-ab94-5b01-ec7d-3f13cfece223">
+                          <SHORT-NAME>SCALPRM_KtHMIR_kl_SOC2</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <LOCAL-PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Code/KtHMIR_kl_SOC2</LOCAL-PARAMETER-REF>
+                          </ACCESSED-PARAMETER>
+                          <SW-DATA-DEF-PROPS>
+                            <SW-DATA-DEF-PROPS-VARIANTS>
+                              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                <SW-CALPRM-AXIS-SET>
+                                  <SW-CALPRM-AXIS>
+                                    <SW-AXIS-INDIVIDUAL>
+                                      <SW-VARIABLE-REFS>
+                                        <AUTOSAR-VARIABLE>
+                                          <AUTOSAR-VARIABLE-IREF>
+                                            <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/VeSOCR_Pct_DisplayPackSOC</PORT-PROTOTYPE-REF>
+                                            <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_if/VeSOCR_Pct_DisplayPackSOC/VeSOCR_Pct_DisplayPackSOC</TARGET-DATA-PROTOTYPE-REF>
+                                          </AUTOSAR-VARIABLE-IREF>
+                                        </AUTOSAR-VARIABLE>
+                                      </SW-VARIABLE-REFS>
+                                    </SW-AXIS-INDIVIDUAL>
+                                  </SW-CALPRM-AXIS>
+                                </SW-CALPRM-AXIS-SET>
+                              </SW-DATA-DEF-PROPS-CONDITIONAL>
+                            </SW-DATA-DEF-PROPS-VARIANTS>
+                          </SW-DATA-DEF-PROPS>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="01110d3a-f4ef-5c33-03ae-b9726695d500">
+                          <SHORT-NAME>SCALPRM_KtHMIR_kl_SOC2Range</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <LOCAL-PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Code/KtHMIR_kl_SOC2Range</LOCAL-PARAMETER-REF>
+                          </ACCESSED-PARAMETER>
+                          <SW-DATA-DEF-PROPS>
+                            <SW-DATA-DEF-PROPS-VARIANTS>
+                              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                <SW-CALPRM-AXIS-SET>
+                                  <SW-CALPRM-AXIS>
+                                    <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                    <SW-AXIS-GROUPED>
+                                      <AR-PARAMETER>
+                                        <LOCAL-PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/HMIR_Code_pkg/HMIR_Code_swc/HMIR_Code/HMIR_Code/KtHMIR_kl_SOC2</LOCAL-PARAMETER-REF>
+                                      </AR-PARAMETER>
+                                    </SW-AXIS-GROUPED>
+                                  </SW-CALPRM-AXIS>
+                                </SW-CALPRM-AXIS-SET>
+                              </SW-DATA-DEF-PROPS-CONDITIONAL>
+                            </SW-DATA-DEF-PROPS-VARIANTS>
+                          </SW-DATA-DEF-PROPS>
+                        </PARAMETER-ACCESS>
+                      </PARAMETER-ACCESSS>
+                      <SYMBOL>Run_HMIR_500ms</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                  </RUNNABLES>
+                  <SHARED-PARAMETERS>
+                    <PARAMETER-DATA-PROTOTYPE UUID="86e3c344-3264-5699-3852-8e44a75287ff">
+                      <SHORT-NAME>KtHMIR_kl_SOC2</SHORT-NAME>
+                      <CATEGORY>COM_AXIS</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/HMIR_Code_pkg/HMIR_Code_dt/ApplDataTypes/Appl_KtHMIR_kl_SOC2</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KtHMIR_kl_SOC2</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/HMIR_Code_pkg/HMIR_Code_dt/Ground/KtHMIR_kl_SOC2</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="dd3a3c64-aa76-5310-bcdf-3e5cd9116c34">
+                      <SHORT-NAME>KtHMIR_kl_SOC2Range</SHORT-NAME>
+                      <CATEGORY>CURVE</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/HMIR_Code_pkg/HMIR_Code_dt/ApplDataTypes/Appl_KtHMIR_kl_SOC2Range</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KtHMIR_kl_SOC2Range</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/HMIR_Code_pkg/HMIR_Code_dt/Ground/KtHMIR_kl_SOC2Range</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                  </SHARED-PARAMETERS>
+                  <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+                </SWC-INTERNAL-BEHAVIOR>
+              </INTERNAL-BEHAVIORS>
+            </APPLICATION-SW-COMPONENT-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

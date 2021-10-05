@@ -1,0 +1,14 @@
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmPageBufferCfg;
+extension OdxConstants; extension OdxShortNames;
+
+create DcmPageBufferCfg this createDcmPageBufferCfg():
+setShortName(DcmPageBufferCfg_SHORTNAME())->
+setDcmPagedBufferEnabled(createDcmPagedBufferEnabled(DcmPagedBufferEnabled_VALUE()))
+;
+
+create DcmPagedBufferEnabled  this createDcmPagedBufferEnabled(Boolean value):
+setValue(value)
+;

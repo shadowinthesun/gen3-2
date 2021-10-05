@@ -1,0 +1,32 @@
+/**
+ * Creates DCM container
+ *
+ * @author raa3cob
+ */
+import fibexcore::corecommunication;
+import fibexcore::coretopology;
+import system::cancommunication;
+import system::cantopology;
+
+import AUTOSAR_Dcm::EcucModuleDefs;
+
+extension Dcm_CreateDcmConfigSet;
+extension EcuExtractor;
+extension CanTp_CreateCanTp;
+extension CanTp_CreateCanTpConfig;
+extension OdxConstants; extension OdxShortNames;
+/*
+Calls the function which creates Dcm module
+*/
+createDcm():
+  	DcmCreation()
+  	;
+
+/*
+creates the Dcm module
+*/
+private create Dcm this DcmCreation():
+    setShortName(Dcm_SHORTNAME())->
+	setDcmConfigSet(dcmConfigSetCreation(this))
+;
+

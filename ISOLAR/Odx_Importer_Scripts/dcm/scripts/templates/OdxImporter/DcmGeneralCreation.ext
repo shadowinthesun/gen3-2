@@ -1,0 +1,91 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)         
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmGeneral;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmGeneral::DcmPageBufferCfg;
+extension OdxConstants; extension OdxShortNames;
+/*
+Creates the DcmGeneral module
+*/
+//DcmGeneral creation
+create DcmGeneral this createDcmGeneral():
+    setShortName(DcmGeneral_SHORTNAME())->
+    //setDcmDspDataDefaultEndianness(createDcmDspDataDefaultEndianness("LITTLE_ENDIAN"))->
+    setDcmDevErrorDetect(createDcmDevErrorDetect(DcmDevErrorDetect_VALUE()))->
+    setDcmRequestManufacturerNotificationEnabled(createDcmReqManfNtfcnEn(DcmRequestManufacturerNotificationEnabled_VALUE()))->
+    setDcmRequestSupplierNotificationEnabled(createSupNotificationEnabled(DcmRequestSupplierNotificationEnabled_VALUE()))->
+    setDcmRespondAllRequest(createDcmRespondAllRequest(DcmRespondAllRequest_VALUE()))->
+    setDcmTaskTime(createDcmTaskTime(DcmTaskTime_VALUE()))->
+    setDcmVersionInfoApi(createDcmVersionInfoApi(DcmVersionInfoApi_VALUE()))->
+    setDcmOSTimerUse(createDcmOSTimerUse())->
+    setDcmDslP2maxthresholdtime(createDcmDslP2maxthresholdtime(DcmDslP2maxthresholdtime_VALUE()))->
+    setDcmRTEsupport(createDcmRTEsupport())->
+    setDcmRTEInterface(createDcmRTEInterface())
+;
+
+create DcmPageBufferCfg this createDcmPageBufferCfg():
+setShortName(DcmPageBufferCfg_SHORTNAME())
+//setDcmPagedBufferEnabled(createDcmPagedBufferEnabled(false))
+;
+
+//create DcmPagedBufferEnabled this createDcmPagedBufferEnabled(Boolean value):
+//setValue(value)
+//;
+create DcmDspDataDefaultEndianness this createDcmDspDataDefaultEndianness(String value):
+setValue(value)
+;
+
+create DcmDevErrorDetect this createDcmDevErrorDetect(Boolean value):
+setValue(value)
+;
+
+create DcmRequestManufacturerNotificationEnabled this createDcmReqManfNtfcnEn(Boolean value):
+setValue(value)
+;
+
+create DcmRequestSupplierNotificationEnabled this createSupNotificationEnabled(Boolean value):
+setValue(value)
+;
+
+create DcmRespondAllRequest this createDcmRespondAllRequest(Boolean value):
+setValue(value)
+;
+
+create DcmTaskTime this createDcmTaskTime(Real value):
+setValue(value)
+;
+
+create DcmVersionInfoApi this createDcmVersionInfoApi(Boolean value):
+setValue(value)
+;
+
+create DcmOSTimerUse this createDcmOSTimerUse():
+setValue(DcmOSTimerUse_VALUE())
+;
+
+create DcmDslP2maxthresholdtime this createDcmDslP2maxthresholdtime(Real value):
+setValue(value)
+;
+
+create DcmRTEInterface this createDcmRTEInterface():
+setValue(DcmRTEInterface_VALUE())
+;
+
+create DcmRTEsupport this createDcmRTEsupport():
+setValue(DcmRTEsupport_VALUE())
+;

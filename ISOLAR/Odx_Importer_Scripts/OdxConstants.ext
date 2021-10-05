@@ -1,0 +1,985 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+
+/*********************************************************************************/
+/********************************   SYSTEM     *************************************/
+/*********************************************************************************/
+
+
+
+/*********************************************************************************/
+/********************************   SYSTEM DESCRIPTION CAN ****************************/
+/*********************************************************************************/
+
+//----------------------CanClusterConditional---------------------------//
+
+String BaudRate_ID_VALUE():"ISO_11898_2_DWCAN.CP_Baudrate";
+
+
+/*********************************************************************************/
+/********************************   DEM J1939*************************************/
+/*********************************************************************************/
+
+//----------------------DemJ1939FreezeFrameSupport---------------------------//
+
+Boolean DemJ1939FreezeFrameSupport_VALUE():false;
+
+//----------------------DemJ1939ReadingDtcSupport---------------------------//
+
+Boolean DemJ1939ReadingDtcSupport_VALUE():true;
+
+//----------------------DemJ1939ClearDtcSupport---------------------------//
+
+//======================DM3=========================//
+
+Boolean DM3_DemJ1939ClearDtcSupport_VALUE():true;
+
+//======================DM11=========================//
+
+Boolean DM11_DemJ1939ClearDtcSupport_VALUE():true;
+
+//----------------------DemJ1939FreezeFrameSupport---------------------------//
+
+Boolean DemJ1939FreezeFrameSupport_VALUE():true;
+
+//----------------------DemJ1939Dm31Support---------------------------//
+
+Boolean DemJ1939Dm31Support_VALUE():true;
+
+/*********************************************************************************/
+/********************************   DcmDsl   *************************************/
+/*********************************************************************************/
+
+//----------------------DcmDslDiagRespMaxNumRespPend---------------------------//
+
+Integer DcmDslDiagRespMaxNumRespPend_VALUE():5;
+
+//----------------------DcmDslBufferSize---------------------------//
+
+Integer DcmDslBufferSize_VALUE():4095;
+
+//=========DcmDslProtocolRow for UDS ON CAN==========//
+
+
+//---------DcmDslProtocolEndiannessConvEnabled------//
+
+Boolean UDS_DcmDslProtocolEndiannessConvEnabled_VALUE():false;
+
+//---------DcmDslProtocolID------//
+
+String UDS_DcmDslProtocolID_VALUE():"DCM_UDS_ON_CAN";
+
+//---------DcmDslProtocolIsParallelExecutab------//
+
+Boolean UDS_DcmDslProtocolIsParallelExecutab_VALUE(): false;
+
+//---------DcmDslProtocolNRC21OnPriorityAssessmentReject------//
+
+Boolean UDS_DcmDslProtocolNRC21OnPriorityAssessmentReject_VALUE():false;
+
+//---------DcmDslProtocolPriority------//
+
+Integer UDS_DcmDslProtocolPriority_VALUE():1;
+
+//---------DcmSendRespPendOnTransToBoot------//
+
+Boolean UDS_DcmSendRespPendOnTransToBoot_VALUE():false;
+
+//---------DcmTimStrP2ServerAdjust------//
+
+Real UDS_DcmTimStrP2ServerAdjust_VALUE():0.05;
+
+//---------DcmTimStrP2StarServerAdjust------//
+
+Real UDS_DcmTimStrP2StarServerAdjust_VALUE():0.05;
+
+//=========DcmDslProtocolRow for PERIODIC ON CAN==========//
+
+
+//---------DcmDslProtocolEndiannessConvEnabled------//
+
+Boolean PERIODIC_DcmDslProtocolEndiannessConvEnabled_VALUE():false;
+
+//---------DcmDslProtocolID------//
+
+String PERIODIC_DcmDslProtocolID_VALUE():"DCM_PERIODIC_ON_CAN";
+
+//---------DcmDslProtocolIsParallelExecutab------//
+
+Boolean PERIODIC_DcmDslProtocolIsParallelExecutab_VALUE(): true;
+
+//---------DcmDslProtocolNRC21OnPriorityAssessmentReject------//
+
+Boolean PERIODIC_DcmDslProtocolNRC21OnPriorityAssessmentReject_VALUE():false;
+
+//---------DcmDslProtocolPriority------//
+
+Integer PERIODIC_DcmDslProtocolPriority_VALUE():0;
+
+//---------DcmSendRespPendOnTransToBoot------//
+
+Boolean PERIODIC_DcmSendRespPendOnTransToBoot_VALUE():true;
+
+//---------DcmDslProtocolTransType------//
+
+String PERIODIC_DcmDslProtocolTransType_VALUE():"TYPE1";
+
+
+//---------DcmTimStrP2ServerAdjust------//
+
+Real PERIODIC_DcmTimStrP2ServerAdjust_VALUE():0.05;
+
+//---------DcmTimStrP2StarServerAdjust------//
+
+Real PERIODIC_DcmTimStrP2StarServerAdjust_VALUE():0.05;
+
+/*********************************************************************************/
+/************* DcmProcessingConditionsCreation    ********************************/
+/*********************************************************************************/
+
+
+
+/*********************************************************************************/
+/********************************   DEM      *************************************/
+/*********************************************************************************/
+
+
+//----------------------DemClearDTCBehavior---------------------------//
+
+String DemClearDTCBehavior_VALUE():"DEM_CLRRESP_NONVOLATILE_FINISH";
+
+//----------------------DemClearDTCLimitation---------------------------//
+
+String DemClearDTCLimitation_VALUE():"DEM_ALL_SUPPORTED_DTCS";
+
+//----------------------DemAgingCycleCounterProcessing---------------------------//
+
+String DemAgingCycleCounterProcessing_VALUE():"DEM_PROCESS_AGINGCTR_INTERN";
+
+
+//----------------------DemEventCombinationSupport---------------------------//
+
+String DemEventCombinationSupport_VALUE():"DEM_EVCOMB_DISABLED";
+
+//----------------------DemExtendedDataCapture---------------------------//
+
+String DemExtendedDataCapture_VALUE():"DEM_TRIGGER_CONFIRMEDDTC";
+
+//----------------------DemTypeOfFreezeFrameRecordNumeration---------------------------//
+
+String DemTypeOfFreezeFrameRecordNumeration_VALUE():"DEM_FF_RECNUM_CALCULATED";
+
+//----------------------DemOccurrenceCounterProcessing---------------------------//
+
+String DemOccurrenceCounterProcessing_VALUE():"DEM_PROCESS_OCCCTR_TF";
+
+
+//----------------------DemFreezeFrameCapture---------------------------//
+
+String DemFreezeFrameCapture_VALUE():"DEM_TRIGGER_CONFIRMEDDTC";
+
+//----------------------DemTypeOfDTCSupported---------------------------//
+
+String DemTypeOfDTCSupported_VALUE():"DEM_DTC_TRANSLATION_SAEJ1939_73";
+
+//----------------------DemOperationCycleType---------------------------//
+
+String DemOperationCycleType_VALUE():"DEM_OPCYC_IGNITION";
+
+//----------------------DemExtendedDataRecordClass---------------------------//
+
+String DemExtendedDataRecordClass_SHORTNAME():"DemExtendedDataRecordClass";
+
+//----------------------DemExtendedDataRecordClass---------------------------//
+
+String DemExtendedDataRecordUpdate_VALUE():"DEM_EXTENDED_DATA_CAPTURE_ON_CONFIRMED";
+
+//----------------------DemAgingCounterType---------------------------//
+
+String DemAgingCounterType_VALUE():"NONE";
+
+
+//----------------------DemBswErrorBufferSize---------------------------//
+
+Integer DemBswErrorBufferSize_VALUE():20;
+
+//----------------------DemDtcStatusAvailabilityMask---------------------------//
+
+Integer DemDtcStatusAvailabilityMask_VALUE():255;
+
+
+//----------------------DemMaxNumberEventEntryMirror---------------------------//
+
+Integer DemMaxNumberEventEntryMirror_VALUE():20;
+
+
+//----------------------DemMaxNumberEventEntryPermanent---------------------------//
+
+Integer DemMaxNumberEventEntryPermanent_VALUE():20;
+
+//----------------------DemMaxNumberEventEntryPrimary---------------------------//
+
+Integer DemMaxNumberEventEntryPrimary_VALUE():20;
+
+//----------------------DemMaxNumberEventEntrySecondary---------------------------//
+
+Integer DemMaxNumberEventEntrySecondary_VALUE():20;
+
+
+//----------------------DemMaxNumberPrestoredFF---------------------------//
+
+Integer DemMaxNumberPrestoredFF_VALUE():0;
+
+//----------------------Dem_EventCategoryId---------------------------//
+
+Integer Dem_EventCategoryId_VALUE():1;
+
+//----------------------DemTaskTime---------------------------//
+
+Real DemTaskTime_VALUE():0.01;
+
+
+//----------------------DemDevErrorDetect---------------------------//
+
+Boolean DemDevErrorDetect_VALUE():true;
+
+//----------------------DemOBDSupport---------------------------//
+
+Boolean DemOBDSupport_VALUE():false;
+
+//----------------------DemOperationCycleStatusStorage---------------------------//
+
+Boolean DemOperationCycleStatusStorage_VALUE():true;
+
+
+//----------------------DemPTOSupport---------------------------//
+
+Boolean DemPTOSupport_VALUE():false;
+
+//----------------------DemStorageConditionSupport---------------------------//
+
+Boolean DemStorageConditionSupport_VALUE():true;
+
+//----------------------DemTriggerDcmReports---------------------------//
+
+Boolean DemTriggerDcmReports_VALUE():false;
+
+//----------------------DemDTCSuppressionSupport---------------------------//
+
+Boolean DemDTCSuppressionSupport_VALUE():true;
+
+//----------------------DemDebounceCounterBasedSupport---------------------------//
+
+Boolean DemDebounceCounterBasedSupport_VALUE():true;
+
+//----------------------DemDebounceTimeBasedSupport---------------------------//
+
+Boolean DemDebounceTimeBasedSupport_VALUE():true;
+
+//----------------------DemEnableConditionSupport---------------------------//
+
+Boolean DemEnableConditionSupport_VALUE():true;
+
+//----------------------DemStatusBitStorageTestFailed---------------------------//
+
+Boolean DemStatusBitStorageTestFailed_VALUE():true;
+
+//----------------------DemTriggerMonitorInitBeforeClearOk---------------------------//
+
+Boolean DemTriggerMonitorInitBeforeClearOk_VALUE():false;
+
+//----------------------DemTriggerFiMReports---------------------------//
+
+Boolean DemTriggerFiMReports_VALUE():false;
+
+//----------------------DemVersionInfoApi---------------------------//
+
+Boolean DemVersionInfoApi_VALUE():true;
+
+
+//----------------------DemSupportFailureDependency---------------------------//
+
+Boolean DemSupportFailureDependency_VALUE():false;
+
+//-----------------------------------------------------------------------------//
+
+Integer DemMaxNumberEventEntryEventBuffer_VALUE():100;
+
+/*********************************************************************************/
+/********************************   DCM      *************************************/
+/*********************************************************************************/
+
+/*NHAN_ADD_START*/
+
+Integer DcmDspReadDTCMaxNumRecordRead_VALUE():1;
+
+Integer DcmDspReadDTCMaxNumDTCRead_VALUE():1;
+
+Integer DcmDspSecurityKeySizeDefault_VALUE():4;
+
+Integer DcmDspSecuritySeedSizeDefault_VALUE():4;
+
+Integer DcmDspSecurityNumAttLockDefault_VALUE():0;
+
+//NHAN_ADD_END
+//----------------------DcmDspSesSecUsedInProtocol---------------------------//
+
+String DcmDspSesSecUsedInProtocol_VALUE():"UDS";
+
+
+//----------------------DcmDsdSidTabId---------------------------//
+
+Integer DcmDsdSidTabId_VALUE():0;
+
+//----------------------NRCForService---------------------------//
+
+Integer NRCForService_VALUE():127;
+
+//----------------------DcmPagedBufferEnabled---------------------------//
+
+Boolean DcmPagedBufferEnabled_VALUE():false;
+
+//----------------------DcmDevErrorDetect---------------------------//
+
+Boolean DcmDevErrorDetect_VALUE():false;
+
+
+//----------------------DcmRequestManufacturerNotificationEnabled---------------------------//
+
+Boolean DcmRequestManufacturerNotificationEnabled_VALUE():true;
+
+//----------------------DcmRequestSupplierNotificationEnabled---------------------------//
+
+Boolean DcmRequestSupplierNotificationEnabled_VALUE():false;
+
+//----------------------DcmRespondAllRequest---------------------------//
+
+Boolean DcmRespondAllRequest_VALUE():false;
+
+//----------------------DcmVersionInfoApi---------------------------//
+
+Boolean DcmVersionInfoApi_VALUE():true;
+
+
+//----------------------DcmTaskTime---------------------------//
+
+Real DcmTaskTime_VALUE():0.01;
+
+
+//----------------------DcmDslP2maxthresholdtime---------------------------//
+
+Real DcmDslP2maxthresholdtime_VALUE():0.01;
+
+
+//----------------------DcmOSTimerUse---------------------------//
+
+String DcmOSTimerUse_VALUE():"CyclicCount";
+
+//----------------------DcmRTEInterface---------------------------//
+
+String DcmRTEInterface_VALUE():"RTE_AR_4_0_2";
+
+//----------------------DcmRTEsupport---------------------------//
+
+Boolean DcmRTEsupport_VALUE():true;
+
+/*********************************************************************************/
+/********************************   COMM     *************************************/
+/*********************************************************************************/
+
+
+
+/*********************************************************************************/
+/********************************   RDBI     *************************************/
+/*********************************************************************************/
+
+String RDBI_TAB_SID_INIT():"Dcm_Dsp_RdbiIni";
+
+String RDBI_DcmDsdSidTabFnc():"Dcm_DcmReadDataByIdentifier";
+
+//----------------------DcmDspDataUsePort---------------------------//
+String RDBI_DcmDspDataUsePort():"USE_DATA_SENDER_RECEIVER";
+
+//----------------------DcmDspDataFixedLength---------------------------//
+Boolean RDBI_DcmDspDataFixedLength_VALUE():true;
+
+//----------------------DcmDspDiagnosisRepresentationDataOffset---------------------------//
+Integer RDBI_DcmDspDiagnosisRepresentationDataOffset_VALUE():0;
+
+//----------------------DcmDspDiagnosisRepresentationDataOffset---------------------------//
+Integer RDBI_DcmDspDiagnosisRepresentationDataResolution_VALUE():0;
+
+
+//----------------------DcmDspDidUsed---------------------------//
+Boolean RDBI_DcmDspDidUsed_VALUE():true;
+
+//----------------------DcmDspDidDynamicallyDefined---------------------------//
+Boolean RDBI_DcmDspDidDynamicallyDefined_VALUE():false;
+
+
+//----------------------DcmDspDataSize---------------------------//
+Integer RDBI_DcmDspDataSize_VALUE():32;
+
+/*********************************************************************************/
+/********************************   WDBI     *************************************/
+/*********************************************************************************/
+
+String WDBI_DcmDsdSidTabFnc():"Dcm_DcmWriteDataByIdentifier";
+
+
+//----------------------DcmDspDataUsePort---------------------------//
+String WDBI_DcmDspDataUsePort():"USE_DATA_SENDER_RECEIVER";
+
+
+//----------------------DcmDspDiagnosisRepresentationDataOffset---------------------------//
+Integer WDBI_DcmDspDiagnosisRepresentationDataOffset_VALUE():0;
+
+//----------------------DcmDspDiagnosisRepresentationDataResolution---------------------------//
+Integer WDBI_DcmDspDiagnosisRepresentationDataResolution_VALUE():0;
+
+
+//----------------------DcmDspDidUsed---------------------------//
+Boolean WDBI_DcmDspDidUsed_VALUE():true;
+
+//----------------------DcmDspDataSize---------------------------//
+Integer WDBI_DcmDspDataSize_VALUE():32;
+
+//----------------------DcmDspDidDynamicallyDefined---------------------------//
+Boolean WDBI_DcmDspDidDynamicallyDefined_VALUE():false;
+
+/*********************************************************************************/
+/********************************   CC       *************************************/
+/*********************************************************************************/
+
+
+String CC_DcmDsdSidTabFnc():"Dcm_DcmCommunicationControl";
+
+String CC_SID_TAB_INIT_FUNC():"NULL_PTR";
+
+String CC_CONTROL_TYPE():"ControlType";
+
+String CC_DCM_DSP_COM_CONTROL():"DcmDspComControl";
+
+/*********************************************************************************/
+/********************************   RC       *************************************/
+/*********************************************************************************/
+
+String RC_DcmDsdSidTabFnc():"Dcm_DcmRoutineControl";
+
+String RC_SID_TAB_INIT_FUNC():"Dcm_Dsp_RC_Ini";
+
+String RC_DCM_SUBSERVICE_START_ROUTINE():"DcmsubService_startRoutine";
+
+String RC_DCM_SUBSERVICE_STOP_ROUTINE():"DcmsubService_stopRoutine";
+
+String RC_DCM_SUBSERVICE_REQ_ROUTINE_RESULTS():"DcmsubService_requestRoutineResults";
+
+
+//----------------------------DcmDspRoutineUsePort------------------//
+Boolean RC_DcmDspRoutineUsePort_VALUE():true;
+
+//----------------------------DcmDspStopRoutineSupported------------------//
+Boolean RC_DcmDspStopRoutineSupported_VALUE():true;
+
+//----------------------------DcmDspRoutineFixedLength------------------//
+Boolean RC_DcmDspRoutineFixedLength_VALUE():true;
+
+//----------------------------DcmDspRequestResultsRoutineSupported------------------//
+Boolean RC_DcmDspRequestResultsRoutineSupported_VALUE():true;
+
+/*********************************************************************************/
+/********************************   DDDI     *************************************/
+/*********************************************************************************/
+
+String DDDI_DcmDsdSidTabFnc():"Dcm_DcmDDDI";
+
+String DDDI_DcmDsdSidTabSidInitFunction():"Dcm_DDDI_Ini";
+
+String CONSTANT_DYNAMICALLY_DEFINE_BY_DID():"DcmsubService_DynamicallyDefineByDID";
+
+String CONSTANT_DYNAMICALLY_DEFINE_BY_ADDRESS():"DcmsubService_DynamicallyDefineByAddress";
+
+String CONSTANT_CLEAR_DYNAMICALLY_DEFINED():"DcmsubService_clearDynamicallyDefined";
+
+String CONSTANT_DYN_DID_HI_BYTE():"DynDid_HiByte";
+
+String CONSTANT_DYN_DID_LO_BYTE():"DynDid_LoByte";
+
+//----------------------DcmDspDidUsed---------------------------//
+Boolean DDDI_DcmDspDidUsed_VALUE():true;
+
+
+
+/*********************************************************************************/
+/********************************   RDPI     *************************************/
+/*********************************************************************************/
+
+
+//----------------------TabFunc----------------------------//
+
+String RDPI_DcmDsdSidTabFnc():"Dcm_DcmReadDataByPeriodicIdentifier";
+
+
+String RDPI_DcmDsdSidTabSidInitFunction():"Dcm_Dsp_RdpiIni";
+//----------------------DcmDspDataUsePort---------------------------//
+
+String CONST_RDPI_DcmDspDataUsePort():"USE_DATA_SYNCH_FNC";
+
+
+//----------------------DcmDspPeriodicTransmission---------------------------//
+
+String CONST_RDPI_DcmDspPeriodicTransmission():"Dcm_DcmReadDataByPeriodicIdentifier";
+
+//----------------------TransmMode_SendAtFastRate---------------------------//
+
+String CONST_RDPI_SendAtFastRate():"TransmMode_SendAtFastRate";
+
+//----------------------TransmMode_SendAtMediumRate---------------------------//
+
+String CONST_RDPI_SendAtMediumRate():"TransmMode_SendAtMediumRate";
+
+//----------------------TransmMode_SendAtSlowRate---------------------------//
+
+String CONST_RDPI_SendAtSlowRate():"TransmMode_SendAtSlowRate";
+
+
+//----------------------DcmDspPeriodicDidTransmission---------------------------//
+
+String CONST_RDPI_DcmDspPeriodicDidTransmission():"DcmDspPeriodicDidTransmission";
+
+//----------------------DcmDspDidUsed---------------------------//
+
+Boolean RDPI_DcmDspDidUsed_VALUE():true;
+
+//----------------------DcmDspDidMaxNumRecords---------------------------//
+
+Integer RDPI_DcmDspDidMaxNumRecords_VALUE():10;
+
+//----------------------DcmDspDidDynamicallyDefined---------------------------//
+
+Boolean RDPI_DcmDspDidDynamicallyDefined_VALUE():true;
+
+//----------------------DcmDspPeriodicTransmissionFastRate---------------------------//
+
+Real RDPI_DcmDspPeriodicTransmissionFastRate_VALUE():20.0;
+
+//----------------------DcmDspPeriodicTransmissionMediumRate---------------------------//
+
+Real RDPI_DcmDspPeriodicTransmissionMediumRate_VALUE():200.0;
+
+//----------------------DcmDspPeriodicTransmissionSlowRate---------------------------//
+
+Real RDPI_DcmDspPeriodicTransmissionSlowRate_VALUE():1000.0;
+
+//----------------------DcmDspMaxPeriodicDidScheduler---------------------------//
+
+Integer RDPI_DcmDspMaxPeriodicDidScheduler_VALUE():4;
+
+//----------------------DcmDspMaxDidToRead---------------------------//
+
+Integer RDPI_DcmDspMaxDidToRead_VALUE():864;//Change with exact number
+
+/*********************************************************************************/
+/********************************   DCMDSL   *************************************/
+/*********************************************************************************/
+
+
+/*********************************************************************************/
+/********************************   RDTC     *************************************/
+/*********************************************************************************/
+
+
+String RDTC_DcmDsdSidTabFnc():"Dcm_DcmReadDTCInformation";
+
+String RDTC_DcmDsdSidTabSidInitFunction():"Dcm_Dsp_ReadDTCInfo_Ini";
+
+String CONST_DCM_DSP_REPORT_SUPPORT_DTC():"Dcm_Dsp_ReportNumberOfDTC";
+
+String CONST_DCM_DSP_REPORT_DATA_RECORD_BY_DTC():"Dcm_Dsp_ReportDataRecordByDTCNumber";
+
+
+/*********************************************************************************/
+/********************************   RMBA             *****************************/
+/*********************************************************************************/
+
+String RMBA_DcmDsdSidTabFnc():"Dcm_DcmReadMemoryByAddress";
+
+String RMBA_DcmDsdSidTabSidInitFunction():"Dcm_RMBAIni";
+
+//--------------------DcmDspUseMemoryId------------//
+
+Boolean DcmDspUseMemoryId_VALUE():true;
+
+//--------------------DcmDspDataUsePort------------------------//
+
+String RMBA_DCM_DSP_DATA_USE_PORT():"USE_DATA_SYNCH_FNC";
+
+//--------------------DcmDspDataSize------------------------//
+Integer RMBA_DcmDspDataSize_VALUE():16;
+
+/*********************************************************************************/
+/********************************   CDI              *****************************/
+/*********************************************************************************/
+
+String CDI_DcmDsdSidTabFnc():"Dcm_DcmClearDiagnosticInformation";
+
+String CDI_DcmDsdSidTabSidInitFunction():"Dcm_Dsp_CDIIni";
+
+
+
+/*********************************************************************************/
+/********************************   RDTC             *****************************/
+/*********************************************************************************/
+
+
+//--------------------DemDataElementReadFnc------------//
+
+String RDTC_DemDataElementReadFnc():"DemDataElementReadFnc";
+
+//--------------------DemEventSignificance------------//
+
+String RDTC_DEM_EVENT_SIGNIFICANCE_FAULT():"DEM_EVENT_SIGNIFICANCE_FAULT";
+
+
+String RDTC_DEM_EVENT_SIGNIFICANCE_OCCURRENCE():"DEM_EVENT_SIGNIFICANCE_OCCURRENCE";
+
+//--------------------DemIndicatorFailureCycleSource------------//
+
+String RDTC_DEM_FAILURE_CYCLE_INDICATOR():"DEM_FAILURE_CYCLE_INDICATOR";
+//--------------------DemDTCClassRef------------//
+
+String RDTC_DEM_DTC_SEV_MAINTENANCE_ONLY():"DEM_DTC_SEV_MAINTENANCE_ONLY";
+
+//--------------------DemEventKind------------//
+
+String RDTC_DEM_EVENT_KIND_SWC():"DEM_EVENT_KIND_SWC";
+
+//--------------------demIndicator------------//
+
+String RDTC_MalFunction_Ind_Lamp_CONST():"MalFunction_Ind_Lamp";
+
+//--------------------MIL_Lamp------------//
+
+String RDTC_MIL_Lamp_CONST():"MIL_Lamp";
+
+//--------------------Red_Stop_Lamp------------//
+
+String RDTC_Red_Stop_Lamp_CONST():"Red_Stop_Lamp";
+
+//--------------------Red------------//
+
+String RDTC_Red_CONST():"Red";
+
+//--------------------Protect_Lamp------------//
+
+String RDTC_Protect_Lamp_CONST():"Protect_Lamp";
+
+//--------------------Protect------------//
+
+String RDTC_Protect_CONST():"Protect";
+
+
+//--------------------Amber_Warning_Lamp------------//
+
+String RDTC_Amber_Warning_Lamp_CONST():"Amber_Warning_Lamp";
+
+
+//--------------------Amber------------//
+
+String RDTC_Amber_CONST():"Amber";
+
+
+//--------------------MIL_Fault_lamps------------//
+
+String RDTC_MIL_Fault_lamps_CONST():"MIL_Fault_lamps";
+
+//--------------------DemDTCKind------------//
+
+String RDTC_DemDTCKind_VALUE():"DEM_DTC_KIND_ALL_DTCS";
+
+String SPN():"SPN_19bit";
+
+String FMI():"FMI_5bit";
+
+/*********************************************************************************/
+/********************************   J1939DM          *****************************/
+/*********************************************************************************/
+
+
+
+//--------------------DemSPNId------------//
+
+Integer DemSPNId_VALUE():1;
+
+//--------------------DemDataElementUsePort------------//
+
+Boolean DemDataElementUsePort_VALUE():false;
+
+
+/*********************************************************************************/
+/********************************   IOCBI            *****************************/
+/*********************************************************************************/
+
+
+//--------------------DcmDsdSidTabFnc--------------//
+
+String IOCBI_DcmDsdSidTabFnc():"Dcm_DcmInputOutputControlByIdentifier";
+
+//--------------------DcmDsdSidTabSidInitFunction--------------//
+
+String IOCBI_DcmDsdSidTabSidInitFunction():"Dcm_Dsp_IOCBI_Ini";
+
+//--------------------DcmDspDataUsePort------------------------//
+
+String IOCBI_DCM_DSP_DATA_USE_PORT():"USE_DATA_SYNCH_FNC";
+
+
+//--------------------DcmDspDidUsed--------------------------------//
+
+Boolean IOCBI_DcmDspDidUsed_VALUE():true;
+
+
+//--------------------DcmDspDataFixedLength--------------------------------//
+
+Boolean IOCBI_DcmDspDataFixedLength_VALUE():true;
+
+
+
+//--------------------DcmDspDidReturnControlToEcu--------------------------------//
+
+Boolean IOCBI_DcmDspDidReturnControlToEcu_VALUE():true;
+
+//--------------------DcmDspDidResetToDefault--------------------------------//
+
+Boolean IOCBI_DcmDspDidResetToDefault_VALUE():true;
+
+//--------------------DcmDspDidFreezeCurrentState--------------------------------//
+
+Boolean IOCBI_DcmDspDidFreezeCurrentState_VALUE():true;
+
+
+//--------------------DcmDspDidShortTermAdjustment--------------------------------//
+
+Boolean IOCBI_DcmDspDidShortTermAdjustment_VALUE():true;
+
+
+/*********************************************************************************/
+/********************************   CDTC             *****************************/
+/*********************************************************************************/
+
+String CDTC_DcmDsdSidTabFnc(): "Dcm_DcmControlDTCSetting";
+
+/* Pmk1hc Fix the default initfunction */
+String CDTC_DcmDsdSidTabSidInitFunction(): "Dcm_Dsp_CDTCSIni";
+
+String CONST_CONTROL_DTC_SETTING(): "ControlDTCSetting";
+
+String DCM_DSP_CONTROL_DTC(): "DcmDspControlDTCSetting";
+
+String DCM_MODE_RULE(): "DcmModeRule";
+
+//---------------------DcmDspCDTCRecordLength----------------------//
+
+Integer DcmDspCDTCRecordLength_VALUE(): 0;
+
+/******************************************************************************************************/
+/*******************       TP                    *****************************************************/
+/******************************************************************************************************/
+
+
+
+//---------------------TabFunc----------------------//
+
+String TP_DcmDsdSidTabFnc(): "Dcm_DcmTesterPresent";
+
+//---------------------TabSidInitFunc----------------------//
+
+String TP_DcmDsdSidTabSidInitFunction(): "NULL_PTR";
+/******************************************************************************************************/
+/*******************       DSC     				  *****************************************************/
+/******************************************************************************************************/
+
+//---------------------DcmDsdSidTabFnc----------------------//
+
+String DSC_DcmDsdSidTabFnc():"Dcm_DcmDiagnosticSessionControl";
+
+//---------------------DcmDspSession----------------------//
+
+String DCM_DSP_SESSION():"DcmDspSession";
+
+//---------------------DcmDsdSidTabSidInitFunction----------------------//
+
+String DSC_DcmDsdSidTabSidInitFunction():"Dcm_Dsp_DscIni";
+
+//---------------------DcmDspSessionForBoot----------------------//
+
+String CONST_DCM_NO_BOOT():"DCM_NO_BOOT";
+
+//---------------------DcmDspSessionP2ServerMax----------------------//
+
+String CONST_ID_REF_SESSION_P2SERVER_MAX():"ISO_15765_3.CP_P2Max";
+
+//---------------------DcmDspSessionP2StarServerMax------------------//
+
+String CONST_ID_REF_SESSION_P2STAR_SERVER_MAX():"ISO_15765_3.CP_P2Star";
+
+/******************************************************************************************************/
+/*******************       SA                     *****************************************************/
+/******************************************************************************************************/
+
+//--------------------DcmDspSecurityStoreSeed-------------------------------------//
+
+Boolean CONST_DcmDspSecurityStoreSeed():false;
+
+//-----------------------------DcmDspSecurityDelayTimerMonitor----------------------//
+
+String CONST_DcmDspSecurityDelayTimerMonitor():"REQUEST_SEED";
+
+//-----------------------------DcmDspSecurityNRCExceedNoOfAttempt----------------------//
+
+String CONST_DcmDspSecurityNRCExceedNoOfAttempt():"NumAttDelayAndNumAttLock";
+
+//-----------------------------DcmDspSecurityCompareKeyFnc----------------------//
+
+String CONST_DcmDspSecurityCompareKeyFnc():"Dcm_CompareKey";
+
+//-----------------------------DcmDspSecurityGetSeedFnc----------------------//
+
+String CONST_DcmDspSecurityGetSeedFnc():"Dcm_GetSeed";
+
+
+//-----------------------------DcmDspSecurityUsePort----------------------//
+
+String CONST_DcmDspSecurityUsePort():"USE_SYNCH_FNC";
+
+//-----------------------------DcmDspSecurityDelayTime----------------------//
+
+Real DcmDspSecurityDelayTime_VALUE():10.0;
+
+//-----------------------------DcmDspSecurityDelayTimeOnBoot----------------------//
+
+Real DcmDspSecurityDelayTimeOnBoot_VALUE():10.0;
+
+//-----------------------------DcmDspSecurityNumAttDelay----------------------//
+
+Integer DcmDspSecurityNumAttDelay_VALUE():3;
+
+
+String SA_DcmDsdSidTabFnc():"Dcm_DcmSecurityAccess";
+
+String SA_DcmDsdSidTabSidInitFunction():"Dcm_Dsp_SecaIni";
+
+String CONST_SECURITY_LEVEL_3():"Level_3";
+
+String CONST_SECURITY_LEVEL_27():"Level_1B";
+
+String CONST_SECURITY_LEVEL_28():"Level_1C";
+
+String CONST_SECURITY_LEVEL_4():"Level_4";
+
+String CONST_SECURITY_LEVEL_65():"Level_41";
+
+String CONST_SECURITY_LEVEL_66():"Level_42";
+
+String CONST_SECURITY_LEVEL_7():"Level_7";
+
+String CONST_SECURITY_LEVEL_8():"Level_8";
+
+/*********************************************************************************/
+/******************************** DSD COMMON PARAMETERS***************************/
+/*********************************************************************************/
+
+//------------------------DcmMainScheduler---------------------//
+
+String CONST_DCM_MAIN_SCHEDULER():"DcmMainScheduler";
+
+/*********************************************************************************/
+/********************************   DCMDSP COMMON PARAMETER***********************/
+/*********************************************************************************/
+
+
+//------------------------Constant Read--------------------//
+
+String CONST_READ():"Read";
+
+//------------------------Constant Write-------------------//
+
+String CONST_WRITE():"Write";
+
+//------------------------Constant Session-----------------//
+
+String CONST_SESSION():"Session";
+
+//------------------------Constant SecurityAccess----------//
+
+String CONST_SECURITY_ACCESS():"SecurityAccess";
+
+//------------------------Constant State_Model-------------//
+
+String CONST_STATE_MODEL():"State_Model";
+
+//------------------------Constant SERVICE-ID-------------//
+
+String CONST_SERVICE_ID():"SERVICE-ID";
+
+//------------------------Constant DATA-------------//
+
+String CONST_DATA():"DATA";
+
+//------------------------Constant TEXTTABLE-------------//
+
+String CONST_TEXT_TABLE():"TEXTTABLE";
+
+//------------------------Constant LINEAR-------------//
+
+String LINEAR():"LINEAR";
+
+//--------------------CONSTANTS------------------------//
+
+String CONST_SUBFUNCTION():"SUBFUNCTION";
+
+String CONST_SECURITY_ACCESS_TYPE():"SecurityAccessType";
+
+String CONST_A_UINT32():"A_UINT32";
+
+String CONST_A_UINT8():"A_UINT8";
+
+String CONST_A_UINT16():"A_UINT16";
+
+String CONST_A_SINT32():"A_SINT32";
+
+String CONST_A_SINT8():"A_SINT8";
+
+String CONST_A_SINT16():"A_SINT16";
+
+String CONST_UINT32():"UINT32";
+
+String CONST_UINT8():"UINT8";
+
+String CONST_UINT16():"UINT16";
+
+String CONST_SINT32():"SINT32";
+
+String CONST_SINT8():"SINT8";
+
+String CONST_SINT16():"SINT16";
+
+String EMPTY_STRING():"";
+
+/***************************************************************************************************
+                                Vendor Parameter Value
+***************************************************************************************************/
+Boolean VendorParamtersSupported_VALUE():true;

@@ -1,0 +1,1292 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+import OdxXhtml;
+import AUTOSAR_Dem::EcucModuleDefs;
+import AUTOSAR_Dem::EcucModuleDefs::Dem;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet::DemJ1939NodeAddress;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemGeneralJ1939;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemGeneralJ1939::DemSPNClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemGeneralJ1939::DemJ1939FreezeFrameClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemIndicator;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemExtendedDataClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemExtendedDataRecordClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemDataElementClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemDataElementClass::DemExternalCSDataElementClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet::DemDTCClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet::DemEventParameter;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet::DemEventParameter::DemEventClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet::DemEventParameter::DemFreezeFrameClassRef;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet::DemEventParameter::DemEventClass::DemIndicatorAttribute;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet::DemEventParameter::DemEventClass::DemDebounceAlgorithmClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet::DemEventParameter::DemEventClass::DemDebounceAlgorithmClass::DemDebounceCounterBased;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemFreezeFrameClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemFreezeFrameRecNumClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemDidClass;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemOperationCycle;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemFreezeFrameRecNumClass;
+import AUTOSAR_J1939Nm::EcucModuleDefs;
+import AUTOSAR_J1939Nm::EcucModuleDefs::J1939Nm::J1939NmConfigSet;
+import AUTOSAR_J1939Nm::EcucModuleDefs::J1939Nm::J1939NmConfigSet::J1939NmNode;
+
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet::DemEventParameter::DemDTCClassRef;
+import org::eclipse::xtext::xbase::lib;
+import org::eclipse::xtext::xbase::lib::IntegerExtensions;
+
+extension templates::mathlib;
+extension org::eclipse::xtend::util::stdlib::io;
+extension org::eclipse::xtend::util::stdlib::globalvar;
+extension GenerateBsw_Odx_V201;
+extension OdxUtils;
+extension EcuExtractor;
+extension OdxConstants; extension OdxShortNames;
+extension custom_DEM;
+
+createRDTCDemDataElement(Dem dem,List listRDTC,List requestList,ECUVARIANT ecuVariant,BASEVARIANT baseVariant,ODX odxRoot):
+    storeGlobalVar("shortNameList",(List[String]){})->
+    storeGlobalVar("DtcDopRefList",(List[String]){})->
+    addOperationCycles(dem)->
+    listRDTC.forAll(e|getRequest(dem,e,requestList,baseVariant,ecuVariant,odxRoot)->true)->
+    storeGlobalVar("demSPNClass",dem.DemGeneral.DemGeneralJ1939.DemSPNClass)
+;
+
+create DemDataElementDataSize this createDemDataElementDataSize(Integer value,DemExternalCSDataElementClass demExternalCSDataElementClass):
+setValue(value)->
+demExternalCSDataElementClass.setDemDataElementDataSize(this)
+;
+
+referDemJ1939FreezeFrameClass():
+getGlobalVar("demSPNClass").forAll(demSPNClass|getGlobalVar("demJ1939FreezeFrameClass").DemSPNClassRefs.add(createDemSPNClassRef(demSPNClass))->true)
+;
+
+addOperationCycles(Dem dem):
+dem.DemGeneral.DemOperationCycles.forAll(e|((List)getGlobalVar("shortNameList")).add(e.DemOperationCycleType.value)->true)
+;
+
+/********************************************************************************************
+ Method to get particular request
+*********************************************************************************************/
+getRequest(Dem dem, DIAGSERVICE service, List requestList,BASEVARIANT baseVariant,ECUVARIANT ecuVariant,ODX odxRoot):
+    requestList.forAll(e|setSpecificRequest(dem, service, e,baseVariant,ecuVariant,odxRoot)->true)
+;
+
+setSpecificRequest(Dem dem,DIAGSERVICE service, REQUEST request,BASEVARIANT baseVariant,ECUVARIANT ecuVariant,ODX odxRoot):
+let dataClass= DemDTCClass.newInstance():
+let protocol= odxRoot.dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.select(e|e.iD==baseVariant.pARENTREFS.pARENTREF.get(0).iDREF):
+let responseList=getPosResponse(ecuVariant,baseVariant,protocol.get(0)):
+let response= responseList.selectFirst(e|e.iD==service.pOSRESPONSEREFS.pOSRESPONSEREF.get(0).iDREF):
+
+if(request.iD==service.rEQUESTREF.iDREF) then
+(
+    if((request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION() && ((CODEDCONST)e).cODEDVALUE=="1")).size>0) then
+    (
+    let params=request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()):
+    let structure=getStructure(params.get(0),ecuVariant, baseVariant, protocol.get(0)):
+    //let dataElement= DemExternalCSDataElementClass.newInstance():
+    /* Pmk1hc : remove DemDataElement for struct: DtcStatusDataType_1, because DtcStatusData is not referenced by any object
+    Currently, DEM does not support to get this internal DataElementClass */
+    //createDemDataElement(dem, structure.get(0))
+    info("")
+    )
+
+   else if((request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION() && ((CODEDCONST)e).cODEDVALUE=="2")).size>0) then
+    (
+    let param=response.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA() && VALUE.isInstance(e) && e.sHORTNAME=="ListOfDTC"):
+    let endofPduList=getEndofPduList(ecuVariant,baseVariant,protocol.get(0)):
+    let endOfPdu=endofPduList.selectFirst(e|e.iD==((VALUE)param).get(0).dOPREF.iDREF):
+    let structure=getStructureList(ecuVariant,baseVariant,protocol.get(0)).selectFirst(e|e.iD==endOfPdu.bASICSTRUCTUREREF.iDREF):
+    let dtcDop= getDTCDOP(structure.pARAMS.pARAM.selectFirst(e|e.sEMANTIC==CONST_DATA()&& VALUE.isInstance(e) && e.sHORTNAME=="DTCTable"), ecuVariant,baseVariant,protocol.get(0)):
+    let structureList=getStructure(param.get(0),ecuVariant, baseVariant, protocol.get(0)):
+    ((List)getGlobalVar("DtcDopRefList")).add(dtcDop.get(0).iD)->
+    //let dops=getDTCDOP(params.get(0),ecuVariant, baseVariant,protocol.get(0)):
+        if(structureList.size>0) then
+        (
+              let dataElement= DemExternalCSDataElementClass.newInstance():
+              createDemDataElement(dataElement,dem, structureList.get(0))
+        )->
+        if(dtcDop.size>0) then  //if(request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION() && ((CODEDCONST)e).cODEDVALUE=="2").size>0) then
+        (
+            //let dop=getDOP(params.select(e|e.sHORTNAME=="DTCTable").get(0),ecuVariant, baseVariant,protocol.get(0)):
+            dtcDop.get(0).dTCS.dTC.forAll(e|createDemDTCClass(dem,e,DemDTCClass.newInstance())->true)
+        )
+    )
+
+    else if((request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION() && ((CODEDCONST)e).cODEDVALUE=="4")).size>0) then
+    (
+      let params=request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()&& VALUE.isInstance(e)):
+      let dtcTableParam=params.select(e|e.sHORTNAME=="DTCTable"):
+      let snapshotData=response.pARAMS.pARAM.selectFirst(e|e.sEMANTIC==CONST_DATA()&& VALUE.isInstance(e) && e.sHORTNAME=="ListOfSnapshotData"):
+      if(params.size>0) then (
+      let structure=getStructure(params.get(0),ecuVariant, baseVariant, protocol.get(0)):
+      //let envDesc= getEnvDesc(params.get(0), ecuVariant,baseVariant,protocol.get(0)):
+        if(structure.size>0) then
+        (
+            let dataElement= DemExternalCSDataElementClass.newInstance():
+            createDemDataElement(dataElement,dem, structure.get(0))
+        )
+     )->
+
+    if(snapshotData!=null) then
+    (
+    let endofPduList=getEndofPduList(ecuVariant,baseVariant,odxRoot.dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.selectFirst(e|e.iD==baseVariant.pARENTREFS.pARENTREF.get(0).iDREF)):
+    let endOfPdu=endofPduList.selectFirst(e|e.iD==((VALUE)snapshotData).dOPREF.iDREF):
+    let structure=getStructureList(getecuVariant(),getbaseVariant(),protocol.get(0)).selectFirst(e|e.iD==endOfPdu.bASICSTRUCTUREREF.iDREF):
+	let switchParam=structure.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()&& VALUE.isInstance(e) && e.sHORTNAME.contains("DTCSnapshotRecordNumber")):
+    let selectionValue=switchParam.pHYSICALDEFAULTVALUE.get(0):
+
+        //let dops=getDTCDOP(dtcTableParam.get(0),ecuVariant, baseVariant,protocol.get(0)):
+        /*if(dops.size>0 && !((List)getGlobalVar("DtcDopRefList")).contains(dops.get(0).iD)) then
+        (
+            let dop=dops.get(0):
+            dop.dTCS.dTC.forAll(e|createDemDTCClass(dem,e,DemDTCClass.newInstance())->true)
+        )->*/
+        createDemFreezeFrameRecNum(structure.pARAMS.pARAM,dem,ecuVariant,baseVariant,protocol.get(0),selectionValue)->
+        if(!((List)getGlobalVar("shortNameList")).contains(response.sHORTNAME)) then
+        (
+            let param=structure.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()&& VALUE.isInstance(e) && e.sHORTNAME=="SnapshotRecord"):
+            let structureList={}:
+            let mux=getMuxList(ecuVariant,baseVariant,protocol.get(0)).selectFirst(e|e.iD==((VALUE)param).dOPREF.iDREF.get(0)):
+            structureList.add(getStructureList(ecuVariant,baseVariant,protocol.get(0)).selectFirst(e|e.iD==mux.dEFAULTCASE.sTRUCTUREREF.iDREF))->
+            structureList.addAll(getStructureFromCases(mux,getStructureList(ecuVariant,baseVariant,protocol.get(0)),structureList))->
+            structureList.createDemFreezeFrameClass(response,baseVariant,ecuVariant,protocol.get(0),dem,selectionValue)->
+            ((List)getGlobalVar("shortNameList")).add(response.sHORTNAME)
+        )
+    )
+
+    )
+
+    else if((request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION() && ((CODEDCONST)e).cODEDVALUE=="6")).size>0) then
+    (
+    let params=request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA() && e.sHORTNAME.contains("DTCExtendedDataRecordNumber")):
+    let extendedData=response.pARAMS.pARAM.selectFirst(e|e.sEMANTIC==CONST_DATA()&& VALUE.isInstance(e) && e.sHORTNAME=="ListOfExtendedData"):
+    if((request.pARAMS.pARAM.select(e|e.sHORTNAME=="DTCTable")).size>0) then
+    (
+        let dops=getDTCDOP((request.pARAMS.pARAM.select(e|e.sHORTNAME=="DTCTable")).get(0),ecuVariant, baseVariant,protocol.get(0)):
+        if(dops.size>0 && !((List)getGlobalVar("DtcDopRefList")).contains(dops.get(0).iD)) then
+        (
+            let dop=dops.get(0):
+            dop.dTCS.dTC.forAll(e|createDemDTCClass(dem,e,DemDTCClass.newInstance())->true)
+        )
+     )->
+    if(params.size>0) then
+    (
+    let endofPduList=getEndofPduList(ecuVariant,baseVariant,odxRoot.dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.selectFirst(e|e.iD==baseVariant.pARENTREFS.pARENTREF.get(0).iDREF)):
+    let endOfPdu=endofPduList.selectFirst(e|e.iD==((VALUE)extendedData).dOPREF.iDREF):
+    let structure=getStructureList(getecuVariant(),getbaseVariant(),protocol.get(0)).selectFirst(e|e.iD==endOfPdu.bASICSTRUCTUREREF.iDREF):
+    let param=structure.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()&& VALUE.isInstance(e) && e.sHORTNAME=="ExtendedData"):
+    let recordParam=structure.pARAMS.pARAM.selectFirst(e|e.sEMANTIC==CONST_DATA()&& VALUE.isInstance(e) && e.sHORTNAME.contains("ExtendedDataRecordNumber")):
+    let selectionValue=recordParam.pHYSICALDEFAULTVALUE:
+    let structureList={}:
+    let mux=getMuxList(ecuVariant,baseVariant,protocol.get(0)).selectFirst(e|e.iD==((VALUE)param).dOPREF.iDREF.get(0)):
+    structureList.add(getStructureList(ecuVariant,baseVariant,protocol.get(0)).selectFirst(e|e.iD==mux.dEFAULTCASE.sTRUCTUREREF.iDREF))->
+    structureList.addAll(getStructureFromCases(mux,getStructureList(ecuVariant,baseVariant,protocol.get(0)),structureList))->
+    createExtenedClasses(structureList,dem,response,ecuVariant,baseVariant,protocol.get(0),recordParam)
+    )
+    )
+
+ )
+ ;
+
+/*
+List getResponse(ECUVARIANT ecuVariant, BASEVARIANT baseVariant,PROTOCOL protocol):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getPosResponse(OdxXhtml.ECUVARIANT,OdxXhtml.BASEVARIANT,OdxXhtml.PROTOCOL)
+;
+*/
+
+/********************************************************************************************
+        Method to create Data Element Based on Structure
+*********************************************************************************************/
+
+create DemDataElementClass this createDemDataElement(Dem dem, STRUCTURE structure):
+
+setShortName(validateShortName(structure.sHORTNAME))->
+        if(((List)getGlobalVar("shortNameList"))!=null && ((List)getGlobalVar("shortNameList")).contains(structure.sHORTNAME)) then
+        (
+        setShortName(validateShortName(generateShortName(structure.sHORTNAME,getGlobalVar("shortNameList"))))
+        )->
+        ((List)getGlobalVar("shortNameList")).add(this.shortName)->
+
+setDemExternalCSDataElementClass(createDemExternalSRDataElementClass(this,shortName))->
+dem.DemGeneral.DemDataElementClass.add(this)
+;
+
+create DemExternalCSDataElementClass this createDemExternalSRDataElementClass(DemDataElementClass dataElement,String shortName):
+      setShortName(validateShortName(shortName))->
+      setDemDataElementUsePort(createDemDataElementUsePort(this))->
+      setDemDataElementDataSize(createDataElementDataSizeDefault(this))->
+      /* Add to avoid compiling error */
+      setDemDataElementReadFnc(createDemDataElementReadFncDummy(this))->
+      dataElement.setDemExternalCSDataElementClass(this)
+ ;
+ 
+create DemDataElementReadFnc this createDemDataElementReadFncDummy(DemExternalCSDataElementClass demExternalSRDataElementClass):
+	setValue("DtcStatusDataType_1")->
+	demExternalSRDataElementClass.setDemDataElementReadFnc(this)
+;
+
+String generateShortName(String name,List list):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.generateShortName(java.lang.String, java.util.List)
+;
+/********************************************************************************************
+        Method to obtain Strcuture referred by subfunction 1
+*********************************************************************************************/
+getStructure(PARAM param, ECUVARIANT ecuVariant, BASEVARIANT baseVariant,PROTOCOL protocol):
+let dopRef= ((VALUE) param).dOPREF.iDREF:
+let structureList=getStructureList(ecuVariant,baseVariant,protocol):
+structureList.select(e|e.iD==dopRef)
+;
+
+/********************************************************************************************
+        Method to get DTCDOP based on SubFunction 2
+*********************************************************************************************/
+getDTCDOP(PARAM param, ECUVARIANT ecuVariant, BASEVARIANT baseVariant,PROTOCOL protocol):
+let dtcDopList=getDtcDopList(ecuVariant,baseVariant,protocol):
+if(VALUE.isInstance(param)) then (
+let dopRef= ((VALUE) param).dOPREF.iDREF:
+dtcDopList.select(e|e.iD==dopRef)
+)
+//dtcDopList.select(e|e.iD=="")
+;
+
+
+getDtcDopList(ECUVARIANT ecuVariant, BASEVARIANT baseVariant,PROTOCOL protocol):
+let list={}:
+if(getbaseVariant().dIAGDATADICTIONARYSPEC!=null && getbaseVariant().dIAGDATADICTIONARYSPEC.dTCDOPS!=null &&
+getbaseVariant().dIAGDATADICTIONARYSPEC.dTCDOPS.dTCDOP!=null) then
+(
+list.addAll(getbaseVariant().dIAGDATADICTIONARYSPEC.dTCDOPS.dTCDOP)
+)->
+if(getecuVariant().dIAGDATADICTIONARYSPEC!=null && getecuVariant().dIAGDATADICTIONARYSPEC.dTCDOPS!=null &&
+getecuVariant().dIAGDATADICTIONARYSPEC.dTCDOPS.dTCDOP!=null) then
+(
+list.addAll(getecuVariant().dIAGDATADICTIONARYSPEC.dTCDOPS.dTCDOP)
+)->
+if(getProtocol().dIAGDATADICTIONARYSPEC!=null && getProtocol().dIAGDATADICTIONARYSPEC.dTCDOPS!=null &&
+getProtocol().dIAGDATADICTIONARYSPEC.dTCDOPS.dTCDOP!=null) then
+(
+list.addAll(getProtocol().dIAGDATADICTIONARYSPEC.dTCDOPS.dTCDOP)
+)->
+if(getFunctionalGroup().dIAGDATADICTIONARYSPEC!=null && getFunctionalGroup().dIAGDATADICTIONARYSPEC.dTCDOPS!=null &&
+getFunctionalGroup().dIAGDATADICTIONARYSPEC.dTCDOPS.dTCDOP!=null) then
+(
+list.addAll(getFunctionalGroup().dIAGDATADICTIONARYSPEC.dTCDOPS.dTCDOP)
+)->
+getOdxRoot().dIAGLAYERCONTAINER.eCUSHAREDDATAS.eCUSHAREDDATA.forAll(e|list.addAll(e.dIAGDATADICTIONARYSPEC.dTCDOPS.dTCDOP)->true)->
+list
+//JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getDTCDOPList(OdxXhtml.ECUVARIANT,OdxXhtml.BASEVARIANT,OdxXhtml.PROTOCOL)
+;
+
+/********************************************************************************************
+        Method to get EnvDesc based on SubFunction 4
+*********************************************************************************************/
+getEnvDesc(PARAM param, ECUVARIANT ecuVariant, BASEVARIANT baseVariant,PROTOCOL protocol):
+let dopRef= ((VALUE) param).dOPREF.iDREF:
+if(ecuVariant.dIAGDATADICTIONARYSPEC.eNVDATADESCS.eNVDATADESC.size>0) then
+(
+    let envDesc= ecuVariant.dIAGDATADICTIONARYSPEC.eNVDATADESCS.eNVDATADESC.selectFirst(e|e.iD==dopRef):
+    envDesc
+)
+else if(baseVariant.dIAGDATADICTIONARYSPEC.eNVDATADESCS.eNVDATADESC.size>0) then
+
+(
+    let envDesc=baseVariant.dIAGDATADICTIONARYSPEC.eNVDATADESCS.eNVDATADESC.selectFirst(e|e.iD==dopRef):
+    envDesc
+)
+;
+
+/********************************************************************************************
+        Method to get DOP for particular PARAM
+*********************************************************************************************/
+getDOP(PARAM param, ECUVARIANT ecuVariant, BASEVARIANT baseVariant,PROTOCOL protocol):
+let dopList=getDopList(ecuVariant,baseVariant,protocol):
+let dopRef= ((VALUE) param).dOPREF.iDREF:
+dopList.selectFirst(e|e.iD==dopRef)
+ ;
+
+getDopList(ECUVARIANT ecuVariant, BASEVARIANT baseVariant,PROTOCOL protocol):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getDOP(OdxXhtml.ECUVARIANT,OdxXhtml.BASEVARIANT,OdxXhtml.PROTOCOL)
+;
+/********************************************************************************************
+        Method to create DemDataElementSize
+*********************************************************************************************/
+create DemDataElementDataSize this createDataElementDataSizeDefault(DemExternalCSDataElementClass demExternalSRDataElementClass):
+setValue(1)->
+demExternalSRDataElementClass.setDemDataElementDataSize(this)
+;
+
+/********************************************************************************************
+        Method to create Dem DTC Class for Subfunction 2
+*********************************************************************************************/
+createDemDTCClass(Dem dem, DTC dtc, DemDTCClass dtcClass):
+let demEvent= DemEventParameter.newInstance():
+let demIndicator= createDemIndicator(dem,dtc):
+let SPN_19bit= dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== SPN()):
+let ecu_Address = dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "ECU_address"):
+/* Karthik MS fix issue */
+let demFreezeFrameClass = dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "DemJ1939FreezeFrameClassRef"):
+dtcClass.setDemDTCKind(createDemDTCKind(dtcClass))->
+dtcClass.setShortName(validateShortName(RDTC_DemDTCClass_PREFIX()+dtc.sHORTNAME))->
+dtcClass.setDemDTCSeverity(createDemDTCSeverity(dtc))->
+dtcClass.setDemImmediateNvStorage(createDemImmediateNvStorage(dtcClass))->
+dtcClass.setDemDTC(createDemDTC(dtc))->
+dtcClass.setDemDTCFunctionalUnit(createDemDTCFunctionalUnit(dtc,dtcClass))->
+if(SPN_19bit!=null && (!(SPN_19bit.sD.get(0).value.trim()==EMPTY_STRING()))) then
+(
+dtcClass.setDemJ1939DTC(createDemJ1939DTC(dtc))
+//updateDemGeneral(dem.DemGeneral,SPN_19bit)
+)->
+if(ecu_Address!=null && dtcClass.DemJ1939DTC!=null) then
+(
+dtcClass.setDemJ1939DTC_NodeAddressRef(createDemJ1939DTC_NodeAddressRef(dem,dtc,dtcClass))
+)->
+if(demFreezeFrameClass!=null && dtcClass.DemJ1939DTC!=null) then
+(
+demEvent.setDemJ1939FreezeFrameClassRef(createDemJ1939FreezeFrameClassRef(dem,demFreezeFrameClass,demEvent))
+)->
+dem.DemConfigSet.DemDTCClass.add(dtcClass)->
+demEvent.setShortName(validateShortName(generateDemEventShortName(dtc)))->
+demEvent.setDemEventKind(createDemEventKind(demEvent))->
+if(VendorParamtersSupported_VALUE()) then
+(
+demEvent.setDemEventClassRB(createDemEventClassRB(demEvent))
+)->
+//demEvent.setDemJ1939FreezeFrameClassRef(createDemJ1939FreezeFrameClassRef(demEvent))->
+demEvent.setDemDTCClassRef(createDemDTCClassRef(demEvent,dtcClass))->
+dem.DemConfigSet.DemEventParameters.add(demEvent)->
+demEvent.setDemEventClass(createDemEventClass(dtc,dem.DemGeneral,demIndicator))
+//updateDemJ1939General(dem)
+;
+
+
+create DemJ1939FreezeFrameClassRef this createDemJ1939FreezeFrameClassRef(Dem dem, SDG freezeFrameValue,DemEventParameter demEventParameter):
+if(dem.DemGeneral.DemGeneralJ1939 == null) then
+(
+createDemGeneralJ1939(dem)
+)->
+if(!((List)getGlobalVar("shortNameList")).contains(freezeFrameValue.sD.get(0).value)) then
+(
+setValue(createDemJ1939FreezeFrameClass(dem,freezeFrameValue.sD.get(0).value))->
+((List)getGlobalVar("shortNameList")).add(freezeFrameValue.sD.get(0).value)
+)
+else
+(
+/* pmk1hc : fix issue */
+setValue(dem.DemGeneral.DemGeneralJ1939.DemJ1939FreezeFrameClass.selectFirst(e|e.shortName==freezeFrameValue.sD.get(0).value.replaceAll("-","_")))
+)
+;
+
+create DemDTCFunctionalUnit this createDemDTCFunctionalUnit(DTC dtc, DemDTCClass demDTCClass):
+let sdg=dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME.contains("Fault_Class")):
+if(sdg!=null) then
+(
+setValue(sdg.sD.get(0).value.asInteger())
+)->
+demDTCClass.setDemDTCFunctionalUnit(this)
+;
+
+
+
+create DemDTCKind this createDemDTCKind(DemDTCClass demDTCClass):
+setValue(RDTC_DemDTCKind_VALUE())->
+demDTCClass.setDemDTCKind(this)
+;
+
+ create DemJ1939FreezeFrameClassRef this createDemJ1939FreezeFrameClassRef(DemEventParameter demEvent):
+ setValue(getGlobalVar("demJ1939FreezeFrameClass"))->
+ demEvent.setDemJ1939FreezeFrameClassRef(this)
+ ;
+create DemJ1939FreezeFrameClass this createDemJ1939FreezeFrameClass(Dem dem,String value):
+setShortName(validateShortName(value.replaceAll("-","_")))->
+dem.DemGeneral.DemGeneralJ1939.DemJ1939FreezeFrameClass.add(this)
+//getGlobalVar("demSPNClass").forAll(demSPNClass|this.DemSPNClassRefs.add(createDemSPNClassRef(demSPNClass))->true)
+;
+
+create DemSPNClassRef this createDemSPNClassRef(DemSPNClass demSPNClass):
+setValue(demSPNClass)//->
+//demJ1939FreezeFrameClass.DemSPNClassRefs.add(this)
+;
+
+create DemGeneralJ1939 this createDemGeneralJ1939(Dem dem):
+setShortName(validateShortName(RDTC_DemGeneralJ1939_SHORTNAME()))->
+dem.DemGeneral.setDemGeneralJ1939(this)
+;
+
+updateDemGeneral(DemGeneral demGeneral,SDG SPN_19bit):
+let demSPNClass= createDemSPNClass(demGeneral,SPN_19bit):
+if(!demGeneral.DemGeneralJ1939.DemSPNClass.shortName.contains(demSPNClass.shortName))then(
+demGeneral.DemGeneralJ1939.DemSPNClass.add(demSPNClass)
+)
+;
+
+create DemSPNClass this createDemSPNClass(DemGeneral demGeneral,SDG SPN_19bit):
+setShortName(validateShortName(RDTC_DemSPNClass_SHORTNAME_PREFIX()+SPN_19bit.sD.get(0).value.asInteger()))->
+setDemSPNId(createDemSPNId(SPN_19bit))->
+setDemSPNDataElementClassRef(createDemSPNDataElementClassRef(this,demGeneral))
+//if(!demGeneral.DemGeneralJ1939.DemSPNClass.contains(this))then(
+//demGeneral.DemGeneralJ1939.DemSPNClass.add(this)
+//)
+;
+
+create DemSPNDataElementClassRef this createDemSPNDataElementClassRef(DemSPNClass demSPNClass,DemGeneral demGeneral):
+setValue(getGlobalVar("DemExternalCSDataElementClass"))->
+demSPNClass.setDemSPNDataElementClassRef(this)
+;
+create DemSPNId this createDemSPNId(SDG SPN_19bit):
+setValue(SPN_19bit.sD.get(0).value.asInteger())
+;
+
+DemIndicator createDemIndicator(Dem dem,DTC dtc):
+let demIndicator=DemIndicator.newInstance():
+let mil_Fault_lamps= dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== RDTC_MIL_Fault_lamps_CONST()):
+let fault_lamp=mil_Fault_lamps.sD.first().value:
+
+if(fault_lamp.contains(RDTC_Amber_CONST())) then
+(
+    if(!(dem.DemGeneral.DemIndicators.select(e|e.shortName==RDTC_Amber_Warning_Lamp_CONST()).size>0)) then
+    (
+    demIndicator.setShortName(validateShortName(RDTC_Amber_Warning_Lamp_CONST()))->
+    demIndicator.setDemIndicatorID(createDemIndicatorID(demIndicator,2))->
+    dem.DemGeneral.DemIndicators.add(demIndicator)->
+    demIndicator
+    )
+    else
+    (
+    dem.DemGeneral.DemIndicators.selectFirst(e|e.shortName==RDTC_Amber_Warning_Lamp_CONST())
+    )
+)
+
+else if(fault_lamp.contains(RDTC_Protect_CONST())) then
+(
+    if(!(dem.DemGeneral.DemIndicators.select(e|e.shortName==RDTC_Protect_Lamp_CONST()).size>0)) then
+    (
+    demIndicator.setShortName(validateShortName(RDTC_Protect_Lamp_CONST()))->
+    demIndicator.setDemIndicatorID(createDemIndicatorID(demIndicator,3))->
+    dem.DemGeneral.DemIndicators.add(demIndicator)->
+    demIndicator
+    )
+    else
+    (
+    dem.DemGeneral.DemIndicators.selectFirst(e|e.shortName==RDTC_Protect_Lamp_CONST())
+    )
+)
+
+else if(fault_lamp.contains(RDTC_Red_CONST())) then
+(
+    if(!(dem.DemGeneral.DemIndicators.select(e|e.shortName==RDTC_Red_Stop_Lamp_CONST()).size>0)) then
+    (
+    demIndicator.setShortName(validateShortName(RDTC_Red_Stop_Lamp_CONST()))->
+    demIndicator.setDemIndicatorID(createDemIndicatorID(demIndicator,1))->
+    dem.DemGeneral.DemIndicators.add(demIndicator)->
+    demIndicator
+    )
+    else
+    (
+    dem.DemGeneral.DemIndicators.selectFirst(e|e.shortName==RDTC_Red_Stop_Lamp_CONST())
+    )
+)
+
+
+else if(fault_lamp.contains(RDTC_MIL_Lamp_CONST())) then
+(
+    if(!(dem.DemGeneral.DemIndicators.select(e|e.shortName==RDTC_MalFunction_Ind_Lamp_CONST()).size>0)) then
+    (
+    demIndicator.setShortName(validateShortName(RDTC_MalFunction_Ind_Lamp_CONST()))->
+    demIndicator.setDemIndicatorID(createDemIndicatorID(demIndicator,0))->
+    dem.DemGeneral.DemIndicators.add(demIndicator)->
+    demIndicator
+    )
+    else
+    (
+    dem.DemGeneral.DemIndicators.selectFirst(e|e.shortName==RDTC_MalFunction_Ind_Lamp_CONST())
+    )
+)
+
+else
+(
+demIndicator.setShortName("")
+)
+;
+
+create DemIndicatorID this createDemIndicatorID(DemIndicator demIndicator,Integer id):
+setValue(id)->
+demIndicator.setDemIndicatorID(this)
+;
+
+create DemJ1939DTC this createDemJ1939DTC(DTC dtc):
+let FMI_5bit= dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== FMI()):
+let SPN_19bit= dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== SPN()):
+if(FMI_5bit!=null && SPN_19bit!=null && (!(SPN_19bit.sD.get(0).value.trim()==EMPTY_STRING())  && ! (FMI_5bit.sD.get(0).value.trim()==EMPTY_STRING()))) then
+(
+let j1939Dtc= calculateJ1939DTC(SPN_19bit.sD.get(0).value.asInteger(),FMI_5bit.sD.get(0).value.asInteger()):
+setValue(j1939Dtc)
+)
+;
+
+
+create DemJ1939DTC_NodeAddressRef this createDemJ1939DTC_NodeAddressRef(Dem dem, DTC dtc,DemDTCClass demDTCClass):
+let ecu_Address = dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "ECU_address"):
+if(ecu_Address.sD.get(0).value != "0xFF") then
+(	
+	/* pmk1hc :  fix issue create many DemJ1939NodeAddresses */
+	if(dem.DemConfigSet.DemJ1939NodeAddress.isEmpty && (dem.DemConfigSet.DemJ1939NodeAddress.selectFirst(e|e.shortName.contains(ecu_Address.sD.get(0).value)) == null))then 
+	(
+		setValue(createDemJ1939NodeAddress(ecu_Address.sD.get(0).value,this,dem))
+	)
+	else
+	(
+		setValue(dem.DemConfigSet.DemJ1939NodeAddress.selectFirst(e|e.shortName.contains(ecu_Address.sD.get(0).value)))
+	)
+)->
+demDTCClass.setDemJ1939DTC_NodeAddressRef(this)
+;
+
+
+create DemJ1939NodeAddress this createDemJ1939NodeAddress(String value,DemJ1939DTC_NodeAddressRef demJ1939DTC_NodeAddressRef,Dem dem):
+/* Pmk1hc : work around solution to match with J1939Nm from DBC importer */
+//DemJ1939NmNodeRefs.add(createDemJ1939NmNodeRef(this,value))->
+setShortName("DemJ1939NodeAddress_"+value)->
+demJ1939DTC_NodeAddressRef.setValue(this)->
+dem.DemConfigSet.DemJ1939NodeAddress.add(this)
+;
+
+create DemJ1939NmNodeRef this createDemJ1939NmNodeRef(DemJ1939NodeAddress demJ1939NodeAddress,String value):
+let sh="J1939NmNode_":
+let size = ((J1939Nm)getGlobalVar("J1939Nm")).J1939NmConfigSet.J1939NmNodes.size-1:
+demJ1939NodeAddress.DemJ1939NmNodeRefs.add(this)->
+if(!((List)getGlobalVar("shortNameList")).contains(sh+size)) then
+(
+setValue(createJ1939NmNode(this,value))
+)
+else
+(
+let node= ((J1939Nm)getGlobalVar("J1939Nm")).J1939NmConfigSet.J1939NmNodes.selectFirst(e|e.shortName==sh+size):
+setValue(node)
+)
+;
+
+create J1939NmNode this createJ1939NmNode(DemJ1939NmNodeRef demJ1939NmNodeRef, String value):
+setShortName("J1939NmNode_"+((J1939Nm)getGlobalVar("J1939Nm")).J1939NmConfigSet.J1939NmNodes.size)->
+((List)getGlobalVar("shortNameList")).add(shortName)->
+setJ1939NmNodeId(createJ1939NmNodeId(this, value))->
+setJ1939NmNodePreferredAddress(createJ1939NmNodePreferredAddress(this,value))->
+((J1939Nm)getGlobalVar("J1939Nm")).J1939NmConfigSet.J1939NmNodes.add(this)->
+demJ1939NmNodeRef.setValue(this)
+;
+
+create J1939NmNodePreferredAddress this createJ1939NmNodePreferredAddress(J1939NmNode j1939NmNode,String value):
+let intValue = convertHexToDecimal(value.replaceAll("x","0")):
+setValue(intValue.asInteger())->
+j1939NmNode.setJ1939NmNodePreferredAddress(this)
+;
+
+create J1939NmNodeId this createJ1939NmNodeId(J1939NmNode j1939NmNode, String value):
+let intValue = convertHexToDecimal(value.replaceAll("x","0")):
+setValue(intValue.asInteger())->
+j1939NmNode.setJ1939NmNodeId(this)
+;
+
+
+generateDemEventShortName(DTC dtc):
+let swModuleName= getSWModuleName(dtc):
+if(swModuleName!= "") then (
+	(
+		let tempKey = "generateDemEventShortName"+ swModuleName:
+		if(getGlobalVar(tempKey) == null) then ( 
+			storeGlobalVar(tempKey, (List[String]){}) ->
+			getGlobalVar(tempKey).add(swModuleName)->
+			swModuleName
+		)
+		else (
+			let swModuleName1 = swModuleName+"_"+(getGlobalVar(tempKey).size - 1):
+			getGlobalVar(tempKey).add(swModuleName1)->
+			swModuleName1
+		)
+	)
+)
+else
+(
+RDTC_DemEvent_SHORTNAME_PREFIX()+dtc.sHORTNAME
+)
+;
+
+String getSWModuleName(DTC dtc):
+let swModuleName= dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "SWportName"):
+if(swModuleName!=null) then (
+swModuleName.sD.get(0).value
+)
+else (
+""
+)
+;
+
+create DemEventKind this createDemEventKind(DemEventParameter demEventParameter):
+//change it to DEM_EVENT_KIND_BSW if SDG in odx file contains BSW
+setValue(RDTC_DEM_EVENT_KIND_SWC())->
+demEventParameter.setDemEventKind(this)
+;
+
+create DemDTCClassRef this createDemDTCClassRef(DemEventParameter demEvent,DemDTCClass dtcClass):
+setValue(dtcClass)->
+demEvent.setDemDTCClassRef(this)
+;
+create DemDTCSeverity this createDemDTCSeverity(DTC dtc):
+let sdg=dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME=="Severity"):
+if(sdg!=null) then
+(
+	/* Pmk1hc: Fix bug */
+	switch (sdg.sD.get(0).value)
+	{
+		case "checkImmediately" : setValue("DEM_DTC_SEV_IMMEDIATELY")
+		case "checkAtNextHalt" : setValue("DEM_DTC_SEV_CHECK_AT_NEXT_HALT")	
+		case "maintenanceOnly" : setValue("DEM_DTC_SEV_MAINTENANCE_ONLY")
+		case "noSeverityAvailable" : setValue("DEM_DTC_SEV_NO_SEVERITY")
+		
+		default : setValue("DEM_DTC_SEV_MAINTENANCE_ONLY")
+	}		
+//setValue(sdg.sD.get(0).value)
+)
+else
+(
+setValue(RDTC_DEM_DTC_SEV_MAINTENANCE_ONLY())
+)
+;
+
+create DemImmediateNvStorage this createDemImmediateNvStorage(DemDTCClass dtcClass):
+setValue(false)->
+dtcClass.setDemImmediateNvStorage(this)
+;
+
+create DemDTC this createDemDTC(DTC dtc):
+setValue(dtc.tROUBLECODE)
+;
+
+calculateJ1939DTC(Integer SPN_19bit,Integer FMI_5bit):
+let spn_H = shiftLeft(bitwiseAnd(shiftRight(SPN_19bit,16),7),5):
+let spn_L= shiftLeft(bitwiseAnd(SPN_19bit,255),16):
+let spn_M=shiftLeft(bitwiseAnd(shiftRight(SPN_19bit,8),255),8):
+bitwiseOr(spn_L,bitwiseOr(spn_M,bitwiseOr(spn_H,FMI_5bit)))
+//JAVA com.bosch.autosartool.importer.odx.mapper.v201.util.MapperUtil.calculateJ1939DTC(OdxXhtml.SDG,OdxXhtml.SDG)
+;
+
+create DemDTCClassRef this createDemDTCClassRef(DemDTCClass dtcClass):
+setValue(dtcClass)
+;
+
+create DemEventClass this createDemEventClass(DTC dtc, DemGeneral demGeneral,DemIndicator demIndicator):
+let SDG= dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "DemEventFailureCycleCounterThreshold"):
+setDemDebounceAlgorithmClass(createDemDebounceAlgorithmClass(this,dtc))->
+setDemAgingAllowed(createDemAgingAllowed(demGeneral,this,dtc))->
+setDemConsiderPtoStatus(createDemConsiderPtoStatus(this))->
+DemEventDestinations.add(createDemEventDestination(this))->
+setDemEventSignificance(createDemEventSignificance(dtc,this))->
+setDemEventPriority(createDemEventPriority(dtc))->
+if(SDG!=null) then (
+setDemEventFailureCycleCounterThreshold(createDemEventFailureCycleCounterThreshold(dtc))
+)->
+setDemFFPrestorageSupported(createDemFFPrestorageSupported(this))->
+setDemOperationCycleRef(createDemOperationCycleRef(this,demGeneral))->
+setDemEventFailureCycleRef(createDemEventFailureCycleRef(this,demGeneral))->
+createDemIndicatorAttribute(this,demIndicator,dtc,demGeneral)
+;
+
+
+
+create DemIndicatorAttribute this createDemIndicatorAttribute(DemEventClass demEventClass,DemIndicator demIndicator,DTC dtc,DemGeneral demGeneral):
+let demIndicatorFailureCycleCounterThreshold= dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "DemIndicatorFailureCycleCounterThreshold"):
+let demIndicatorFailureCycleSource = dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "DemIndicatorFailureCycleSource"):
+let demIndicatorBehaviour = dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "DemIndicatorBehaviour"):
+let demVehicleHealingCondition = dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "DTC_Vehicle_healing_condition"):
+let demIndicatorHealingCycleRef = dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "DemIndicatorHealingCycleRef"):
+/* Pmk1hc : fix issue */
+let demIndicatorHealingCycleCounterThreshold = dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "DemIndicatorHealingCycleCounterThreshold"):
+setShortName(validateShortName(demIndicator.shortName+RDTC_DemIndicatorAttribute_POSTFIX()))->
+if(demIndicator!=null) then
+(
+setDemIndicatorRef(createDemIndicatorRef(demIndicator,this))->
+demEventClass.DemIndicatorAttributes.add(this)
+)->
+/* Pmk1hc : remove this parameter */
+//setDemIndicatorFailureCycleSource(createDemIndicatorFailureCycleSource(this,demIndicatorFailureCycleSource))->
+
+if(demIndicatorBehaviour!=null) then
+(
+setDemIndicatorBehaviour(createDemIndicatorBehaviour(this,demIndicatorBehaviour))
+)->
+
+if(demIndicatorFailureCycleCounterThreshold!=null) then
+(
+setDemIndicatorFailureCycleCounterThreshold(createDemIndicatorFailureCycleCounterThreshold(this,demIndicatorFailureCycleCounterThreshold))
+)->
+
+/* pmk1hc: this parameter will be obsolete 
+if(demIndicatorHealingCycleRef!=null) then
+(
+setDemIndicatorHealingCycleRef(createDemIndicatorHealingCycleRef(this,demIndicatorHealingCycleRef,demGeneral))
+)->*/
+
+if(demIndicatorHealingCycleCounterThreshold!=null) then
+(
+//setDemIndicatorHealingCycleCounterThreshold(createDemIndicatorHealingCycleCounterThreshold(this,demVehicleHealingCondition))
+setDemIndicatorHealingCycleCounterThreshold(createDemIndicatorHealingCycleCounterThreshold(this,demIndicatorHealingCycleCounterThreshold))
+)
+;
+
+
+create DemIndicatorHealingCycleCounterThreshold this createDemIndicatorHealingCycleCounterThreshold(DemIndicatorAttribute demIndicatorAttribute,SDG demIndicatorHealingCycleCounterThreshold):
+/* Pmk1hc : fix issue */
+setValue(demIndicatorHealingCycleCounterThreshold.sD.get(0).value.asInteger())->
+demIndicatorAttribute.setDemIndicatorHealingCycleCounterThreshold(this)
+;
+
+
+
+create DemIndicatorFailureCycleSource this createDemIndicatorFailureCycleSource(DemIndicatorAttribute demIndicatorAttribute,SDG demIndicatorFailureCycleSource):
+demIndicatorAttribute.setDemIndicatorFailureCycleSource(this)->
+if(demIndicatorFailureCycleSource!=null) then
+(
+setValue(demIndicatorFailureCycleSource.sD.get(0).value)
+)
+else
+(
+setValue(RDTC_DEM_FAILURE_CYCLE_INDICATOR())
+)
+;
+
+create DemIndicatorBehaviour this createDemIndicatorBehaviour(DemIndicatorAttribute demIndicatorAttribute, SDG demIndicatorBehaviour):
+setValue(demIndicatorBehaviour.sD.get(0).value)->
+demIndicatorAttribute.setDemIndicatorBehaviour(this)
+;
+
+create DemIndicatorFailureCycleCounterThreshold this createDemIndicatorFailureCycleCounterThreshold(DemIndicatorAttribute demIndicatorAttribute, SDG demIndicatorFailureCycleCounterThreshold):
+setValue(demIndicatorFailureCycleCounterThreshold.sD.get(0).value.asInteger())->
+demIndicatorAttribute.setDemIndicatorFailureCycleCounterThreshold(this)
+;
+
+create DemIndicatorHealingCycleRef this createDemIndicatorHealingCycleRef(DemIndicatorAttribute demIndicatorAttribute,SDG demIndicatorHealingCycleRef,DemGeneral demGeneral):
+let opCycleName=demIndicatorHealingCycleRef.sD.get(0).value:
+demIndicatorAttribute.setDemIndicatorHealingCycleRef(this)->
+
+if(checkShortName(opCycleName)) then
+(
+let x=demGeneral.DemOperationCycles.selectFirst(e|e.DemOperationCycleType.value == opCycleName):
+this.setValue(x)
+)
+else if(opCycleName == "DemOperationCycleType") then
+(
+let x=demGeneral.DemOperationCycles.first():
+this.setValue(x)
+)
+else
+(
+let opCycle = createDemOperationCycle(demGeneral,opCycleName):
+demGeneral.DemOperationCycles.add(opCycle)->
+setValue(opCycle)
+)
+;
+
+create DemIndicatorRef this createDemIndicatorRef(DemIndicator demIndicator,DemIndicatorAttribute demIndicatorAttribute):
+setValue(demIndicator)->
+demIndicatorAttribute.setDemIndicatorRef(this)
+;
+
+create DemOperationCycleRef this createDemOperationCycleRef(DemEventClass demEventClass,DemGeneral demGeneral):
+let demOperationCycle=demGeneral.DemOperationCycles:
+setValue(demOperationCycle.get(0))->
+demEventClass.setDemOperationCycleRef(this)
+;
+
+create DemEventFailureCycleRef this createDemEventFailureCycleRef(DemEventClass demEventClass,DemGeneral demGeneral):
+let demOperationCycle=demGeneral.DemOperationCycles:
+setValue(demOperationCycle.get(0))->
+demEventClass.setDemEventFailureCycleRef(this)
+;
+
+
+create DemDebounceAlgorithmClass createDemDebounceAlgorithmClass(DemEventClass demEventClass,DTC dtc):
+setDemDebounceCounterBased(createDemDebounceCounterBased(this,dtc))->
+demEventClass.setDemDebounceAlgorithmClass(this)
+;
+
+create DemDebounceCounterBased this createDemDebounceCounterBased(DemDebounceAlgorithmClass demDebounceAlgorithmClass,DTC dtc):
+setDemDebounceCounterDecrementStepSize(createDemDebounceCounterDecrementStepSize(this))->
+setDemDebounceCounterFailedThreshold(createDemDebounceCounterFailedThreshold(this,dtc))->
+setDemDebounceCounterIncrementStepSize(createDemDebounceCounterIncrementStepSize(this))->
+setDemDebounceCounterJumpDown(createDemDebounceCounterJumpDown(this))->
+setDemDebounceCounterJumpDownValue(createDemDebounceCounterJumpDownValue(this))->
+setDemDebounceCounterJumpUp(createDemDebounceCounterJumpUp(this))->
+setDemDebounceCounterJumpUpValue(createDemDebounceCounterJumpUpValue(this))->
+setDemDebounceCounterPassedThreshold(createDemDebounceCounterPassedThreshold(this,dtc))->
+demDebounceAlgorithmClass.setDemDebounceCounterBased(this)
+;
+
+create DemDebounceCounterDecrementStepSize this createDemDebounceCounterDecrementStepSize(DemDebounceCounterBased demDebounceCounterBased):
+setValue(1)->
+demDebounceCounterBased.setDemDebounceCounterDecrementStepSize(this)
+;
+
+create DemDebounceCounterFailedThreshold this createDemDebounceCounterFailedThreshold(DemDebounceCounterBased demDebounceCounterBased,DTC dtc):
+let demDebounceCounterFailedThreshold= dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "DemDebounceCounterFailedThreshold"):
+setValue(0)->
+if(demDebounceCounterFailedThreshold!=null) then
+(
+setValue(demDebounceCounterFailedThreshold.sD.get(0).value.asInteger())
+)->
+demDebounceCounterBased.setDemDebounceCounterFailedThreshold(this)
+;
+
+create DemDebounceCounterIncrementStepSize this createDemDebounceCounterIncrementStepSize(DemDebounceCounterBased demDebounceCounterBased):
+setValue(1)->
+demDebounceCounterBased.setDemDebounceCounterIncrementStepSize(this)
+;
+
+create DemDebounceCounterJumpDown this createDemDebounceCounterJumpDown(DemDebounceCounterBased demDebounceCounterBased):
+setValue(false)->
+demDebounceCounterBased.setDemDebounceCounterJumpDown(this)
+;
+
+create DemDebounceCounterJumpDownValue this createDemDebounceCounterJumpDownValue(DemDebounceCounterBased demDebounceCounterBased):
+setValue(1)->
+demDebounceCounterBased.setDemDebounceCounterJumpDownValue(this)
+;
+
+create DemDebounceCounterJumpUp this createDemDebounceCounterJumpUp(DemDebounceCounterBased demDebounceCounterBased):
+setValue(false)->
+demDebounceCounterBased.setDemDebounceCounterJumpUp(this)
+;
+
+create DemDebounceCounterJumpUpValue this createDemDebounceCounterJumpUpValue(DemDebounceCounterBased demDebounceCounterBased):
+setValue(1)->
+demDebounceCounterBased.setDemDebounceCounterJumpUpValue(this)
+;
+
+create DemDebounceCounterPassedThreshold this createDemDebounceCounterPassedThreshold(DemDebounceCounterBased demDebounceCounterBased,DTC dtc):
+let demDebounceCounterPassedThreshold= dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "DemDebounceCounterPassedThreshold"):
+setValue(0)->
+if(demDebounceCounterPassedThreshold!=null) then
+(
+/* pmk1hc Fix issue */
+//let hexValue=convertHexToDecimal(demDebounceCounterPassedThreshold.sD.get(0).value).asInteger():
+//setValue(convertHextoNegative(hexValue))
+setValue((65535-demDebounceCounterPassedThreshold.sD.get(0).value.asInteger())*(-1))
+)->
+demDebounceCounterBased.setDemDebounceCounterPassedThreshold(this)
+;
+
+
+create DemEventPriority this createDemEventPriority(DTC dtc):
+let SDG= dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "Internal_priority"):
+if(SDG!=null) then (
+setValue(SDG.sD.get(0).value.asInteger())
+)
+else
+setValue(1)
+;
+
+create DemEventFailureCycleCounterThreshold this createDemEventFailureCycleCounterThreshold(DTC dtc):
+let SDG= dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "DemEventFailureCycleCounterThreshold"):
+setValue(SDG.sD.get(0).value.asInteger())
+;
+
+create DemAgingAllowed this createDemAgingAllowed(DemGeneral demGeneral,DemEventClass demEventClass,DTC dtc):
+let SDG= dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "DemAgingAllowed"):
+let demAgingCycleCounterThreshold= dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "DemAgingCycleCounterThreshold"):
+let demAgingCycleRef= dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "DemAgingCycleRef"):
+demEventClass.setDemAgingAllowed(this)->
+if(demAgingCycleRef!=null) then
+(
+demEventClass.setDemAgingCycleRef(createDemAgingCycleRef(demGeneral,demEventClass))
+)->
+if(demAgingCycleCounterThreshold!=null) then
+(
+demEventClass.setDemAgingCycleCounterThreshold(createDemAgingCycleCounterThreshold(demEventClass))
+)->
+
+/* Pmk1hc : fix issue */
+if((demAgingCycleCounterThreshold.sD.get(0).value.asInteger() != 0)&&(demAgingCycleRef!=null))then
+(
+	setValue(true)
+)
+else
+(
+	setValue(false)
+)
+/*
+if(SDG.sD.get(0).value=="false") then
+(
+setValue(false)
+)
+else if(SDG.sD.get(0).value=="true") then
+(
+setValue(true)
+)
+*/
+;
+
+create DemAgingCycleCounterThreshold this createDemAgingCycleCounterThreshold(DemEventClass demEventClass):
+let SDG= dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "DemAgingCycleCounterThreshold"):
+setValue(SDG.sD.get(0).value.asInteger())->
+demEventClass.setDemAgingCycleCounterThreshold(this)
+;
+
+create DemAgingCycleRef this createDemAgingCycleRef(DemGeneral demGeneral,DemEventClass demEventClass):
+let SDG= dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME== "DemAgingCycleRef"):
+let opCycleName=SDG.sD.get(0).value:
+demEventClass.setDemAgingCycleRef(this)->
+if(checkShortName(opCycleName)) then
+(
+let x=demGeneral.DemOperationCycles.selectFirst(e|e.DemOperationCycleType.value == opCycleName):
+this.setValue(x)
+)
+else
+(
+let opCycle = createDemOperationCycle(demGeneral,opCycleName):
+demGeneral.DemOperationCycles.add(opCycle)->
+setValue(opCycle)
+)
+;
+
+checkShortName(String shortName):
+if(((List)getGlobalVar("shortNameList")).contains(shortName)) then
+(
+true
+)
+else
+(
+false
+)
+;
+
+create DemOperationCycle this createDemOperationCycle(DemGeneral demGeneral,String value):
+setShortName(validateShortName(RDTC_DemOperationCycle_SHORTNAME()+demGeneral.DemOperationCycles.size))->
+setDemOperationCycleType(createDemOperationCycleType(value))->
+demGeneral.DemOperationCycles.add(this)
+;
+
+create DemOperationCycleType this createDemOperationCycleType(String value):
+setValue(value)
+;
+
+create DemConsiderPtoStatus this createDemConsiderPtoStatus(DemEventClass demEventClass):
+setValue(false)->
+demEventClass.setDemConsiderPtoStatus(this)
+;
+
+create DemEventDestination this createDemEventDestination(DemEventClass demEventClass):
+setValue(RDTC_DemEventDestination_SHORTNAME())->
+demEventClass.DemEventDestinations.add(this)
+;
+
+create DemEventSignificance this createDemEventSignificance(DTC dtc,DemEventClass demEventClass):
+let sdg=dtc.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME=="Failure_Warning"):
+if(sdg!=null) then
+(
+if(sdg.sD.get(0).value=="Failure") then
+(
+setValue(RDTC_DEM_EVENT_SIGNIFICANCE_FAULT())
+)
+else if(sdg.sD.get(0).value=="Warning") then
+(
+setValue(RDTC_DEM_EVENT_SIGNIFICANCE_OCCURRENCE())
+)->
+demEventClass.setDemEventSignificance(this)
+)
+;
+
+
+create DemFFPrestorageSupported this createDemFFPrestorageSupported(DemEventClass demEventClass):
+setValue(false)->
+demEventClass.setDemFFPrestorageSupported(this)
+;
+
+
+/********************************************************************************************
+        Method to  create Freeze frames for Subfunction 4
+*********************************************************************************************/
+createDemFreezeFrameRecNum(List params,Dem dem, ECUVARIANT ecuVariant,BASEVARIANT baseVariant,PROTOCOL protocol,String selectionValue):
+//let freezeFrameRecClass=DemFreezeFrameRecordClass.newInstance():
+let param=params.selectFirst(e|e.sHORTNAME.contains("DTCSnapshotRecordNumber")):
+let dop= getDOP(param,ecuVariant,baseVariant,protocol):
+let demExternalCSDataElementClass= DemExternalCSDataElementClass.newInstance():
+let compuScaleList=dop.cOMPUMETHOD.cOMPUINTERNALTOPHYS.cOMPUSCALES.cOMPUSCALE:
+dem.DemConfigSet.DemEventParameters.forAll(e|e.setDemMaxNumberFreezeFrameRecords(createDemFreezeFrameRecordNumber(e))->true)->
+compuScaleList.forAll(e|createDemFreezeFrameRecNumClass(param,e,dem.DemGeneral,selectionValue)->true)
+;
+
+create DemFreezeFrameRecNumClassRef this createRecNumRefs(DemEventParameter demEventParameter,DemFreezeFrameRecNumClass demFreezeFrameRecNumClass):
+setValue(demFreezeFrameRecNumClass)->
+demEventParameter.setDemFreezeFrameRecNumClassRef(this)
+;
+
+create DemMaxNumberFreezeFrameRecords this createDemFreezeFrameRecordNumber(DemEventParameter demEventParameter):
+setValue(3)->
+demEventParameter.setDemMaxNumberFreezeFrameRecords(this)
+;
+
+
+create DemFreezeFrameClass this createDemFreezeFrameClass(STRUCTURE structure,POSRESPONSE response,BASEVARIANT baseVariant, ECUVARIANT ecuVariant,PROTOCOL protocol,Dem dem,String selectionValue):
+let param=structure.pARAMS.pARAM.selectFirst(p|p.sEMANTIC==CONST_DATA() && VALUE.isInstance(p)):
+let did = structure.pARAMS.pARAM.selectFirst(p|p.sEMANTIC==CONST_DATA() && PHYSCONST.isInstance(p) && p.sHORTNAME == "DID"):
+let didStructure=getStructure(param,ecuVariant,baseVariant,protocol):
+
+if(didStructure.pARAMS.pARAM.select(p|p.sEMANTIC==CONST_DATA() && PHYSCONST.isInstance(p)).size>0) then
+(
+didStructure.pARAMS.pARAM.createMap()->
+didStructure.pARAMS.pARAM.select(p|p.sEMANTIC==CONST_DATA() && PHYSCONST.isInstance(p)).createDemDidClass(dem.DemGeneral,this,ecuVariant,baseVariant,protocol)
+)->
+
+if(didStructure.pARAMS.pARAM.select(p|p.sEMANTIC==CONST_DATA() && PHYSCONST.isInstance(p)).size==0) then
+(
+createDemDidClass(dem.DemGeneral,this,ecuVariant,baseVariant,protocol,did,didStructure.get(0))
+)->
+
+setShortName(didStructure.get(0).sHORTNAME)->
+dem.DemGeneral.DemFreezeFrameClass.add(this)->
+if(selectionValue.replaceAll("-"," ").split(" ") == this.shortName.split("_") ) then (
+dem.DemConfigSet.DemEventParameters.forAll(e|e.setDemFreezeFrameClassRef(createFreezeFrameReferences(this,e))->true)
+)
+;
+
+
+getStructureFromCases(MUX mux,List masterStructureList,List structureList):
+mux.cASES.cASE.forAll(e|(structureList.add(masterStructureList.selectFirst(s|s.iD==e.sTRUCTUREREF.iDREF)))->true)->
+structureList
+;
+
+create DemFreezeFrameClassRef this createFreezeFrameReferences(DemFreezeFrameClass demFreezeFrameClass,DemEventParameter demEventParameter):
+setValue(demFreezeFrameClass)->
+demEventParameter.setDemFreezeFrameClassRef(this)
+;
+
+
+create DemDidClass this createDemDidClass(PARAM p,DemGeneral demGeneral,DemFreezeFrameClass demFreezeFrameClass,ECUVARIANT ecuVariant,BASEVARIANT baseVariant,PROTOCOL protocol):
+let list=(List)getMap(List[PARAM],p):
+setShortName(validateShortName(p.sHORTNAME))->
+setDemDidIdentifier(createDemDidIdentifier(p,this))->
+list.forAll(value|this.DemDidDataElementClassRefs.add(createDemExternalCSDataElementClassRef(demGeneral,value,this,ecuVariant,baseVariant,protocol))->true)->
+demFreezeFrameClass.DemDidClassRefs.add(createDemDidClassRef(this,demFreezeFrameClass))->
+demGeneral.DemDidClass.add(this)
+;
+
+create DemDidClass this createDemDidClass(DemGeneral demGeneral,DemFreezeFrameClass demFreezeFrameClass,ECUVARIANT ecuVariant,BASEVARIANT baseVariant,PROTOCOL protocol,PARAM did,STRUCTURE didStructure):
+let valueParams = didStructure.pARAMS.pARAM.select(value|VALUE.isInstance(value)):
+setShortName(validateShortName("Did_"+didStructure.sHORTNAME))->
+valueParams.forAll(value|createDemExternalCSDataElementClassRef(demGeneral,value,this,ecuVariant,baseVariant,protocol)->true)->
+demFreezeFrameClass.DemDidClassRefs.add(createDemDidClassRef(this,demFreezeFrameClass))->
+demGeneral.DemDidClass.add(this)->
+if(did!=null) then
+(
+setDemDidIdentifier(createDemDidIdentifier(did,this))
+)
+else if(did == null) then
+(
+let id = convertHexToDecimal(didStructure.sHORTNAME.subString(didStructure.sHORTNAME.toCharList().indexOf("_")+1,didStructure.sHORTNAME.length)).asInteger():
+setDemDidIdentifier(createDemDidIdentifier(id,this))
+)
+;
+
+
+createMap(PARAM p):
+if(PHYSCONST.isInstance(p)) then
+(
+storeGlobalVar("identifier",p)->
+setMap(List[PARAM],p,{})
+)
+else if(VALUE.isInstance(p)) then
+(
+(List)getMap(List[PARAM],getGlobalVar("identifier")).add(p)
+)
+;
+
+
+create DemDidDataElementClassRef this createDemExternalCSDataElementClassRef(DemGeneral demGeneral,VALUE value,DemDidClass demDidClass,ECUVARIANT ecuVariant,BASEVARIANT baseVariant,PROTOCOL protocol):
+let dop=getDOP(value,ecuVariant,baseVariant,protocol):
+if(dop!=null) then
+(
+let demDataElementClass=createDemDataElementClass(demGeneral,dop,value.sHORTNAME):
+setValue(demDataElementClass.DemExternalCSDataElementClass)->
+demDidClass.DemDidDataElementClassRefs.add(this)
+)
+else if(dop== null) then
+(
+let structure= getStructure(value,ecuVariant,baseVariant,protocol):
+if(structure.pARAMS.pARAM.size>1) then
+(
+let valueParams= structure.pARAMS.pARAM.select(e|VALUE.isInstance(e)):
+valueParams.forAll(value|(createDemDataElementClass(demGeneral,demDidClass,getDOP(value,ecuVariant,baseVariant,protocol),value.sHORTNAME))->true)
+)
+else if(structure.pARAMS.pARAM.size==1) then
+(
+let subStructure = getStructure(structure.pARAMS.pARAM.first(),ecuVariant,baseVariant,protocol):
+let valueParams= subStructure.pARAMS.pARAM.select(e|VALUE.isInstance(e)):
+valueParams.forAll(value|(createDemDataElementClass(demGeneral,demDidClass,getDOP(value,ecuVariant,baseVariant,protocol),value.sHORTNAME))->true)
+)
+)
+;
+
+create DemExternalCSDataElementClass this createDemExternalCSDataElementClass(DemDataElementClass demDataElementClass,DATAOBJECTPROP dop,String paramShortName):
+setShortName(validateShortName(paramShortName))->
+setDemDataElementDataSize(createDemDataElementDataSize(dop))->
+setDemDataElementUsePort(createDemDataElementUsePort(false,this))->
+setDemDataElementReadFnc(createDemDataElementReadFnc(RDTC_DemDataElementReadFnc_PREFIX()+dop.sHORTNAME,this))->
+demDataElementClass.setDemExternalCSDataElementClass(this)
+;
+
+create DemDataElementClass this createDemDataElementClass(DemGeneral demGeneral,DATAOBJECTPROP dop,String paramShortName):
+setShortName(validateShortName(RDTC_DemDataElementClass_PREFIX()+paramShortName))->
+setDemExternalCSDataElementClass(createDemExternalCSDataElementClass(this,dop,paramShortName))->
+demGeneral.DemDataElementClass.add(this)
+;
+
+create DemDataElementClass this createDemDataElementClass(DemGeneral demGeneral,DemDidClass demDidClass, DATAOBJECTPROP dop,String paramShortName):
+let demDataElementRef = DemDidDataElementClassRef.newInstance():
+setShortName(validateShortName(RDTC_DemDataElementClass_PREFIX()+paramShortName))->
+setDemExternalCSDataElementClass(createDemExternalCSDataElementClass(this,dop,paramShortName))->
+demDataElementRef.setValue(this.DemExternalCSDataElementClass)->
+demDidClass.DemDidDataElementClassRefs.add(demDataElementRef)->
+demGeneral.DemDataElementClass.add(this)
+;
+
+create DemDataElementUsePort this createDemDataElementUsePort(Boolean value,DemExternalCSDataElementClass demExternalCSDataElementClass):
+setValue(value)->
+demExternalCSDataElementClass.setDemDataElementUsePort(this)
+;
+
+create DemDataElementReadFnc this createDemDataElementReadFnc(String value,DemExternalCSDataElementClass demExternalCSDataElementClass):
+setValue(value)->
+demExternalCSDataElementClass.setDemDataElementReadFnc(this)
+;
+
+create DemDidClassRef this createDemDidClassRef(DemDidClass demDidClass, DemFreezeFrameClass demFreezeFrameClass):
+setValue(demDidClass)->
+demFreezeFrameClass.DemDidClassRefs.add(this)
+;
+
+create DemDidIdentifier this createDemDidIdentifier(PARAM p,DemDidClass demDidClass):
+setValue(p.pHYSCONSTANTVALUE.asInteger())->
+demDidClass.setDemDidIdentifier(this)
+;
+
+create DemDidIdentifier this createDemDidIdentifier(Integer id,DemDidClass demDidClass):
+setValue(id)->
+demDidClass.setDemDidIdentifier(this)
+;
+
+create DemFreezeFrameRecNumClass this createDemFreezeFrameRecNumClass(PARAM param,COMPUSCALE compuScale, DemGeneral demGeneral,String selectionValue):
+setShortName(validateShortName(RDTC_DemFreezeFrameRecNumClass_PREFIX()+param.sHORTNAME+"_"+compuScale.lOWERLIMIT.value))->
+DemFreezeFrameRecordNumbers.add(createDemFreezeFrameRecordNumber(compuScale,this))->
+demGeneral.DemFreezeFrameRecNumClass.add(this)->
+if(compuScale.cOMPUCONST.vT.value.contains(selectionValue)) then
+(
+dem.DemConfigSet.DemEventParameters.forAll(e|e.setDemFreezeFrameRecNumClassRef(createRecNumRefs(e,this))->true)
+)
+;
+
+create DemFreezeFrameRecordNumber this createDemFreezeFrameRecordNumber(COMPUSCALE compuscale,DemFreezeFrameRecNumClass demFreezeFrameRecNumClass):
+setValue(compuscale.lOWERLIMIT.value.asInteger())->
+demFreezeFrameRecNumClass.DemFreezeFrameRecordNumbers.add(this)
+;
+create DemFreezeFrameRecordNumber this createDemFreezeFrameRecNumRecordNumber(DATAOBJECTPROP dop):
+setValue(dop.cOMPUMETHOD.cOMPUINTERNALTOPHYS.cOMPUSCALES.cOMPUSCALE.get(0).cOMPUCONST)
+;
+
+create DemDidIdentifier this createDemDidIdentifier(PHYSCONST param):
+setValue(param.pHYSCONSTANTVALUE.asInteger())
+;
+
+create DemDidClassRef this createDemDidClassRef(DemDidClass demDidClass):
+setValue(demDidClass)
+;
+
+create DemDataElementDataSize this createDemDataElementDataSize(DATAOBJECTPROP dop):
+let codedtype = dop.dIAGCODEDTYPE:
+let stdType= (LEADINGLENGTHINFOTYPE) codedtype:
+if((setvalue(codedtype)/8)==0)then
+	(
+		setValue(1)
+	)
+	else
+	(
+		setValue((setvalue(codedtype)/8))
+	)
+//setValue(setvalue(codedtype)/8)
+;
+
+create DemDataElementUsePort this createDemDataElementUsePort(DemExternalCSDataElementClass demExternalCSDataElementClass):
+setValue(true)->
+demExternalCSDataElementClass.setDemDataElementUsePort(this)
+;
+
+setvalue(DIAGCODEDTYPE dop):
+ JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getBitLength(OdxXhtml.DIAGCODEDTYPE);
+
+
+
+/****************************************************************************************************************************************
+            Method for Extened data class creation subfunction 6
+*****************************************************************************************************************************************/
+
+
+createExtenedClasses(List structureList,Dem dem,POSRESPONSE response,ECUVARIANT ecuVariant,BASEVARIANT baseVariant,PROTOCOL protocol,VALUE dTCExtendedDataRecordNumber):
+
+let demExtendedDataClass= DemExtendedDataClass.newInstance():
+let demExtendedDataRecordClass= DemExtendedDataRecordClass.newInstance():
+demExtendedDataRecordClass.setShortName(validateShortName(dTCExtendedDataRecordNumber.sHORTNAME + "_" + dem.DemGeneral.DemExtendedDataRecordClass.size))->
+//Issue Fix: DemExtendedDataRecordNumber for ExtendedDataRecordNumber_1 must be configured from 1 to 2.3.4 base on the number of DemExtendedDataRecordClass
+demExtendedDataRecordClass.createDemExtendedDataRecordNumber(dem.DemGeneral.DemExtendedDataRecordClass.size + 1)->
+demExtendedDataClass.setShortName(validateShortName(RDTC_DemExtendedDataClass_PREFIX()+response.sHORTNAME))->
+demExtendedDataClass.DemExtendedDataRecordClassRefs.add(createDemExtendedDataRecordClassRef(demExtendedDataRecordClass,demExtendedDataClass))->
+structureList.forAll(structure|specficResponseParam(structure,demExtendedDataRecordClass,dem.DemGeneral,ecuVariant,baseVariant,protocol)->true)->
+dem.DemGeneral.DemExtendedDataRecordClass.add(demExtendedDataRecordClass)->
+dem.DemGeneral.DemExtendedDataClass.add(demExtendedDataClass)->
+dem.DemConfigSet.DemEventParameters.forAll(e|createDataClassRefs(demExtendedDataClass,e)->true)
+;
+
+
+create DemExtendedDataClassRef this createDataClassRefs(DemExtendedDataClass demExtendedDataClass, DemEventParameter demEventParameter):
+setValue(demExtendedDataClass)->
+demEventParameter.setDemExtendedDataClassRef(this)
+;
+
+specficResponseParam(STRUCTURE structure,DemExtendedDataRecordClass demExtendedDataRecordClass,DemGeneral demGeneral,ECUVARIANT ecuVariant,BASEVARIANT baseVariant,PROTOCOL protocol):
+let param=structure.pARAMS.pARAM.selectFirst(p|p.sEMANTIC==CONST_DATA() && VALUE.isInstance(p)):
+let didStructure=getStructure(param,ecuVariant,baseVariant,protocol):
+didStructure.pARAMS.pARAM.forAll(p|createDemExtendedDataRecordClass(p,demExtendedDataRecordClass,demGeneral,ecuVariant,baseVariant,protocol)->true)
+;
+
+createDemExtendedDataRecordClass(PARAM p,DemExtendedDataRecordClass demExtendedDataRecordClass,DemGeneral demGeneral,ECUVARIANT ecuVariant,BASEVARIANT baseVariant,PROTOCOL protocol):
+
+let dop=getDOP(p,ecuVariant,baseVariant,protocol):
+if(p.sEMANTIC==CONST_DATA() && VALUE.isInstance(p) && dop!=null) then
+(
+demExtendedDataRecordClass.DemDataElementClassRefs.add(createDemExternalCSDataElementClassRef(demExtendedDataRecordClass,demGeneral,dop))
+)
+;
+
+create DemExtendedDataRecordClassRef this createDemExtendedDataRecordClassRef(DemExtendedDataRecordClass demExtendedDataRecordClass,DemExtendedDataClass demExtendedDataClass):
+setValue(demExtendedDataRecordClass)->
+demExtendedDataClass.DemExtendedDataRecordClassRefs.add(this)
+;
+
+create DemDataElementClassRef this createDemExternalCSDataElementClassRef(DemExtendedDataRecordClass demExtendedDataRecordClass,DemGeneral demGeneral,DATAOBJECTPROP dop):
+let demDataElementClass=createDemDataElementClass(demGeneral,dop,dop.sHORTNAME):
+setValue(demDataElementClass.DemExternalCSDataElementClass)->
+demExtendedDataRecordClass.DemDataElementClassRefs.add(this)
+;
+create DemExtendedDataRecordNumber this createDemExtendedDataRecordNumber(DemExtendedDataRecordClass demExtendedDataRecordClass, Integer value):
+setValue(value)->
+demExtendedDataRecordClass.setDemExtendedDataRecordNumber(this)
+;

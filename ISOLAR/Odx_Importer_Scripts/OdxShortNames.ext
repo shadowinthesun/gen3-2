@@ -1,0 +1,757 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+import autosar40;
+import autosar40::genericstructure::generaltemplateclasses::arpackage;
+import autosar40::system::fibex::fibexcore::coretopology;
+import autosar40::system::cantopology;
+import autosar40::system::transportprotocols;
+import autosar40::system::cancommunication;
+import autosar40::primitivetypes;
+import OdxXhtml;
+import OdxXhtml::ECUVARIANT;
+import OdxXhtml::PARAM;
+extension OdxUtils;
+extension org::eclipse::xtend::util::stdlib::io;
+extension org::eclipse::xtend::util::stdlib::globalvar;
+
+
+/*********************************************************************************/
+/********************************   SYSTEM     *************************************/
+/*********************************************************************************/
+String CONST_ECUINSTANCE():"ECUINSTANCE";
+
+String CONST_PDUS():"PDUS";
+
+String CONST_FRAMES():"FRAMES";
+
+String CONST_CLUSTER():"CLUSTER";
+
+String CONST_TPCONFIG():"TPCONFIG";
+
+String CONST_SRVTABLE_UDS_CAN():"SRVTABLE_UDS_CAN";
+
+String  CONST_SELECTED_CLUSTER():"UI_SELECTED_CLUSTER";
+
+String  CONST_SELECTED_ECUINSTANCE():"UI_SELECTED_ECUINSTANCE";
+
+/*********************************************************************************/
+/********************************   SYSTEM DESCRIPTION CAN ****************************/
+/*********************************************************************************/
+
+//----------------------CanCommunicationController---------------------------//
+
+String CanCommunicationController_SHORTNAME():"CanCommunicationController";
+
+//----------------------CanControllerConfigurationRequirements---------------------------//
+
+String MaxBitSamplePoint():"ISO_11898_2_DWCAN.CP_BitSamplePoint";
+
+String MaxSyncJumpWidth():"ISO_11898_2_DWCAN.CP_SyncJumpWidth";
+
+//----------------------CanCommunicationConnector---------------------------//
+
+String CanCommunicationConnector_SHORTNAME():"CanCommunicationConnector";
+
+//----------------------FramePort_In---------------------------//
+
+String FramePort_In_SHORTNAME():"FramePort_In_"+getCommConnName();
+
+//----------------------FramePort_Out---------------------------//
+
+String FramePort_Out_SHORTNAME():"FramePort_Out_"+getCommConnName();
+
+//----------------------IPduPort_In---------------------------//
+
+String IPduPort_In_SHORTNAME():"IPduPort_In_"+getCommConnName();
+
+//----------------------IPduPort_Out---------------------------//
+
+String IPduPort_Out_SHORTNAME():"IPduPort_Out_"+getCommConnName();
+
+//----------------------CONSTANT in---------------------------//
+
+String CONST_IN():"in";
+
+//----------------------CONSTANT out---------------------------//
+
+String CONST_OUT():"out";
+
+//----------------------CanCluster---------------------------//
+
+String CanCluster_SHORTNAME():"ISO_15765_2";
+
+
+
+//----------------------CanClusterConditional---------------------------//
+
+String ProtocolName_SHORTNAME():"CAN";
+
+//----------------------CanPhysicalChannel---------------------------//
+
+String CanPhysicalChannel_SHORTNAME():"CanPhysicalChannel";
+
+
+//----------------------DcmIpdus---------------------------//
+
+String DcmIPdu_Phy_Req_SHORTNAME():"DcmIPdu_Phy_Req_"+getCommConnName();
+
+String DcmIPdu_Func_Req_SHORTNAME():"DcmIPdu_Func_Req_"+getCommConnName();
+
+String DcmIPdu_Phy_Res_SHORTNAME():"DcmIPdu_Phy_Res_"+getCommConnName();
+
+String Rdpi_DcmIPdu_Phy_Res_SHORTNAME():"Rdpi_DcmIPdu_Phy_Res_"+getCommConnName();
+
+//----------------------Npdu---------------------------//
+
+String Npdu_Phy_Req_SHORTNAME():"Npdu_Phy_Req_"+getCommConnName();
+
+String Npdu_Func_Req_SHORTNAME():"Npdu_Func_Req_"+getCommConnName();
+
+String Npdu_Phy_Res_SHORTNAME():"Npdu_Phy_Res_"+getCommConnName();
+
+String Rdpi_Npdu_Phy_Res_SHORTNAME():"Rdpi_Npdu_Phy_Res_"+getCommConnName();
+
+//----------------------Frames---------------------------//
+
+String CanFrame_Func_Npdu_Req_SHORTNAME():"UDS_ON_CAN_Func_Req_"+getCommConnName().replaceAll("CAN","");
+
+String CanFrame_Phy_Npdu_Req_SHORTNAME():"UDS_ON_CAN_Phy_Req_"+getCommConnName().replaceAll("CAN","");
+
+String CanFrame_Phy_Npdu_Res_SHORTNAME():"UDS_ON_CAN_Phy_Res_"+getCommConnName().replaceAll("CAN","");
+
+String CanFrame_Phy_Rdpi_Npdu_Res_SHORTNAME():"CanFrame_Phy_Rdpi_Npdu_Res_"+getCommConnName();
+
+String CanFrame_Phy_DcmIpdu_Res_SHORTNAME():"CanFrame_Phy_DcmIpdu_Res_"+getCommConnName();
+
+String CanFrame_Phy_Rdpi_DcmIpdu_Res_SHORTNAME():"CanFrame_Phy_Rdpi_DcmIpdu_Res_"+getCommConnName();
+
+String CanFrame_Func_DcmIpdu_Req_SHORTNAME():"CanFrame_Func_DcmIpdu_Req_"+getCommConnName();
+
+String CanFrame_Phy_DcmIpdu_Req_SHORTNAME():"CanFrame_Phy_DcmIpdu_Req_"+getCommConnName();
+
+//----------------------CanTpNodes---------------------------//
+
+String CanTPNode_Transmit_SHORTNAME():"CanTPNode_Transmit_"+getCommConnName();
+
+String CanTPNode_Rdpi_Transmit_SHORTNAME():"CanTPNode_Rdpi_Transmit_"+getCommConnName();
+
+String CanTPNode_Phy_Receiver_SHORTNAME():"CanTPNode_Phy_Receiver_"+getCommConnName();
+
+String CanTPNode_Func_Receiver_SHORTNAME():"CanTPNode_Func_Receiver_"+getCommConnName();
+
+//----------------------CanTpAddress---------------------------//
+
+String CanTpAddress_Transmit_SHORTNAME():"CanTpAddress_Transmit_"+getCommConnName();
+
+String CanTpAddress_Rdpi_Transmit_SHORTNAME():"CanTpAddress_Rdpi_Transmit_"+getCommConnName();
+
+String CanTpAddress_Phy_Receiver_SHORTNAME():"CanTpAddress_Phy_Receiver_"+getCommConnName();
+
+String CanTpAddress_Func_Receiver_SHORTNAME():"CanTpAddress_Func_Receiver_"+getCommConnName();
+
+//----------------------PduTriggering---------------------------//
+
+String PduTrig_DcmIPdu_Func_Req_SHORTNAME():"PduTriggering_"+DcmIPdu_Func_Req_SHORTNAME();
+
+String PduTrig_DcmIPdu_Phy_Req_SHORTNAME():"PduTriggering_"+DcmIPdu_Phy_Req_SHORTNAME();
+
+String PduTrig_DcmIPdu_Phy_Res_SHORTNAME():"PduTriggering_"+DcmIPdu_Phy_Res_SHORTNAME();
+
+String PduTrig_Rdpi_DcmIPdu_Phy_Res_SHORTNAME():"PduTriggering_"+Rdpi_DcmIPdu_Phy_Res_SHORTNAME();
+
+String PduTrig_Npdu_Phy_Req_SHORTNAME():"PduTriggering_"+Npdu_Phy_Req_SHORTNAME();
+
+String PduTrig_Npdu_Func_Req_SHORTNAME():"PduTriggering_"+Npdu_Func_Req_SHORTNAME();
+
+String PduTrig_Npdu_Phy_Res_SHORTNAME():"PduTriggering_"+Npdu_Phy_Res_SHORTNAME();
+
+String PduTrig_Rdpi_Npdu_Phy_Res_SHORTNAME():"PduTriggering_"+Rdpi_Npdu_Phy_Res_SHORTNAME();
+
+
+//----------------------CanFrameTriggering---------------------------//
+
+String CanFrameTrig_N_Func_Req_SHORTNAME():"CanFrameTrig_N_Func_Req_"+getCommConnName();
+
+String CanFrameTrig_N_Phy_Req_SHORTNAME():"CanFrameTrig_N_Phy_Req_"+getCommConnName();
+
+String CanFrameTrig_N_Phy_Res_SHORTNAME():"CanFrameTrig_N_Phy_Res_"+getCommConnName();
+
+String CanFrameTrig_N_Phy_Rdpi_Res_SHORTNAME():"CanFrameTrig_N_Phy_Rdpi_Res_"+getCommConnName();
+
+String CanFrameTrig_Phy_DcmIpdu_Res_SHORTNAME():"CanFrameTrig_Phy_DcmIpdu_Res_"+getCommConnName();
+
+String CanFrameTrig_Phy_Rdpi_DcmIpdu_Res_SHORTNAME():"CanFrameTrig_Phy_Rdpi_DcmIpdu_Res_"+getCommConnName();
+
+String CanFrameTrig_Func_DcmIpdu_Req_SHORTNAME():"CanFrameTrig_Func_DcmIpdu_Req_"+getCommConnName();
+
+String CanFrameTrig_Phy_DcmIpdu_Req_SHORTNAME():"CanFrameTrig_Phy_DcmIpdu_Req_"+getCommConnName();
+
+/*********************************************************************************/
+/********************************   DEM J1939*************************************/
+/*********************************************************************************/
+
+//----------------------DemGeneralJ1939---------------------------//
+
+String DemGeneralJ1939_SHORTNAME():"DemGeneralJ1939";
+
+
+
+
+//----------------------DemJ1939ReadingDtcSupport---------------------------//
+
+String DemJ1939ReadingDtcSupport_SHORTNAME():"DemJ1939ReadingDtcSupport";
+
+
+
+
+/*********************************************************************************/
+/********************************   DcmDsl   *************************************/
+/*********************************************************************************/
+
+//----------------------DcmDslDiagResp---------------------------//
+
+String DcmDslDiagResp_SHORTNAME():"DcmDslDiagResp";
+
+//----------------------DcmDslProtocol---------------------------//
+
+String DcmDslProtocol_SHORTNAME():"DcmDslProtocol";
+
+//----------------------DcmDslPeriodicTransmission---------------------------//
+
+String DcmDslPeriodicTransmission_SHORTNAME():"DcmDslPeriodicTransmission";
+
+//----------------------DcmDslConnection---------------------------//
+
+String DcmDslConnection_SHORTNAME():"DcmDslConnection_CAN";
+
+
+
+//----------------------DcmDslMainConnection---------------------------//
+
+String DcmDslMainConnection_SHORTNAME():"DcmDslMainConnection";
+
+
+//----------------------dcmDslBuffer---------------------------//
+
+//---------UDS ON CAN---------------//
+String dcmDslBuffer0_SHORTNAME():"DcmDslBuffer_0";
+
+String dcmDslBuffer1_SHORTNAME():"DcmDslBuffer_1";
+
+//---------PERIODIC ON CAN---------//
+String dcmDslBuffer2_SHORTNAME():"DcmDslBuffer_2";
+
+String dcmDslBuffer3_SHORTNAME():"DcmDslBuffer_3";
+
+
+
+/*********************************************************************************/
+/************* DcmProcessingConditionsCreation    ********************************/
+/*********************************************************************************/
+
+//----------------------DcmProcessingConditions---------------------------//
+
+String DcmProcessingConditions_SHORTNAME():"DcmProcessingConditions";
+
+//----------------------DcmModeCondition---------------------------//
+
+String DcmModeCondition_SHORTNAME():"DcmModeConditions_CDTC";
+
+//----------------------DcmConditionType---------------------------//
+
+String DcmConditionType_SHORTNAME():"DCM_EQUALS";
+
+//----------------------DcmModeRule---------------------------//
+
+String DcmModeRule_SHORTNAME():"DcmModeRule_CDTC";
+
+
+/*********************************************************************************/
+/********************************   DEM      *************************************/
+/*********************************************************************************/
+
+//----------------------DEM CONSTANT---------------------------//
+
+String CONST_DEM():"Dem";
+
+//----------------------DemConfigSet---------------------------//
+
+String DemConfigSet_SHORTNAME():"DemConfigSet";
+
+//----------------------DemGeneral---------------------------//
+
+String DemGeneral_SHORTNAME():"DemGeneral";
+
+
+/*********************************************************************************/
+/********************************   DCM      *************************************/
+/*********************************************************************************/
+String CONST_DCM():"DCM";
+
+String Dcm_SHORTNAME():"Dcm";
+
+//String CONST_SERVICE_ID():"SERVICE-ID";
+
+String CONST_SID_RQ():"SID_RQ";
+
+//----------------------DcmConfigSet---------------------------//
+
+String DcmConfigSet_SHORTNAME():"DcmConfigSet";
+
+//----------------------DcmDsp---------------------------//
+
+String DcmDsp_SHORTNAME():"DcmDsp";
+
+//----------------------DcmDspReadDTC---------------------------//
+
+String DcmDspReadDTC_SHORTNAME():"DcmDspReadDTC";
+
+//----------------------DcmDsd---------------------------//
+
+String DcmDsd_SHORTNAME():"DcmDsd";
+
+
+//----------------------DcmPageBufferCfg---------------------------//
+
+String DcmPageBufferCfg_SHORTNAME():"DcmPageBufferCfg";
+
+
+//----------------------DcmGeneral---------------------------//
+
+String DcmGeneral_SHORTNAME():"DcmGeneral";
+
+/*********************************************************************************/
+/********************************   COMM     *************************************/
+/*********************************************************************************/
+String CONST_COMM():"COMM";
+
+String CONST_BSW():"BSW";
+
+String CONST_COMM_CHANNEL_SHORTNAME():"ComMChannel_0";
+
+
+/*********************************************************************************/
+/********************************   RDBI     *************************************/
+/*********************************************************************************/
+
+String RDBI_SHORTNAME():"RDBI_";
+
+//----------------------DcmDspData------------------------------//
+String RDBI_DCM_DSP_DATA_READ_PREFIX():"Read_";
+
+//----------------------DcmDspDidInfo---------------------------//
+String RDBI_DCM_DSP_DID_INFO_READ_PREFIX():"Read_DidInfo_";
+
+
+
+
+/*********************************************************************************/
+/********************************   WDBI     *************************************/
+/*********************************************************************************/
+
+String WDBI_SHORTNAME_PREFIX():"WDBI_";
+
+
+
+//----------------------DcmDspDidInfo---------------------------//
+String WDBI_DcmDspDidInfo_PREFIX():"Write_DidInfo_";
+
+
+
+
+//----------------------DcmDspData---------------------------//
+String WDBI_DcmDspData_SHORTNAME_PREFIX():"Write_";
+
+
+
+/*********************************************************************************/
+/********************************   CC       *************************************/
+/*********************************************************************************/
+
+
+
+
+/*********************************************************************************/
+/********************************   RC       *************************************/
+/*********************************************************************************/
+
+
+//----------------------------DcmDspRoutine------------------//
+String RC_DCM_DSP_ROUTINE_PREFIX():"DcmDspRoutine_";
+
+//----------------------------DcmDspRoutineInfo------------------//
+String RC_DCM_DSP_ROUTINE_INFO_PREFIX():"DcmDspRoutineInfo_";
+
+//----------------------------DcmDspRoutineRequestResIn------------------//
+String RC_DCM_DSP_ROUTINE_REQ_RES_IN_PREFIX():"ReqResIn_";
+
+//----------------------------DcmDspRoutineRequestResOut------------------//
+String RC_DCM_DSP_ROUTINE_REQ_RES_OUT_PREFIX():"ReqResOut_";
+
+//----------------------------DcmDspRoutineStopOut------------------//
+String RC_DCM_DSP_ROUTINE_STOP_OUT_PREFIX():"StopOut_";
+
+//----------------------------DcmDspRoutineStopIn------------------//
+String RC_DCM_DSP_ROUTINE_STOP_IN_PREFIX():"StopIn_";
+
+//----------------------------DcmDspStartRoutineIn------------------//
+String RC_DCM_DSP_START_ROUTINE_IN_PREFIX():"RoutineIn_";
+
+//----------------------------DcmDspStartRoutineOut------------------//
+String RC_DCM_DSP_START_ROUTINE_OUT_PREFIX():"RoutineOut_";
+
+//----------------------------DcmDspRequestResultsRoutineFnc------------------//
+String RC_DCM_DSP_REQ_RES_ROUTINE_FNC_PREFIX():"DcmDspApp_DcmRequestResultRoutine_";
+
+//----------------------------DcmDspStartRoutineFnc------------------//
+String RC_DCM_DSP_START_ROUTINE_FNC_PREFIX():"DcmDspApp_DcmStartRoutine_";
+
+//----------------------------DcmDspStopRoutineFnc------------------//
+String RC_DCM_DSP_STOP_ROUTINE_FNC_PREFIX():"DcmDspApp_DcmStopRoutine_";
+
+/*********************************************************************************/
+/********************************   DDDI     *************************************/
+/*********************************************************************************/
+
+
+String CONSTANT_DDDI_DYNAMICALLY_DEFINED_POSTFIX():"_DynamicallyDefined";
+
+
+
+String CONSTANT_DDDI_DCM_DSP_MEMORY_ID_INFO(): "MemoryIdInfo_";
+
+
+/*********************************************************************************/
+/********************************   RDPI     *************************************/
+/*********************************************************************************/
+
+//----------------------DcmDspDid----------------------------//
+
+String RDPI_DcmDspDid_PREFIX():"RDBPI_";
+
+/*********************************************************************************/
+/********************************   DCMDSL   *************************************/
+/*********************************************************************************/
+
+String CONST_PROTOCOL_RDPI_SHORTNAME():"PROTOCOL_RDPI_CAN";
+
+String CONST_PROTOCOL_UDS_SHORTNAME():"PROTOCOL_UDS_CAN";
+
+String CONST_DCMDSL_SHORTNAME():"DcmDsl";
+
+
+
+/*********************************************************************************/
+/********************************   RDTC     *************************************/
+/*********************************************************************************/
+
+
+
+
+/*********************************************************************************/
+/********************************   RMBA             *****************************/
+/*********************************************************************************/
+
+
+
+/*********************************************************************************/
+/********************************   CDI              *****************************/
+/*********************************************************************************/
+
+
+
+
+/*********************************************************************************/
+/********************************   RDTC             *****************************/
+/*********************************************************************************/
+
+//--------------------DemExternalCSDataElementClass------------//
+
+String RDTC_DemExternalCSDataElementClass_SHORTNAME():"DemExternalCSDataElementClass";
+
+
+
+
+//--------------------DemDTCClass------------//
+
+String RDTC_DemDTCClass_PREFIX():"DTC_";
+
+//--------------------DemFreezeFrameRecNumClass------------//
+
+String RDTC_DemFreezeFrameRecNumClass_PREFIX():"RecNo_";
+
+//--------------------DemExtendedDataClass------------//
+
+String RDTC_DemExtendedDataClass_PREFIX():"DemExtendedDataClass_";
+
+//--------------------DemDataElementReadFnc------------//
+
+String RDTC_DemDataElementReadFnc_PREFIX():"dem_";
+
+//--------------------DemDataElementClass------------//
+
+String RDTC_DemDataElementClass_PREFIX():"DemDataElementClass_";
+
+
+
+
+//--------------------DemEventDestination------------//
+
+String RDTC_DemEventDestination_SHORTNAME():"DEM_DTC_ORIGIN_PRIMARY_MEMORY";
+
+//--------------------DemOperationCycle------------//
+
+String RDTC_DemOperationCycle_SHORTNAME():"DemOperationCycle_";
+
+
+//--------------------DemIndicatorAttribute------------//
+
+String RDTC_DemIndicatorAttribute_POSTFIX():"_Attribute";
+
+
+//--------------------DemEventShortName------------//
+
+String RDTC_DemEvent_SHORTNAME_PREFIX():"DemEventParameter_";
+
+
+
+//--------------------DemSPNClass------------//
+
+String RDTC_DemSPNClass_SHORTNAME_PREFIX():"SPN_";
+
+
+//--------------------DemGeneralJ1939------------//
+
+String RDTC_DemGeneralJ1939_SHORTNAME():"DemGeneralJ1939";
+
+
+
+
+/*********************************************************************************/
+/********************************   J1939DM          *****************************/
+/*********************************************************************************/
+
+//--------------------DemJ1939FreezeFrameClass------------//
+
+String DemJ1939FreezeFrameClass_SHORTNAME():"DemJ1939FreezeFrameClass";
+
+//--------------------DemJ1939FreezeFrameClass------------//
+
+String DemJ1939FreezeFrameClass_SHORTNAME_PREFIX():"DemFreezeFrameClass_";
+
+
+//--------------------DemDataElementClass------------//
+
+String DemDataElementClass_SHORTNAME_PREFIX():"DemDataClass_";
+
+
+//--------------------DemDataElementReadFnc------------//
+
+String DemDataElementReadFnc_SHORTNAME_PREFIX():"dem_";
+
+
+
+/*********************************************************************************/
+/********************************   IOCBI            *****************************/
+/*********************************************************************************/
+
+
+
+//--------------------DcmDspData for Read----------------------//
+
+String IOCBI_READ_DCM_DSP_DATA_PREFIX():"IOCBI_Data_Read_";
+
+
+//--------------------DcmDspData for Write----------------------//
+
+String IOCBI_WRITE_DCM_DSP_DATA_PREFIX():"IOCBI_Data_Write_";
+
+//--------------------DcmDspDataReturnControlToEcuFnc------------//
+
+String IOCBI_RETURN_CONTROL_TO_ECU_FNC_POSTFIX():"_DcmReturnControlToEcuFnc";
+
+//--------------------DcmDspDataResetToDefaultFnc------------//
+
+String IOCBI_RESET_TO_DEFAULT_FNC_POSTFIX():"_DcmResetToDefaultFnc";
+
+//--------------------DcmDspDataFreezeCurrentStateFnc------------//
+
+String IOCBI_FREEZE_CURRENT_STATE_FNC_POSTFIX():"_DcmFreezeCurrentStateFnc";
+
+
+//--------------------DcmDspDataShortTermAdjustmentFnc------------//
+
+String IOCBI_SHORT_TERM_ADJUSTMENT_FNC_POSTFIX():"_DcmShortTermAdjustmentFnc";
+
+
+/*********************************************************************************/
+/********************************   CDTC             *****************************/
+/*********************************************************************************/
+
+
+/******************************************************************************************************/
+/*******************       TP                    *****************************************************/
+/******************************************************************************************************/
+
+
+
+
+/******************************************************************************************************/
+/*******************       DSC     				  *****************************************************/
+/******************************************************************************************************/
+
+
+String CONST_DEFAULT_SESSION():"DEFAULT_SESSION";
+
+String CONST_PROGRAMMING_SESSION():"PROGRAMMING_SESSION";
+
+String CONST_EXTENDED_DIAGNOSTIC_SESSION():"EXTENDED_DIAGNOSTIC_SESSION";
+
+String CONST_SAFETY_SYSTEM_DIAGNOSTIC_SESSION():"SAFETY_SYSTEM_DIAGNOSTIC_SESSION";
+
+String CONST_SERVICE_DIAG_SESSION():"SERVICE_DIAG_SESSION";
+
+String CONST_ECU_PROGRAMMING_CAPTURE():"ECU_Programming_Session_Capture_Idle_mode_Standby_Start";
+
+String CONST_ECU_PROGRAMMING():"ECU_Programming_Session_Idle_mode_Standby_Start";
+
+
+/******************************************************************************************************/
+/*******************       SA                     *****************************************************/
+/******************************************************************************************************/
+//-----------------------------DcmDspSecurity----------------------//
+
+String CONST_DcmDspSecurity():"DcmDspSecurity";
+
+//-----------------------------DcmDspSecurityRow----------------------//
+
+String CONST_DcmDspSecurityRow_PREFIX():"DCM_SEC_LEV_L";
+
+
+
+
+//************************************************************************************************//
+//**********************************************Dcm Security Shortnames***************************//
+//************************************************************************************************//
+
+
+String CONST_DCM_SECURITY_LEVEL(String value):CONST_DcmDspSecurityRow_PREFIX()+value;
+
+
+
+
+
+/*********************************************************************************/
+/********************************   DCMDSP COMMON PARAMETER***********************/
+/*********************************************************************************/
+
+
+//------------------------DcmDspDataInfo-------------------//
+
+String CONST_DCM_DSP_DATA_INFO_PREFIX():"DcmDspDataInfo_";
+
+
+//------------------------DcmDspDidSignal-----------------//
+
+String CONST_DCM_DSP_DID_SIGNAL_PREFIX():"Signal_";
+
+//------------------------DcmDspDidData-------------------//
+
+String CONST_DCM_DSP_DATA_PREFIX():"Data_";
+
+//------------------------DcmDspDidInfo-------------------//
+
+String CONST_DCM_DSP_DID_INFO_PREFIX():"Info_";
+
+//------------------------DcmDspDid-----------------------//
+
+String CONST_DCM_DSP_DID_PREFIX():"DcmDspDid_";
+
+//------------------------DcmDspDidAccess-----------------//
+
+String CONST_DCM_DSP_DID_ACCESS():"DcmDspDidAccess";
+
+//------------------------DcmDspDidControl----------------//
+
+String CONST_DCM_DSP_DID_CONTROL_PREFIX():"DcmDspControl_";
+
+//------------------------DcmDspDidMaxNumberOfRecords--------//
+
+String CONSTANT_DCM_DSP_DID_MAXNUM_RECORDS():"DcmDspDidMaxNumberOfRecords";
+
+
+
+
+/******************************************************************************************************/
+/*******************       DcmDsd ShortNames      *****************************************************/
+/******************************************************************************************************/
+String DcmDsdRDBI_SHORTNAME():"DcmDsdService_22_ReadDataByIdentifier";
+
+String DcmDsdWDBI_SHORTNAME():"DcmDsdService_2E_WriteDataByIdentifier";
+
+String DcmDsdCC_SHORTNAME():"DcmDsdService_28_DcmCommunicationControl";
+
+String DcmDsdRDBPI_SHORTNAME():"DcmDsdService_2A_ReadDataByPeriodicIdentifier";
+
+String DcmDsdCDI_SHORTNAME():"DcmDsdService_14_ClearDiagnosticInformation";
+
+String DcmDsdIOCI_SHORTNAME():"DcmDsdService_2F_InputOutputControlByIdentifier";
+
+String DcmDsdCDTC_SHORTNAME():"DcmDsdService_85_ControlDTCSetting";
+
+String DcmDsdDSC_SHORTNAME():"DcmDsdService_10_DiagnosticSessionControl";
+
+String DcmDsdSA_SHORTNAME():"DcmDsdService_27_SecurityAccess";
+
+String DcmDsdTP_SHORTNAME():"DcmDsdService_3E_DcmTesterPresent";
+
+String DcmDsdRDTC_SHORTNAME():"DcmDsdService_19_ReadDTCInformation";
+
+String DcmDsdRC_SHORTNAME():"DcmDsdService_31_DcmRoutineControl";
+
+String DcmDsdDDDI_SHORTNAME():"DcmDsdService_2C_Dcm_DcmDDDI";
+
+String DcmDsdRMBA_SHORTNAME():"DcmDsdService_23_ReadMemoryByAddress";
+
+/******************************************************************************************************/
+/*******************Common ShortNames*****************************************************/
+/******************************************************************************************************/
+
+String DcmDsdSubService_SHORTNAME():"DcmsubService_";
+
+String SESSION_ROWLIST_SHORTNAME():"SessionRowList";
+
+String SecurityRowList_SHORTNAME():"SecurityRowList";
+
+String getCommConnName():
+let ecuInstance=getGlobalVar(CONST_SELECTED_ECUINSTANCE()):
+let selectedCluster=getGlobalVar(CONST_SELECTED_CLUSTER()):
+let commConnRefCond=(List)((J1939Cluster)selectedCluster).J1939ClusterVariants.get(0).physicalChannels.get(0).commConnectors:
+let shortName={}:
+commConnRefCond.forAll(commConn|
+if(((EcuInstance)ecuInstance).connectors.typeSelect(CanCommunicationConnector).contains(commConn.communicationConnector))then(
+shortName.add(validateShortName(commConn.communicationConnector.shortName))->
+false
+)->
+true
+)->
+if(shortName.size>0)then(
+shortName.get(0)
+)else
+(
+commConnRefCond.get(0).communicationConnector.shortName
+)
+;
+

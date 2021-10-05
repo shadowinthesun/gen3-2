@@ -1,0 +1,64 @@
+import AUTOSAR_J1939Dcm::EcucModuleDefs;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm::J1939DcmConfigSet::J1939DcmNode;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm::J1939DcmConfigSet::J1939DcmNode::J1939DcmTIDSupport;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm::J1939DcmConfigSet::J1939DcmNode::J1939DcmTestServiceSPN;
+import OdxXhtml;
+
+extension org::eclipse::xtend::util::stdlib::io;
+extension OdxUtils;
+extension GenerateBsw_Odx_V201;
+extension J1939Dcm_J1939DCM;
+extension J1939Dcm_createJ1939DcmTestServiceSPN;
+
+create J1939DcmTIDSupport this createJ1939DcmTIDSupport(COMPUSCALE compuScale):
+	
+	let shortName = compuScale.sHORTLABEL.value:
+	let tIDize = compuScale.lOWERLIMIT.value:  	
+	setShortName(shortName.toString())->	
+    setJ1939DcmTID(createJ1939DcmTID(this,tIDize.asInteger())) 
+;
+
+create J1939DcmTID this createJ1939DcmTID(J1939DcmTIDSupport parent,Integer value):
+
+    setValue(value)->
+    parent.setJ1939DcmTID(this)
+    
+;
+
+createJ1939DcmTIDSupportList(J1939Dcm j1939Dcm,List serviceList, List requestList):
+
+    (	
+	requestList.pARAMS.pARAM.forAll(e| 
+		//info(getBytePos(e))->
+		if(VALUE.isInstance(e))
+		then(
+			if(getBytePos(e)==0)
+			then(
+			let allDopList= getOdxRoot().dIAGLAYERCONTAINER.eCUSHAREDDATAS.eCUSHAREDDATA.dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS.dATAOBJECTPROP:
+			(
+				let dopOfInterest = allDopList.selectFirst(e1|e1.iD==((VALUE)(e)).dOPREF.iDREF):
+				let listOfCompuScales= dopOfInterest.cOMPUMETHOD.cOMPUINTERNALTOPHYS.cOMPUSCALES.cOMPUSCALE:
+				let j1939dcmNode = j1939Dcm.J1939DcmConfigSet.J1939DcmNodes.get(0):
+				info("listOfCompuScales"+listOfCompuScales)->
+				listOfCompuScales.forAll(
+							compu | j1939dcmNode.J1939DcmTIDSupports.add(createJ1939DcmTIDSupport(compu))->
+								(
+									let shortLabel = compu.sHORTLABEL.value:
+									let tIDize = compu.lOWERLIMIT.value: 
+								/*Comment */
+									if(!shortLabel.toString().startsWith("TestSPN"))
+									then(
+											let j1939DcmNode = (J1939DcmNode)j1939dcmNode:
+											createJ1939DcmTestServiceSPN(j1939DcmNode, tIDize.asInteger())
+										)
+								)-> true
+						)
+					)
+				)
+			)->		
+		true
+		)
+	)
+    
+;

@@ -1,0 +1,109 @@
+import AUTOSAR_J1939Dcm::EcucModuleDefs;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm::J1939DcmConfigSet::J1939DcmNode;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm::J1939DcmConfigSet;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm::J1939DcmConfigSet::J1939DcmNode::J1939DcmMAServiceSPNSupport;
+import OdxXhtml;
+
+extension OdxUtils;
+extension org::eclipse::xtend::util::stdlib::io;
+extension J1939Dcm_J1939DCM;
+extension GenerateBsw_Odx_V201;
+
+
+create J1939DcmMAServiceSPNSupport this createJ1939DcmMAServiceSPNSupport(COMPUSCALE compuScale):
+
+	let shortName = compuScale.sHORTLABEL.value:
+	let iSRead = compuScale.sHORTLABEL.tI.toString().toLowerCase()=="read":
+	let sPN = compuScale.lOWERLIMIT.value:
+	let spnSize = getSpnSize(compuScale.cOMPUCONST.vT.tI.toString()):
+
+    setShortName(shortName.toString())->
+    setJ1939DcmIsSPNToRead(createJ1939DcmIsSPNToRead(this,iSRead))->
+    setJ1939DcmIsSPNToWrite(createJ1939DcmIsSPNToWrite(this,!iSRead))->
+
+   	if(spnSize !=null) then (
+   		setJ1939DcmMAServiceSPNSize(createJ1939DcmMAServiceSPNSize(this,spnSize))
+   	) ->
+    setJ1939DcmMAServiceSPN(createJ1939DcmMAServiceSPN(this,sPN.asInteger()))
+;
+
+createJ1939DcmMAServiceSPNSupportList(J1939Dcm j1939Dcm,List serviceList, List requestList):
+
+    (
+	requestList.pARAMS.pARAM.forAll(e|
+		//info(getBytePos(e))->
+		if(VALUE.isInstance(e))
+		then(
+			if(getBytePos(e)==2)
+			then(
+			let allDopList= getOdxRoot().dIAGLAYERCONTAINER.eCUSHAREDDATAS.eCUSHAREDDATA.dIAGDATADICTIONARYSPEC.dATAOBJECTPROPS.dATAOBJECTPROP:
+			(
+				let dopOfInterest = allDopList.selectFirst(e1|e1.iD==((VALUE)(e)).dOPREF.iDREF):
+				let listOfCompuScales= dopOfInterest.cOMPUMETHOD.cOMPUINTERNALTOPHYS.cOMPUSCALES.cOMPUSCALE.select(e|e.sHORTLABEL.value.startsWith("SPN_")):
+				let j1939dcmNode = j1939Dcm.J1939DcmConfigSet.J1939DcmNodes.get(0):
+				info("listOfCompuScales ==> "+listOfCompuScales)->
+				listOfCompuScales.forAll(
+							compu | j1939dcmNode.J1939DcmMAServiceSPNSupports.add(createJ1939DcmMAServiceSPNSupport(compu))-> true
+						)
+					)
+				)
+			)->
+		true
+		)
+	)
+
+;
+
+create J1939DcmIsSPNToRead this createJ1939DcmIsSPNToRead(J1939DcmMAServiceSPNSupport parent,Boolean value):
+
+    setValue(value)->
+    parent.setJ1939DcmIsSPNToRead(this)
+
+;
+
+create J1939DcmIsSPNToWrite this createJ1939DcmIsSPNToWrite(J1939DcmMAServiceSPNSupport parent,Boolean value):
+
+    setValue(value)->
+     parent.setJ1939DcmIsSPNToWrite(this)
+
+;
+
+create J1939DcmMAServiceSPN this createJ1939DcmMAServiceSPN(J1939DcmMAServiceSPNSupport parent,Integer value):
+
+    setValue(value)->
+     parent.setJ1939DcmMAServiceSPN(this)
+
+;
+
+create J1939DcmMAServiceSPNSize this createJ1939DcmMAServiceSPNSize(J1939DcmMAServiceSPNSupport parent,Integer value):
+
+    setValue(value)->
+     parent.setJ1939DcmMAServiceSPNSize(this)
+
+;
+
+
+
+Integer getSpnSize(String spnSizeFromODxFile):
+	let spnSize1 = spnSizeFromODxFile.replaceAll("Size ",""):
+	if(spnSize1.endsWith(" byte"))
+		then (
+			spnSize1.replaceAll(" byte","").asInteger()
+		)
+	else if(spnSize1.endsWith(" bit"))
+		then (
+				let spnSize = spnSize1.replaceAll(" bit",""):
+				let reminder = getReminderValue(spnSize.asInteger(), 8):
+				if(reminder == 0)
+					then (
+						spnSize.asInteger() / 8
+					)
+					else (
+						(spnSize.asInteger() / 8) + 1
+					)
+			 )
+	else (
+		spnSizeFromODxFile.asInteger()
+		 )
+;

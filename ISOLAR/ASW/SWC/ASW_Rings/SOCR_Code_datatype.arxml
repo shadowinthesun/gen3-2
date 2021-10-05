@@ -1,0 +1,2236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Auto generated XML Component Description for model SOCR_Code
+Model version                : 1.295
+Simulink Coder version       : Simulink Coder 9.1 (R2019a) 23-Nov-2018
+XML source code generated on : Wed Dec 30 18:56:45 2020
+Model Checksum               : 1544856425 3941560916 1479256482 1861466804
+-->
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>SOCR_Code_pkg</SHORT-NAME>
+            <AR-PACKAGES>
+                <AR-PACKAGE>
+                    <SHORT-NAME>SOCR_Code_dt</SHORT-NAME>
+                    <ELEMENTS>
+                        <IMPLEMENTATION-DATA-TYPE UUID="f7d20999-d436-56cc-cc4a-e0d42abb3daf">
+                            <SHORT-NAME>Float</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/SwBaseTypes/float32</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <COMPU-METHOD UUID="cda5d93b-4451-5d0a-5c82-7bd11ba73b67">
+                            <SHORT-NAME>Identcl</SHORT-NAME>
+                            <CATEGORY>IDENTICAL</CATEGORY>
+                            <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                        </COMPU-METHOD>
+                        <UNIT UUID="21d498ca-f5cb-54bb-8da9-db63d1db4712">
+                            <SHORT-NAME>NoUnit</SHORT-NAME>
+                            <FACTOR-SI-TO-UNIT>1</FACTOR-SI-TO-UNIT>
+                            <OFFSET-SI-TO-UNIT>0</OFFSET-SI-TO-UNIT>
+                        </UNIT>
+                        <IMPLEMENTATION-DATA-TYPE UUID="bfe56fc2-135e-5347-0159-39828d8f4e9a">
+                            <SHORT-NAME>rt_Array_Float_96</SHORT-NAME>
+                            <CATEGORY>ARRAY</CATEGORY>
+                            <SUB-ELEMENTS>
+                                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="42e54ff7-6c9f-5159-88fc-1d292198044f">
+                                    <SHORT-NAME>rt_Array_Float_96</SHORT-NAME>
+                                    <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                                    <ARRAY-SIZE>96</ARRAY-SIZE>
+                                    <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/Float</IMPLEMENTATION-DATA-TYPE-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                            </SUB-ELEMENTS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="ec221c28-70e8-5dd4-d6f8-0f99b1486b5a">
+                            <SHORT-NAME>Boolean</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/SwBaseTypes/boolean</BASE-TYPE-REF>
+                                        <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/COMPU_Boolean</COMPU-METHOD-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <COMPU-METHOD UUID="0884b251-7935-50b0-0779-c6bfb4b04edc">
+                            <SHORT-NAME>COMPU_Boolean</SHORT-NAME>
+                            <CATEGORY>TEXTTABLE</CATEGORY>
+                            <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                            <COMPU-INTERNAL-TO-PHYS>
+                                <COMPU-SCALES>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>FALSE</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>TRUE</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                </COMPU-SCALES>
+                            </COMPU-INTERNAL-TO-PHYS>
+                        </COMPU-METHOD>
+                        <IMPLEMENTATION-DATA-TYPE UUID="0be55d97-ca85-5035-6122-43883f7c934d">
+                            <SHORT-NAME>rt_Array_Boolean_96</SHORT-NAME>
+                            <CATEGORY>ARRAY</CATEGORY>
+                            <SUB-ELEMENTS>
+                                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="c8bf81cd-3251-52b4-5cdc-3973928d4c16">
+                                    <SHORT-NAME>rt_Array_Boolean_96</SHORT-NAME>
+                                    <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                                    <ARRAY-SIZE>96</ARRAY-SIZE>
+                                    <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/Boolean</IMPLEMENTATION-DATA-TYPE-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                            </SUB-ELEMENTS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="f428e13d-391a-5c54-1224-7d6543e4e3ea">
+                            <SHORT-NAME>TeHVSR_e_StateMode</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/SwBaseTypes/uint8</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <COMPU-METHOD UUID="457dfcbb-036e-56f3-3b6f-1bab6164c912">
+                            <SHORT-NAME>COMPU_TeHVSR_e_StateMode</SHORT-NAME>
+                            <CATEGORY>TEXTTABLE</CATEGORY>
+                            <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                            <COMPU-INTERNAL-TO-PHYS>
+                                <COMPU-SCALES>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeReserved</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeInitial</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeStandBy</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModePrecharge</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">4</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">4</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeNormalDischarge</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">5</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">5</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeWarningPowerReduction</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">6</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">6</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModePowerReduction</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">7</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">7</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModePreChargeFailed</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">8</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">8</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModePowerHoldMode</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">9</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">9</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeShutdown</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">10</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">10</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeServiceMode</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">11</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">11</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeReady</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">12</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">12</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeAC_ChargeMode</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">13</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">13</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeEndOfCharge</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">14</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">14</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeDC_ChargeMode</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">15</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">15</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeSystemErr</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">16</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">16</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeTempChargState</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">17</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">17</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeHeatPreChgState</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">18</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">18</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeHeatingState</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">19</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">19</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeHVSR_e_StateModeHeatFinishState</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                </COMPU-SCALES>
+                            </COMPU-INTERNAL-TO-PHYS>
+                        </COMPU-METHOD>
+                        <IMPLEMENTATION-DATA-TYPE UUID="15f81ede-0cd4-5dfd-b40c-c29e58a038eb">
+                            <SHORT-NAME>UInt8</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/SwBaseTypes/uint8</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="85562513-ebec-5372-7195-7414b04c7794">
+                            <SHORT-NAME>TeVSDR_e_CurrentFlowState</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/SwBaseTypes/uint8</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <COMPU-METHOD UUID="feefb41d-2b4c-5dad-0206-d3102fa0fe4e">
+                            <SHORT-NAME>COMPU_TeVSDR_e_CurrentFlowState</SHORT-NAME>
+                            <CATEGORY>TEXTTABLE</CATEGORY>
+                            <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                            <COMPU-INTERNAL-TO-PHYS>
+                                <COMPU-SCALES>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeVSDR_e_CurFlowStateInit</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeVSDR_e_CurFlowStateChrg</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeVSDR_e_CurFlowStateDischrg</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                    <COMPU-SCALE>
+                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                                        <COMPU-CONST>
+                                            <VT>CeVSDR_e_CurFlowStateInvalid</VT>
+                                        </COMPU-CONST>
+                                    </COMPU-SCALE>
+                                </COMPU-SCALES>
+                            </COMPU-INTERNAL-TO-PHYS>
+                        </COMPU-METHOD>
+                        <IMPLEMENTATION-DATA-TYPE UUID="62394796-733e-552d-f4ab-69389f2472a1">
+                            <SHORT-NAME>UInt32</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/SwBaseTypes/uint32</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="ac6d4ee0-e4a9-5e05-a422-01f4b5a4b3f4">
+                            <SHORT-NAME>rt_Array_Float_720</SHORT-NAME>
+                            <CATEGORY>ARRAY</CATEGORY>
+                            <SUB-ELEMENTS>
+                                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="5ef10f58-823b-524a-0568-81038f74517f">
+                                    <SHORT-NAME>rt_Array_Float_720</SHORT-NAME>
+                                    <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                                    <ARRAY-SIZE>720</ARRAY-SIZE>
+                                    <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/Float</IMPLEMENTATION-DATA-TYPE-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                            </SUB-ELEMENTS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="b08c1919-3347-51dd-0359-75ee96547361">
+                            <SHORT-NAME>rt_Array_Float_10</SHORT-NAME>
+                            <CATEGORY>ARRAY</CATEGORY>
+                            <SUB-ELEMENTS>
+                                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="31db8d5b-cb79-56ae-20aa-7e40bafc4adb">
+                                    <SHORT-NAME>rt_Array_Float_10</SHORT-NAME>
+                                    <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                                    <ARRAY-SIZE>10</ARRAY-SIZE>
+                                    <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/Float</IMPLEMENTATION-DATA-TYPE-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                            </SUB-ELEMENTS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="34cc02f6-3d34-5fb7-bc59-34d462ce8051">
+                            <SHORT-NAME>rt_Array_Float_72</SHORT-NAME>
+                            <CATEGORY>ARRAY</CATEGORY>
+                            <SUB-ELEMENTS>
+                                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="baf33db4-930f-5fe4-bd71-8d610d643be4">
+                                    <SHORT-NAME>rt_Array_Float_72</SHORT-NAME>
+                                    <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                                    <ARRAY-SIZE>72</ARRAY-SIZE>
+                                    <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/Float</IMPLEMENTATION-DATA-TYPE-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                            </SUB-ELEMENTS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="42ecc07e-87f3-58d1-cd04-85d0faf0d30d">
+                            <SHORT-NAME>rt_Array_Float_8</SHORT-NAME>
+                            <CATEGORY>ARRAY</CATEGORY>
+                            <SUB-ELEMENTS>
+                                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="5f2c3ed4-1e0e-57a2-667d-7b65c6850900">
+                                    <SHORT-NAME>rt_Array_Float_8</SHORT-NAME>
+                                    <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                                    <ARRAY-SIZE>8</ARRAY-SIZE>
+                                    <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/Float</IMPLEMENTATION-DATA-TYPE-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                            </SUB-ELEMENTS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="1de8bb93-b642-5280-0673-2b871f6842cb">
+                            <SHORT-NAME>rt_Array_Float_31</SHORT-NAME>
+                            <CATEGORY>ARRAY</CATEGORY>
+                            <SUB-ELEMENTS>
+                                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="8ffbbed7-c8ff-51d9-39cc-4a15e78c00c7">
+                                    <SHORT-NAME>rt_Array_Float_31</SHORT-NAME>
+                                    <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                                    <ARRAY-SIZE>31</ARRAY-SIZE>
+                                    <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/Float</IMPLEMENTATION-DATA-TYPE-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                            </SUB-ELEMENTS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="0a9daeb0-c6e4-5526-3b3f-d1d8b314377c">
+                            <SHORT-NAME>rt_Array_Float_6</SHORT-NAME>
+                            <CATEGORY>ARRAY</CATEGORY>
+                            <SUB-ELEMENTS>
+                                <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="eb78cfc8-87d2-541f-a105-7e485c237078">
+                                    <SHORT-NAME>rt_Array_Float_6</SHORT-NAME>
+                                    <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                                    <ARRAY-SIZE>6</ARRAY-SIZE>
+                                    <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/Float</IMPLEMENTATION-DATA-TYPE-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                            </SUB-ELEMENTS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                        <IMPLEMENTATION-DATA-TYPE UUID="877b1362-8d84-5290-e0f2-dba216329c87">
+                            <SHORT-NAME>UInt16</SHORT-NAME>
+                            <CATEGORY>VALUE</CATEGORY>
+                            <SW-DATA-DEF-PROPS>
+                                <SW-DATA-DEF-PROPS-VARIANTS>
+                                    <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/SwBaseTypes/uint16</BASE-TYPE-REF>
+                                    </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                </SW-DATA-DEF-PROPS-VARIANTS>
+                            </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE>
+                    </ELEMENTS>
+                    <AR-PACKAGES>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>ApplDataTypes</SHORT-NAME>
+                            <ELEMENTS>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="73a0e86b-aa9f-522f-fa12-3f0a158d4789">
+                                    <SHORT-NAME>Float</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/DataConstrs/DC_Float</DATA-CONSTR-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-ARRAY-DATA-TYPE UUID="991e9377-aea1-5e34-5678-0a74b753fbf9">
+                                    <SHORT-NAME>rt_Array_Float_96</SHORT-NAME>
+                                    <CATEGORY>ARRAY</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                    <ELEMENT>
+                                        <SHORT-NAME>rt_Array_Float_96</SHORT-NAME>
+                                        <CATEGORY>VALUE</CATEGORY>
+                                        <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Float</TYPE-TREF>
+                                        <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                        <MAX-NUMBER-OF-ELEMENTS>96</MAX-NUMBER-OF-ELEMENTS>
+                                    </ELEMENT>
+                                </APPLICATION-ARRAY-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="33f75e1e-02dd-5ed0-d05b-b63d148ecf80">
+                                    <SHORT-NAME>Boolean</SHORT-NAME>
+                                    <CATEGORY>BOOLEAN</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/COMPU_Boolean</COMPU-METHOD-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-ARRAY-DATA-TYPE UUID="6b1ea65a-68c3-5ecc-1b21-797ad0ce8693">
+                                    <SHORT-NAME>rt_Array_Boolean_96</SHORT-NAME>
+                                    <CATEGORY>ARRAY</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                    <ELEMENT>
+                                        <SHORT-NAME>rt_Array_Boolean_96</SHORT-NAME>
+                                        <CATEGORY>BOOLEAN</CATEGORY>
+                                        <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Boolean</TYPE-TREF>
+                                        <ARRAY-SIZE-SEMANTICS>FIXED-SIZE</ARRAY-SIZE-SEMANTICS>
+                                        <MAX-NUMBER-OF-ELEMENTS>96</MAX-NUMBER-OF-ELEMENTS>
+                                    </ELEMENT>
+                                </APPLICATION-ARRAY-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="6bef53d3-897d-5518-2da1-7995c58a4e5f">
+                                    <SHORT-NAME>TeHVSR_e_StateMode</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/COMPU_TeHVSR_e_StateMode</COMPU-METHOD-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="a4ab603f-eb4d-5230-6d48-502559433e8f">
+                                    <SHORT-NAME>UInt8</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/DataConstrs/DC_UInt8</DATA-CONSTR-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="84045584-2d24-577a-9e91-f304d40a933d">
+                                    <SHORT-NAME>TeVSDR_e_CurrentFlowState</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/COMPU_TeVSDR_e_CurrentFlowState</COMPU-METHOD-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="36222cdc-1fa3-5d2a-2fa1-af836b5d8d09">
+                                    <SHORT-NAME>UInt32</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/DataConstrs/DC_UInt32</DATA-CONSTR-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="1e63757c-2bf9-52c8-ea46-9d42e6144c19">
+                                    <SHORT-NAME>Appl_CzSOCR_cmp_SOCOCV_mean_data</SHORT-NAME>
+                                    <CATEGORY>MAP</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <SW-CALPRM-AXIS-SET>
+                                                    <SW-CALPRM-AXIS>
+                                                        <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                                        <CATEGORY>COM_AXIS</CATEGORY>
+                                                        <SW-AXIS-GROUPED>
+                                                            <SHARED-AXIS-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Appl_CtSOCR_cmp_SOCOCV_mean</SHARED-AXIS-TYPE-REF>
+                                                        </SW-AXIS-GROUPED>
+                                                    </SW-CALPRM-AXIS>
+                                                    <SW-CALPRM-AXIS>
+                                                        <SW-AXIS-INDEX>2</SW-AXIS-INDEX>
+                                                        <CATEGORY>COM_AXIS</CATEGORY>
+                                                        <SW-AXIS-GROUPED>
+                                                            <SHARED-AXIS-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Appl_CxSOCR_cmp_SOCOCV_mean</SHARED-AXIS-TYPE-REF>
+                                                        </SW-AXIS-GROUPED>
+                                                    </SW-CALPRM-AXIS>
+                                                </SW-CALPRM-AXIS-SET>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/DataConstrs/DC_BaseType_CzSOCR_cmp_SOCOCV_mean_data</DATA-CONSTR-REF>
+                                                <SW-RECORD-LAYOUT-REF DEST="SW-RECORD-LAYOUT">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/RecordLayouts/Map_f32</SW-RECORD-LAYOUT-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="ce53e12c-edd2-50d2-5dec-d9f66c7329e0">
+                                    <SHORT-NAME>Appl_CxSOCR_cmp_SOCOCV_mean</SHORT-NAME>
+                                    <CATEGORY>COM_AXIS</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <SW-CALPRM-AXIS-SET>
+                                                    <SW-CALPRM-AXIS>
+                                                        <SW-AXIS-INDEX>2</SW-AXIS-INDEX>
+                                                        <SW-AXIS-INDIVIDUAL>
+                                                            <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                            <SW-MAX-AXIS-POINTS>72</SW-MAX-AXIS-POINTS>
+                                                            <SW-MIN-AXIS-POINTS>72</SW-MIN-AXIS-POINTS>
+                                                            <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/DataConstrs/DC_BaseType_CxSOCR_cmp_SOCOCV_mean</DATA-CONSTR-REF>
+                                                        </SW-AXIS-INDIVIDUAL>
+                                                    </SW-CALPRM-AXIS>
+                                                </SW-CALPRM-AXIS-SET>
+                                                <SW-RECORD-LAYOUT-REF DEST="SW-RECORD-LAYOUT">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/RecordLayouts/Distr_f32_M</SW-RECORD-LAYOUT-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="29fca92d-d3de-5bed-8a2e-ebed95726511">
+                                    <SHORT-NAME>Appl_CtSOCR_cmp_SOCOCV_mean</SHORT-NAME>
+                                    <CATEGORY>COM_AXIS</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <SW-CALPRM-AXIS-SET>
+                                                    <SW-CALPRM-AXIS>
+                                                        <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                                        <SW-AXIS-INDIVIDUAL>
+                                                            <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                            <SW-MAX-AXIS-POINTS>10</SW-MAX-AXIS-POINTS>
+                                                            <SW-MIN-AXIS-POINTS>10</SW-MIN-AXIS-POINTS>
+                                                            <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/DataConstrs/DC_BaseType_CtSOCR_cmp_SOCOCV_mean</DATA-CONSTR-REF>
+                                                        </SW-AXIS-INDIVIDUAL>
+                                                    </SW-CALPRM-AXIS>
+                                                </SW-CALPRM-AXIS-SET>
+                                                <SW-RECORD-LAYOUT-REF DEST="SW-RECORD-LAYOUT">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/RecordLayouts/Distr_f32_M</SW-RECORD-LAYOUT-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="74017a10-0d1f-5935-6f6c-93460bdc0376">
+                                    <SHORT-NAME>Appl_CzSOCR_k_TrustFactorOCV_data</SHORT-NAME>
+                                    <CATEGORY>CURVE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <SW-CALPRM-AXIS-SET>
+                                                    <SW-CALPRM-AXIS>
+                                                        <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                                        <CATEGORY>COM_AXIS</CATEGORY>
+                                                        <SW-AXIS-GROUPED>
+                                                            <SHARED-AXIS-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Appl_CxSOCR_k_TrustFactorOCV</SHARED-AXIS-TYPE-REF>
+                                                        </SW-AXIS-GROUPED>
+                                                    </SW-CALPRM-AXIS>
+                                                </SW-CALPRM-AXIS-SET>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/DataConstrs/DC_BaseType_CzSOCR_k_TrustFactorOCV_data</DATA-CONSTR-REF>
+                                                <SW-RECORD-LAYOUT-REF DEST="SW-RECORD-LAYOUT">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/RecordLayouts/Cur_f32</SW-RECORD-LAYOUT-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="22352e37-6740-58ee-0a00-a6a7cb96a464">
+                                    <SHORT-NAME>Appl_CxSOCR_k_TrustFactorOCV</SHORT-NAME>
+                                    <CATEGORY>COM_AXIS</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <SW-CALPRM-AXIS-SET>
+                                                    <SW-CALPRM-AXIS>
+                                                        <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                                        <SW-AXIS-INDIVIDUAL>
+                                                            <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                            <SW-MAX-AXIS-POINTS>8</SW-MAX-AXIS-POINTS>
+                                                            <SW-MIN-AXIS-POINTS>8</SW-MIN-AXIS-POINTS>
+                                                            <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/DataConstrs/DC_BaseType_CxSOCR_k_TrustFactorOCV</DATA-CONSTR-REF>
+                                                        </SW-AXIS-INDIVIDUAL>
+                                                    </SW-CALPRM-AXIS>
+                                                </SW-CALPRM-AXIS-SET>
+                                                <SW-RECORD-LAYOUT-REF DEST="SW-RECORD-LAYOUT">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/RecordLayouts/Distr_f32_M</SW-RECORD-LAYOUT-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="8e205741-e1e5-5882-861e-731e4997edad">
+                                    <SHORT-NAME>Appl_KtSOCR_U_SOCOCV_DE_Table</SHORT-NAME>
+                                    <CATEGORY>CURVE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <SW-CALPRM-AXIS-SET>
+                                                    <SW-CALPRM-AXIS>
+                                                        <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                                        <CATEGORY>COM_AXIS</CATEGORY>
+                                                        <SW-AXIS-GROUPED>
+                                                            <SHARED-AXIS-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Appl_KxSOCR_U_SOCOCV_DE</SHARED-AXIS-TYPE-REF>
+                                                        </SW-AXIS-GROUPED>
+                                                    </SW-CALPRM-AXIS>
+                                                </SW-CALPRM-AXIS-SET>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/DataConstrs/DC_BaseType_KtSOCR_U_SOCOCV_DE_Table</DATA-CONSTR-REF>
+                                                <SW-RECORD-LAYOUT-REF DEST="SW-RECORD-LAYOUT">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/RecordLayouts/Cur_f32</SW-RECORD-LAYOUT-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="3de2dbe5-9b6e-5842-7753-da3218bade9f">
+                                    <SHORT-NAME>Appl_KxSOCR_U_SOCOCV_DE</SHORT-NAME>
+                                    <CATEGORY>COM_AXIS</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <SW-CALPRM-AXIS-SET>
+                                                    <SW-CALPRM-AXIS>
+                                                        <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                                        <SW-AXIS-INDIVIDUAL>
+                                                            <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                            <SW-MAX-AXIS-POINTS>31</SW-MAX-AXIS-POINTS>
+                                                            <SW-MIN-AXIS-POINTS>31</SW-MIN-AXIS-POINTS>
+                                                            <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/DataConstrs/DC_BaseType_KxSOCR_U_SOCOCV_DE</DATA-CONSTR-REF>
+                                                        </SW-AXIS-INDIVIDUAL>
+                                                    </SW-CALPRM-AXIS>
+                                                </SW-CALPRM-AXIS-SET>
+                                                <SW-RECORD-LAYOUT-REF DEST="SW-RECORD-LAYOUT">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/RecordLayouts/Distr_f32_M</SW-RECORD-LAYOUT-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="069cf32d-0b44-5c52-b9c6-ad30a66446b9">
+                                    <SHORT-NAME>Appl_KtSOCR_U_vMinBasedOnTemp_DE_Table</SHORT-NAME>
+                                    <CATEGORY>CURVE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <SW-CALPRM-AXIS-SET>
+                                                    <SW-CALPRM-AXIS>
+                                                        <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                                        <CATEGORY>COM_AXIS</CATEGORY>
+                                                        <SW-AXIS-GROUPED>
+                                                            <SHARED-AXIS-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Appl_KxSOCR_U_vMinBasedOnTemp_DE</SHARED-AXIS-TYPE-REF>
+                                                        </SW-AXIS-GROUPED>
+                                                    </SW-CALPRM-AXIS>
+                                                </SW-CALPRM-AXIS-SET>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/DataConstrs/DC_BaseType_KtSOCR_U_vMinBasedOnTemp_DE_Table</DATA-CONSTR-REF>
+                                                <SW-RECORD-LAYOUT-REF DEST="SW-RECORD-LAYOUT">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/RecordLayouts/Cur_f32</SW-RECORD-LAYOUT-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="41784acc-0d06-5a68-daff-70188f94d9b2">
+                                    <SHORT-NAME>Appl_KxSOCR_U_vMinBasedOnTemp_DE</SHORT-NAME>
+                                    <CATEGORY>COM_AXIS</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <SW-CALPRM-AXIS-SET>
+                                                    <SW-CALPRM-AXIS>
+                                                        <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                                        <SW-AXIS-INDIVIDUAL>
+                                                            <INPUT-VARIABLE-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Float</INPUT-VARIABLE-TYPE-REF>
+                                                            <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                            <SW-MAX-AXIS-POINTS>6</SW-MAX-AXIS-POINTS>
+                                                            <SW-MIN-AXIS-POINTS>6</SW-MIN-AXIS-POINTS>
+                                                            <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/DataConstrs/DC_BaseType_KxSOCR_U_vMinBasedOnTemp_DE</DATA-CONSTR-REF>
+                                                        </SW-AXIS-INDIVIDUAL>
+                                                    </SW-CALPRM-AXIS>
+                                                </SW-CALPRM-AXIS-SET>
+                                                <SW-RECORD-LAYOUT-REF DEST="SW-RECORD-LAYOUT">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/RecordLayouts/Distr_f32_M</SW-RECORD-LAYOUT-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                                <APPLICATION-PRIMITIVE-DATA-TYPE UUID="93fec693-9276-5f93-f991-ad4bab926107">
+                                    <SHORT-NAME>UInt16</SHORT-NAME>
+                                    <CATEGORY>VALUE</CATEGORY>
+                                    <SW-DATA-DEF-PROPS>
+                                        <SW-DATA-DEF-PROPS-VARIANTS>
+                                            <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/SOCR_Code_pkg/SOCR_Code_dt/Identcl</COMPU-METHOD-REF>
+                                                <DATA-CONSTR-REF DEST="DATA-CONSTR">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/DataConstrs/DC_UInt16</DATA-CONSTR-REF>
+                                            </SW-DATA-DEF-PROPS-CONDITIONAL>
+                                        </SW-DATA-DEF-PROPS-VARIANTS>
+                                    </SW-DATA-DEF-PROPS>
+                                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                            </ELEMENTS>
+                            <AR-PACKAGES>
+                                <AR-PACKAGE>
+                                    <SHORT-NAME>DataConstrs</SHORT-NAME>
+                                    <ELEMENTS>
+                                        <DATA-CONSTR UUID="fbbdd0f0-a7c0-5ea0-90e2-48d61c5fb7cb">
+                                            <SHORT-NAME>DC_Float</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="INFINITE"/>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="INFINITE"/>
+                                                        <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="80195da1-0de7-5cea-b294-30b41ae35c9b">
+                                            <SHORT-NAME>DC_UInt8</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">255</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="0bf5e12f-5952-599a-47d2-822aa7fa9555">
+                                            <SHORT-NAME>DC_UInt32</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">4294967295</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="6438f4ce-d328-583d-328d-3427bf11ffb2">
+                                            <SHORT-NAME>DC_BaseType_CzSOCR_cmp_SOCOCV_mean_data</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="INFINITE"/>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="INFINITE"/>
+                                                        <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="a7d82a33-917a-5bf1-65a9-a2b875b5985a">
+                                            <SHORT-NAME>DC_BaseType_CtSOCR_cmp_SOCOCV_mean</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">-1000000</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1000000</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="c328e6d3-63aa-5b07-c6a9-a91e66403910">
+                                            <SHORT-NAME>DC_BaseType_CxSOCR_cmp_SOCOCV_mean</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">-1000000</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1000000</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="107c1c05-f2ab-5e52-6904-2cb23416d080">
+                                            <SHORT-NAME>DC_BaseType_CzSOCR_k_TrustFactorOCV_data</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="INFINITE"/>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="INFINITE"/>
+                                                        <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="4a4ea523-7416-56d9-ade2-279a2c2a5515">
+                                            <SHORT-NAME>DC_BaseType_CxSOCR_k_TrustFactorOCV</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">-1000000</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1000000</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="ad077051-234b-5a33-b2f6-3c3cb5efa333">
+                                            <SHORT-NAME>DC_BaseType_KtSOCR_U_SOCOCV_DE_Table</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">-1000000</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1000000</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="259c5637-3b9e-502c-5a0f-0ec518818bdd">
+                                            <SHORT-NAME>DC_BaseType_KxSOCR_U_SOCOCV_DE</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">-1000000</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1000000</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="5b6cf247-ec69-5aa2-3270-2c244bb4b083">
+                                            <SHORT-NAME>DC_BaseType_KtSOCR_U_vMinBasedOnTemp_DE_Table</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">-1000000</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1000000</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="5165541b-52ae-5bdf-facc-d20bb6db54eb">
+                                            <SHORT-NAME>DC_BaseType_KxSOCR_U_vMinBasedOnTemp_DE</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">-1000000</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1000000</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                        <DATA-CONSTR UUID="6803303b-3816-502a-b4ad-ea55fd53feda">
+                                            <SHORT-NAME>DC_UInt16</SHORT-NAME>
+                                            <DATA-CONSTR-RULES>
+                                                <DATA-CONSTR-RULE>
+                                                    <PHYS-CONSTRS>
+                                                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                                                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">65535</UPPER-LIMIT>
+                                                        <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                    </PHYS-CONSTRS>
+                                                </DATA-CONSTR-RULE>
+                                            </DATA-CONSTR-RULES>
+                                        </DATA-CONSTR>
+                                    </ELEMENTS>
+                                </AR-PACKAGE>
+                                <AR-PACKAGE>
+                                    <SHORT-NAME>RecordLayouts</SHORT-NAME>
+                                    <ELEMENTS>
+                                        <SW-RECORD-LAYOUT UUID="2d2071eb-ab3a-5c3d-a9b3-509762ccf132">
+                                            <SHORT-NAME>Map_f32</SHORT-NAME>
+                                            <SW-RECORD-LAYOUT-GROUP>
+                                                <SHORT-LABEL>Map_f32</SHORT-LABEL>
+                                                <SW-RECORD-LAYOUT-GROUP>
+                                                    <SHORT-LABEL>Val</SHORT-LABEL>
+                                                    <CATEGORY>COLUMN_DIR</CATEGORY>
+                                                    <SW-RECORD-LAYOUT-GROUP-AXIS>1</SW-RECORD-LAYOUT-GROUP-AXIS>
+                                                    <SW-RECORD-LAYOUT-GROUP-INDEX>X</SW-RECORD-LAYOUT-GROUP-INDEX>
+                                                    <SW-RECORD-LAYOUT-GROUP-FROM>1</SW-RECORD-LAYOUT-GROUP-FROM>
+                                                    <SW-RECORD-LAYOUT-GROUP-TO>-1</SW-RECORD-LAYOUT-GROUP-TO>
+                                                    <SW-RECORD-LAYOUT-GROUP>
+                                                        <SHORT-LABEL>Val</SHORT-LABEL>
+                                                        <SW-RECORD-LAYOUT-GROUP-AXIS>2</SW-RECORD-LAYOUT-GROUP-AXIS>
+                                                        <SW-RECORD-LAYOUT-GROUP-INDEX>Y</SW-RECORD-LAYOUT-GROUP-INDEX>
+                                                        <SW-RECORD-LAYOUT-GROUP-FROM>1</SW-RECORD-LAYOUT-GROUP-FROM>
+                                                        <SW-RECORD-LAYOUT-GROUP-TO>-1</SW-RECORD-LAYOUT-GROUP-TO>
+                                                        <SW-RECORD-LAYOUT-V>
+                                                            <SHORT-LABEL>Val</SHORT-LABEL>
+                                                            <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/SwBaseTypes/float32</BASE-TYPE-REF>
+                                                            <SW-RECORD-LAYOUT-V-AXIS>0</SW-RECORD-LAYOUT-V-AXIS>
+                                                            <SW-RECORD-LAYOUT-V-PROP>VALUE</SW-RECORD-LAYOUT-V-PROP>
+                                                            <SW-RECORD-LAYOUT-V-INDEX>X Y</SW-RECORD-LAYOUT-V-INDEX>
+                                                        </SW-RECORD-LAYOUT-V>
+                                                    </SW-RECORD-LAYOUT-GROUP>
+                                                </SW-RECORD-LAYOUT-GROUP>
+                                            </SW-RECORD-LAYOUT-GROUP>
+                                        </SW-RECORD-LAYOUT>
+                                        <SW-RECORD-LAYOUT UUID="e830dd7d-6f57-5ae8-5804-a4b5b4a7fbf1">
+                                            <SHORT-NAME>Distr_f32_M</SHORT-NAME>
+                                            <SW-RECORD-LAYOUT-GROUP>
+                                                <SHORT-LABEL>Y</SHORT-LABEL>
+                                                <CATEGORY>INDEX_INCR</CATEGORY>
+                                                <SW-RECORD-LAYOUT-GROUP-AXIS>1</SW-RECORD-LAYOUT-GROUP-AXIS>
+                                                <SW-RECORD-LAYOUT-GROUP-FROM>1</SW-RECORD-LAYOUT-GROUP-FROM>
+                                                <SW-RECORD-LAYOUT-GROUP-TO>-1</SW-RECORD-LAYOUT-GROUP-TO>
+                                                <SW-RECORD-LAYOUT-V>
+                                                    <SHORT-LABEL>VALUE</SHORT-LABEL>
+                                                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/SwBaseTypes/float32</BASE-TYPE-REF>
+                                                    <SW-RECORD-LAYOUT-V-AXIS>1</SW-RECORD-LAYOUT-V-AXIS>
+                                                    <SW-RECORD-LAYOUT-V-PROP>VALUE</SW-RECORD-LAYOUT-V-PROP>
+                                                </SW-RECORD-LAYOUT-V>
+                                            </SW-RECORD-LAYOUT-GROUP>
+                                        </SW-RECORD-LAYOUT>
+                                        <SW-RECORD-LAYOUT UUID="2d44787e-9936-5786-e0bb-211eb9c66c10">
+                                            <SHORT-NAME>Cur_f32</SHORT-NAME>
+                                            <SW-RECORD-LAYOUT-GROUP>
+                                                <SHORT-LABEL>Cur_f32</SHORT-LABEL>
+                                                <CATEGORY>COLUMN_DIR</CATEGORY>
+                                                <SW-RECORD-LAYOUT-GROUP-AXIS>0</SW-RECORD-LAYOUT-GROUP-AXIS>
+                                                <SW-RECORD-LAYOUT-GROUP-INDEX>X</SW-RECORD-LAYOUT-GROUP-INDEX>
+                                                <SW-RECORD-LAYOUT-GROUP-FROM>1</SW-RECORD-LAYOUT-GROUP-FROM>
+                                                <SW-RECORD-LAYOUT-GROUP-TO>-1</SW-RECORD-LAYOUT-GROUP-TO>
+                                                <SW-RECORD-LAYOUT-V>
+                                                    <SHORT-LABEL>Val</SHORT-LABEL>
+                                                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/SwBaseTypes/float32</BASE-TYPE-REF>
+                                                    <SW-RECORD-LAYOUT-V-AXIS>0</SW-RECORD-LAYOUT-V-AXIS>
+                                                    <SW-RECORD-LAYOUT-V-PROP>VALUE</SW-RECORD-LAYOUT-V-PROP>
+                                                    <SW-RECORD-LAYOUT-V-INDEX>X</SW-RECORD-LAYOUT-V-INDEX>
+                                                </SW-RECORD-LAYOUT-V>
+                                            </SW-RECORD-LAYOUT-GROUP>
+                                        </SW-RECORD-LAYOUT>
+                                    </ELEMENTS>
+                                </AR-PACKAGE>
+                            </AR-PACKAGES>
+                        </AR-PACKAGE>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>DataTypeMappings</SHORT-NAME>
+                            <ELEMENTS>
+                                <DATA-TYPE-MAPPING-SET UUID="e41e8877-495a-5489-88d8-9df4497d6e6b">
+                                    <SHORT-NAME>SOCR_CodeDataTypeMappingsSet</SHORT-NAME>
+                                    <DATA-TYPE-MAPS>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Float</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/Float</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-ARRAY-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/rt_Array_Float_96</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/rt_Array_Float_96</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Boolean</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/Boolean</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-ARRAY-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/rt_Array_Boolean_96</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/rt_Array_Boolean_96</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/TeHVSR_e_StateMode</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/TeHVSR_e_StateMode</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/UInt8</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/UInt8</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/TeVSDR_e_CurrentFlowState</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/TeVSDR_e_CurrentFlowState</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/UInt32</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/UInt32</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Appl_CzSOCR_cmp_SOCOCV_mean_data</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/rt_Array_Float_720</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Appl_CtSOCR_cmp_SOCOCV_mean</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/rt_Array_Float_10</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Appl_CxSOCR_cmp_SOCOCV_mean</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/rt_Array_Float_72</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Appl_CzSOCR_k_TrustFactorOCV_data</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/rt_Array_Float_8</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Appl_CxSOCR_k_TrustFactorOCV</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/rt_Array_Float_8</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Appl_KtSOCR_U_SOCOCV_DE_Table</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/rt_Array_Float_31</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Appl_KxSOCR_U_SOCOCV_DE</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/rt_Array_Float_31</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Appl_KtSOCR_U_vMinBasedOnTemp_DE_Table</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/rt_Array_Float_6</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/Appl_KxSOCR_U_vMinBasedOnTemp_DE</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/rt_Array_Float_6</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                        <DATA-TYPE-MAP>
+                                            <APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/ApplDataTypes/UInt16</APPLICATION-DATA-TYPE-REF>
+                                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/SOCR_Code_pkg/SOCR_Code_dt/UInt16</IMPLEMENTATION-DATA-TYPE-REF>
+                                        </DATA-TYPE-MAP>
+                                    </DATA-TYPE-MAPS>
+                                </DATA-TYPE-MAPPING-SET>
+                            </ELEMENTS>
+                        </AR-PACKAGE>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>Ground</SHORT-NAME>
+                            <ELEMENTS>
+                                <CONSTANT-SPECIFICATION UUID="0aa87070-b59d-5f34-4a44-45cabd89e5b1">
+                                    <SHORT-NAME>CtSOCR_cmp_SOCOCV_mean</SHORT-NAME>
+                                    <VALUE-SPEC>
+                                        <APPLICATION-VALUE-SPECIFICATION>
+                                            <SHORT-LABEL>CtSOCR_cmp_SOCOCV_mean</SHORT-LABEL>
+                                            <CATEGORY>COM_AXIS</CATEGORY>
+                                            <SW-VALUE-CONT>
+                                                <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                <SW-ARRAYSIZE>
+                                                    <V>10</V>
+                                                </SW-ARRAYSIZE>
+                                                <SW-VALUES-PHYS>
+                                                    <V>-20</V>
+                                                    <V>-10</V>
+                                                    <V>-5</V>
+                                                    <V>0</V>
+                                                    <V>5</V>
+                                                    <V>15</V>
+                                                    <V>25</V>
+                                                    <V>35</V>
+                                                    <V>45</V>
+                                                    <V>55</V>
+                                                </SW-VALUES-PHYS>
+                                            </SW-VALUE-CONT>
+                                        </APPLICATION-VALUE-SPECIFICATION>
+                                    </VALUE-SPEC>
+                                </CONSTANT-SPECIFICATION>
+                                <CONSTANT-SPECIFICATION UUID="e4418119-ee7e-5326-120b-ac932b1fa25a">
+                                    <SHORT-NAME>CxSOCR_cmp_SOCOCV_mean</SHORT-NAME>
+                                    <VALUE-SPEC>
+                                        <APPLICATION-VALUE-SPECIFICATION>
+                                            <SHORT-LABEL>CxSOCR_cmp_SOCOCV_mean</SHORT-LABEL>
+                                            <CATEGORY>COM_AXIS</CATEGORY>
+                                            <SW-VALUE-CONT>
+                                                <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                <SW-ARRAYSIZE>
+                                                    <V>72</V>
+                                                </SW-ARRAYSIZE>
+                                                <SW-VALUES-PHYS>
+                                                    <V>3.0529999732971191</V>
+                                                    <V>3.1380000114440918</V>
+                                                    <V>3.2669999599456787</V>
+                                                    <V>3.38100004196167</V>
+                                                    <V>3.4059998989105225</V>
+                                                    <V>3.4179999828338623</V>
+                                                    <V>3.4210000038146973</V>
+                                                    <V>3.4319999217987061</V>
+                                                    <V>3.4649999141693115</V>
+                                                    <V>3.4760000705718994</V>
+                                                    <V>3.4930000305175781</V>
+                                                    <V>3.502000093460083</V>
+                                                    <V>3.5160000324249268</V>
+                                                    <V>3.5220000743865967</V>
+                                                    <V>3.5299999713897705</V>
+                                                    <V>3.5350000858306885</V>
+                                                    <V>3.5369999408721924</V>
+                                                    <V>3.5439999103546143</V>
+                                                    <V>3.5559999942779541</V>
+                                                    <V>3.5690000057220459</V>
+                                                    <V>3.5810000896453857</V>
+                                                    <V>3.5859999656677246</V>
+                                                    <V>3.5969998836517334</V>
+                                                    <V>3.6050000190734863</V>
+                                                    <V>3.6089999675750732</V>
+                                                    <V>3.6159999370574951</V>
+                                                    <V>3.619999885559082</V>
+                                                    <V>3.624000072479248</V>
+                                                    <V>3.63700008392334</V>
+                                                    <V>3.6449999809265137</V>
+                                                    <V>3.6500000953674316</V>
+                                                    <V>3.6600000858306885</V>
+                                                    <V>3.6630001068115234</V>
+                                                    <V>3.6710000038146973</V>
+                                                    <V>3.6919999122619629</V>
+                                                    <V>3.6940000057220459</V>
+                                                    <V>3.6970000267028809</V>
+                                                    <V>3.7090001106262207</V>
+                                                    <V>3.7219998836517334</V>
+                                                    <V>3.7360000610351563</V>
+                                                    <V>3.7390000820159912</V>
+                                                    <V>3.7430000305175781</V>
+                                                    <V>3.7950000762939453</V>
+                                                    <V>3.7969999313354492</V>
+                                                    <V>3.8050000667572021</V>
+                                                    <V>3.812000036239624</V>
+                                                    <V>3.8269999027252197</V>
+                                                    <V>3.8320000171661377</V>
+                                                    <V>3.8369998931884766</V>
+                                                    <V>3.8399999141693115</V>
+                                                    <V>3.8889999389648438</V>
+                                                    <V>3.8929998874664307</V>
+                                                    <V>3.9000000953674316</V>
+                                                    <V>3.9040000438690186</V>
+                                                    <V>3.9149999618530273</V>
+                                                    <V>3.9189999103546143</V>
+                                                    <V>3.9219999313354492</V>
+                                                    <V>3.9249999523162842</V>
+                                                    <V>3.9860000610351563</V>
+                                                    <V>3.9900000095367432</V>
+                                                    <V>3.996999979019165</V>
+                                                    <V>4.000999927520752</V>
+                                                    <V>4.004000186920166</V>
+                                                    <V>4.00600004196167</V>
+                                                    <V>4.0100002288818359</V>
+                                                    <V>4.0739998817443848</V>
+                                                    <V>4.0819997787475586</V>
+                                                    <V>4.0850000381469727</V>
+                                                    <V>4.0879998207092285</V>
+                                                    <V>4.0900001525878906</V>
+                                                    <V>4.0929999351501465</V>
+                                                    <V>4.2280001640319824</V>
+                                                </SW-VALUES-PHYS>
+                                            </SW-VALUE-CONT>
+                                        </APPLICATION-VALUE-SPECIFICATION>
+                                    </VALUE-SPEC>
+                                </CONSTANT-SPECIFICATION>
+                                <CONSTANT-SPECIFICATION UUID="3c161c83-f1cc-5880-43a7-b8f089cb1f61">
+                                    <SHORT-NAME>CxSOCR_k_TrustFactorOCV</SHORT-NAME>
+                                    <VALUE-SPEC>
+                                        <APPLICATION-VALUE-SPECIFICATION>
+                                            <SHORT-LABEL>CxSOCR_k_TrustFactorOCV</SHORT-LABEL>
+                                            <CATEGORY>COM_AXIS</CATEGORY>
+                                            <SW-VALUE-CONT>
+                                                <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                <SW-ARRAYSIZE>
+                                                    <V>8</V>
+                                                </SW-ARRAYSIZE>
+                                                <SW-VALUES-PHYS>
+                                                    <V>1799</V>
+                                                    <V>1800</V>
+                                                    <V>3599</V>
+                                                    <V>3600</V>
+                                                    <V>7200</V>
+                                                    <V>14400</V>
+                                                    <V>43199</V>
+                                                    <V>43200</V>
+                                                </SW-VALUES-PHYS>
+                                            </SW-VALUE-CONT>
+                                        </APPLICATION-VALUE-SPECIFICATION>
+                                    </VALUE-SPEC>
+                                </CONSTANT-SPECIFICATION>
+                                <CONSTANT-SPECIFICATION UUID="161c594f-86a1-5d49-26ca-7f834ac7b562">
+                                    <SHORT-NAME>CzSOCR_cmp_SOCOCV_mean_data</SHORT-NAME>
+                                    <VALUE-SPEC>
+                                        <APPLICATION-VALUE-SPECIFICATION>
+                                            <SHORT-LABEL>CzSOCR_cmp_SOCOCV_mean_data</SHORT-LABEL>
+                                            <CATEGORY>MAP</CATEGORY>
+                                            <SW-VALUE-CONT>
+                                                <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                <SW-ARRAYSIZE>
+                                                    <V>720</V>
+                                                </SW-ARRAYSIZE>
+                                                <SW-VALUES-PHYS>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>2.2221999168395996</V>
+                                                    <V>10</V>
+                                                    <V>12.857099533081055</V>
+                                                    <V>15.952400207519531</V>
+                                                    <V>18.809499740600586</V>
+                                                    <V>20</V>
+                                                    <V>22.894699096679688</V>
+                                                    <V>25</V>
+                                                    <V>26.052600860595703</V>
+                                                    <V>27.894699096679688</V>
+                                                    <V>28.947399139404297</V>
+                                                    <V>30</V>
+                                                    <V>32.765998840332031</V>
+                                                    <V>34.468101501464844</V>
+                                                    <V>35.531898498535156</V>
+                                                    <V>37.659599304199219</V>
+                                                    <V>38.297901153564453</V>
+                                                    <V>40</V>
+                                                    <V>42.916698455810547</V>
+                                                    <V>43.194400787353516</V>
+                                                    <V>43.611099243164063</V>
+                                                    <V>45.277801513671875</V>
+                                                    <V>47.083301544189453</V>
+                                                    <V>49.027801513671875</V>
+                                                    <V>49.444400787353516</V>
+                                                    <V>50</V>
+                                                    <V>55.842700958251953</V>
+                                                    <V>56.067401885986328</V>
+                                                    <V>56.966300964355469</V>
+                                                    <V>57.752799987792969</V>
+                                                    <V>59.438201904296875</V>
+                                                    <V>60</V>
+                                                    <V>60.574699401855469</V>
+                                                    <V>60.919498443603516</V>
+                                                    <V>66.55169677734375</V>
+                                                    <V>67.0114974975586</V>
+                                                    <V>67.81610107421875</V>
+                                                    <V>68.2759017944336</V>
+                                                    <V>69.540199279785156</V>
+                                                    <V>70</V>
+                                                    <V>70.365898132324219</V>
+                                                    <V>70.731697082519531</V>
+                                                    <V>78.170700073242188</V>
+                                                    <V>78.658500671386719</V>
+                                                    <V>79.512199401855469</V>
+                                                    <V>80</V>
+                                                    <V>80.411003112792969</V>
+                                                    <V>80.684898376464844</V>
+                                                    <V>81.232902526855469</V>
+                                                    <V>90</V>
+                                                    <V>90.519500732421875</V>
+                                                    <V>90.714302062988281</V>
+                                                    <V>90.909103393554688</V>
+                                                    <V>91.03900146484375</V>
+                                                    <V>91.233802795410156</V>
+                                                    <V>100</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>4.2424001693725586</V>
+                                                    <V>6.0605998039245605</V>
+                                                    <V>8.4848003387451172</V>
+                                                    <V>10</V>
+                                                    <V>10.434800148010254</V>
+                                                    <V>11.956500053405762</V>
+                                                    <V>14.565199851989746</V>
+                                                    <V>17.391300201416016</V>
+                                                    <V>20</V>
+                                                    <V>21.428600311279297</V>
+                                                    <V>24.571399688720703</V>
+                                                    <V>26.857099533081055</V>
+                                                    <V>28</V>
+                                                    <V>30</V>
+                                                    <V>30.888900756835938</V>
+                                                    <V>31.777799606323242</V>
+                                                    <V>34.666698455810547</V>
+                                                    <V>36.444400787353516</V>
+                                                    <V>37.555599212646484</V>
+                                                    <V>39.777801513671875</V>
+                                                    <V>40.266700744628906</V>
+                                                    <V>41.333301544189453</V>
+                                                    <V>44.13330078125</V>
+                                                    <V>44.400001525878906</V>
+                                                    <V>44.799999237060547</V>
+                                                    <V>46.400001525878906</V>
+                                                    <V>48.13330078125</V>
+                                                    <V>50</V>
+                                                    <V>50.297000885009766</V>
+                                                    <V>50.693099975585938</V>
+                                                    <V>55.841598510742188</V>
+                                                    <V>56.039600372314453</V>
+                                                    <V>56.831699371337891</V>
+                                                    <V>57.524799346923828</V>
+                                                    <V>59.0098991394043</V>
+                                                    <V>59.505001068115234</V>
+                                                    <V>60</V>
+                                                    <V>60.352901458740234</V>
+                                                    <V>66.117599487304688</V>
+                                                    <V>66.588203430175781</V>
+                                                    <V>67.411796569824219</V>
+                                                    <V>67.882400512695313</V>
+                                                    <V>69.176498413085938</V>
+                                                    <V>69.647102355957031</V>
+                                                    <V>70</V>
+                                                    <V>70.365898132324219</V>
+                                                    <V>77.804901123046875</V>
+                                                    <V>78.2927017211914</V>
+                                                    <V>79.14630126953125</V>
+                                                    <V>79.634101867675781</V>
+                                                    <V>80</V>
+                                                    <V>80.256401062011719</V>
+                                                    <V>80.769203186035156</V>
+                                                    <V>88.974403381347656</V>
+                                                    <V>90</V>
+                                                    <V>90.205497741699219</V>
+                                                    <V>90.411003112792969</V>
+                                                    <V>90.547897338867188</V>
+                                                    <V>90.753402709960938</V>
+                                                    <V>100</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>3.0357000827789307</V>
+                                                    <V>4.6428999900817871</V>
+                                                    <V>7.1428999900817871</V>
+                                                    <V>8.2143001556396484</V>
+                                                    <V>9.6429004669189453</V>
+                                                    <V>10.625</V>
+                                                    <V>11.04170036315918</V>
+                                                    <V>12.5</V>
+                                                    <V>15</V>
+                                                    <V>17.70829963684082</V>
+                                                    <V>20.277799606323242</V>
+                                                    <V>21.66670036315918</V>
+                                                    <V>24.722200393676758</V>
+                                                    <V>26.944400787353516</V>
+                                                    <V>28.055599212646484</V>
+                                                    <V>30</V>
+                                                    <V>30.909099578857422</V>
+                                                    <V>31.818199157714844</V>
+                                                    <V>34.772701263427734</V>
+                                                    <V>36.590900421142578</V>
+                                                    <V>37.727298736572266</V>
+                                                    <V>40</V>
+                                                    <V>40.384601593017578</V>
+                                                    <V>41.410301208496094</V>
+                                                    <V>44.10260009765625</V>
+                                                    <V>44.359001159667969</V>
+                                                    <V>44.743598937988281</V>
+                                                    <V>46.282100677490234</V>
+                                                    <V>47.948699951171875</V>
+                                                    <V>49.743598937988281</V>
+                                                    <V>50.097999572753906</V>
+                                                    <V>50.490200042724609</V>
+                                                    <V>55.588199615478516</V>
+                                                    <V>55.7843017578125</V>
+                                                    <V>56.568599700927734</V>
+                                                    <V>57.254901885986328</V>
+                                                    <V>58.725498199462891</V>
+                                                    <V>59.2156982421875</V>
+                                                    <V>59.705898284912109</V>
+                                                    <V>60</V>
+                                                    <V>65.764701843261719</V>
+                                                    <V>66.235298156738281</V>
+                                                    <V>67.058799743652344</V>
+                                                    <V>67.529403686523438</V>
+                                                    <V>68.823501586914063</V>
+                                                    <V>69.294097900390625</V>
+                                                    <V>69.647102355957031</V>
+                                                    <V>70</V>
+                                                    <V>77.176498413085938</V>
+                                                    <V>77.647102355957031</V>
+                                                    <V>78.470596313476563</V>
+                                                    <V>78.941200256347656</V>
+                                                    <V>79.294097900390625</V>
+                                                    <V>79.529403686523438</V>
+                                                    <V>80</V>
+                                                    <V>88</V>
+                                                    <V>89</V>
+                                                    <V>89.375</V>
+                                                    <V>89.75</V>
+                                                    <V>90</V>
+                                                    <V>90.217399597167969</V>
+                                                    <V>100</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>1.5277999639511108</V>
+                                                    <V>3.8889000415802</V>
+                                                    <V>5.1388998031616211</V>
+                                                    <V>7.0833001136779785</V>
+                                                    <V>7.9166998863220215</V>
+                                                    <V>9.0277996063232422</V>
+                                                    <V>9.7222003936767578</V>
+                                                    <V>10</V>
+                                                    <V>11.45829963684082</V>
+                                                    <V>13.95829963684082</V>
+                                                    <V>16.66670036315918</V>
+                                                    <V>19.16670036315918</V>
+                                                    <V>20.285699844360352</V>
+                                                    <V>23.428600311279297</V>
+                                                    <V>25.714300155639648</V>
+                                                    <V>26.857099533081055</V>
+                                                    <V>28.857099533081055</V>
+                                                    <V>30</V>
+                                                    <V>30.930200576782227</V>
+                                                    <V>33.953498840332031</V>
+                                                    <V>35.813999176025391</V>
+                                                    <V>36.976699829101563</V>
+                                                    <V>39.302299499511719</V>
+                                                    <V>40</V>
+                                                    <V>41.0526008605957</V>
+                                                    <V>43.815799713134766</V>
+                                                    <V>44.078899383544922</V>
+                                                    <V>44.473701477050781</V>
+                                                    <V>46.0526008605957</V>
+                                                    <V>47.763198852539063</V>
+                                                    <V>49.605300903320313</V>
+                                                    <V>50</V>
+                                                    <V>50.403999328613281</V>
+                                                    <V>55.656600952148438</V>
+                                                    <V>55.858600616455078</V>
+                                                    <V>56.666698455810547</V>
+                                                    <V>57.373699188232422</V>
+                                                    <V>58.888900756835938</V>
+                                                    <V>59.393901824951172</V>
+                                                    <V>59.898998260498047</V>
+                                                    <V>60.23809814453125</V>
+                                                    <V>66.071403503417969</V>
+                                                    <V>66.547599792480469</V>
+                                                    <V>67.380996704101563</V>
+                                                    <V>67.857101440429688</V>
+                                                    <V>69.166702270507813</V>
+                                                    <V>69.642898559570313</V>
+                                                    <V>70</V>
+                                                    <V>70.344802856445313</V>
+                                                    <V>77.3563003540039</V>
+                                                    <V>77.81610107421875</V>
+                                                    <V>78.620697021484375</V>
+                                                    <V>79.080497741699219</V>
+                                                    <V>79.425300598144531</V>
+                                                    <V>79.655197143554688</V>
+                                                    <V>80.122001647949219</V>
+                                                    <V>87.926803588867188</V>
+                                                    <V>88.902397155761719</V>
+                                                    <V>89.268302917480469</V>
+                                                    <V>89.634101867675781</V>
+                                                    <V>89.877998352050781</V>
+                                                    <V>90.146003723144531</V>
+                                                    <V>100</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>3.0357000827789307</V>
+                                                    <V>4.6428999900817871</V>
+                                                    <V>7.1428999900817871</V>
+                                                    <V>8.2143001556396484</V>
+                                                    <V>9.6429004669189453</V>
+                                                    <V>10.625</V>
+                                                    <V>11.04170036315918</V>
+                                                    <V>12.5</V>
+                                                    <V>15</V>
+                                                    <V>17.70829963684082</V>
+                                                    <V>20.277799606323242</V>
+                                                    <V>21.66670036315918</V>
+                                                    <V>24.722200393676758</V>
+                                                    <V>26.944400787353516</V>
+                                                    <V>28.055599212646484</V>
+                                                    <V>30</V>
+                                                    <V>30.909099578857422</V>
+                                                    <V>31.818199157714844</V>
+                                                    <V>34.772701263427734</V>
+                                                    <V>36.590900421142578</V>
+                                                    <V>37.727298736572266</V>
+                                                    <V>40</V>
+                                                    <V>40.384601593017578</V>
+                                                    <V>41.410301208496094</V>
+                                                    <V>44.10260009765625</V>
+                                                    <V>44.359001159667969</V>
+                                                    <V>44.743598937988281</V>
+                                                    <V>46.282100677490234</V>
+                                                    <V>47.948699951171875</V>
+                                                    <V>49.743598937988281</V>
+                                                    <V>50.097999572753906</V>
+                                                    <V>50.490200042724609</V>
+                                                    <V>55.588199615478516</V>
+                                                    <V>55.7843017578125</V>
+                                                    <V>56.568599700927734</V>
+                                                    <V>57.254901885986328</V>
+                                                    <V>58.725498199462891</V>
+                                                    <V>59.2156982421875</V>
+                                                    <V>59.705898284912109</V>
+                                                    <V>60</V>
+                                                    <V>65.764701843261719</V>
+                                                    <V>66.235298156738281</V>
+                                                    <V>67.058799743652344</V>
+                                                    <V>67.529403686523438</V>
+                                                    <V>68.823501586914063</V>
+                                                    <V>69.294097900390625</V>
+                                                    <V>69.647102355957031</V>
+                                                    <V>70</V>
+                                                    <V>77.176498413085938</V>
+                                                    <V>77.647102355957031</V>
+                                                    <V>78.470596313476563</V>
+                                                    <V>78.941200256347656</V>
+                                                    <V>79.294097900390625</V>
+                                                    <V>79.529403686523438</V>
+                                                    <V>80</V>
+                                                    <V>88</V>
+                                                    <V>89</V>
+                                                    <V>89.375</V>
+                                                    <V>89.75</V>
+                                                    <V>90</V>
+                                                    <V>90.217399597167969</V>
+                                                    <V>100</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>1.3792999982833862</V>
+                                                    <V>1.7240999937057495</V>
+                                                    <V>2.9885001182556152</V>
+                                                    <V>6.7815999984741211</V>
+                                                    <V>8.0459995269775391</V>
+                                                    <V>10</V>
+                                                    <V>11.184200286865234</V>
+                                                    <V>13.026300430297852</V>
+                                                    <V>13.815799713134766</V>
+                                                    <V>14.868399620056152</V>
+                                                    <V>15.526300430297852</V>
+                                                    <V>15.78950023651123</V>
+                                                    <V>16.710500717163086</V>
+                                                    <V>18.289499282836914</V>
+                                                    <V>20</V>
+                                                    <V>23</V>
+                                                    <V>24.25</V>
+                                                    <V>27</V>
+                                                    <V>29</V>
+                                                    <V>30</V>
+                                                    <V>31.707300186157227</V>
+                                                    <V>32.682899475097656</V>
+                                                    <V>33.658500671386719</V>
+                                                    <V>36.829299926757813</V>
+                                                    <V>38.780498504638672</V>
+                                                    <V>40</V>
+                                                    <V>41.388900756835938</V>
+                                                    <V>41.805599212646484</V>
+                                                    <V>42.916698455810547</V>
+                                                    <V>45.833301544189453</V>
+                                                    <V>46.111099243164063</V>
+                                                    <V>46.527801513671875</V>
+                                                    <V>48.194400787353516</V>
+                                                    <V>50</V>
+                                                    <V>51.333301544189453</V>
+                                                    <V>51.618999481201172</V>
+                                                    <V>52</V>
+                                                    <V>56.952400207519531</V>
+                                                    <V>57.142898559570313</V>
+                                                    <V>57.904800415039063</V>
+                                                    <V>58.5713996887207</V>
+                                                    <V>60</V>
+                                                    <V>60.568199157714844</V>
+                                                    <V>61.136398315429688</V>
+                                                    <V>61.477298736572266</V>
+                                                    <V>67.045501708984375</V>
+                                                    <V>67.5</V>
+                                                    <V>68.295501708984375</V>
+                                                    <V>68.75</V>
+                                                    <V>70</V>
+                                                    <V>70.4395980834961</V>
+                                                    <V>70.769203186035156</V>
+                                                    <V>71.0988998413086</V>
+                                                    <V>77.802200317382813</V>
+                                                    <V>78.2417984008789</V>
+                                                    <V>79.011001586914063</V>
+                                                    <V>79.45050048828125</V>
+                                                    <V>79.780197143554688</V>
+                                                    <V>80</V>
+                                                    <V>80.459800720214844</V>
+                                                    <V>87.81610107421875</V>
+                                                    <V>88.735603332519531</V>
+                                                    <V>89.080497741699219</V>
+                                                    <V>89.425300598144531</V>
+                                                    <V>89.655197143554688</V>
+                                                    <V>90</V>
+                                                    <V>100</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>2.9412000179290771</V>
+                                                    <V>4.35290002822876</V>
+                                                    <V>4.7059001922607422</V>
+                                                    <V>6</V>
+                                                    <V>9.8823995590209961</V>
+                                                    <V>11.111100196838379</V>
+                                                    <V>13</V>
+                                                    <V>14</V>
+                                                    <V>15.5556001663208</V>
+                                                    <V>16.222200393676758</V>
+                                                    <V>17.111099243164063</V>
+                                                    <V>17.66670036315918</V>
+                                                    <V>17.888900756835938</V>
+                                                    <V>18.66670036315918</V>
+                                                    <V>20</V>
+                                                    <V>22.653099060058594</V>
+                                                    <V>25.101999282836914</V>
+                                                    <V>26.122400283813477</V>
+                                                    <V>28.367300033569336</V>
+                                                    <V>30</V>
+                                                    <V>31</V>
+                                                    <V>32.75</V>
+                                                    <V>33.75</V>
+                                                    <V>34.75</V>
+                                                    <V>38</V>
+                                                    <V>40</V>
+                                                    <V>40.781200408935547</V>
+                                                    <V>42.343799591064453</V>
+                                                    <V>42.8125</V>
+                                                    <V>44.0625</V>
+                                                    <V>47.343799591064453</V>
+                                                    <V>47.656200408935547</V>
+                                                    <V>48.125</V>
+                                                    <V>50</V>
+                                                    <V>51.262100219726563</V>
+                                                    <V>52.62139892578125</V>
+                                                    <V>52.912601470947266</V>
+                                                    <V>53.300998687744141</V>
+                                                    <V>58.3494987487793</V>
+                                                    <V>58.543701171875</V>
+                                                    <V>59.320400238037109</V>
+                                                    <V>60</V>
+                                                    <V>61.630401611328125</V>
+                                                    <V>62.173900604248047</V>
+                                                    <V>62.717399597167969</V>
+                                                    <V>63.043498992919922</V>
+                                                    <V>68.369598388671875</V>
+                                                    <V>68.8042984008789</V>
+                                                    <V>69.565200805664063</V>
+                                                    <V>70</V>
+                                                    <V>71.18280029296875</V>
+                                                    <V>71.612899780273438</V>
+                                                    <V>71.935501098632813</V>
+                                                    <V>72.258102416992188</V>
+                                                    <V>78.81719970703125</V>
+                                                    <V>79.247299194335938</V>
+                                                    <V>80</V>
+                                                    <V>80.425498962402344</V>
+                                                    <V>80.744697570800781</V>
+                                                    <V>80.9573974609375</V>
+                                                    <V>81.383003234863281</V>
+                                                    <V>88.191497802734375</V>
+                                                    <V>89.0426025390625</V>
+                                                    <V>89.361701965332031</V>
+                                                    <V>89.680900573730469</V>
+                                                    <V>89.893600463867188</V>
+                                                    <V>90.146003723144531</V>
+                                                    <V>100</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>6.90910005569458</V>
+                                                    <V>8.4242000579833984</V>
+                                                    <V>9.15149974822998</V>
+                                                    <V>9.33329963684082</V>
+                                                    <V>10</V>
+                                                    <V>13.367300033569336</V>
+                                                    <V>14.489800453186035</V>
+                                                    <V>16.22450065612793</V>
+                                                    <V>17.142900466918945</V>
+                                                    <V>18.571399688720703</V>
+                                                    <V>19.183700561523438</V>
+                                                    <V>20</V>
+                                                    <V>20.746299743652344</V>
+                                                    <V>21.0447998046875</V>
+                                                    <V>22.089599609375</V>
+                                                    <V>23.880599975585938</V>
+                                                    <V>25.820899963378906</V>
+                                                    <V>27.611900329589844</V>
+                                                    <V>28.358200073242188</V>
+                                                    <V>30</V>
+                                                    <V>32</V>
+                                                    <V>33</V>
+                                                    <V>34.75</V>
+                                                    <V>35.75</V>
+                                                    <V>36.75</V>
+                                                    <V>40</V>
+                                                    <V>41.333301544189453</V>
+                                                    <V>42.166698455810547</V>
+                                                    <V>43.833301544189453</V>
+                                                    <V>44.333301544189453</V>
+                                                    <V>45.666698455810547</V>
+                                                    <V>49.166698455810547</V>
+                                                    <V>49.5</V>
+                                                    <V>50</V>
+                                                    <V>51.111099243164063</V>
+                                                    <V>52.314800262451172</V>
+                                                    <V>53.611099243164063</V>
+                                                    <V>53.888900756835938</V>
+                                                    <V>54.259300231933594</V>
+                                                    <V>59.074100494384766</V>
+                                                    <V>59.259300231933594</V>
+                                                    <V>60</V>
+                                                    <V>60.736801147460938</V>
+                                                    <V>62.315799713134766</V>
+                                                    <V>62.842098236083984</V>
+                                                    <V>63.368400573730469</V>
+                                                    <V>63.684200286865234</V>
+                                                    <V>68.84210205078125</V>
+                                                    <V>69.263198852539063</V>
+                                                    <V>70</V>
+                                                    <V>70.416702270507813</V>
+                                                    <V>71.5625</V>
+                                                    <V>71.979202270507813</V>
+                                                    <V>72.291702270507813</V>
+                                                    <V>72.604202270507813</V>
+                                                    <V>78.958297729492188</V>
+                                                    <V>79.375</V>
+                                                    <V>80.105300903320313</V>
+                                                    <V>80.526298522949219</V>
+                                                    <V>80.84210205078125</V>
+                                                    <V>81.052597045898438</V>
+                                                    <V>81.473701477050781</V>
+                                                    <V>88.210502624511719</V>
+                                                    <V>89.052597045898438</V>
+                                                    <V>89.368400573730469</V>
+                                                    <V>89.684196472167969</V>
+                                                    <V>89.894699096679688</V>
+                                                    <V>90.146003723144531</V>
+                                                    <V>100</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>4.5583000183105469</V>
+                                                    <V>8.5866003036499023</V>
+                                                    <V>9.4700002670288086</V>
+                                                    <V>9.8940000534057617</V>
+                                                    <V>10</V>
+                                                    <V>11.089099884033203</V>
+                                                    <V>14.356399536132813</V>
+                                                    <V>15.445500373840332</V>
+                                                    <V>17.128700256347656</V>
+                                                    <V>18.019800186157227</V>
+                                                    <V>19.405899047851563</V>
+                                                    <V>20</V>
+                                                    <V>21.081100463867188</V>
+                                                    <V>21.756799697875977</V>
+                                                    <V>22.027000427246094</V>
+                                                    <V>22.972999572753906</V>
+                                                    <V>24.594600677490234</V>
+                                                    <V>26.351400375366211</V>
+                                                    <V>27.972999572753906</V>
+                                                    <V>28.648599624633789</V>
+                                                    <V>30.25</V>
+                                                    <V>32.25</V>
+                                                    <V>33.25</V>
+                                                    <V>35</V>
+                                                    <V>36</V>
+                                                    <V>37</V>
+                                                    <V>40.1786003112793</V>
+                                                    <V>41.607101440429688</V>
+                                                    <V>42.5</V>
+                                                    <V>44.285701751708984</V>
+                                                    <V>44.8213996887207</V>
+                                                    <V>46.25</V>
+                                                    <V>50</V>
+                                                    <V>50.194198608398438</V>
+                                                    <V>50.485401153564453</V>
+                                                    <V>51.6505012512207</V>
+                                                    <V>52.912601470947266</V>
+                                                    <V>54.271800994873047</V>
+                                                    <V>54.5630989074707</V>
+                                                    <V>54.951499938964844</V>
+                                                    <V>60</V>
+                                                    <V>60.212799072265625</V>
+                                                    <V>61.063800811767578</V>
+                                                    <V>61.808498382568359</V>
+                                                    <V>63.404300689697266</V>
+                                                    <V>63.936199188232422</V>
+                                                    <V>64.468101501464844</V>
+                                                    <V>64.787200927734375</V>
+                                                    <V>70</V>
+                                                    <V>70.412399291992188</V>
+                                                    <V>71.134002685546875</V>
+                                                    <V>71.546401977539063</V>
+                                                    <V>72.6803970336914</V>
+                                                    <V>73.0927963256836</V>
+                                                    <V>73.402099609375</V>
+                                                    <V>73.7113037109375</V>
+                                                    <V>80</V>
+                                                    <V>80.403999328613281</V>
+                                                    <V>81.111099243164063</V>
+                                                    <V>81.51519775390625</V>
+                                                    <V>81.818199157714844</V>
+                                                    <V>82.02020263671875</V>
+                                                    <V>82.424201965332031</V>
+                                                    <V>88.888900756835938</V>
+                                                    <V>89.6969985961914</V>
+                                                    <V>90</V>
+                                                    <V>90.209800720214844</V>
+                                                    <V>90.349700927734375</V>
+                                                    <V>90.559402465820313</V>
+                                                    <V>100</V>
+                                                    <V>0</V>
+                                                    <V>2.3287999629974365</V>
+                                                    <V>5.86299991607666</V>
+                                                    <V>8.9863004684448242</V>
+                                                    <V>9.6711997985839844</V>
+                                                    <V>10</V>
+                                                    <V>10.306099891662598</V>
+                                                    <V>11.428600311279297</V>
+                                                    <V>14.795900344848633</V>
+                                                    <V>15.918399810791016</V>
+                                                    <V>17.653099060058594</V>
+                                                    <V>18.571399688720703</V>
+                                                    <V>20</V>
+                                                    <V>20.759500503540039</V>
+                                                    <V>21.772199630737305</V>
+                                                    <V>22.405099868774414</V>
+                                                    <V>22.658199310302734</V>
+                                                    <V>23.544300079345703</V>
+                                                    <V>25.063299179077148</V>
+                                                    <V>26.708900451660156</V>
+                                                    <V>28.227800369262695</V>
+                                                    <V>28.860799789428711</V>
+                                                    <V>30.476200103759766</V>
+                                                    <V>32.381000518798828</V>
+                                                    <V>33.333301544189453</V>
+                                                    <V>35</V>
+                                                    <V>35.952400207519531</V>
+                                                    <V>36.904800415039063</V>
+                                                    <V>40</V>
+                                                    <V>41.403499603271484</V>
+                                                    <V>42.28070068359375</V>
+                                                    <V>44.035099029541016</V>
+                                                    <V>44.5614013671875</V>
+                                                    <V>45.964900970458984</V>
+                                                    <V>49.649101257324219</V>
+                                                    <V>50</V>
+                                                    <V>50.291301727294922</V>
+                                                    <V>51.456298828125</V>
+                                                    <V>52.718399047851563</V>
+                                                    <V>54.077701568603516</V>
+                                                    <V>54.368900299072266</V>
+                                                    <V>54.757301330566406</V>
+                                                    <V>59.805801391601563</V>
+                                                    <V>60</V>
+                                                    <V>60.833301544189453</V>
+                                                    <V>61.5625</V>
+                                                    <V>63.125</V>
+                                                    <V>63.645801544189453</V>
+                                                    <V>64.166702270507813</V>
+                                                    <V>64.479202270507813</V>
+                                                    <V>69.583297729492188</V>
+                                                    <V>70</V>
+                                                    <V>70.721603393554688</V>
+                                                    <V>71.134002685546875</V>
+                                                    <V>72.267997741699219</V>
+                                                    <V>72.6803970336914</V>
+                                                    <V>72.989700317382813</V>
+                                                    <V>73.299003601074219</V>
+                                                    <V>79.587600708007813</V>
+                                                    <V>80</V>
+                                                    <V>80.714302062988281</V>
+                                                    <V>81.122398376464844</V>
+                                                    <V>81.428596496582031</V>
+                                                    <V>81.632698059082031</V>
+                                                    <V>82.040802001953125</V>
+                                                    <V>88.571403503417969</V>
+                                                    <V>89.387802124023438</V>
+                                                    <V>89.693901062011719</V>
+                                                    <V>90</V>
+                                                    <V>90.142898559570313</V>
+                                                    <V>90.357101440429688</V>
+                                                    <V>100</V>
+                                                </SW-VALUES-PHYS>
+                                            </SW-VALUE-CONT>
+                                        </APPLICATION-VALUE-SPECIFICATION>
+                                    </VALUE-SPEC>
+                                </CONSTANT-SPECIFICATION>
+                                <CONSTANT-SPECIFICATION UUID="46de4d2b-fa71-5275-382d-8d92803a2896">
+                                    <SHORT-NAME>CzSOCR_k_TrustFactorOCV_data</SHORT-NAME>
+                                    <VALUE-SPEC>
+                                        <APPLICATION-VALUE-SPECIFICATION>
+                                            <SHORT-LABEL>CzSOCR_k_TrustFactorOCV_data</SHORT-LABEL>
+                                            <CATEGORY>CURVE</CATEGORY>
+                                            <SW-VALUE-CONT>
+                                                <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                <SW-ARRAYSIZE>
+                                                    <V>8</V>
+                                                </SW-ARRAYSIZE>
+                                                <SW-VALUES-PHYS>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>0</V>
+                                                    <V>1</V>
+                                                    <V>1</V>
+                                                    <V>1</V>
+                                                    <V>1</V>
+                                                </SW-VALUES-PHYS>
+                                            </SW-VALUE-CONT>
+                                        </APPLICATION-VALUE-SPECIFICATION>
+                                    </VALUE-SPEC>
+                                </CONSTANT-SPECIFICATION>
+                                <CONSTANT-SPECIFICATION UUID="b14aab9c-83d5-5b2f-7639-53a34ae1101b">
+                                    <SHORT-NAME>KtSOCR_U_SOCOCV_DE_Table</SHORT-NAME>
+                                    <VALUE-SPEC>
+                                        <APPLICATION-VALUE-SPECIFICATION>
+                                            <SHORT-LABEL>KtSOCR_U_SOCOCV_DE_Table</SHORT-LABEL>
+                                            <CATEGORY>CURVE</CATEGORY>
+                                            <SW-VALUE-CONT>
+                                                <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                <SW-ARRAYSIZE>
+                                                    <V>31</V>
+                                                </SW-ARRAYSIZE>
+                                                <SW-VALUES-PHYS>
+                                                    <V>3.0529999732971191</V>
+                                                    <V>3.06030011177063</V>
+                                                    <V>3.0676000118255615</V>
+                                                    <V>3.0748999118804932</V>
+                                                    <V>3.0822000503540039</V>
+                                                    <V>3.0894999504089355</V>
+                                                    <V>3.0968000888824463</V>
+                                                    <V>3.1040999889373779</V>
+                                                    <V>3.1113998889923096</V>
+                                                    <V>3.1187000274658203</V>
+                                                    <V>3.125999927520752</V>
+                                                    <V>3.2355000972747803</V>
+                                                    <V>3.4179999828338623</V>
+                                                    <V>3.4670000076293945</V>
+                                                    <V>3.5160000324249268</V>
+                                                    <V>3.5555000305175781</V>
+                                                    <V>3.5950000286102295</V>
+                                                    <V>3.6159999370574951</V>
+                                                    <V>3.63700008392334</V>
+                                                    <V>3.6654999256134033</V>
+                                                    <V>3.6940000057220459</V>
+                                                    <V>3.7455000877380371</V>
+                                                    <V>3.7969999313354492</V>
+                                                    <V>3.8450000286102295</V>
+                                                    <V>3.8929998874664307</V>
+                                                    <V>3.9414999485015869</V>
+                                                    <V>3.9900000095367432</V>
+                                                    <V>4.0390000343322754</V>
+                                                    <V>4.0879998207092285</V>
+                                                    <V>4.1579999923706055</V>
+                                                    <V>4.2280001640319824</V>
+                                                </SW-VALUES-PHYS>
+                                            </SW-VALUE-CONT>
+                                        </APPLICATION-VALUE-SPECIFICATION>
+                                    </VALUE-SPEC>
+                                </CONSTANT-SPECIFICATION>
+                                <CONSTANT-SPECIFICATION UUID="f0776678-62df-5a05-1f72-d40c48a8bd1d">
+                                    <SHORT-NAME>KtSOCR_U_vMinBasedOnTemp_DE_Table</SHORT-NAME>
+                                    <VALUE-SPEC>
+                                        <APPLICATION-VALUE-SPECIFICATION>
+                                            <SHORT-LABEL>KtSOCR_U_vMinBasedOnTemp_DE_Table</SHORT-LABEL>
+                                            <CATEGORY>CURVE</CATEGORY>
+                                            <SW-VALUE-CONT>
+                                                <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                <SW-ARRAYSIZE>
+                                                    <V>6</V>
+                                                </SW-ARRAYSIZE>
+                                                <SW-VALUES-PHYS>
+                                                    <V>3.0399999618530273</V>
+                                                    <V>3.2699999809265137</V>
+                                                    <V>3.2699999809265137</V>
+                                                    <V>3.3199999332427979</V>
+                                                    <V>3.3199999332427979</V>
+                                                    <V>3.3499999046325684</V>
+                                                </SW-VALUES-PHYS>
+                                            </SW-VALUE-CONT>
+                                        </APPLICATION-VALUE-SPECIFICATION>
+                                    </VALUE-SPEC>
+                                </CONSTANT-SPECIFICATION>
+                                <CONSTANT-SPECIFICATION UUID="0d84c836-5da2-5053-b1fa-a8ffe56691ff">
+                                    <SHORT-NAME>KxSOCR_U_SOCOCV_DE</SHORT-NAME>
+                                    <VALUE-SPEC>
+                                        <APPLICATION-VALUE-SPECIFICATION>
+                                            <SHORT-LABEL>KxSOCR_U_SOCOCV_DE</SHORT-LABEL>
+                                            <CATEGORY>COM_AXIS</CATEGORY>
+                                            <SW-VALUE-CONT>
+                                                <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                <SW-ARRAYSIZE>
+                                                    <V>31</V>
+                                                </SW-ARRAYSIZE>
+                                                <SW-VALUES-PHYS>
+                                                    <V>0</V>
+                                                    <V>0.20000000298023224</V>
+                                                    <V>0.40000000596046448</V>
+                                                    <V>0.60000002384185791</V>
+                                                    <V>0.800000011920929</V>
+                                                    <V>1</V>
+                                                    <V>1.2000000476837158</V>
+                                                    <V>1.3999999761581421</V>
+                                                    <V>1.6000000238418579</V>
+                                                    <V>1.7999999523162842</V>
+                                                    <V>2</V>
+                                                    <V>5</V>
+                                                    <V>10</V>
+                                                    <V>15</V>
+                                                    <V>20</V>
+                                                    <V>25</V>
+                                                    <V>30</V>
+                                                    <V>35</V>
+                                                    <V>40</V>
+                                                    <V>45</V>
+                                                    <V>50</V>
+                                                    <V>55</V>
+                                                    <V>60</V>
+                                                    <V>65</V>
+                                                    <V>70</V>
+                                                    <V>75</V>
+                                                    <V>80</V>
+                                                    <V>85</V>
+                                                    <V>90</V>
+                                                    <V>95</V>
+                                                    <V>100</V>
+                                                </SW-VALUES-PHYS>
+                                            </SW-VALUE-CONT>
+                                        </APPLICATION-VALUE-SPECIFICATION>
+                                    </VALUE-SPEC>
+                                </CONSTANT-SPECIFICATION>
+                                <CONSTANT-SPECIFICATION UUID="f93f5623-ca7a-59bb-6b02-6c5a4ba7a8d6">
+                                    <SHORT-NAME>KxSOCR_U_vMinBasedOnTemp_DE</SHORT-NAME>
+                                    <VALUE-SPEC>
+                                        <APPLICATION-VALUE-SPECIFICATION>
+                                            <SHORT-LABEL>KxSOCR_U_vMinBasedOnTemp_DE</SHORT-LABEL>
+                                            <CATEGORY>COM_AXIS</CATEGORY>
+                                            <SW-VALUE-CONT>
+                                                <UNIT-REF DEST="UNIT">/SOCR_Code_pkg/SOCR_Code_dt/NoUnit</UNIT-REF>
+                                                <SW-ARRAYSIZE>
+                                                    <V>6</V>
+                                                </SW-ARRAYSIZE>
+                                                <SW-VALUES-PHYS>
+                                                    <V>-30</V>
+                                                    <V>-0.0010000000474974513</V>
+                                                    <V>0</V>
+                                                    <V>9.99899959564209</V>
+                                                    <V>10</V>
+                                                    <V>55</V>
+                                                </SW-VALUES-PHYS>
+                                            </SW-VALUE-CONT>
+                                        </APPLICATION-VALUE-SPECIFICATION>
+                                    </VALUE-SPEC>
+                                </CONSTANT-SPECIFICATION>
+                            </ELEMENTS>
+                        </AR-PACKAGE>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>SwAddrMethods</SHORT-NAME>
+                            <ELEMENTS>
+                                <SW-ADDR-METHOD UUID="29dba3c6-3879-55ac-a36c-6e93cad2a93e">
+                                    <SHORT-NAME>CODE</SHORT-NAME>
+                                    <SECTION-TYPE>CODE</SECTION-TYPE>
+                                </SW-ADDR-METHOD>
+                                <SW-ADDR-METHOD UUID="35f764b3-8a21-5468-d521-812c66d850db">
+                                    <SHORT-NAME>CONST</SHORT-NAME>
+                                    <SECTION-TYPE>CONST</SECTION-TYPE>
+                                </SW-ADDR-METHOD>
+                                <SW-ADDR-METHOD UUID="88e8b85e-78eb-53ac-3664-bfe28e4d7e1c">
+                                    <SHORT-NAME>VAR</SHORT-NAME>
+                                    <SECTION-TYPE>VAR</SECTION-TYPE>
+                                </SW-ADDR-METHOD>
+                            </ELEMENTS>
+                        </AR-PACKAGE>
+                        <AR-PACKAGE>
+                            <SHORT-NAME>SwBaseTypes</SHORT-NAME>
+                            <ELEMENTS>
+                                <SW-BASE-TYPE UUID="ceb90eaf-cc70-5796-6ca1-5b4f17688ec9">
+                                    <SHORT-NAME>float32</SHORT-NAME>
+                                    <CATEGORY>FIXED_LENGTH</CATEGORY>
+                                    <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+                                    <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
+                                    <NATIVE-DECLARATION>float32</NATIVE-DECLARATION>
+                                </SW-BASE-TYPE>
+                                <SW-BASE-TYPE UUID="db77c452-ce6f-5719-1d32-bf1a9cf53d28">
+                                    <SHORT-NAME>boolean</SHORT-NAME>
+                                    <CATEGORY>FIXED_LENGTH</CATEGORY>
+                                    <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+                                    <BASE-TYPE-ENCODING>BOOLEAN</BASE-TYPE-ENCODING>
+                                    <NATIVE-DECLARATION>boolean</NATIVE-DECLARATION>
+                                </SW-BASE-TYPE>
+                                <SW-BASE-TYPE UUID="2734829a-f792-5bc8-f941-757163883298">
+                                    <SHORT-NAME>uint8</SHORT-NAME>
+                                    <CATEGORY>FIXED_LENGTH</CATEGORY>
+                                    <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+                                    <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+                                    <NATIVE-DECLARATION>uint8</NATIVE-DECLARATION>
+                                </SW-BASE-TYPE>
+                                <SW-BASE-TYPE UUID="96568c7b-43c8-51a4-75fb-ea1c80af07ca">
+                                    <SHORT-NAME>uint32</SHORT-NAME>
+                                    <CATEGORY>FIXED_LENGTH</CATEGORY>
+                                    <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+                                    <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+                                    <NATIVE-DECLARATION>uint32</NATIVE-DECLARATION>
+                                </SW-BASE-TYPE>
+                                <SW-BASE-TYPE UUID="2c7f6858-9ec4-51ae-b3e8-b06ea80754f1">
+                                    <SHORT-NAME>uint16</SHORT-NAME>
+                                    <CATEGORY>FIXED_LENGTH</CATEGORY>
+                                    <BASE-TYPE-SIZE>16</BASE-TYPE-SIZE>
+                                    <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+                                    <NATIVE-DECLARATION>uint16</NATIVE-DECLARATION>
+                                </SW-BASE-TYPE>
+                            </ELEMENTS>
+                        </AR-PACKAGE>
+                    </AR-PACKAGES>
+                </AR-PACKAGE>
+            </AR-PACKAGES>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

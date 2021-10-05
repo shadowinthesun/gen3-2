@@ -1,0 +1,2234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Auto generated XML Component Description for model HVSR_Code
+Model version                : 1.295
+Simulink Coder version       : Simulink Coder 9.1 (R2019a) 23-Nov-2018
+XML source code generated on : Tue Jan 12 20:03:02 2021
+Model Checksum               : 1625886793 1650671647 900442127 1842386939
+-->
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>CalibrationComponents</SHORT-NAME>
+      <ELEMENTS>
+        <PARAMETER-SW-COMPONENT-TYPE UUID="eb82d3b5-2991-58a1-def0-dc24b9ecfffb">
+          <SHORT-NAME>HVSR</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE UUID="46b01a6b-5f5d-54d5-671e-45c8f35559ef">
+              <SHORT-NAME>HVSR_Pport</SHORT-NAME>
+              <PROVIDED-COM-SPECS>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_i_statusCurrTR</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>1</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_i_statusCurrTR</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_t_BattPowerOffLossVCU</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>120</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_t_BattPowerOffLossVCU</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_t_CurrTimeOpenNeg</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0.5</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_t_CurrTimeOpenNeg</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_t_FunctionCallRate</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0.02500000037252903</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_t_FunctionCallRate</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_t_RTCTime2Sleep</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>10</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_t_RTCTime2Sleep</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_t_ShowDownRdyEn</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0.075000002980232239</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_t_ShowDownRdyEn</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_e_Ini_State_Val</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <VT>CeHVSR_e_BMS_Initialsing</VT>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_e_Ini_State_Val</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_e_BMS_StayAwakeReasonOutOvrd</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <VT>CeHVSR_e_BMS_StayUpReasonReserved</VT>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_e_BMS_StayAwakeReasonOutOvrd</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_e_BMS_Wakeup_reasonOutOvrd</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <VT>CeHVSR_e_BMS_WakeUpReasonDflt</VT>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_e_BMS_Wakeup_reasonOutOvrd</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_e_BatteryState_Val</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <VT>CeHVSR_e_Void</VT>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_e_BatteryState_Val</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_e_StateMode_Val</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <VT>CeHVSR_e_StateModeReserved</VT>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_e_StateMode_Val</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_BMSSts_En</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_BMSSts_En</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_BatteryState_En</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_BatteryState_En</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_BatteryWarm_En</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_BatteryWarm_En</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_BatteryWarm_Val</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_BatteryWarm_Val</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_EnableContactors_En</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_EnableContactors_En</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_EnableHeatCircuitContactors_En</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_EnableHeatCircuitContactors_En</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_FastIsolationActive_En</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_FastIsolationActive_En</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_FastIsolationActive_Val</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_FastIsolationActive_Val</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_Ini_State_En</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_Ini_State_En</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_IsolationActive_En</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_IsolationActive_En</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_IsolationActive_Val</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_IsolationActive_Val</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_NotAllowReqHeat_En</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_NotAllowReqHeat_En</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_NotAllowReqHeat_Val</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_NotAllowReqHeat_Val</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_SelfCheckCounter_En</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_SelfCheckCounter_En</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_ShutdownReady_drv_En</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_ShutdownReady_drv_En</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_ShutdownReady_drv_Val</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_ShutdownReady_drv_Val</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_StateMode_En</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_StateMode_En</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_b_WorkingMode_En</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_WorkingMode_En</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_k_BMSSts_Val</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_k_BMSSts_Val</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_k_EnableContactors_Val</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_k_EnableContactors_Val</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_k_EnableHeatCircuitContactors_Val</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_k_EnableHeatCircuitContactors_Val</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_k_SelfCheckCounter_Val</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_k_SelfCheckCounter_Val</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>HVSR_Pport_KeHVSR_k_WorkingMode_Val</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_k_WorkingMode_Val</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="PARAMETER-INTERFACE">/CalibrationComponents/HVSR_if</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+          </PORTS>
+          <DATA-TYPE-MAPPING-REFS>
+            <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/HVSR_Code_pkg/HVSR_Code_dt/DataTypeMappings/HVSR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+          </DATA-TYPE-MAPPING-REFS>
+        </PARAMETER-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
+      <SHORT-NAME>HVSR_Code_pkg</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>HVSR_Code_swc</SHORT-NAME>
+          <ELEMENTS>
+            <APPLICATION-SW-COMPONENT-TYPE UUID="c8309d34-1471-50c3-a355-c857a07e1b9c">
+              <SHORT-NAME>HVSR_Code</SHORT-NAME>
+              <PORTS>
+                <R-PORT-PROTOTYPE UUID="017e0a02-c207-5070-5b60-bfcd3397a857">
+                  <SHORT-NAME>VeLLSR_b_CloseContactors</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeLLSR_b_CloseContactors/VeLLSR_b_CloseContactors</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeLLSR_b_CloseContactors</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="928440ee-e619-5135-6d06-458ff598a1e7">
+                  <SHORT-NAME>VeLLSR_b_ActivateBSWOvrd</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeLLSR_b_ActivateBSWOvrd/VeLLSR_b_ActivateBSWOvrd</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeLLSR_b_ActivateBSWOvrd</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="990e78db-831d-5649-0221-954ff3c6ebe7">
+                  <SHORT-NAME>VeCLBR_b_BalReadyToSleep</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCLBR_b_BalReadyToSleep/VeCLBR_b_BalReadyToSleep</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeCLBR_b_BalReadyToSleep</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="18689304-68cc-586e-febe-e250e1b8cb41">
+                  <SHORT-NAME>VeCANR_k_VCUHvPowerCtrl</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_k_VCUHvPowerCtrl/VeCANR_k_VCUHvPowerCtrl</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_k_VCUHvPowerCtrl</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="ee87ce9b-54ab-5193-ef22-e0cf83ea9839">
+                  <SHORT-NAME>VeCFLR_k_DiagCounter</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCFLR_k_DiagCounter/VeCFLR_k_DiagCounter</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeCFLR_k_DiagCounter</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="4d4e586f-5e08-5eb9-13a8-77bfcfa361ce">
+                  <SHORT-NAME>VeCFLR_b_ContactorsClosed</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCFLR_b_ContactorsClosed/VeCFLR_b_ContactorsClosed</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeCFLR_b_ContactorsClosed</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="bd34587d-249c-545e-e561-70ab679ef869">
+                  <SHORT-NAME>VeCFLR_b_HeatClosed</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCFLR_b_HeatClosed/VeCFLR_b_HeatClosed</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeCFLR_b_HeatClosed</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="e4801075-bdc9-5dc4-e91e-4459fa0d4994">
+                  <SHORT-NAME>VeVSDR_I_HVCurrent</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeVSDR_I_HVCurrent/VeVSDR_I_HVCurrent</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeVSDR_I_HVCurrent</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="f38254e2-cf88-5909-9e1d-2bec7bb35014">
+                  <SHORT-NAME>VeDHSR_b_BattPowerOff</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeDHSR_b_BattPowerOff/VeDHSR_b_BattPowerOff</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeDHSR_b_BattPowerOff</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="ae521b59-ac4d-56ef-e9e8-71b0309c9657">
+                  <SHORT-NAME>VeLLSR_b_VCU_Wake</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeLLSR_b_VCU_Wake/VeLLSR_b_VCU_Wake</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeLLSR_b_VCU_Wake</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="33289459-5fe4-5fbd-ffbc-456bd05446af">
+                  <SHORT-NAME>VeLLSR_n_FirstWakeUpReason</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeLLSR_n_FirstWakeUpReason/VeLLSR_n_FirstWakeUpReason</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeLLSR_n_FirstWakeUpReason</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="7891e3f6-c299-5394-24d4-b92110dbcc2f">
+                  <SHORT-NAME>VeLLSR_k_VCUComLoss_flt</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeLLSR_k_VCUComLoss_flt/VeLLSR_k_VCUComLoss_flt</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeLLSR_k_VCUComLoss_flt</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="627a0ba9-5974-5663-da5f-b01e0bcac9a2">
+                  <SHORT-NAME>VeCANR_k_ACChConnStatus</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_k_ACChConnStatus/VeCANR_k_ACChConnStatus</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_k_ACChConnStatus</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="60d642e3-aad7-56dd-52e9-91b85f180088">
+                  <SHORT-NAME>VeCANR_b_HCUSleepAllow</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_b_HCUSleepAllow/VeCANR_b_HCUSleepAllow</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_b_HCUSleepAllow</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="e2b6dad5-4817-5942-5c8e-7d9648eeac2a">
+                  <SHORT-NAME>VeCFLR_b_HVFaultReady</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCFLR_b_HVFaultReady/VeCFLR_b_HVFaultReady</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeCFLR_b_HVFaultReady</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="9cf507ee-b584-535e-1e50-058b08112d0c">
+                  <SHORT-NAME>VeCANR_k_VCUAllowToCharge</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_k_VCUAllowToCharge/VeCANR_k_VCUAllowToCharge</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_k_VCUAllowToCharge</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="7caabeb3-da56-5fbc-2ea7-05025c8cef92">
+                  <SHORT-NAME>VeDHSR_b_ReqPowerOff</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeDHSR_b_ReqPowerOff/VeDHSR_b_ReqPowerOff</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeDHSR_b_ReqPowerOff</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="097e8372-ee5e-5313-b715-7a8235e2827c">
+                  <SHORT-NAME>VeCANR_b_HCUHeatAllow</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_b_HCUHeatAllow/VeCANR_b_HCUHeatAllow</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_b_HCUHeatAllow</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="2c8dc8fa-d94a-523d-56d2-4cedb1d27260">
+                  <SHORT-NAME>VeCHMR_b_HCUHeatReq</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCHMR_b_HCUHeatReq/VeCHMR_b_HCUHeatReq</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeCHMR_b_HCUHeatReq</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="1ecf04cf-0ffa-5665-bb74-c53db546ecbb">
+                  <SHORT-NAME>VeDHSR_b_BattPerfomTest_Fault</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeDHSR_b_BattPerfomTest_Fault/VeDHSR_b_BattPerfomTest_Fault</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeDHSR_b_BattPerfomTest_Fault</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="082f008d-0e2b-5a1c-2cce-529bf6c88a8f">
+                  <SHORT-NAME>VeCANR_I_OBCChrgOutCurr</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_I_OBCChrgOutCurr/VeCANR_I_OBCChrgOutCurr</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_I_OBCChrgOutCurr</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="7bd6c883-53dc-5033-10ef-cc4f8e02fa90">
+                  <SHORT-NAME>VeSOCR_Pct_DisplayPackSOC</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeSOCR_Pct_DisplayPackSOC/VeSOCR_Pct_DisplayPackSOC</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeSOCR_Pct_DisplayPackSOC</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="aebea47f-5669-5bce-f7a4-78e88a86eae8">
+                  <SHORT-NAME>VeHVSR_e_BMS_StayAwakeReason_drv</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_BMS_StayAwakeReason_drv/VeHVSR_e_BMS_StayAwakeReason_drv</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_TeHVSR_e_BMS_StayUpReason</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <VT>CeHVSR_e_BMS_StayUpReasonReserved</VT>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_BMS_StayAwakeReason_drv</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="eeb0723b-43ed-562b-ec47-d2a669a2c821">
+                  <SHORT-NAME>VeHVSR_b_IsolationActive</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_b_IsolationActive/VeHVSR_b_IsolationActive</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_b_IsolationActive</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="41af2ffa-44dc-5ee4-53b4-14a9e7c911d8">
+                  <SHORT-NAME>VeHVSR_e_BMS_Wakeup_reason_drv</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_BMS_Wakeup_reason_drv/VeHVSR_e_BMS_Wakeup_reason_drv</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_TeHVSR_e_BMS_WakeUpReason</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <VT>CeHVSR_e_BMS_WakeUpReasonDflt</VT>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_BMS_Wakeup_reason_drv</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="ebfc953b-ab60-50f6-8f3d-6363478f3bba">
+                  <SHORT-NAME>VeHVSR_k_EnableContactors</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_k_EnableContactors/VeHVSR_k_EnableContactors</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_k_EnableContactors</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="1ba8815f-c2fc-5eef-7c39-5624caebec38">
+                  <SHORT-NAME>VeHVSR_e_StateMode</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_StateMode/VeHVSR_e_StateMode</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_TeHVSR_e_StateMode</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <VT>CeHVSR_e_StateModeReserved</VT>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_StateMode</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="1497a9cc-1831-592a-f439-1fb3f69b9e3d">
+                  <SHORT-NAME>VeHVSR_b_ShutdownReady_drv</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_b_ShutdownReady_drv/VeHVSR_b_ShutdownReady_drv</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_b_ShutdownReady_drv</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="f465178a-7e48-57c8-63aa-be095c1686a1">
+                  <SHORT-NAME>VeHVSR_b_FastIsolationActive</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_b_FastIsolationActive/VeHVSR_b_FastIsolationActive</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_b_FastIsolationActive</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="7f5b1237-2b83-5806-fe0c-682666c52ca0">
+                  <SHORT-NAME>VeHVSR_e_Ini_State</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_Ini_State/VeHVSR_e_Ini_State</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_TeHVSR_e_BMS_InitialiseStatus</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <VT>CeHVSR_e_BMS_Initialsing</VT>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_Ini_State</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="35fbbef0-914b-5e1c-5a9a-50a11c4503e4">
+                  <SHORT-NAME>VeHVSR_k_SelfCheckCounter</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_k_SelfCheckCounter/VeHVSR_k_SelfCheckCounter</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_k_SelfCheckCounter</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="1fd75a4e-b110-53fd-8f31-2ad717999470">
+                  <SHORT-NAME>VeHVSR_e_BatteryState</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_BatteryState/VeHVSR_e_BatteryState</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_TeHVSR_e_BatteryState</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <VT>CeHVSR_e_Void</VT>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_BatteryState</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="81a767c0-8320-53a0-626e-3036128b3b81">
+                  <SHORT-NAME>VeHVSR_b_BatteryWarm</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_b_BatteryWarm/VeHVSR_b_BatteryWarm</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_b_BatteryWarm</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="22285ee6-314e-534f-5b04-0111ec4a6e25">
+                  <SHORT-NAME>VeHVSR_k_BMSSts</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_k_BMSSts/VeHVSR_k_BMSSts</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_k_BMSSts</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="dfcb77eb-5798-57d2-8de1-341d3f8a21d0">
+                  <SHORT-NAME>VeHVSR_k_EnableHeatCircuitContactors</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_k_EnableHeatCircuitContactors/VeHVSR_k_EnableHeatCircuitContactors</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_k_EnableHeatCircuitContactors</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="8fa3ed0d-f5d9-504f-cbb1-ca865cbbbf8d">
+                  <SHORT-NAME>VeHVSR_k_WorkingMode</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_k_WorkingMode/VeHVSR_k_WorkingMode</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_k_WorkingMode</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="cbe78880-d7d1-5cd6-fe9b-b77d0015c806">
+                  <SHORT-NAME>VeHVSR_b_NotAllowReqHeat</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_b_NotAllowReqHeat/VeHVSR_b_NotAllowReqHeat</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Boolean</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/HVSR_Code_pkg/HVSR_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_b_NotAllowReqHeat</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="30c185c7-0480-5ee9-8b94-f6f242b31254">
+                  <SHORT-NAME>HVSR_Rport</SHORT-NAME>
+                  <REQUIRED-INTERFACE-TREF DEST="PARAMETER-INTERFACE">/CalibrationComponents/HVSR_if</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+              </PORTS>
+              <INTERNAL-BEHAVIORS>
+                <SWC-INTERNAL-BEHAVIOR UUID="3e1044ed-b678-520b-bcc1-e3bf5b5609c8">
+                  <SHORT-NAME>HVSR_Code</SHORT-NAME>
+                  <DATA-TYPE-MAPPING-REFS>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/HVSR_Code_pkg/HVSR_Code_dt/DataTypeMappings/HVSR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                  </DATA-TYPE-MAPPING-REFS>
+                  <STATIC-MEMORYS>
+                    <VARIABLE-DATA-PROTOTYPE UUID="d295a4c2-d34e-5324-a9b9-d5265b2ee7f3">
+                      <SHORT-NAME>VeHVSR_e_ChargeControl</SHORT-NAME>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/HVSR_Code_pkg/HVSR_Code_dt/ApplDataTypes/TeHVSR_e_VCU_ChargeRequest</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                    <VARIABLE-DATA-PROTOTYPE UUID="f69cecb6-03af-57c4-473a-41c6bd8b2c74">
+                      <SHORT-NAME>VeHVSR_e_DischargeControl</SHORT-NAME>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/HVSR_Code_pkg/HVSR_Code_dt/ApplDataTypes/TeHVSR_e_DischargeControl</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                  </STATIC-MEMORYS>
+                  <EVENTS>
+                    <TIMING-EVENT UUID="9253ce3a-7fa4-5ec8-dce6-bc505bf84fbf">
+                      <SHORT-NAME>Event_Run_HVSR_25ms</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Code/Run_HVSR_25ms</START-ON-EVENT-REF>
+                      <PERIOD>0.025</PERIOD>
+                    </TIMING-EVENT>
+                  </EVENTS>
+                  <HANDLE-TERMINATION-AND-RESTART>NO-SUPPORT</HANDLE-TERMINATION-AND-RESTART>
+                  <RUNNABLES>
+                    <RUNNABLE-ENTITY UUID="6cd12056-912b-5e32-6402-ce9fc130edc8">
+                      <SHORT-NAME>Runnable_Init</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <DATA-SEND-POINTS>
+                        <VARIABLE-ACCESS UUID="1e82bebe-ed43-5f0c-030f-ebe2adf07928">
+                          <SHORT-NAME>OUT_VeHVSR_e_BMS_StayAwakeReason_drv_VeHVSR_e_c05067fb4fe2126c</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_e_BMS_StayAwakeReason_drv</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_BMS_StayAwakeReason_drv/VeHVSR_e_BMS_StayAwakeReason_drv</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="e8c9e7b0-3ec7-5eb0-37aa-3f4b20b2543c">
+                          <SHORT-NAME>OUT_VeHVSR_e_BMS_Wakeup_reason_drv_VeHVSR_e_B_8b60c44b4a0f445a</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_e_BMS_Wakeup_reason_drv</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_BMS_Wakeup_reason_drv/VeHVSR_e_BMS_Wakeup_reason_drv</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                      </DATA-SEND-POINTS>
+                      <PARAMETER-ACCESSS>
+                        <PARAMETER-ACCESS UUID="fe85b53b-0f86-55f8-32a8-3a22d70d6cd6">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_e_BMS_StayAwakeReasonOutOvrd</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_e_BMS_StayAwakeReasonOutOvrd</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="db2fb918-79d6-566d-cd83-2d9b58ab10cb">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_e_BMS_Wakeup_reasonOutOvrd</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_e_BMS_Wakeup_reasonOutOvrd</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                      </PARAMETER-ACCESSS>
+                      <SYMBOL>HVSR_Code_Init</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="2bd2d082-18c1-5149-71bb-3f449f6c45c4">
+                      <SHORT-NAME>Run_HVSR_25ms</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <DATA-READ-ACCESSS>
+                        <VARIABLE-ACCESS UUID="b53c9b96-3904-501f-3eef-90b36095e762">
+                          <SHORT-NAME>IN_VeCANR_I_OBCChrgOutCurr_VeCANR_I_OBCChrgOutCurr</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeCANR_I_OBCChrgOutCurr</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_I_OBCChrgOutCurr/VeCANR_I_OBCChrgOutCurr</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="301b8a0d-79e6-5f33-9804-b42141605649">
+                          <SHORT-NAME>IN_VeCANR_b_HCUHeatAllow_VeCANR_b_HCUHeatAllow</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeCANR_b_HCUHeatAllow</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_b_HCUHeatAllow/VeCANR_b_HCUHeatAllow</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="93503dec-97ca-551e-304f-1391dae325ab">
+                          <SHORT-NAME>IN_VeCANR_b_HCUSleepAllow_VeCANR_b_HCUSleepAllow</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeCANR_b_HCUSleepAllow</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_b_HCUSleepAllow/VeCANR_b_HCUSleepAllow</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="3921baf1-6eee-5230-6f52-c98a20f9af71">
+                          <SHORT-NAME>IN_VeCANR_k_ACChConnStatus_VeCANR_k_ACChConnStatus</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeCANR_k_ACChConnStatus</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_k_ACChConnStatus/VeCANR_k_ACChConnStatus</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="54c4dbf1-0627-57cc-0d7a-df3937c61ec2">
+                          <SHORT-NAME>IN_VeCANR_k_VCUAllowToCharge_VeCANR_k_VCUAllowToCharge</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeCANR_k_VCUAllowToCharge</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_k_VCUAllowToCharge/VeCANR_k_VCUAllowToCharge</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="502bda4a-8301-576a-aa18-4cc36ed72f7b">
+                          <SHORT-NAME>IN_VeCANR_k_VCUHvPowerCtrl_VeCANR_k_VCUHvPowerCtrl</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeCANR_k_VCUHvPowerCtrl</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCANR_k_VCUHvPowerCtrl/VeCANR_k_VCUHvPowerCtrl</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="24d95796-f5c4-5a2f-c6ab-d39501ae8ef0">
+                          <SHORT-NAME>IN_VeCFLR_b_ContactorsClosed_VeCFLR_b_ContactorsClosed</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeCFLR_b_ContactorsClosed</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCFLR_b_ContactorsClosed/VeCFLR_b_ContactorsClosed</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="a37e196d-4e96-5f7b-c26c-42846aebe78f">
+                          <SHORT-NAME>IN_VeCFLR_b_HVFaultReady_VeCFLR_b_HVFaultReady</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeCFLR_b_HVFaultReady</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCFLR_b_HVFaultReady/VeCFLR_b_HVFaultReady</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="77370b9b-cffb-5156-7f9d-598b82512ec6">
+                          <SHORT-NAME>IN_VeCFLR_b_HeatClosed_VeCFLR_b_HeatClosed</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeCFLR_b_HeatClosed</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCFLR_b_HeatClosed/VeCFLR_b_HeatClosed</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="0eec3561-0c28-5c37-8b3f-7d4c52558379">
+                          <SHORT-NAME>IN_VeCFLR_k_DiagCounter_VeCFLR_k_DiagCounter</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeCFLR_k_DiagCounter</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCFLR_k_DiagCounter/VeCFLR_k_DiagCounter</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="901366ec-378b-5cc7-27b5-00e16535c9ca">
+                          <SHORT-NAME>IN_VeCHMR_b_HCUHeatReq_VeCHMR_b_HCUHeatReq</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeCHMR_b_HCUHeatReq</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCHMR_b_HCUHeatReq/VeCHMR_b_HCUHeatReq</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="4c6ed7a8-b5b9-5855-5f68-f792caa8a609">
+                          <SHORT-NAME>IN_VeCLBR_b_BalReadyToSleep_VeCLBR_b_BalReadyToSleep</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeCLBR_b_BalReadyToSleep</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeCLBR_b_BalReadyToSleep/VeCLBR_b_BalReadyToSleep</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="e0f0407b-3a03-59a7-b47b-794c9d40d52f">
+                          <SHORT-NAME>IN_VeDHSR_b_BattPerfomTest_Fault_VeDHSR_b_BattPerfomTest_Fault</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeDHSR_b_BattPerfomTest_Fault</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeDHSR_b_BattPerfomTest_Fault/VeDHSR_b_BattPerfomTest_Fault</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="bff9abda-df4c-5980-7b50-911d8165a062">
+                          <SHORT-NAME>IN_VeDHSR_b_BattPowerOff_VeDHSR_b_BattPowerOff</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeDHSR_b_BattPowerOff</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeDHSR_b_BattPowerOff/VeDHSR_b_BattPowerOff</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="c31d856e-1a60-59e0-f825-3169d1884e55">
+                          <SHORT-NAME>IN_VeDHSR_b_ReqPowerOff_VeDHSR_b_ReqPowerOff</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeDHSR_b_ReqPowerOff</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeDHSR_b_ReqPowerOff/VeDHSR_b_ReqPowerOff</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="a3a71f96-f640-55ae-c433-a22895ba4312">
+                          <SHORT-NAME>IN_VeLLSR_b_ActivateBSWOvrd_VeLLSR_b_ActivateBSWOvrd</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeLLSR_b_ActivateBSWOvrd</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeLLSR_b_ActivateBSWOvrd/VeLLSR_b_ActivateBSWOvrd</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="413c343f-4228-53ca-a927-d8863d264494">
+                          <SHORT-NAME>IN_VeLLSR_b_CloseContactors_VeLLSR_b_CloseContactors</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeLLSR_b_CloseContactors</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeLLSR_b_CloseContactors/VeLLSR_b_CloseContactors</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="c1138685-a5f8-5329-01c9-38a07e9a43e1">
+                          <SHORT-NAME>IN_VeLLSR_b_VCU_Wake_VeLLSR_b_VCU_Wake</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeLLSR_b_VCU_Wake</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeLLSR_b_VCU_Wake/VeLLSR_b_VCU_Wake</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="844ca310-10f9-54e9-3cd8-faad73d2b956">
+                          <SHORT-NAME>IN_VeLLSR_k_VCUComLoss_flt_VeLLSR_k_VCUComLoss_flt</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeLLSR_k_VCUComLoss_flt</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeLLSR_k_VCUComLoss_flt/VeLLSR_k_VCUComLoss_flt</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="662123d1-9ca9-5b40-5ddd-e8b6445f3e7c">
+                          <SHORT-NAME>IN_VeLLSR_n_FirstWakeUpReason_VeLLSR_n_FirstWakeUpReason</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeLLSR_n_FirstWakeUpReason</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeLLSR_n_FirstWakeUpReason/VeLLSR_n_FirstWakeUpReason</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="bea0a838-fff6-57a4-cc52-ce92231abd04">
+                          <SHORT-NAME>IN_VeSOCR_Pct_DisplayPackSOC_VeSOCR_Pct_DisplayPackSOC</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeSOCR_Pct_DisplayPackSOC</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeSOCR_Pct_DisplayPackSOC/VeSOCR_Pct_DisplayPackSOC</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="964aeac4-ba42-5865-61e6-18d42c5d5a85">
+                          <SHORT-NAME>IN_VeVSDR_I_HVCurrent_VeVSDR_I_HVCurrent</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeVSDR_I_HVCurrent</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeVSDR_I_HVCurrent/VeVSDR_I_HVCurrent</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                      </DATA-READ-ACCESSS>
+                      <DATA-SEND-POINTS>
+                        <VARIABLE-ACCESS UUID="f641cd63-730a-5b7d-fcb3-460b4e6007e7">
+                          <SHORT-NAME>OUT_VeHVSR_e_BMS_StayAwakeReason_drv_VeHVSR_e_c05067fb4fe2126c</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_e_BMS_StayAwakeReason_drv</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_BMS_StayAwakeReason_drv/VeHVSR_e_BMS_StayAwakeReason_drv</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="2f6b31db-c555-5ba5-9b71-ed2059b25317">
+                          <SHORT-NAME>OUT_VeHVSR_b_IsolationActive_VeHVSR_b_IsolationActive</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_b_IsolationActive</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_b_IsolationActive/VeHVSR_b_IsolationActive</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="65799fe8-90fe-5441-15fb-64efe69a6e97">
+                          <SHORT-NAME>OUT_VeHVSR_e_BMS_Wakeup_reason_drv_VeHVSR_e_B_8b60c44b4a0f445a</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_e_BMS_Wakeup_reason_drv</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_BMS_Wakeup_reason_drv/VeHVSR_e_BMS_Wakeup_reason_drv</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="d3e45e3c-1c4f-5f5f-e429-1769a5852815">
+                          <SHORT-NAME>OUT_VeHVSR_k_EnableContactors_VeHVSR_k_EnableContactors</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_k_EnableContactors</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_k_EnableContactors/VeHVSR_k_EnableContactors</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="721ad24f-7d35-5f11-ba68-6e30995afa45">
+                          <SHORT-NAME>OUT_VeHVSR_e_StateMode_VeHVSR_e_StateMode</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_e_StateMode</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_StateMode/VeHVSR_e_StateMode</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="bd428b42-e014-5978-0be8-66dea68bf33f">
+                          <SHORT-NAME>OUT_VeHVSR_b_ShutdownReady_drv_VeHVSR_b_ShutdownReady_drv</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_b_ShutdownReady_drv</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_b_ShutdownReady_drv/VeHVSR_b_ShutdownReady_drv</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="23b96447-3f1e-5e29-364e-0fde85be45c2">
+                          <SHORT-NAME>OUT_VeHVSR_b_FastIsolationActive_VeHVSR_b_FastIsolationActive</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_b_FastIsolationActive</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_b_FastIsolationActive/VeHVSR_b_FastIsolationActive</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="e705c8ad-460e-538a-1660-a61bbddf52e7">
+                          <SHORT-NAME>OUT_VeHVSR_e_Ini_State_VeHVSR_e_Ini_State</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_e_Ini_State</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_Ini_State/VeHVSR_e_Ini_State</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="ad32b7c0-ce06-52f7-9154-4e000d4afa2f">
+                          <SHORT-NAME>OUT_VeHVSR_k_SelfCheckCounter_VeHVSR_k_SelfCheckCounter</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_k_SelfCheckCounter</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_k_SelfCheckCounter/VeHVSR_k_SelfCheckCounter</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="962c7edd-6258-5a30-972c-3ed5efff0002">
+                          <SHORT-NAME>OUT_VeHVSR_e_BatteryState_VeHVSR_e_BatteryState</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_e_BatteryState</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_e_BatteryState/VeHVSR_e_BatteryState</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="cf0eb2e3-07d8-5c6e-7bb9-f2171fa4753c">
+                          <SHORT-NAME>OUT_VeHVSR_b_BatteryWarm_VeHVSR_b_BatteryWarm</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_b_BatteryWarm</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_b_BatteryWarm/VeHVSR_b_BatteryWarm</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="f090581b-e8e9-5517-9591-b2d51bc05edf">
+                          <SHORT-NAME>OUT_VeHVSR_k_BMSSts_VeHVSR_k_BMSSts</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_k_BMSSts</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_k_BMSSts/VeHVSR_k_BMSSts</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="11147e18-628e-5297-2372-6c2ae99297b1">
+                          <SHORT-NAME>OUT_VeHVSR_k_EnableHeatCircuitContactors_VeHV_8cf5633abaa3a37d</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_k_EnableHeatCircuitContactors</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_k_EnableHeatCircuitContactors/VeHVSR_k_EnableHeatCircuitContactors</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="6d144125-cf8c-5cd4-bced-1f99955328eb">
+                          <SHORT-NAME>OUT_VeHVSR_k_WorkingMode_VeHVSR_k_WorkingMode</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_k_WorkingMode</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_k_WorkingMode/VeHVSR_k_WorkingMode</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="1620a71d-08ac-548d-8e31-68e4a59346e6">
+                          <SHORT-NAME>OUT_VeHVSR_b_NotAllowReqHeat_VeHVSR_b_NotAllowReqHeat</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/VeHVSR_b_NotAllowReqHeat</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_if/VeHVSR_b_NotAllowReqHeat/VeHVSR_b_NotAllowReqHeat</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                      </DATA-SEND-POINTS>
+                      <PARAMETER-ACCESSS>
+                        <PARAMETER-ACCESS UUID="1479a7e8-2781-5620-97b5-8da01043a6e1">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_BMSSts_En</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_BMSSts_En</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="819df563-670c-5d4d-a91a-018d3e58028a">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_BatteryState_En</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_BatteryState_En</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="e7c3d985-4b7d-545b-53ef-11e4c0977a5c">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_BatteryWarm_En</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_BatteryWarm_En</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="ac69105e-9e5d-5e16-be1a-143b86cf062f">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_BatteryWarm_Val</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_BatteryWarm_Val</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="02a80aca-e12c-590c-a16d-6ff4e7df51d5">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_EnableContactors_En</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_EnableContactors_En</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="36092ba8-01e1-5d6d-b714-ab36a11c0545">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_EnableHeatCircuitContactors_En</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_EnableHeatCircuitContactors_En</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="c56cc255-d68f-52a6-0ac3-e34e3f5548ee">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_FastIsolationActive_En</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_FastIsolationActive_En</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="3b72d51a-5bb4-5444-d6c3-f4a84f3b8e64">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_FastIsolationActive_Val</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_FastIsolationActive_Val</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="2d30c847-7c19-596b-f4f5-f9da0f0f0915">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_Ini_State_En</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_Ini_State_En</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="b0952b16-5a5f-5b80-577c-eb1fedde8a78">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_IsolationActive_En</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_IsolationActive_En</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="14bf649b-b449-5660-a9de-ce17af84b81f">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_IsolationActive_Val</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_IsolationActive_Val</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="97b28cdb-773f-550a-af54-221109d9b6fe">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_NotAllowReqHeat_En</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_NotAllowReqHeat_En</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="c4ecba04-38fd-5bff-e83f-ea4ecbf660ce">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_NotAllowReqHeat_Val</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_NotAllowReqHeat_Val</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="99d01718-dda0-5d84-a860-7c048595e779">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_SelfCheckCounter_En</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_SelfCheckCounter_En</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="a92eda9a-0e9a-56b2-b537-9c813b1bb990">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_ShutdownReady_drv_En</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_ShutdownReady_drv_En</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="5460b4b5-ed44-5c8b-34fe-043f4e2d0aac">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_ShutdownReady_drv_Val</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_ShutdownReady_drv_Val</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="08008ca6-c281-5580-c810-f6f93092fb8d">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_StateMode_En</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_StateMode_En</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="51d02776-42a7-5bc3-e956-70da46f6528d">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_b_WorkingMode_En</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_b_WorkingMode_En</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="bc639eb4-b640-5976-13c2-a0a913ee647b">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_e_BMS_StayAwakeReasonOutOvrd</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_e_BMS_StayAwakeReasonOutOvrd</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="f24faf59-c3c7-598b-b95b-88aa25dfc1bf">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_e_BMS_Wakeup_reasonOutOvrd</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_e_BMS_Wakeup_reasonOutOvrd</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="7e8b3b58-4a6a-5eab-6c48-f78a16e2d42e">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_e_BatteryState_Val</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_e_BatteryState_Val</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="5eac0f7e-8c99-5bad-e1ca-9f972c71f6bc">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_e_Ini_State_Val</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_e_Ini_State_Val</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="32ba1223-dd76-55fe-f327-29e129004eed">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_e_StateMode_Val</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_e_StateMode_Val</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="08335d8b-95ad-5b6e-8f9e-559392de5fb5">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_i_statusCurrTR</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_i_statusCurrTR</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="ca08970d-9d50-5ca7-06f9-d00f44f1ef4b">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_k_BMSSts_Val</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_k_BMSSts_Val</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="d1fc4df8-692f-5ea0-6ec0-521e60e0efdd">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_k_EnableContactors_Val</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_k_EnableContactors_Val</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="cc1d0e7a-402e-57a3-1bb5-35a5b7237659">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_k_EnableHeatCircuitContactors_Val</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_k_EnableHeatCircuitContactors_Val</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="3859e6da-4a1c-5ccc-e529-849ae15c5ca9">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_k_SelfCheckCounter_Val</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_k_SelfCheckCounter_Val</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="420029dd-23db-592e-0e1e-90dca1f7c95a">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_k_WorkingMode_Val</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_k_WorkingMode_Val</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="3401960e-ff8c-586c-3cac-1b0552592125">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_t_BattPowerOffLossVCU</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_t_BattPowerOffLossVCU</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="02a6e461-47eb-512d-3e32-7c2b06253004">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_t_FunctionCallRate</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_t_FunctionCallRate</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="da9105b2-8a93-535b-0ad0-8bc093c7428d">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_t_RTCTime2Sleep</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_t_RTCTime2Sleep</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="ccda5bdc-21ac-557d-87d9-e2716b7a3242">
+                          <SHORT-NAME>CALPRM_HVSR_Rport_KeHVSR_t_ShowDownRdyEn</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/HVSR_Code_pkg/HVSR_Code_swc/HVSR_Code/HVSR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/HVSR_if/KeHVSR_t_ShowDownRdyEn</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                      </PARAMETER-ACCESSS>
+                      <SYMBOL>Run_HVSR_25ms</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                  </RUNNABLES>
+                  <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+                </SWC-INTERNAL-BEHAVIOR>
+              </INTERNAL-BEHAVIORS>
+            </APPLICATION-SW-COMPONENT-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

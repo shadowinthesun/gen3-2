@@ -1,0 +1,25 @@
+/**
+ * Creates DcmGeneral container
+ *
+ * @author raa3cob
+ */
+import fibexcore::corecommunication;
+import fibexcore::coretopology;
+import system::cancommunication;
+import system::cantopology;
+
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+
+extension EcuExtractor;
+extension OdxConstants; extension OdxShortNames;
+
+/*
+creates the DcmGeneral Module
+*/
+create DcmGeneral this dcmGeneralCreation():
+	setShortName("DcmGeneral")->
+	setAttributeValue(this,"DcmTaskTime",10.0)->
+	setAttributeValue(this,"DcmRequestIndicationEnabled",false)->
+	setAttributeValue(this,"DcmOSTimerUse","AutosarSpecific")->
+	setAttributeValue(this,"DcmOSCounterMacro","Autosar")
+;

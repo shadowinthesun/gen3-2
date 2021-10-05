@@ -1,0 +1,702 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+import autosar40;
+import autosar40::genericstructure::generaltemplateclasses::arpackage;
+import autosar40::system::fibex::fibexcore::coretopology;
+//import autosar40::system::fibexcore;
+//import autosar40::system::fibexcore::coretopology;
+import autosar40::system::cantopology;
+import autosar40::system::transportprotocols;
+//import autosar40::system::fibexcore::corecommunication;
+import autosar40::system::cancommunication;
+import autosar40::primitivetypes;
+import OdxXhtml;
+import OdxXhtml::ECUVARIANT;
+import OdxXhtml::PARAM;
+extension GenerateBsw_Odx_V201;
+extension org::eclipse::xtend::util::stdlib::io;
+extension org::eclipse::xtend::util::stdlib::globalvar;
+extension OdxUtils;
+extension OdxConstants; extension OdxShortNames;
+/************************************************************************************************
+                            Pkg_EcuInstance
+*************************************************************************************************/
+
+create EcuInstance this createEcuInstance(ECUVARIANT selectedEcuVariant,Object selectedEcuInstance,Object selectedCluster):
+if(selectedEcuInstance!=null)then
+(
+info("Updating ECU Instance "+((EcuInstance)selectedEcuInstance).shortName)->
+
+storeGlobalVar("canCommController",((EcuInstance)selectedEcuInstance).commControllers.typeSelect(CanCommunicationController).get(0))->
+if(((EcuInstance)selectedEcuInstance).connectors.typeSelect(CanCommunicationConnector).size>0)then(
+//((EcuInstance)selectedEcuInstance).connectors.get(0).addAll
+let ecuInstance=selectedEcuInstance:
+let selectedCluster=selectedCluster:
+let commConnRefCond=(List)((J1939Cluster)selectedCluster).J1939ClusterVariants.get(0).physicalChannels.get(0).commConnectors:
+
+
+commConnRefCond.forAll(commConn|
+if(((EcuInstance)ecuInstance).connectors.typeSelect(CanCommunicationConnector).contains(commConn.communicationConnector))then(
+//shortName.add(validateShortName(commConn.communicationConnector.shortName))->
+
+storeGlobalVar("canComConnector",commConn.communicationConnector)->
+updateConnector(commConn.communicationConnector)->
+false
+)->
+true
+)//->
+
+
+
+
+//storeGlobalVar("canComConnector",((EcuInstance)selectedEcuInstance).connectors.typeSelect(CanCommunicationConnector).get(0))->
+//updateConnector(((EcuInstance)selectedEcuInstance).connectors.typeSelect(CanCommunicationConnector).get(0))
+
+)->
+((EcuInstance)selectedEcuInstance).setCanTpAddress(createCanTpAddresses())->
+((EcuInstance)selectedEcuInstance).setComConfigurationGwTimeBase(0.2)->
+storeGlobalVar("ecuInstance",(EcuInstance)selectedEcuInstance)->
+
+selectedEcuInstance
+
+)
+else(
+setShortName(validateShortName(getEcuVarShortName(selectedEcuVariant)))->
+commControllers.add(createCanComController())->
+connectors.add(createCanCommConnector())->
+setCanTpAddress(createCanTpAddresses())->
+setComConfigurationGwTimeBase(0.2)->
+storeGlobalVar("ecuInstance",this)->
+this
+)
+
+;
+
+
+getEcuVarShortName(ECUVARIANT selectedEcuVariant):
+JAVA  com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getEcuVarShortName(OdxXhtml.ECUVARIANT)
+;
+
+create CanCommunicationController this createCanComController():
+setShortName(validateShortName(CanCommunicationController_SHORTNAME()))->
+CanCommunicationControllerVariants.add(createCanCommunicationControllerConditional(this))->
+storeGlobalVar("canCommController",this)
+;
+
+create CanCommunicationControllerConditional this createCanCommunicationControllerConditional(CanCommunicationController controller):
+setCanControllerAttributes(createCanControllerConfigurationRequirements())
+;
+
+create CanControllerConfigurationRequirements this createCanControllerConfigurationRequirements():
+let maxSamplePt = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),MaxBitSamplePoint())/1.0:
+let maxSyncWidth = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),MaxSyncJumpWidth())/1.0:
+if(maxSamplePt != -1) then
+(
+setMaxSamplePoint(maxSamplePt)
+)->
+if(maxSyncWidth != -1) then
+(
+setMaxSyncJumpWidth(maxSyncWidth)
+)
+//setMaxNumberOfTimeQuantaPerBit(getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),"ISO_11898_2_DWCAN.CP_SamplesPerBit"))->
+;
+
+updateConnector(CanCommunicationConnector connector):
+connector.ecuCommPortInstances.add(createFramePort(FramePort_In_SHORTNAME(), CONST_IN()))->
+connector.ecuCommPortInstances.add(createFramePort(FramePort_Out_SHORTNAME(),CONST_OUT()))->
+connector.ecuCommPortInstances.add(createIpduPort(IPduPort_In_SHORTNAME(),CONST_IN()))->
+connector.ecuCommPortInstances.add(createIpduPort(IPduPort_Out_SHORTNAME(),CONST_OUT()))
+;
+
+create CanCommunicationConnector this createCanCommConnector():
+setShortName(validateShortName(CanCommunicationConnector_SHORTNAME()))->
+setCommController(getGlobalVar("canCommController"))->
+ecuCommPortInstances.add(createFramePort(FramePort_In_SHORTNAME(), CONST_IN()))->
+ecuCommPortInstances.add(createFramePort(FramePort_Out_SHORTNAME(),CONST_OUT()))->
+ecuCommPortInstances.add(createIpduPort(IPduPort_In_SHORTNAME(),CONST_IN()))->
+ecuCommPortInstances.add(createIpduPort(IPduPort_Out_SHORTNAME(),CONST_OUT()))->
+storeGlobalVar("canComConnector",this)
+;
+
+create FramePort this createFramePort(String portName,String direction):
+setShortName(validateShortName(portName))->
+if(direction.matches(CONST_IN()))then
+(
+setCommunicationDirection(CommunicationDirectionType::in)
+)->
+if(direction.matches(CONST_OUT())) then
+(
+setCommunicationDirection(CommunicationDirectionType::out)
+)->
+storeGlobalVar(portName,this)
+;
+
+create IPduPort this createIpduPort(String shortName,String direction):
+setShortName(validateShortName(shortName))->
+if(direction.matches(CONST_IN())) then
+(
+setCommunicationDirection(CommunicationDirectionType::in)
+)->
+if(direction.matches(CONST_OUT())) then
+(
+setCommunicationDirection(CommunicationDirectionType::out)
+)->
+storeGlobalVar(shortName,this)
+;
+
+/***********************************************************************************************
+                                    Pkg_Cluster
+************************************************************************************************/
+/*
+create CanCluster this createCanCluster():
+setShortName(validateShortName(CanCluster_SHORTNAME()))->
+CanClusterVariants.add(createCanClusterConditional())->
+storeGlobalVar("canCluster",this)
+;
+*/
+
+
+create J1939Cluster this createJ1939Cluster(Object selectedCluster):
+if(selectedCluster!=null)then
+(
+if(((J1939Cluster)selectedCluster).J1939ClusterVariants.get(0)!=null)then(
+let pduTriggeringList=(List)((J1939Cluster)selectedCluster).J1939ClusterVariants.get(0).physicalChannels.get(0).pduTriggerings:
+let frameTriggeringList=(List)((J1939Cluster)selectedCluster).J1939ClusterVariants.get(0).physicalChannels.get(0).frameTriggerings:
+storeGlobalVar("J1939Cluster",selectedCluster)->
+((J1939Cluster)selectedCluster).J1939ClusterVariants.get(0).physicalChannels.get(0).pduTriggerings.addAll(updatePduTriggerings())->
+((J1939Cluster)selectedCluster).J1939ClusterVariants.get(0).physicalChannels.get(0).frameTriggerings.addAll(updateFrameTriggerings())
+)
+else
+(
+((J1939Cluster)selectedCluster).J1939ClusterVariants.add(createJ1939ClusterConditional())
+)->
+storeGlobalVar("J1939Cluster",selectedCluster)->
+selectedCluster
+)
+else
+(
+setShortName("J1939Cluster_0")->
+J1939ClusterVariants.add(createJ1939ClusterConditional())->
+storeGlobalVar("J1939Cluster",this)
+)
+;
+
+create J1939ClusterConditional this createJ1939ClusterConditional():
+let baudRate = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),"SAE_J1939_73_on_SAE_J1939_21"):
+if(baudRate != -1) then
+(
+setbaudRate(baudRate,this)
+)->
+
+setProtocolName("J1939")->
+physicalChannels.add(createCanPhysicalChannel())
+;
+
+create CanClusterConditional this createCanClusterConditional():
+let baudRate = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),"ISO_11898_2_DWCAN.CP_Baudrate"):
+if(baudRate != -1) then
+(
+setbaudRate(baudRate,this)
+)->
+
+setProtocolName(ProtocolName_SHORTNAME())->
+physicalChannels.add(createCanPhysicalChannel())
+;
+
+create CanPhysicalChannel this createCanPhysicalChannel():
+setShortName(validateShortName(CanPhysicalChannel_SHORTNAME()))->
+commConnectors.add(createCommRefConditional())->
+pduTriggerings.add(createPduTriggering(PduTrig_DcmIPdu_Func_Req_SHORTNAME(),DcmIPdu_Func_Req_SHORTNAME(),IPduPort_In_SHORTNAME()))->
+pduTriggerings.add(createPduTriggering(PduTrig_DcmIPdu_Phy_Req_SHORTNAME(),DcmIPdu_Phy_Req_SHORTNAME(),IPduPort_In_SHORTNAME()))->
+pduTriggerings.add(createPduTriggering(PduTrig_DcmIPdu_Phy_Res_SHORTNAME(),DcmIPdu_Phy_Res_SHORTNAME(),IPduPort_Out_SHORTNAME()))->
+//pduTriggerings.add(createPduTriggering(PduTrig_Rdpi_DcmIPdu_Phy_Res_SHORTNAME(),Rdpi_DcmIPdu_Phy_Res_SHORTNAME(),IPduPort_Out_SHORTNAME()))->
+pduTriggerings.add(createPduTriggering(PduTrig_Npdu_Func_Req_SHORTNAME(),Npdu_Func_Req_SHORTNAME(),IPduPort_In_SHORTNAME()))->
+pduTriggerings.add(createPduTriggering(PduTrig_Npdu_Phy_Req_SHORTNAME(),Npdu_Phy_Req_SHORTNAME(),IPduPort_In_SHORTNAME()))->
+pduTriggerings.add(createPduTriggering(PduTrig_Npdu_Phy_Res_SHORTNAME(),Npdu_Phy_Res_SHORTNAME(),IPduPort_Out_SHORTNAME()))->
+//pduTriggerings.add(createPduTriggering(PduTrig_Rdpi_Npdu_Phy_Res_SHORTNAME(),Rdpi_Npdu_Phy_Res_SHORTNAME(),IPduPort_Out_SHORTNAME()))->
+
+frameTriggerings.add(createCanFrameTriggering(CanFrameTrig_N_Func_Req_SHORTNAME(),CanFrame_Func_Npdu_Req_SHORTNAME(),FramePort_In_SHORTNAME(),PduTrig_Npdu_Func_Req_SHORTNAME(),"ISO_15765_2.CP_CanFuncReqId"))->
+frameTriggerings.add(createCanFrameTriggering(CanFrameTrig_N_Phy_Req_SHORTNAME(),CanFrame_Phy_Npdu_Req_SHORTNAME(),FramePort_In_SHORTNAME(),PduTrig_Npdu_Phy_Req_SHORTNAME(),"ISO_15765_2.CP_CanPhysReqId"))->
+frameTriggerings.add(createCanFrameTriggering(CanFrameTrig_N_Phy_Res_SHORTNAME(),CanFrame_Phy_Npdu_Res_SHORTNAME(),FramePort_Out_SHORTNAME(),PduTrig_Npdu_Phy_Res_SHORTNAME(),"ISO_15765_2.CP_CanRespUSDTId"))->
+//frameTriggerings.add(createCanFrameTriggering(CanFrameTrig_N_Phy_Rdpi_Res_SHORTNAME(),CanFrame_Phy_Rdpi_Npdu_Res_SHORTNAME(),FramePort_Out_SHORTNAME(),PduTrig_Rdpi_Npdu_Phy_Res_SHORTNAME(),""))->
+frameTriggerings.add(createCanFrameTriggering(CanFrameTrig_Phy_DcmIpdu_Res_SHORTNAME(),CanFrame_Phy_DcmIpdu_Res_SHORTNAME(),FramePort_Out_SHORTNAME(),PduTrig_DcmIPdu_Phy_Res_SHORTNAME(),""))->
+//frameTriggerings.add(createCanFrameTriggering(CanFrameTrig_Phy_Rdpi_DcmIpdu_Res_SHORTNAME(),CanFrame_Phy_Rdpi_DcmIpdu_Res_SHORTNAME(),FramePort_Out_SHORTNAME(),PduTrig_Rdpi_DcmIPdu_Phy_Res_SHORTNAME(),""))->
+frameTriggerings.add(createCanFrameTriggering(CanFrameTrig_Func_DcmIpdu_Req_SHORTNAME(),CanFrame_Func_DcmIpdu_Req_SHORTNAME(),FramePort_In_SHORTNAME(),PduTrig_DcmIPdu_Func_Req_SHORTNAME(),""))->
+frameTriggerings.add(createCanFrameTriggering(CanFrameTrig_Phy_DcmIpdu_Req_SHORTNAME(),CanFrame_Phy_DcmIpdu_Req_SHORTNAME(),FramePort_In_SHORTNAME(),PduTrig_DcmIPdu_Phy_Req_SHORTNAME(),""))
+
+//CommunicationConnectorRefConditional
+;
+
+updatePduTriggerings():
+let pduTriggerings={}:
+pduTriggerings.add(createPduTriggering(PduTrig_DcmIPdu_Func_Req_SHORTNAME(),DcmIPdu_Func_Req_SHORTNAME(),IPduPort_In_SHORTNAME()))->
+pduTriggerings.add(createPduTriggering(PduTrig_DcmIPdu_Phy_Req_SHORTNAME(),DcmIPdu_Phy_Req_SHORTNAME(),IPduPort_In_SHORTNAME()))->
+pduTriggerings.add(createPduTriggering(PduTrig_DcmIPdu_Phy_Res_SHORTNAME(),DcmIPdu_Phy_Res_SHORTNAME(),IPduPort_Out_SHORTNAME()))->
+//pduTriggerings.add(createPduTriggering(PduTrig_Rdpi_DcmIPdu_Phy_Res_SHORTNAME(),Rdpi_DcmIPdu_Phy_Res_SHORTNAME(),IPduPort_Out_SHORTNAME()))->
+pduTriggerings.add(createPduTriggering(PduTrig_Npdu_Func_Req_SHORTNAME(),Npdu_Func_Req_SHORTNAME(),IPduPort_In_SHORTNAME()))->
+pduTriggerings.add(createPduTriggering(PduTrig_Npdu_Phy_Req_SHORTNAME(),Npdu_Phy_Req_SHORTNAME(),IPduPort_In_SHORTNAME()))->
+pduTriggerings.add(createPduTriggering(PduTrig_Npdu_Phy_Res_SHORTNAME(),Npdu_Phy_Res_SHORTNAME(),IPduPort_Out_SHORTNAME()))->
+//pduTriggerings.add(createPduTriggering(PduTrig_Rdpi_Npdu_Phy_Res_SHORTNAME(),Rdpi_Npdu_Phy_Res_SHORTNAME(),IPduPort_Out_SHORTNAME()))->
+pduTriggerings
+;
+
+updateFrameTriggerings():
+let frameTriggerings={}:
+frameTriggerings.add(createCanFrameTriggering(CanFrameTrig_N_Func_Req_SHORTNAME(),CanFrame_Func_Npdu_Req_SHORTNAME(),FramePort_In_SHORTNAME(),PduTrig_Npdu_Func_Req_SHORTNAME(),"ISO_15765_2.CP_CanFuncReqId"))->
+frameTriggerings.add(createCanFrameTriggering(CanFrameTrig_N_Phy_Req_SHORTNAME(),CanFrame_Phy_Npdu_Req_SHORTNAME(),FramePort_In_SHORTNAME(),PduTrig_Npdu_Phy_Req_SHORTNAME(),"ISO_15765_2.CP_CanPhysReqId"))->
+frameTriggerings.add(createCanFrameTriggering(CanFrameTrig_N_Phy_Res_SHORTNAME(),CanFrame_Phy_Npdu_Res_SHORTNAME(),FramePort_Out_SHORTNAME(),PduTrig_Npdu_Phy_Res_SHORTNAME(),"ISO_15765_2.CP_CanRespUSDTId"))->
+//frameTriggerings.add(createCanFrameTriggering(CanFrameTrig_N_Phy_Rdpi_Res_SHORTNAME(),CanFrame_Phy_Rdpi_Npdu_Res_SHORTNAME(),FramePort_Out_SHORTNAME(),PduTrig_Rdpi_Npdu_Phy_Res_SHORTNAME(),""))->
+frameTriggerings.add(createCanFrameTriggering(CanFrameTrig_Phy_DcmIpdu_Res_SHORTNAME(),CanFrame_Phy_DcmIpdu_Res_SHORTNAME(),FramePort_Out_SHORTNAME(),PduTrig_DcmIPdu_Phy_Res_SHORTNAME(),""))->
+//frameTriggerings.add(createCanFrameTriggering(CanFrameTrig_Phy_Rdpi_DcmIpdu_Res_SHORTNAME(),CanFrame_Phy_Rdpi_DcmIpdu_Res_SHORTNAME(),FramePort_Out_SHORTNAME(),PduTrig_Rdpi_DcmIPdu_Phy_Res_SHORTNAME(),""))->
+frameTriggerings.add(createCanFrameTriggering(CanFrameTrig_Func_DcmIpdu_Req_SHORTNAME(),CanFrame_Func_DcmIpdu_Req_SHORTNAME(),FramePort_In_SHORTNAME(),PduTrig_DcmIPdu_Func_Req_SHORTNAME(),""))->
+frameTriggerings.add(createCanFrameTriggering(CanFrameTrig_Phy_DcmIpdu_Req_SHORTNAME(),CanFrame_Phy_DcmIpdu_Req_SHORTNAME(),FramePort_In_SHORTNAME(),PduTrig_DcmIPdu_Phy_Req_SHORTNAME(),""))->
+frameTriggerings
+;
+
+create CommunicationConnectorRefConditional createCommRefConditional():
+setCommunicationConnector(getGlobalVar("canComConnector"))
+;
+
+create CanFrameTriggering this createCanFrameTriggering(String shortName, String frame, String framePort,String pduTrigger,String identifier):
+setShortName(validateShortName(shortName))->
+setCanAddressingMode(CanAddressingModeType::extended)->
+setFrame(getGlobalVar(frame))->
+framePorts.add(getGlobalVar(framePort))->
+if(identifier!=null&&identifier!="")then(
+let id=getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),identifier):
+if(id!=-1)then(
+setIdentifier(id)
+)
+
+)->
+pduTriggerings.add(createPduRefCondn(pduTrigger))
+;
+
+create PduTriggeringRefConditional this createPduRefCondn(String pduTrigger):
+setPduTriggering(getGlobalVar(pduTrigger))
+;
+
+create PduTriggering this createPduTriggering(String shortName, String ipdu, String ipduPort):
+setShortName(validateShortName(shortName))->
+setIPdu(getGlobalVar(ipdu))->
+iPduPorts.add(getGlobalVar(ipduPort))->
+storeGlobalVar(shortName,this)
+;
+
+create CanTpConfig this createCanTpConfig(Object ecuInstance):
+let selectedCluster=getGlobalVar("J1939Cluster"):
+let commConnRefCond=(List)((J1939Cluster)selectedCluster).J1939ClusterVariants.get(0).physicalChannels.get(0).commConnectors:
+
+if(ecuInstance==null)then(
+//if it is not a update usecase
+setShortName(validateShortName("CanTpConfig_"+commConnRefCond.get(0).communicationConnector.shortName))
+)else
+(
+setShortName(validateShortName("CanTpConfig"))
+)->
+
+//overwrites previous shortname given
+commConnRefCond.forAll(commConn|
+if(((EcuInstance)ecuInstance).connectors.typeSelect(CanCommunicationConnector).contains(commConn.communicationConnector))then(
+setShortName(validateShortName("CanTpConfig_"+commConn.communicationConnector.shortName))
+)->
+true
+)->
+
+setCommunicationCluster(selectedCluster)->
+setTpAddress(canTpAddressList())->
+setTpNodes(createCanTpNodes())->
+tpEcus.add(createCanTpEcu())->
+tpChannels.add(createCanTpChannel())->
+setTpConnections(createTpConnections())
+;
+
+List createCanTpNodes():
+let list = {}:
+list.add(createCanTpNode(CanTPNode_Transmit_SHORTNAME(),CanTpAddress_Transmit_SHORTNAME()))->
+//list.add(createCanTpNode(CanTPNode_Rdpi_Transmit_SHORTNAME(),CanTpAddress_Rdpi_Transmit_SHORTNAME()))->
+list.add(createCanTpNode(CanTPNode_Phy_Receiver_SHORTNAME(),CanTpAddress_Phy_Receiver_SHORTNAME()))->
+list.add(createCanTpNode(CanTPNode_Func_Receiver_SHORTNAME(),CanTpAddress_Func_Receiver_SHORTNAME()))->
+list
+;
+
+
+create CanTpNode this createCanTpNode(String shortName,String canTpAddrRef):
+let timeOutAr = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),"ISO_15765_2.CP_Ar"):
+let timeOutAs = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),"ISO_15765_2.CP_As"):
+let maxFcWait = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),"ISO_15765_2.CP_CanMaxNumWaitFrames"):
+let stMin = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),"ISO_15765_2.CP_StMin"):
+setShortName(validateShortName(shortName))->
+if(timeOutAr != -1) then
+(
+	setTimeoutAr(timeOutAr/1000.0)
+)->
+if(timeOutAs != -1) then
+(
+	setTimeoutAs(timeOutAs/1000.0)
+)->
+if(maxFcWait !=-1) then
+(
+	//setMaxFcWait(maxFcWait/1000.0)
+	""
+)->
+if(stMin != -1) then
+(
+	setStMin(stMin/1000.0)
+)->
+setConnector(getGlobalVar("canComConnector"))->
+setTpAddress(getGlobalVar(canTpAddrRef))->
+storeGlobalVar(shortName,this)
+;
+
+create CanTpEcu this createCanTpEcu():
+setCycleTimeMainFunction(0.01)->
+setEcuInstance(getGlobalVar("ecuInstance"))
+;
+/*
+create CycleTimeMainFunction this createCycleTimeMainFunction(Real value):
+setValue(value)
+;
+*/
+List canTpAddressList():
+let list={}:
+list.add(getGlobalVar(CanTpAddress_Transmit_SHORTNAME()))->
+//list.add(getGlobalVar(CanTpAddress_Rdpi_Transmit_SHORTNAME()))->
+list.add(getGlobalVar(CanTpAddress_Phy_Receiver_SHORTNAME()))->
+list.add(getGlobalVar(CanTpAddress_Func_Receiver_SHORTNAME()))->
+list
+;
+
+List createCanTpAddresses():
+let list= {}:
+list.add(createCanTpAddress(CanTpAddress_Transmit_SHORTNAME(),"ISO_15765_2.CP_CanRespUSDTExtAddr","ISO_15765_2.CP_CanRespUSDTId"))->
+//list.add(createCanTpAddress(CanTpAddress_Rdpi_Transmit_SHORTNAME(),"ISO_15765_2.CP_CanRespUSDTExtAddr","ISO_15765_2.CP_CanRespUSDTId"))->
+list.add(createCanTpAddress(CanTpAddress_Phy_Receiver_SHORTNAME(),"ISO_15765_2.CP_CanPhysReqExtAddr","ISO_15765_2.CP_CanPhysReqId"))->
+list.add(createCanTpAddress(CanTpAddress_Func_Receiver_SHORTNAME(),"ISO_15765_2.CP_CanFuncReqExtAddr","ISO_15765_2.CP_CanFuncReqId"))->
+list
+;
+
+create CanTpAddress this createCanTpAddress(String shortName,String idRef,/*Integer tpVal*/String tpAddr):
+let tpAddrValue = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),idRef):
+let tpVal=getAddrVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),tpAddr):
+setShortName(validateShortName(shortName))->
+if(shortName== CanTpAddress_Transmit_SHORTNAME()) then
+(
+//get(1) gives DA
+setTpAddress(getSAandDA(getIntValue(tpVal)).get(1))
+)->
+if(shortName== CanTpAddress_Phy_Receiver_SHORTNAME() || shortName== CanTpAddress_Func_Receiver_SHORTNAME()) then
+(
+//get(0) gives SA
+setTpAddress(getSAandDA(getIntValue(tpVal)).get(1))
+)->
+if(tpAddrValue != -1) then
+(
+setTpAddressExtensionValue(tpAddrValue)
+)->
+storeGlobalVar(shortName,this)
+;
+
+
+
+create CanTpChannel this createCanTpChannel():
+setShortName(validateShortName("CanTpChannel"))->
+setchannelId(0,this)->
+//setchannelId(getLongValue(0))->
+setChannelMode(CanTpChannelModeType::fullDuplexMode)->
+storeGlobalVar("canTpChannel",this)
+;
+
+List createTpConnections():
+let list= {}:
+list.add(createCanTpConnection("CanTpConnection_Func_Request",Npdu_Func_Req_SHORTNAME(),DcmIPdu_Func_Req_SHORTNAME(),CanTPNode_Transmit_SHORTNAME(),""))->
+list.add(createCanTpConnection("CanTpConnection_Phy_Request",Npdu_Phy_Req_SHORTNAME(),DcmIPdu_Phy_Req_SHORTNAME(),CanTPNode_Transmit_SHORTNAME(),Npdu_Phy_Res_SHORTNAME()))->
+list.add(createCanTpConnection("CanTpConnection_Res",Npdu_Phy_Res_SHORTNAME(),DcmIPdu_Phy_Res_SHORTNAME(),CanTPNode_Phy_Receiver_SHORTNAME(),Npdu_Phy_Req_SHORTNAME()))->
+//if(getlistRDPI()!=null &&getlistRDPI().size>0)then(
+//list.add(createCanTpConnection("CanTpConnection_Rdpi_Res",Rdpi_Npdu_Phy_Res_SHORTNAME(),Rdpi_DcmIPdu_Phy_Res_SHORTNAME(),CanTPNode_Func_Receiver_SHORTNAME(),Npdu_Phy_Req_SHORTNAME()))
+//)->
+list
+;
+
+create CanTpConnection this createCanTpConnection(String shortName, String dataPdu,String tpsdu,String transmitter,String flowControlPdu):
+let maxBlckSize = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),"ISO_15765_2.CP_BlockSize"):
+let timeOutBr = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),"ISO_15765_2.CP_Br"):
+let timeOutBs = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),"ISO_15765_2.CP_Bs"):
+let timeOutCr = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),"ISO_15765_2.CP_Cr"):
+let timeOutCs = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),"ISO_15765_2.CP_Cs"):
+setAddressingFormat(CanTpAddressingFormatType::standard)->
+//setAddressingFormat(CanTpAddressingFormatType::extended)->
+if(maxBlckSize != -1) then
+(
+setMaxBlockSize(maxBlckSize)
+)->
+setPaddingActivation(false)->
+if(shortName.matches("CanTpConnection_Func_Request")) then
+(
+setTaType(NetworkTargetAddressType::functional)
+)->
+if(shortName.matches("CanTpConnection_Phy_Request")||shortName.matches("CanTpConnection_Res")||shortName.matches("CanTpConnection_Rdpi_Res"))then
+(
+setTaType(NetworkTargetAddressType::physical)
+)->
+if(timeOutBr != -1) then
+(
+setTimeoutBr(timeOutBr/1000.0)
+)->
+if(timeOutBs != -1) then
+(
+setTimeoutBs(timeOutBs/1000.0)
+)->
+if(timeOutCr != -1) then
+(
+setTimeoutCr(timeOutCr/1000.0)
+)->
+if(timeOutCs != -1) then
+(
+setTimeoutCs(timeOutCs/1000.0)
+)->
+setTransmitCancellation(false)->
+setCanTpChannel(getGlobalVar("canTpChannel"))->
+setDataPdu(getGlobalVar(dataPdu))->
+setTpSdu(getGlobalVar(tpsdu))->
+setTransmitter(getGlobalVar(transmitter))->
+setFlowControlPdu(getGlobalVar(flowControlPdu))->
+if(shortName.matches("CanTpConnection_Phy_Request")) then
+(
+setReceivers(getReceiverList(CanTPNode_Phy_Receiver_SHORTNAME()))
+)->
+if(shortName.matches("CanTpConnection_Func_Request")) then
+(
+setReceivers(getReceiverList(CanTPNode_Func_Receiver_SHORTNAME()))
+)->
+if(shortName.matches("CanTpConnection_Res")) then
+(
+receivers.add(getGlobalVar(CanTPNode_Transmit_SHORTNAME()))
+)->
+if(shortName.matches("CanTpConnection_Rdpi_Res")) then
+(
+//receivers.add(getGlobalVar(CanTPNode_Rdpi_Transmit_SHORTNAME()))
+""
+)
+;
+
+List getReceiverList(String receiver):
+let list = {}:
+list.add(getGlobalVar(receiver))->
+//list.add(getGlobalVar(CanTPNode_Func_Receiver_SHORTNAME()))->
+list
+;
+
+
+/***********************************************************************************************
+                                    Pkg_Pdu
+************************************************************************************************/
+
+List createNpdus():
+let list={}:
+list.add(createNpdu(Npdu_Phy_Req_SHORTNAME()))->
+list.add(createNpdu(Npdu_Func_Req_SHORTNAME()))->
+list.add(createNpdu(Npdu_Phy_Res_SHORTNAME()))->
+//list.add(createNpdu(Rdpi_Npdu_Phy_Res_SHORTNAME()))->
+list
+;
+
+
+create NPdu this createNpdu(String shortName):
+setShortName(validateShortName(shortName))->
+setLength(getIntValue(8))->
+storeGlobalVar(shortName,this)
+;
+
+
+List createDcmIpdus():
+let list ={}:
+list.add(createDcmIpdu(DcmIPdu_Phy_Req_SHORTNAME()))->
+list.add(createDcmIpdu(DcmIPdu_Func_Req_SHORTNAME()))->
+list.add(createDcmIpdu(DcmIPdu_Phy_Res_SHORTNAME()))->
+//list.add(createDcmIpdu(Rdpi_DcmIPdu_Phy_Res_SHORTNAME()))->
+list
+;
+
+create DcmIPdu this createDcmIpdu(String shortName):
+setShortName(validateShortName(shortName))->
+setLength(getIntValue(4000))->
+if(shortName.matches(DcmIPdu_Phy_Req_SHORTNAME()))then
+(
+setDiagPduType(DiagPduType::diagRequest)
+)->
+if(shortName.matches(DcmIPdu_Func_Req_SHORTNAME()))then
+(
+setDiagPduType(DiagPduType::diagRequest)
+)->
+if(shortName.matches(DcmIPdu_Phy_Res_SHORTNAME())) then
+(
+setDiagPduType(DiagPduType::diagResponse)
+)->
+if(shortName.matches(Rdpi_DcmIPdu_Phy_Res_SHORTNAME())) then
+(
+setDiagPduType(DiagPduType::diagResponse)
+)->
+storeGlobalVar(shortName,this)
+;
+
+/**********************************************************************************************************************
+											Pkg_Frame
+***********************************************************************************************************************/
+List createCanFrames():
+let list = {}:
+list.add(createCanFrame(CanFrame_Func_Npdu_Req_SHORTNAME()))->
+list.add(createCanFrame(CanFrame_Phy_Npdu_Req_SHORTNAME()))->
+list.add(createCanFrame(CanFrame_Phy_Npdu_Res_SHORTNAME()))->
+//list.add(createCanFrame(CanFrame_Phy_Rdpi_Npdu_Res_SHORTNAME()))->
+list.add(createCanFrame(CanFrame_Phy_DcmIpdu_Res_SHORTNAME()))->
+//list.add(createCanFrame(CanFrame_Phy_Rdpi_DcmIpdu_Res_SHORTNAME()))->
+list.add(createCanFrame(CanFrame_Func_DcmIpdu_Req_SHORTNAME()))->
+list.add(createCanFrame(CanFrame_Phy_DcmIpdu_Req_SHORTNAME()))->
+list
+;
+
+create CanFrame this createCanFrame(String shortName):
+setShortName(validateShortName(shortName))->
+setFrameLength(getIntValue(8))->
+if(shortName.matches(CanFrame_Func_Npdu_Req_SHORTNAME())) then
+(
+pduToFrameMappings.add(createPduToFrameMapping(Npdu_Func_Req_SHORTNAME()))
+)->
+if(shortName.matches(CanFrame_Phy_Npdu_Req_SHORTNAME())) then
+(
+pduToFrameMappings.add(createPduToFrameMapping(Npdu_Phy_Req_SHORTNAME()))
+)->
+if(shortName.matches(CanFrame_Phy_Npdu_Res_SHORTNAME())) then
+(
+pduToFrameMappings.add(createPduToFrameMapping(Npdu_Phy_Res_SHORTNAME()))
+)->
+if(shortName.matches(CanFrame_Phy_Rdpi_Npdu_Res_SHORTNAME())) then
+(
+//pduToFrameMappings.add(createPduToFrameMapping(Rdpi_Npdu_Phy_Res_SHORTNAME()))
+""
+)->
+if(shortName.matches(CanFrame_Phy_DcmIpdu_Req_SHORTNAME())) then
+(
+pduToFrameMappings.add(createPduToFrameMapping(DcmIPdu_Phy_Req_SHORTNAME()))
+)->
+if(shortName.matches(CanFrame_Func_DcmIpdu_Req_SHORTNAME())) then
+(
+pduToFrameMappings.add(createPduToFrameMapping(DcmIPdu_Func_Req_SHORTNAME()))
+)->
+if(shortName.matches(CanFrame_Phy_DcmIpdu_Res_SHORTNAME())) then
+(
+pduToFrameMappings.add(createPduToFrameMapping(DcmIPdu_Phy_Res_SHORTNAME()))
+)->
+if(shortName.matches(CanFrame_Phy_Rdpi_DcmIpdu_Res_SHORTNAME())) then
+(
+//pduToFrameMappings.add(createPduToFrameMapping(Rdpi_DcmIPdu_Phy_Res_SHORTNAME()))
+""
+)->
+storeGlobalVar(shortName,this)
+;
+create PduToFrameMapping this createPduToFrameMapping(String pdu):
+setShortName(validateShortName("PduToFrameMapping"))->
+setPackingByteOrder(ByteOrderEnum::mostSignificantByteLast)->
+setStartPosition(getIntValue(0))->
+setPdu(getGlobalVar(pdu))
+;
+
+getParamShortName(PARAM param):
+JAVA  com.bosch.autosartool.importer.odx.mapper.v201.util.OdxMapperUtil.getParamShortName(OdxXhtml.PARAM)
+;
+
+cached getPhyDefaultVal(ECUVARIANT ecuVariant,BASEVARIANT baseVariant,ODX odxRoot, ODX commOdxRoot, String id):
+let listOfBVComparam=(COMPARAMREF)baseVariant.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==id):
+let listOfEVcomparam=(COMPARAMREF)ecuVariant.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==id):
+let listProtocolComparam=odxRoot.dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==id):
+let listCommComparam=(COMPARAM)commOdxRoot.cOMPARAMSPEC.cOMPARAMS.cOMPARAM.select(e|e.iD==id):
+let baseVarmax=getMaxValue(listOfBVComparam):
+let ecuVarMax=getMaxValue(listOfEVcomparam):  // added for ecu
+let protocolMax=getMaxValue(listProtocolComparam):
+
+if(ecuVarMax!=-1)then
+(
+ecuVarMax
+
+)else
+if(baseVarmax!=-1)then
+(
+baseVarmax
+)
+else
+if(protocolMax!=-1)then
+(
+protocolMax
+)
+
+else if(listCommComparam.size>0)then
+(
+getComParamValue(listCommComparam)
+)
+else(
+-1
+)
+;
+
+cached getAddrVal(ECUVARIANT ecuVariant,BASEVARIANT baseVariant,ODX odxRoot, ODX commOdxRoot, String id):
+let listOfBVComparam=(COMPARAMREF)baseVariant.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==id):
+let listOfEVcomparam=(COMPARAMREF)ecuVariant.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==id):
+let listProtocolComparam=odxRoot.dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==id):
+let listCommComparam=(COMPARAM)commOdxRoot.cOMPARAMSPEC.cOMPARAMS.cOMPARAM.select(e|e.iD==id):
+let baseVarmax=getMaxValue(listOfBVComparam):
+let ecuVarMax=getMaxValue(listOfEVcomparam):  // added for ecu
+let protocolMax=getMaxValue(listProtocolComparam):
+
+if(ecuVarMax!=-1)then
+(
+ecuVarMax
+
+)else
+if(baseVarmax!=-1)then
+(
+baseVarmax
+)
+else
+if(protocolMax!=-1)then
+(
+protocolMax
+)
+
+else if(listCommComparam.size>0)then
+(
+getComParamValue(listCommComparam)
+)
+else(
+-1
+)
+;
+
+
+getComParamValue(List[COMPARAM]comparam):
+JAVA  com.bosch.autosartool.importer.odx.mapper.v201.util.MapperUtil.getCommParamValue(java.util.List)
+;
+
+getMaxValue(List[COMPARAMREF] param):
+JAVA  com.bosch.autosartool.importer.odx.mapper.v201.util.MapperUtil.getMaxOfList(java.util.List)
+;
+setbaudRate(Integer value,CanClusterConditional canClusterCond):
+JAVA  com.bosch.autosartool.importer.odx.mapper.v201.util.MapperUtil.setbaudRate(java.lang.Integer, autosar40.system.fibex.fibex4can.cantopology.CanClusterConditional)
+;
+
+setchannelId(Integer value,CanTpChannel canTpChannel):
+JAVA  com.bosch.autosartool.importer.odx.mapper.v201.util.MapperUtil.setchannelId(java.lang.Integer, autosar40.system.transportprotocols.CanTpChannel)
+;

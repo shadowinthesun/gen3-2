@@ -1,0 +1,54 @@
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp;
+import OdxXhtml;
+import OdxXhtml::DIAGSERVICE;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmProcessingConditions;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmProcessingConditions::DcmModeRule;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmProcessingConditions::DcmModeCondition;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmProcessingConditions::DcmModeCondition::DcmConditionType;
+
+extension org::eclipse::xtend::util::stdlib::io;
+extension org::eclipse::xtend::util::stdlib::props;
+extension org::eclipse::xtend::util::stdlib::globalvar;
+extension OdxUtils;
+extension OdxConstants; extension OdxShortNames;
+DcmProcessingConditionsCreation(Dcm dcm,List listService):
+
+if(listService.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SERVICE_ID()&& e.sHORTNAME==CONST_SID_RQ()&& e.cODEDVALUE==133)!=null)then(
+createDcmProcessingConditions(dcm,listService)
+)
+;
+
+create DcmProcessingConditions this createDcmProcessingConditions(Dcm dcm,List listService):
+setShortName(validateShortName(DcmProcessingConditions_SHORTNAME()))->
+DcmModeConditions.add(createDcmModeCondition(listService))->
+if(listService.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION()&& e.sHORTNAME=="ControlDTCSetting"&& (e.cODEDVALUE==1||e.cODEDVALUE==2))!=null)then(
+DcmModeRules.add(createDcmModeRule())
+)
+;
+
+create DcmModeCondition this createDcmModeCondition(List listService):
+setShortName(validateShortName(DcmModeCondition_SHORTNAME()))->
+if(listService.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION()&& e.sHORTNAME=="ControlDTCSetting"&& (e.cODEDVALUE==1||e.cODEDVALUE==2))!=null)then(
+setDcmConditionType(createDcmConditionType())
+)
+
+//setDcmSwcModeRef(createDcmSwcModeRef())
+;
+
+/*
+create DcmSwcModeRef this createDcmSwcModeRef():
+setValue()
+;
+*/
+create DcmConditionType this createDcmConditionType():
+setValue(DcmConditionType_SHORTNAME())
+;
+
+
+create DcmModeRule this createDcmModeRule():
+setShortName(validateShortName(DcmModeRule_SHORTNAME()))->
+storeGlobalVar("DcmModeRule",this)
+;

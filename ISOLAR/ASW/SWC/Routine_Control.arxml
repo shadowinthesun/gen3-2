@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-3-0.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>RoutineControl</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE>
+          <SHORT-NAME>Routine_Control</SHORT-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="Master">
+                <SD>true</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <PORTS>
+            <P-PORT-PROTOTYPE UUID="4f792b87-0a52-4a50-9215-3a1e9402eeca">
+              <SHORT-NAME>P_RoutineService_DcmDspRoutine_ContactorControl</SHORT-NAME>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/PortInterfaces/RoutineServices_DcmDspRoutine_ContactorControl</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="969aebbd-6001-4d1a-bb9b-e8915b09fdd3">
+              <SHORT-NAME>P_RoutineService_DcmDspRoutine_Heat_1_ContactorControl</SHORT-NAME>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/PortInterfaces/RoutineServices_DcmDspRoutine_Heat_1_ContactorControl</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="89fa07c8-a36f-4e21-b867-c0bb54813d2f">
+              <SHORT-NAME>P_RoutineService_DcmDspRoutine_Heat_2_ContactorControl</SHORT-NAME>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/PortInterfaces/RoutineServices_DcmDspRoutine_Heat_2_ContactorControl</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="77a602e8-6fa9-4f33-b0e2-a8e7b8e862df">
+              <SHORT-NAME>P_RoutineService_DcmDspRoutine_SOC_Override</SHORT-NAME>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/PortInterfaces/RoutineServices_DcmDspRoutine_SOC_Override</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="056dd978-9fef-4bb0-814f-6319615a6946">
+              <SHORT-NAME>VeLLSR_k_SOC_SetpointOverride</SHORT-NAME>
+              <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOCR_Code_pkg/SOCR_Code_if/VeLLSR_k_SOC_SetpointOverride</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="54e750f4-6402-431b-81a2-9e79e2e46f2b">
+              <SHORT-NAME>VeSOCR_b_SOC_SetpointOverrideAck</SHORT-NAME>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOCR_Code_pkg/SOCR_Code_if/VeSOCR_b_SOC_SetpointOverrideAck</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="158ba8cd-7204-4054-8979-2542c9a238a4">
+              <SHORT-NAME>VeLLSR_k_HeatCntctr1_Override</SHORT-NAME>
+              <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/CFLR_Code_pkg/CFLR_Code_if/VeLLSR_k_HeatCntctr1_Override</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="d745b5b7-b85c-4fb3-90b1-1b2964e5d1b7">
+              <SHORT-NAME>VeCFLR_k_HeatCntctr1_OverrideAck</SHORT-NAME>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/CFLR_Code_pkg/CFLR_Code_if/VeCFLR_k_HeatCntctr1_OverrideAck</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="c2552806-eb66-4d7e-b5c2-c7ef9508163d">
+              <SHORT-NAME>P_RoutineService_DcmDspRoutine_Isolation_Override</SHORT-NAME>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/AUTOSAR_Dcm/PortInterfaces/RoutineServices_DcmDspRoutine_Isolation_Override</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="6b28cddb-98d4-457c-a372-be395b9d8c1e">
+              <SHORT-NAME>VeLLSR_k_Isolation_Disable</SHORT-NAME>
+              <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ISLR_Code_pkg/ISLR_Code_if/VeLLSR_k_Isolation_Disable</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="80678643-d817-46b5-9c05-47ec621c862f">
+              <SHORT-NAME>VeISLR_k_Isolation_DisableAck</SHORT-NAME>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ISLR_Code_pkg/ISLR_Code_if/VeISLR_k_Isolation_DisableAck</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR>
+              <SHORT-NAME>IB_Routine_Control</SHORT-NAME>
+              <DATA-TYPE-MAPPING-REFS>
+                <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/SOCR_Code_pkg/SOCR_Code_dt/DataTypeMappings/SOCR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/THMR_Code_pkg/THMR_Code_dt/DataTypeMappings/THMR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/ISLR_Code_pkg/ISLR_Code_dt/DataTypeMappings/ISLR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/CFLR_Code_pkg/CFLR_Code_dt/DataTypeMappings/CFLR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+              </DATA-TYPE-MAPPING-REFS>
+              <EVENTS>
+                <OPERATION-INVOKED-EVENT>
+                  <SHORT-NAME>OIE_RoutineServices_DcmDspRoutine_ContactorControl_Start</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/RoutineControl/Routine_Control/IB_Routine_Control/Swc_RoutineServices_DcmDspRoutine_ContactorControl_Start</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/RoutineControl/Routine_Control/P_RoutineService_DcmDspRoutine_ContactorControl</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/PortInterfaces/RoutineServices_DcmDspRoutine_ContactorControl/Start</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="bedad321-1330-4d06-9748-b3b5833a51b6">
+                  <SHORT-NAME>OIE_RoutineServices_DcmDspRoutine_ContactorControl_Stop</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/RoutineControl/Routine_Control/IB_Routine_Control/Swc_RoutineServices_DcmDspRoutine_ContactorControl_Stop</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/RoutineControl/Routine_Control/P_RoutineService_DcmDspRoutine_ContactorControl</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/PortInterfaces/RoutineServices_DcmDspRoutine_ContactorControl/Stop</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="d3cf12fe-5f2d-41a5-9f24-c3f32e756bbf">
+                  <SHORT-NAME>OperationInvokedEvent_0</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/RoutineControl/Routine_Control/IB_Routine_Control/Swc_RoutineServices_DcmDspRoutine_Heat_1_ContactorControl</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/RoutineControl/Routine_Control/P_RoutineService_DcmDspRoutine_Heat_1_ContactorControl</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/PortInterfaces/RoutineServices_DcmDspRoutine_Heat_1_ContactorControl/Start</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="09d37dd7-ddf8-40c7-96f6-e57fe4d7d7e2">
+                  <SHORT-NAME>OperationInvokedEvent_1</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/RoutineControl/Routine_Control/IB_Routine_Control/Swc_RoutineServices_DcmDspRoutine_Heat_2_ContactorControl</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/RoutineControl/Routine_Control/P_RoutineService_DcmDspRoutine_Heat_2_ContactorControl</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/PortInterfaces/RoutineServices_DcmDspRoutine_Heat_2_ContactorControl/Start</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="ce6db8dd-ec30-4549-95c1-b90d9ca11a12">
+                  <SHORT-NAME>OperationInvokedEvent_2</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/RoutineControl/Routine_Control/IB_Routine_Control/Swc_RoutineServices_DcmDspRoutine_SOC_Override</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/RoutineControl/Routine_Control/P_RoutineService_DcmDspRoutine_SOC_Override</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/PortInterfaces/RoutineServices_DcmDspRoutine_SOC_Override/Start</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <TIMING-EVENT UUID="28bb5079-1245-4a65-a827-c7ad4e02370d">
+                  <SHORT-NAME>TimingEvent_0</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/RoutineControl/Routine_Control/IB_Routine_Control/Swc_RoutineServices_Periodic</START-ON-EVENT-REF>
+                  <PERIOD>0.025</PERIOD>
+                </TIMING-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="c0002198-ebb3-457b-8297-080f6855a551">
+                  <SHORT-NAME>OperationInvokedEvent_3</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/RoutineControl/Routine_Control/IB_Routine_Control/Swc_RoutineServices_DcmDspRoutine_Isolation_Override</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/RoutineControl/Routine_Control/P_RoutineService_DcmDspRoutine_Isolation_Override</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/AUTOSAR_Dcm/PortInterfaces/RoutineServices_DcmDspRoutine_Isolation_Override/Start</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="231e256e-f051-405b-b19f-585a71f0325d">
+                  <SHORT-NAME>Swc_RoutineServices_DcmDspRoutine_ContactorControl_Start</SHORT-NAME>
+                  <SYMBOL>Swc_RoutineServices_DcmDspRoutine_ContactorControl_Start_func</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="8d340e7d-e1ad-464f-9f3c-b11ab5576990">
+                  <SHORT-NAME>Swc_RoutineServices_DcmDspRoutine_ContactorControl_Stop</SHORT-NAME>
+                  <SYMBOL>Swc_RoutineServices_DcmDspRoutine_ContactorControl_Stop_func</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="df3fa02f-dfa2-43b9-bd86-da41f0b68b6f">
+                  <SHORT-NAME>Swc_RoutineServices_DcmDspRoutine_Heat_1_ContactorControl</SHORT-NAME>
+                  <SYMBOL>Swc_RoutineServices_DcmDspRoutine_Heat_1_ContactorControl_Func</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="14a93e22-b09c-41a0-930d-90cd5492f49a">
+                  <SHORT-NAME>Swc_RoutineServices_DcmDspRoutine_Heat_2_ContactorControl</SHORT-NAME>
+                  <SYMBOL>Swc_RoutineServices_DcmDspRoutine_Heat_2_ContactorControl_Func</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="9a099677-3c7e-4fa6-aceb-be5e22f81147">
+                  <SHORT-NAME>Swc_RoutineServices_DcmDspRoutine_SOC_Override</SHORT-NAME>
+                  <SYMBOL>Swc_RoutineServices_DcmDspRoutine_SOC_Override_Func</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="a146d8f7-2ecf-4094-9803-53026faa04b2">
+                  <SHORT-NAME>Swc_RoutineServices_Periodic</SHORT-NAME>
+                  <DATA-READ-ACCESSS>
+                    <VARIABLE-ACCESS UUID="791fb0fa-fb28-482f-9fe2-d97ad2cb00f2">
+                      <SHORT-NAME>DRA_VeSOCR_b_SOC_SetpointOverrideAck_0</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/RoutineControl/Routine_Control/VeSOCR_b_SOC_SetpointOverrideAck</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOCR_Code_pkg/SOCR_Code_if/VeSOCR_b_SOC_SetpointOverrideAck/VeSOCR_b_SOC_SetpointOverrideAck</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="1caefa66-bcbb-4263-97db-604502f181f8">
+                      <SHORT-NAME>DRA_VeISLR_k_Isolation_DisableAck_0</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/RoutineControl/Routine_Control/VeISLR_k_Isolation_DisableAck</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ISLR_Code_pkg/ISLR_Code_if/VeISLR_k_Isolation_DisableAck/VeISLR_k_Isolation_DisableAck</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="e67fb98a-b182-48d6-b59a-919fc00c43e4">
+                      <SHORT-NAME>DRA_VeCFLR_k_HeatCntctr1_OverrideAck_0</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/RoutineControl/Routine_Control/VeCFLR_k_HeatCntctr1_OverrideAck</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/CFLR_Code_pkg/CFLR_Code_if/VeCFLR_k_HeatCntctr1_OverrideAck/VeCFLR_k_HeatCntctr1_OverrideAck</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-READ-ACCESSS>
+                  <DATA-WRITE-ACCESSS>
+                    <VARIABLE-ACCESS UUID="9ec82444-5b23-4ccc-b5df-28a9760e242f">
+                      <SHORT-NAME>DWA_VeLLSR_k_SOC_SetpointOverride_0</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/RoutineControl/Routine_Control/VeLLSR_k_SOC_SetpointOverride</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOCR_Code_pkg/SOCR_Code_if/VeLLSR_k_SOC_SetpointOverride/VeLLSR_k_SOC_SetpointOverride</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="2910f6a1-dd0e-41b5-858d-a313fc3da548">
+                      <SHORT-NAME>DWA_VeLLSR_k_Isolation_Disable_0</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/RoutineControl/Routine_Control/VeLLSR_k_Isolation_Disable</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ISLR_Code_pkg/ISLR_Code_if/VeLLSR_k_Isolation_Disable/VeLLSR_k_Isolation_Disable</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="26a8fc17-65a2-45ac-a052-aa3aab4a166a">
+                      <SHORT-NAME>DWA_VeLLSR_k_HeatCntctr1_Override_0</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/RoutineControl/Routine_Control/VeLLSR_k_HeatCntctr1_Override</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/CFLR_Code_pkg/CFLR_Code_if/VeLLSR_k_HeatCntctr1_Override/VeLLSR_k_HeatCntctr1_Override</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-WRITE-ACCESSS>
+                  <SYMBOL>Swc_RoutineServices_Periodic_Runnable</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="2b019a56-04c8-47d2-a46c-3d9d18f66e76">
+                  <SHORT-NAME>Swc_RoutineServices_DcmDspRoutine_Isolation_Override</SHORT-NAME>
+                  <SYMBOL>Swc_RoutineServices_DcmDspRoutine_Isolation_Override_Func</SYMBOL>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

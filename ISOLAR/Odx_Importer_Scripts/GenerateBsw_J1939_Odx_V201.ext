@@ -1,0 +1,218 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+import AUTOSAR_Dem::EcucModuleDefs;
+import AUTOSAR_Dem::EcucModuleDefs::Dem;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemGeneralJ1939;
+import autosar40;
+import autosar40::genericstructure::generaltemplateclasses::arpackage;
+import autosar40::system::fibex::fibexcore::coretopology;
+import emf;
+
+import AUTOSAR_J1939Dcm::EcucModuleDefs;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm::J1939DcmConfigSet;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm::J1939DcmConfigSet::J1939DcmNode;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm::J1939DcmConfigSet::J1939DcmNode::J1939DcmMAServiceSPNSupport;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm::J1939DcmConfigSet::J1939DcmNode::J1939DcmTIDSupport;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm::J1939DcmConfigSet::J1939DcmNode::J1939DcmTestServiceSPN;
+import OdxXhtml;
+
+extension J1939Dcm_J1939DCM;
+extension OdxUtils;
+extension J1939Dcm_CreateJ1939DcmMAServiceSPNSupport;
+extension J1939Dcm_createJ1939DcmTIDSupport;
+
+
+extension GenerateBsw_Odx_V201;
+extension updateJ1939ECU;
+extension Dem_J1939_DM;
+extension System_J1939_Generation;
+extension org::eclipse::xtend::util::stdlib::io;
+extension templates::EcuExtractor;
+extension OdxUtils;
+extension OdxConstants;
+extension OdxShortNames;
+extension J1939Dcm_J1939DCM;
+
+
+createJ1939BswModules(boolean isSystemDesc) :
+let list= (List){}:
+let listHashMap= (List){}:
+let dem= createDem():
+let demList={}:
+let demNeeded = (List){}:
+clearOdxMap()->
+ if(getlistDM1().size>0) then
+  (
+    createDMService(dem,getlistDM1(),getDM1RequestList())->
+    demNeeded.add(true)
+  )->
+
+ if(getlistDM2().size>0) then
+  (
+    createDMService(dem,getlistDM2(),getDM2RequestList())->
+    demNeeded.add(true)
+  )->
+
+  if(getlistDM3().size>0) then
+  (
+    createDMService(dem,getlistDM3(),getDM3RequestList())->
+    dem.DemGeneral.DemGeneralJ1939.setDemJ1939ClearDtcSupport(createDemJ1939ClearDtcSupport(DM3_DemJ1939ClearDtcSupport_VALUE()))->
+    demNeeded.add(true)
+  )->
+
+ if(getlistDM11().size>0) then
+  (
+    createDMService(dem,getlistDM11(),getDM11RequestList())->
+    dem.DemGeneral.DemGeneralJ1939.setDemJ1939ClearDtcSupport(createDemJ1939ClearDtcSupport(DM11_DemJ1939ClearDtcSupport_VALUE()))->
+    demNeeded.add(true)
+  )->
+  if(getlistDM4().size>0) then
+  (
+  	createDMService(dem,getlistDM4(),getDM4RequestList())->
+  	dem.DemGeneral.DemGeneralJ1939.setDemJ1939FreezeFrameSupport(createDemJ1939FreezeFrameSupport(true))->
+  	getlistDM4().forAll(service|updateDM4Service(service,dem))->
+    demNeeded.add(true)
+  )->
+  if(getlistDM5().size>0) then
+  (
+  createDMService(dem,getlistDM5(),getDM5RequestList())->
+  dem.DemGeneral.DemGeneralJ1939.setDemJ1939Readiness1Support(createDemJ1939Readiness1Support(true))->
+    demNeeded.add(true)
+  )->
+   if(getlistDM31().size>0) then
+  (
+  	createDMService(dem,getlistDM31(),getDM31RequestList())->
+  	dem.DemGeneral.DemGeneralJ1939.setDemJ1939Dm31Support(createDemJ1939Dm31Support(DemJ1939Dm31Support_VALUE()))->
+    demNeeded.add(true)
+  )->
+
+  /*Pmk1hc : set defaut DM31 true because DBC has DM31 configured */
+  dem.DemGeneral.DemGeneralJ1939.setDemJ1939Dm31Support(createDemJ1939Dm31Support(DemJ1939Dm31Support_VALUE()))->
+	
+  (
+  let j1939Dcm = (J1939Dcm)j1939dcmCreation():
+  if(getlistDM14().size>0) then
+  (
+    createJ1939DcmMAServiceSPNSupportList((J1939Dcm)j1939Dcm, getlistDM14(),getDM14RequestList())->
+	demList.add(j1939Dcm)
+  )->
+
+  if(getlistDM7().size>0) then
+  (  info(j1939Dcm)->
+	//demList.add(j1939DM7Creation(getlistDM7(),getDM7RequestList()))
+   createJ1939DcmTIDSupportList((J1939Dcm)j1939Dcm, getlistDM7(),getDM7RequestList())->
+   demList.add(j1939Dcm)
+  )
+
+ )->
+
+(
+if(!demNeeded.isEmpty) then
+(
+	demList.add(dem)
+)->
+setOdxMap(EObject,CONST_BSW(),demList)
+ )->
+
+ if(isSystemDesc)then
+ (
+ let ecuInstance={}:
+ let clusterList={}:
+ let tpConfig={}:
+ let pduList={}:
+ let ecu=createJ1939EcuInstance(getecuVariant()):
+ecuInstance.add((EcuInstance)ecu)->
+  setOdxMap(List[EObject],CONST_ECUINSTANCE(),ecuInstance)->
+pduList.addAll(createNpdus((EcuInstance)ecu))->
+pduList.addAll(createJ1939DcmIPdus((EcuInstance)ecu))->
+//pduList.addAll(createIPdus((EcuInstance)ecu))->
+ setOdxMap(List[EObject],CONST_PDUS(),pduList)->
+ setOdxMap(List[EObject],CONST_FRAMES(),createJ1939Frames((EcuInstance)ecu))->
+ clusterList.add(createJ1939Cluster((EcuInstance)ecu))->
+setOdxMap(List[EObject],CONST_CLUSTER(),clusterList)->
+tpConfig.add(createJ1939TpConfig((EcuInstance)ecu))->
+setOdxMap(List[EObject],CONST_TPCONFIG(),tpConfig)
+)->
+// to clear global list variables
+clearGlobalList()->
+listHashMap.add(getOdxHashMap())->
+listHashMap
+;
+
+createDem():
+DemCreation()
+;
+
+create Dem this DemCreation():
+setShortName(CONST_DEM())->
+setDemGeneral(createDemGeneral())
+;
+
+
+create DemGeneral this createDemGeneral():
+setShortName(DemGeneral_SHORTNAME())->
+setDemGeneralJ1939(createDemGeneralJ1939())
+;
+
+
+create DemGeneralJ1939 this createDemGeneralJ1939():
+setShortName(DemGeneralJ1939_SHORTNAME())->
+setDemJ1939ReadingDtcSupport(createDemJ1939ReadingDtcSupport())->
+setDemJ1939FreezeFrameSupport(createDemJ1939FreezeFrameSupport(DemJ1939FreezeFrameSupport_VALUE()))
+;
+
+create DemJ1939ReadingDtcSupport this createDemJ1939ReadingDtcSupport():
+setShortName(DemJ1939ReadingDtcSupport_SHORTNAME())->
+setValue(DemJ1939ReadingDtcSupport_VALUE())
+;
+
+/******************************************************************************************************************************************
+                                        DM  Services
+********************************************************************************************************************************************/
+
+createDMService(Dem dem,List serviceList, List requestList):
+createDMContainer(dem,serviceList,requestList)
+;
+
+create DemJ1939FreezeFrameSupport this createDemJ1939FreezeFrameSupport(Boolean value):
+setValue(value)
+;
+
+
+create DemJ1939ClearDtcSupport this createDemJ1939ClearDtcSupport(Boolean value):
+setValue(value)
+;
+
+create DemJ1939Dm31Support this createDemJ1939Dm31Support(Boolean value):
+setValue(value)
+;
+
+create DemJ1939Readiness1Support this createDemJ1939Readiness1Support(Boolean value):
+setValue(value)
+;
+/************************************************************************************************************************************
+									Update EcuInstance
+***************************************************************************************************************************************/
+
+updateJ1939EcuInstance(EcuInstance ecuInstance,Object selectedCluster):
+clearGlobalList()->
+start(ecuInstance,selectedCluster)
+;
+
+

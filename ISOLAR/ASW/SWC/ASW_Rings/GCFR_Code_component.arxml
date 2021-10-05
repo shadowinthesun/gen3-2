@@ -1,0 +1,1343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Auto generated XML Component Description for model GCFR_Code
+Model version                : 1.465
+Simulink Coder version       : Simulink Coder 9.1 (R2019a) 23-Nov-2018
+XML source code generated on : Thu Sep 24 19:56:34 2020
+Model Checksum               : 1406690621 2404010381 2704227123 4034230828
+-->
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>CalibrationComponents</SHORT-NAME>
+      <ELEMENTS>
+        <PARAMETER-SW-COMPONENT-TYPE UUID="3f15f84d-1173-5822-9c57-79eb8a16f0c8">
+          <SHORT-NAME>GCFR</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE UUID="04767720-2969-57c2-162d-c4f27233d466">
+              <SHORT-NAME>GCFR_Pport</SHORT-NAME>
+              <PROVIDED-COM-SPECS>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>GCFR_Pport_KeGCFR_Ah_BatteryCellsCap</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>55</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Ah_BatteryCellsCap</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>GCFR_Pport_KeLLSR_b_ActiveKeriant_En</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeLLSR_b_ActiveKeriant_En</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>GCFR_Pport_KeGCFR_Cnt_NumberOfCSC</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>8</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberOfCSC</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>GCFR_Pport_KeGCFR_Cnt_NumberOfCellParal</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>1</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberOfCellParal</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>GCFR_Pport_KeGCFR_Cnt_NumberOfWaterThermistors</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>2</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberOfWaterThermistors</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>GCFR_Pport_KeGCFR_Cnt_NumberofCells</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>96</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberofCells</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>GCFR_Pport_KeGCFR_Cnt_NumberofHeatFilms</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberofHeatFilms</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>GCFR_Pport_KeGCFR_Cnt_NumberofTempReadings</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>16</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberofTempReadings</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>GCFR_Pport_KeLLSR_k_ActiveKariant_Val</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeLLSR_k_ActiveKariant_Val</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="PARAMETER-INTERFACE">/CalibrationComponents/GCFR_if</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+          </PORTS>
+          <DATA-TYPE-MAPPING-REFS>
+            <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/GCFR_pkg/GCFR_dt/DataTypeMappings/WorkingDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+          </DATA-TYPE-MAPPING-REFS>
+        </PARAMETER-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
+      <SHORT-NAME>GCFR_Code_pkg</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>GCFR_Code_swc</SHORT-NAME>
+          <ELEMENTS>
+            <APPLICATION-SW-COMPONENT-TYPE UUID="4fc918b0-c15a-5361-8bed-50c8aadbb30f">
+              <SHORT-NAME>GCFR_Code</SHORT-NAME>
+              <PORTS>
+                <R-PORT-PROTOTYPE UUID="730d020e-3b63-57b3-44e4-70f5a64de5e2">
+                  <SHORT-NAME>VeLLSR_k_ActiveVariant</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/GCFR_pkg/GCFR_if/VeLLSR_k_ActiveVariant/VeLLSR_k_ActiveVariant</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_UInt8</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/GCFR_pkg/GCFR_if/VeLLSR_k_ActiveVariant</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="593261d7-5786-58c7-d5c5-e8abae1362ef">
+                  <SHORT-NAME>VeGCFR_Cnt_NumberofCells</SHORT-NAME>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/GCFR_pkg/GCFR_if/VeGCFR_Cnt_NumberofCells</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="236527ef-320f-5124-adbb-8882fc29e172">
+                  <SHORT-NAME>VeGCFR_Cnt_NumberofTempReadings</SHORT-NAME>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/GCFR_pkg/GCFR_if/VeGCFR_Cnt_NumberofTempReadings</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="aa35cc6f-3a08-5bcc-9235-c66f6071d717">
+                  <SHORT-NAME>VeGCFR_Cnt_NumberOfCSC</SHORT-NAME>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/GCFR_pkg/GCFR_if/VeGCFR_Cnt_NumberOfCSC</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="86d651b1-7d36-52f4-7e02-22a83f01d5d4">
+                  <SHORT-NAME>VeGCFR_Cnt_NumberofHeatFilms</SHORT-NAME>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/GCFR_pkg/GCFR_if/VeGCFR_Cnt_NumberofHeatFilms</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="078a93eb-62eb-5773-0615-560cae119671">
+                  <SHORT-NAME>VeGCFR_Cnt_NumberOfCellParal</SHORT-NAME>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/GCFR_pkg/GCFR_if/VeGCFR_Cnt_NumberOfCellParal</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="2a2334c5-37ee-5a44-98f4-52b8b0a39c92">
+                  <SHORT-NAME>VeGCFR_Ah_BatteryCellsCap</SHORT-NAME>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/GCFR_pkg/GCFR_if/VeGCFR_Ah_BatteryCellsCap</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="103d5feb-64d3-5dbb-23fd-85fdfc2ed5b1">
+                  <SHORT-NAME>VeGCFR_n_batteryDataFrameNum</SHORT-NAME>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/GCFR_pkg/GCFR_if/VeGCFR_n_batteryDataFrameNum</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="59d6c000-4fca-59e8-01a0-47312461ad54">
+                  <SHORT-NAME>VeGCFR_n_batteryDataFrameNumSum</SHORT-NAME>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/GCFR_pkg/GCFR_if/VeGCFR_n_batteryDataFrameNumSum</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="3842b6cf-72df-5acc-d831-87ce3d1fb15b">
+                  <SHORT-NAME>VeGCFR_n_BattTypeCode</SHORT-NAME>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/GCFR_pkg/GCFR_if/VeGCFR_n_BattTypeCode</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="9a2f8c79-3164-595f-b939-b13b4d54346a">
+                  <SHORT-NAME>VeGCFR_n_PackCodeLength</SHORT-NAME>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/GCFR_pkg/GCFR_if/VeGCFR_n_PackCodeLength</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="8a4f3365-c343-5f26-a967-bf16d420279b">
+                  <SHORT-NAME>VeGCFR_n_PackSubsysNum</SHORT-NAME>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/GCFR_pkg/GCFR_if/VeGCFR_n_PackSubsysNum</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="c962a2cd-06e0-53b2-12cf-9ad8efb0ed31">
+                  <SHORT-NAME>VeGCFR_n_PackSubsysSum</SHORT-NAME>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/GCFR_pkg/GCFR_if/VeGCFR_n_PackSubsysSum</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="eb2968c2-5e76-52c3-aaad-9917308365f8">
+                  <SHORT-NAME>VeGCFR_U_PackVoltageUpperLimit</SHORT-NAME>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/GCFR_pkg/GCFR_if/VeGCFR_U_PackVoltageUpperLimit</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="29449ae8-7eb1-533b-2002-9f5954bc3dea">
+                  <SHORT-NAME>VeGCFR_U_PackVoltageLowerLimit</SHORT-NAME>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/GCFR_pkg/GCFR_if/VeGCFR_U_PackVoltageLowerLimit</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="eb0adc83-f853-538f-2a5f-233b2bb90fe1">
+                  <SHORT-NAME>KeGCFR_Cnt_NumberOfWaterThermistors</SHORT-NAME>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/GCFR_pkg/GCFR_if/KeGCFR_Cnt_NumberOfWaterThermistors</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="de9bcf80-bab9-5de4-245a-2dee31ada7c4">
+                  <SHORT-NAME>GCFR_Rport</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <PARAMETER-REQUIRE-COM-SPEC>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>GCFR_Rport_KeGCFR_Ah_BatteryCellsCap</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>55</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                      <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Ah_BatteryCellsCap</PARAMETER-REF>
+                    </PARAMETER-REQUIRE-COM-SPEC>
+                    <PARAMETER-REQUIRE-COM-SPEC>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>GCFR_Rport_KeLLSR_b_ActiveKeriant_En</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                      <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeLLSR_b_ActiveKeriant_En</PARAMETER-REF>
+                    </PARAMETER-REQUIRE-COM-SPEC>
+                    <PARAMETER-REQUIRE-COM-SPEC>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>GCFR_Rport_KeGCFR_Cnt_NumberOfCSC</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>8</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                      <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberOfCSC</PARAMETER-REF>
+                    </PARAMETER-REQUIRE-COM-SPEC>
+                    <PARAMETER-REQUIRE-COM-SPEC>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>GCFR_Rport_KeGCFR_Cnt_NumberOfCellParal</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>1</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                      <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberOfCellParal</PARAMETER-REF>
+                    </PARAMETER-REQUIRE-COM-SPEC>
+                    <PARAMETER-REQUIRE-COM-SPEC>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>GCFR_Rport_KeGCFR_Cnt_NumberOfWaterThermistors</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>2</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                      <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberOfWaterThermistors</PARAMETER-REF>
+                    </PARAMETER-REQUIRE-COM-SPEC>
+                    <PARAMETER-REQUIRE-COM-SPEC>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>GCFR_Rport_KeGCFR_Cnt_NumberofCells</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>96</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                      <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberofCells</PARAMETER-REF>
+                    </PARAMETER-REQUIRE-COM-SPEC>
+                    <PARAMETER-REQUIRE-COM-SPEC>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>GCFR_Rport_KeGCFR_Cnt_NumberofHeatFilms</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                      <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberofHeatFilms</PARAMETER-REF>
+                    </PARAMETER-REQUIRE-COM-SPEC>
+                    <PARAMETER-REQUIRE-COM-SPEC>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>GCFR_Rport_KeGCFR_Cnt_NumberofTempReadings</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>16</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                      <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberofTempReadings</PARAMETER-REF>
+                    </PARAMETER-REQUIRE-COM-SPEC>
+                    <PARAMETER-REQUIRE-COM-SPEC>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>GCFR_Rport_KeLLSR_k_ActiveKariant_Val</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/GCFR_pkg/GCFR_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                      <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeLLSR_k_ActiveKariant_Val</PARAMETER-REF>
+                    </PARAMETER-REQUIRE-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="PARAMETER-INTERFACE">/CalibrationComponents/GCFR_if</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+              </PORTS>
+              <INTERNAL-BEHAVIORS>
+                <SWC-INTERNAL-BEHAVIOR UUID="ff6d31b2-ee8e-5b73-22aa-77fd2f71a9f0">
+                  <SHORT-NAME>GCFR</SHORT-NAME>
+                  <CONSTANT-MEMORYS>
+                    <PARAMETER-DATA-PROTOTYPE UUID="00efb58e-27ec-530a-d807-760785fa7778">
+                      <SHORT-NAME>KtSOHR_Ah_AvailableCapacity1_x</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_13</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KtSOHR_Ah_AvailableCapacity1_x</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KtSOHR_Ah_AvailableCapacity1_x</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="b343609f-b021-52da-a435-31a66b2498c5">
+                      <SHORT-NAME>KtSOHR_Ah_AvailableCapacity1_y</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_13</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KtSOHR_Ah_AvailableCapacity1_y</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KtSOHR_Ah_AvailableCapacity1_y</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="9e288b17-3852-57da-1de4-643def934764">
+                      <SHORT-NAME>KtSOHR_Ah_AvailableCapacity2_x</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_13</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KtSOHR_Ah_AvailableCapacity2_x</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KtSOHR_Ah_AvailableCapacity2_x</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="806a740a-113b-52bb-d0c4-72cd935b646e">
+                      <SHORT-NAME>KtSOHR_Ah_AvailableCapacity2_y</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_13</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KtSOHR_Ah_AvailableCapacity2_y</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KtSOHR_Ah_AvailableCapacity2_y</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="8e1be939-15d3-5af8-8852-a8eeec5f189f">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempChrgPwrLmt1_x</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_11</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempChrgPwrLmt1_x</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempChrgPwrLmt1_x</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="999c1f5f-0485-5371-5b85-f8352f890d64">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempChrgPwrLmt1_y</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_13</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempChrgPwrLmt1_y</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempChrgPwrLmt1_y</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="191f3cc3-58b5-5828-fd31-7ef933e0f4af">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempChrgPwrLmt1_z</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_143</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempChrgPwrLmt1_z</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempChrgPwrLmt1_z</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="f3c3e976-9346-562b-3474-19a7d65bac44">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempChrgPwrLmt2_x</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_11</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempChrgPwrLmt2_x</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempChrgPwrLmt2_x</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="f9600e15-c8f5-5847-5bf9-5f766012608e">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempChrgPwrLmt2_y</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_13</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempChrgPwrLmt2_y</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempChrgPwrLmt2_y</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="04dc8025-148e-5445-e295-cec6d71e0465">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempChrgPwrLmt2_z</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_143</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempChrgPwrLmt2_z</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempChrgPwrLmt2_z</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="b0233bfa-9e97-5e41-ab86-65ee19afdbc7">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempChrgPwrLmtInst1_x</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_11</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempChrgPwrLmtInst1_x</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempChrgPwrLmtInst1_x</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="80a53093-ac03-5fb4-7954-541dec78985c">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempChrgPwrLmtInst1_y</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_13</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempChrgPwrLmtInst1_y</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempChrgPwrLmtInst1_y</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="947b2b80-d1a0-50db-aa45-507928964d77">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempChrgPwrLmtInst1_z</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_143</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempChrgPwrLmtInst1_z</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempChrgPwrLmtInst1_z</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="7aa02c18-e01c-5b50-a722-9b3cf8c9840e">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempChrgPwrLmtInst2_x</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_11</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempChrgPwrLmtInst2_x</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempChrgPwrLmtInst2_x</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="d4b8f121-3854-5c8a-6b8d-4157b443b212">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempChrgPwrLmtInst2_y</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_13</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempChrgPwrLmtInst2_y</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempChrgPwrLmtInst2_y</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="548822cf-6e62-50c4-ec4e-32e6aa9d3132">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempChrgPwrLmtInst2_z</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_143</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempChrgPwrLmtInst2_z</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempChrgPwrLmtInst2_z</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="2f8ca3ce-045d-5c6c-f55b-1eca343358a3">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempDschgPwrLmt1_x</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_12</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempDschgPwrLmt1_x</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempDschgPwrLmt1_x</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="fa09ea68-f286-54bd-689b-b1c35d7150c2">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempDschgPwrLmt1_y</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_14</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempDschgPwrLmt1_y</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempDschgPwrLmt1_y</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="03235a69-e8a5-587c-9d20-eccdb42e3652">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempDschgPwrLmt1_z</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_168</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempDschgPwrLmt1_z</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempDschgPwrLmt1_z</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="00767236-cc84-51b7-4662-114ee16247f7">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempDschgPwrLmt2_x</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_12</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempDschgPwrLmt2_x</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempDschgPwrLmt2_x</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="95d16c81-2c08-5a6d-572f-ac8fca901ef4">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempDschgPwrLmt2_y</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_14</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempDschgPwrLmt2_y</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempDschgPwrLmt2_y</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="28c8c05e-9edd-5ba1-1d9f-1aab71c8e619">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempDschgPwrLmt2_z</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_168</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempDschgPwrLmt2_z</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempDschgPwrLmt2_z</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="9d74aaef-e1fa-5d89-96e7-9b76d0546f69">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempDschgPwrLmtInst1_x</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_12</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempDschgPwrLmtInst1_x</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempDschgPwrLmtInst1_x</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="c390cfe7-6b5f-5514-0716-0a3f4a522818">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempDschgPwrLmtInst1_y</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_14</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempDschgPwrLmtInst1_y</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempDschgPwrLmtInst1_y</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="5f6b3d6d-8f65-5663-bb81-2d729798b1fa">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempDschgPwrLmtInst1_z</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_168</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempDschgPwrLmtInst1_z</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempDschgPwrLmtInst1_z</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="b3bd53eb-4d0e-5f0c-c2d8-26586fa6a513">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempDschgPwrLmtInst2_x</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_12</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempDschgPwrLmtInst2_x</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempDschgPwrLmtInst2_x</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="4ba6f70b-061f-5c4e-b95f-12fd336dd5e9">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempDschgPwrLmtInst2_y</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_14</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempDschgPwrLmtInst2_y</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempDschgPwrLmtInst2_y</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="7629a1b0-d721-5131-9c59-c1bcfb70c9ca">
+                      <SHORT-NAME>KzGCFR_kP_SOC_TempDschgPwrLmtInst2_z</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_168</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KzGCFR_kP_SOC_TempDschgPwrLmtInst2_z</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/GCFR_pkg/GCFR_dt/Ground/KzGCFR_kP_SOC_TempDschgPwrLmtInst2_z</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                  </CONSTANT-MEMORYS>
+                  <DATA-TYPE-MAPPING-REFS>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/GCFR_pkg/GCFR_dt/DataTypeMappings/WorkingDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                  </DATA-TYPE-MAPPING-REFS>
+                  <STATIC-MEMORYS>
+                    <VARIABLE-DATA-PROTOTYPE UUID="fdc59c5b-9359-5dc1-a82a-8f80c3434e88">
+                      <SHORT-NAME>PtSOHR_Ah_AvailableCapacity_x</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_13</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                    <VARIABLE-DATA-PROTOTYPE UUID="67c91308-36d2-567e-f759-d10c0772035f">
+                      <SHORT-NAME>PtSOHR_Ah_AvailableCapacity_y</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_13</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                    <VARIABLE-DATA-PROTOTYPE UUID="335a422b-a343-5373-6d28-b4bbc0ca5bfa">
+                      <SHORT-NAME>PzGCFR_kP_SOC_TempChrgPwrLmtInst_z</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_143</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                    <VARIABLE-DATA-PROTOTYPE UUID="9155f7b8-a7ed-56d0-45a3-d8411773ffb1">
+                      <SHORT-NAME>PzGCFR_kP_SOC_TempDschgPwrLmtInst_z</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_168</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                    <VARIABLE-DATA-PROTOTYPE UUID="ee20d48d-2151-559d-9eb8-d4fa439ea113">
+                      <SHORT-NAME>PzGCFR_kP_SOC_TempDschgPwrLmtInst_x</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_12</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                    <VARIABLE-DATA-PROTOTYPE UUID="8778c785-0da2-5efe-e3cc-a3265387f89a">
+                      <SHORT-NAME>PzGCFR_kP_SOC_TempDschgPwrLmtInst_y</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_14</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                    <VARIABLE-DATA-PROTOTYPE UUID="786b375a-0e5e-58c3-471b-7fa6f9b3d66f">
+                      <SHORT-NAME>PzGCFR_kP_SOC_TempChrgPwrLmt_x</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_11</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                    <VARIABLE-DATA-PROTOTYPE UUID="73c44c55-15cb-50b1-e86c-72860b43464f">
+                      <SHORT-NAME>PzGCFR_kP_SOC_TempChrgPwrLmt_y</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_13</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                    <VARIABLE-DATA-PROTOTYPE UUID="6b7be654-e87a-5b43-f2c3-0766b55a1879">
+                      <SHORT-NAME>PzGCFR_kP_SOC_TempChrgPwrLmt_z</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_143</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                    <VARIABLE-DATA-PROTOTYPE UUID="7ee38131-a438-5692-08db-b732778193d1">
+                      <SHORT-NAME>PzGCFR_kP_SOC_TempDschgPwrLmt_x</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_12</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                    <VARIABLE-DATA-PROTOTYPE UUID="4d81e292-b8a4-5917-2693-1e6747e79083">
+                      <SHORT-NAME>PzGCFR_kP_SOC_TempDschgPwrLmt_y</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_14</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                    <VARIABLE-DATA-PROTOTYPE UUID="10e8f195-8220-5fca-dd20-184928a88767">
+                      <SHORT-NAME>PzGCFR_kP_SOC_TempDschgPwrLmt_z</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_168</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                    <VARIABLE-DATA-PROTOTYPE UUID="bf0406e5-6147-54ec-026e-9b9671a7d89f">
+                      <SHORT-NAME>PzGCFR_kP_SOC_TempChrgPwrLmtInst_x</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_11</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                    <VARIABLE-DATA-PROTOTYPE UUID="8dd3858f-d134-57f4-1bed-eb0ffe6e44e8">
+                      <SHORT-NAME>PzGCFR_kP_SOC_TempChrgPwrLmtInst_y</SHORT-NAME>
+                      <CATEGORY>ARRAY</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-ARRAY-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/rt_Array_Float_13</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                    <VARIABLE-DATA-PROTOTYPE UUID="dc2a183a-8324-5057-f4b6-459c01d09728">
+                      <SHORT-NAME>PeGCFR_k_DriveType</SHORT-NAME>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/UInt8</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                    <VARIABLE-DATA-PROTOTYPE UUID="1b8e0fa7-5247-591b-c725-0f14885c973f">
+                      <SHORT-NAME>PeGCFR_b_PreHeatSwitchEnable</SHORT-NAME>
+                      <CATEGORY>BOOLEAN</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/GCFR_pkg/GCFR_dt/ApplDataTypes/Boolean</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                  </STATIC-MEMORYS>
+                  <EVENTS>
+                    <TIMING-EVENT UUID="50e3b152-574c-5a0b-bc98-5920e7f0644b">
+                      <SHORT-NAME>Event_Run_GCFR_500ms</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR/Run_GCFR_500ms</START-ON-EVENT-REF>
+                      <PERIOD>0.1</PERIOD>
+                    </TIMING-EVENT>
+                  </EVENTS>
+                  <HANDLE-TERMINATION-AND-RESTART>NO-SUPPORT</HANDLE-TERMINATION-AND-RESTART>
+                  <RUNNABLES>
+                    <RUNNABLE-ENTITY UUID="cf55054f-dea3-5ca2-0349-7f7de7cbad3b">
+                      <SHORT-NAME>GCFR_Code_Init</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                        <VARIABLE-ACCESS UUID="012cd950-6028-5a7b-9f7e-9cba0a91d845">
+                          <SHORT-NAME>IN_VeLLSR_k_ActiveVariant_VeLLSR_k_ActiveVariant</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/VeLLSR_k_ActiveVariant</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/GCFR_pkg/GCFR_if/VeLLSR_k_ActiveVariant/VeLLSR_k_ActiveVariant</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                      </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                      <PARAMETER-ACCESSS>
+                        <PARAMETER-ACCESS UUID="748eeb2e-25df-5de6-fdd7-ab099a919e45">
+                          <SHORT-NAME>CALPRM_GCFR_Rport_KeLLSR_b_ActiveKeriant_En</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeLLSR_b_ActiveKeriant_En</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="646cd881-517f-5500-5c24-4eabe1642121">
+                          <SHORT-NAME>CALPRM_GCFR_Rport_KeLLSR_k_ActiveKariant_Val</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeLLSR_k_ActiveKariant_Val</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="4cdfc562-aeb0-5c18-82e7-356057d150ca">
+                          <SHORT-NAME>CALPRM_GCFR_Rport_KeGCFR_Ah_BatteryCellsCap</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Ah_BatteryCellsCap</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="98a256ee-5140-5acb-c06e-bddccc049097">
+                          <SHORT-NAME>CALPRM_GCFR_Rport_KeGCFR_Cnt_NumberOfCSC</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberOfCSC</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="f91ded5f-30f9-5fa6-65af-9404c979969e">
+                          <SHORT-NAME>CALPRM_GCFR_Rport_KeGCFR_Cnt_NumberOfCellParal</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberOfCellParal</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="b0817f87-6cf4-5884-6f72-50fde60cacef">
+                          <SHORT-NAME>CALPRM_GCFR_Rport_KeGCFR_Cnt_NumberOfWaterThermistors</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberOfWaterThermistors</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="8d429dfa-7d4d-55ad-5668-03edb7352c8c">
+                          <SHORT-NAME>CALPRM_GCFR_Rport_KeGCFR_Cnt_NumberofCells</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberofCells</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="9c301a16-147c-52e8-8f82-3e2cc2930e95">
+                          <SHORT-NAME>CALPRM_GCFR_Rport_KeGCFR_Cnt_NumberofHeatFilms</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberofHeatFilms</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="adeb2c0a-298b-561a-7f48-263202856847">
+                          <SHORT-NAME>CALPRM_GCFR_Rport_KeGCFR_Cnt_NumberofTempReadings</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberofTempReadings</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                      </PARAMETER-ACCESSS>
+                      <SYMBOL>GCFR_Code_Init</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="e3c6f851-526e-500f-61ed-5c450520d0a6">
+                      <SHORT-NAME>Run_GCFR_500ms</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <PARAMETER-ACCESSS>
+                        <PARAMETER-ACCESS UUID="0191b4f1-a900-5acc-2e36-6602f4181eee">
+                          <SHORT-NAME>CALPRM_GCFR_Rport_KeGCFR_Ah_BatteryCellsCap</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Ah_BatteryCellsCap</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="ed7e0187-38ab-5180-e903-8d69effe30ff">
+                          <SHORT-NAME>CALPRM_GCFR_Rport_KeGCFR_Cnt_NumberOfCSC</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberOfCSC</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="472c0e27-5bf8-551a-8a98-8934cbe342e8">
+                          <SHORT-NAME>CALPRM_GCFR_Rport_KeGCFR_Cnt_NumberOfCellParal</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberOfCellParal</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="dc5f0507-47ea-5b45-45ff-c8298b03360f">
+                          <SHORT-NAME>CALPRM_GCFR_Rport_KeGCFR_Cnt_NumberOfWaterThermistors</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberOfWaterThermistors</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="b818c236-8967-508d-c6ab-b84aaf4dc8c9">
+                          <SHORT-NAME>CALPRM_GCFR_Rport_KeGCFR_Cnt_NumberofCells</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberofCells</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="8bfea93b-fa7c-56b0-2924-85c88da81b76">
+                          <SHORT-NAME>CALPRM_GCFR_Rport_KeGCFR_Cnt_NumberofHeatFilms</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberofHeatFilms</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="ce37856c-355b-5974-2b8c-5e40f8b5dde9">
+                          <SHORT-NAME>CALPRM_GCFR_Rport_KeGCFR_Cnt_NumberofTempReadings</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/GCFR_Code_pkg/GCFR_Code_swc/GCFR_Code/GCFR_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/GCFR_if/KeGCFR_Cnt_NumberofTempReadings</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                      </PARAMETER-ACCESSS>
+                      <SYMBOL>Run_GCFR_500ms</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                  </RUNNABLES>
+                  <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+                </SWC-INTERNAL-BEHAVIOR>
+              </INTERNAL-BEHAVIORS>
+            </APPLICATION-SW-COMPONENT-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

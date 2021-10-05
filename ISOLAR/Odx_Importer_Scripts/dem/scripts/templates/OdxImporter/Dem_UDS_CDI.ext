@@ -1,0 +1,29 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)         
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+import AUTOSAR_Dem::EcucModuleDefs;
+import AUTOSAR_Dem::EcucModuleDefs::Dem;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemClearDTCBehavior;
+
+
+import OdxXhtml;
+
+extension org::eclipse::xtend::util::stdlib::io;
+extension OdxConstants; extension OdxShortNames;
+
+create DemClearDTCBehavior this createDemClearDTCBehavior(Dem dem, List listClearDiag,ECUVARIANT ecuVariant,BASEVARIANT baseVariant, ODX odxRoot):
+setValue(DemClearDTCBehavior_VALUE())
+;

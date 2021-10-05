@@ -1,0 +1,7 @@
+architecture=PRODUCT
+eclipse.preferences.version=1
+evaluateSysCond=true
+evaluateValues=true
+level=PROJECT
+profileForBatchMode=com.bosch.ubk.bct.validation.contribution.AutosarValidationProfile
+validateProject=true

@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Auto generated XML Component Description for model SOER_Code
+Model version                : 1.294
+Simulink Coder version       : Simulink Coder 9.1 (R2019a) 23-Nov-2018
+XML source code generated on : Tue Jun 23 13:32:09 2020
+Model Checksum               : 1489850154 2859877492 233950990 747714938
+-->
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>CalibrationComponents</SHORT-NAME>
+      <ELEMENTS>
+        <PARAMETER-SW-COMPONENT-TYPE UUID="5056e7f4-8c52-5da4-dc97-a634ec1727ea">
+          <SHORT-NAME>SOER</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE UUID="2a53153e-f471-5fdc-08d5-4706440e033d">
+              <SHORT-NAME>SOER_Pport</SHORT-NAME>
+              <PROVIDED-COM-SPECS>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOER_Pport_KeSOER_kE_BattRmngEnergy_MaxVal</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOER_Code_pkg/SOER_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>20.408000946044922</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOER_if/KeSOER_kE_BattRmngEnergy_MaxVal</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOER_Pport_KeSOER_kE_BattRmngEnergy_minVal</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOER_Code_pkg/SOER_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOER_if/KeSOER_kE_BattRmngEnergy_minVal</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOER_Pport_KeSOER_kE_OvrdValue_BattRmngEnergy</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOER_Code_pkg/SOER_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOER_if/KeSOER_kE_OvrdValue_BattRmngEnergy</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+                <PARAMETER-PROVIDE-COM-SPEC>
+                  <INIT-VALUE>
+                    <APPLICATION-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>SOER_Pport_KeSOER_b_OvrdCond_BattRmngEnergy</SHORT-LABEL>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-VALUE-CONT>
+                        <UNIT-REF DEST="UNIT">/SOER_Code_pkg/SOER_Code_dt/NoUnit</UNIT-REF>
+                        <SW-VALUES-PHYS>
+                          <V>0</V>
+                        </SW-VALUES-PHYS>
+                      </SW-VALUE-CONT>
+                    </APPLICATION-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                  <PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOER_if/KeSOER_b_OvrdCond_BattRmngEnergy</PARAMETER-REF>
+                </PARAMETER-PROVIDE-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="PARAMETER-INTERFACE">/CalibrationComponents/SOER_if</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+          </PORTS>
+          <DATA-TYPE-MAPPING-REFS>
+            <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/SOER_Code_pkg/SOER_Code_dt/DataTypeMappings/SOER_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+          </DATA-TYPE-MAPPING-REFS>
+        </PARAMETER-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
+      <SHORT-NAME>SOER_Code_pkg</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>SOER_Code_swc</SHORT-NAME>
+          <ELEMENTS>
+            <APPLICATION-SW-COMPONENT-TYPE UUID="d551169c-0502-5e78-fa67-7af878299792">
+              <SHORT-NAME>SOER_Code</SHORT-NAME>
+              <PORTS>
+                <R-PORT-PROTOTYPE UUID="27cc3583-2c13-5598-bc46-b818ef60cce9">
+                  <SHORT-NAME>VeCSCR_T_MinCellTempMod</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOER_Code_pkg/SOER_Code_if/VeCSCR_T_MinCellTempMod/VeCSCR_T_MinCellTempMod</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOER_Code_pkg/SOER_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOER_Code_pkg/SOER_Code_if/VeCSCR_T_MinCellTempMod</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="c5a1baec-27dd-5d5d-c0de-2994166c2cad">
+                  <SHORT-NAME>VeSOCR_Pct_DisplayPackSOC</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOER_Code_pkg/SOER_Code_if/VeSOCR_Pct_DisplayPackSOC/VeSOCR_Pct_DisplayPackSOC</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOER_Code_pkg/SOER_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOER_Code_pkg/SOER_Code_if/VeSOCR_Pct_DisplayPackSOC</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="2359d4c0-e4b4-51b3-81e3-7f5a063d2fc2">
+                  <SHORT-NAME>VeSOHR_Pct_BatteryPackSOH</SHORT-NAME>
+                  <REQUIRED-COM-SPECS>
+                    <NONQUEUED-RECEIVER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOER_Code_pkg/SOER_Code_if/VeSOHR_Pct_BatteryPackSOH/VeSOHR_Pct_BatteryPackSOH</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <ALIVE-TIMEOUT>0.0</ALIVE-TIMEOUT>
+                      <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                      <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                      <HANDLE-TIMEOUT-TYPE>NONE</HANDLE-TIMEOUT-TYPE>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOER_Code_pkg/SOER_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-RECEIVER-COM-SPEC>
+                  </REQUIRED-COM-SPECS>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOER_Code_pkg/SOER_Code_if/VeSOHR_Pct_BatteryPackSOH</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="0c9ed5ff-1db4-5075-3424-c2637d5031fd">
+                  <SHORT-NAME>VeSOER_kE_BattRmngEnergy</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOER_Code_pkg/SOER_Code_if/VeSOER_kE_BattRmngEnergy/VeSOER_kE_BattRmngEnergy</DATA-ELEMENT-REF>
+                      <HANDLE-OUT-OF-RANGE>NONE</HANDLE-OUT-OF-RANGE>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <APPLICATION-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>DefaultInitValue_Float</SHORT-LABEL>
+                          <CATEGORY>VALUE</CATEGORY>
+                          <SW-VALUE-CONT>
+                            <UNIT-REF DEST="UNIT">/SOER_Code_pkg/SOER_Code_dt/NoUnit</UNIT-REF>
+                            <SW-VALUES-PHYS>
+                              <V>0</V>
+                            </SW-VALUES-PHYS>
+                          </SW-VALUE-CONT>
+                        </APPLICATION-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SOER_Code_pkg/SOER_Code_if/VeSOER_kE_BattRmngEnergy</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <R-PORT-PROTOTYPE UUID="e409301b-3abe-5af8-653b-58945287b2e1">
+                  <SHORT-NAME>SOER_Rport</SHORT-NAME>
+                  <REQUIRED-INTERFACE-TREF DEST="PARAMETER-INTERFACE">/CalibrationComponents/SOER_if</REQUIRED-INTERFACE-TREF>
+                </R-PORT-PROTOTYPE>
+              </PORTS>
+              <INTERNAL-BEHAVIORS>
+                <SWC-INTERNAL-BEHAVIOR UUID="2a5f26c3-9e6e-57e0-9b20-da2766f1e29a">
+                  <SHORT-NAME>SOER_Code</SHORT-NAME>
+                  <CONSTANT-VALUE-MAPPING-REFS>
+                    <CONSTANT-VALUE-MAPPING-REF DEST="CONSTANT-SPECIFICATION-MAPPING-SET">/SOER_Code_datatype_AVS_pkg/SOER_Code_datatype_AVS_MappingSet</CONSTANT-VALUE-MAPPING-REF>
+                  </CONSTANT-VALUE-MAPPING-REFS>
+                  <DATA-TYPE-MAPPING-REFS>
+                    <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/SOER_Code_pkg/SOER_Code_dt/DataTypeMappings/SOER_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                  </DATA-TYPE-MAPPING-REFS>
+                  <STATIC-MEMORYS>
+                    <VARIABLE-DATA-PROTOTYPE UUID="06a5c3ee-1e0a-56a2-6907-5737f9cf40d4">
+                      <SHORT-NAME>VeSOER_kE_BattRmngEnergy0</SHORT-NAME>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOER_Code_pkg/SOER_Code_dt/ApplDataTypes/Float</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                  </STATIC-MEMORYS>
+                  <EVENTS>
+                    <TIMING-EVENT UUID="9da8d51e-c89d-596c-cddf-ae3c6d5953e7">
+                      <SHORT-NAME>Event_Run_SOER_800ms</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/SOER_Code_pkg/SOER_Code_swc/SOER_Code/SOER_Code/Run_SOER_800ms</START-ON-EVENT-REF>
+                      <PERIOD>0.8</PERIOD>
+                    </TIMING-EVENT>
+                  </EVENTS>
+                  <HANDLE-TERMINATION-AND-RESTART>NO-SUPPORT</HANDLE-TERMINATION-AND-RESTART>
+                  <RUNNABLES>
+                    <RUNNABLE-ENTITY UUID="7dde6eee-486d-5cd0-018e-580dfcb83e68">
+                      <SHORT-NAME>Runnable_Init</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SYMBOL>SOER_Code_Init</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="31889e51-bc96-56bb-7bce-2249b0660765">
+                      <SHORT-NAME>Run_SOER_800ms</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0.0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <DATA-READ-ACCESSS>
+                        <VARIABLE-ACCESS UUID="8b540701-6e6c-5446-5479-f729f74e3448">
+                          <SHORT-NAME>IN_VeCSCR_T_MinCellTempMod_VeCSCR_T_MinCellTempMod</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOER_Code_pkg/SOER_Code_swc/SOER_Code/VeCSCR_T_MinCellTempMod</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOER_Code_pkg/SOER_Code_if/VeCSCR_T_MinCellTempMod/VeCSCR_T_MinCellTempMod</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="88b89c6f-00eb-50ef-53fe-aca828cad110">
+                          <SHORT-NAME>IN_VeSOCR_Pct_DisplayPackSOC_VeSOCR_Pct_DisplayPackSOC</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOER_Code_pkg/SOER_Code_swc/SOER_Code/VeSOCR_Pct_DisplayPackSOC</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOER_Code_pkg/SOER_Code_if/VeSOCR_Pct_DisplayPackSOC/VeSOCR_Pct_DisplayPackSOC</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                        <VARIABLE-ACCESS UUID="8065d013-cee8-54e3-521b-5be5eccb9498">
+                          <SHORT-NAME>IN_VeSOHR_Pct_BatteryPackSOH_VeSOHR_Pct_BatteryPackSOH</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOER_Code_pkg/SOER_Code_swc/SOER_Code/VeSOHR_Pct_BatteryPackSOH</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOER_Code_pkg/SOER_Code_if/VeSOHR_Pct_BatteryPackSOH/VeSOHR_Pct_BatteryPackSOH</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                      </DATA-READ-ACCESSS>
+                      <DATA-SEND-POINTS>
+                        <VARIABLE-ACCESS UUID="2b06e127-e103-5868-c0f1-3cc7ac910b77">
+                          <SHORT-NAME>OUT_VeSOER_kE_BattRmngEnergy_VeSOER_kE_BattRmngEnergy</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/SOER_Code_pkg/SOER_Code_swc/SOER_Code/VeSOER_kE_BattRmngEnergy</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOER_Code_pkg/SOER_Code_if/VeSOER_kE_BattRmngEnergy/VeSOER_kE_BattRmngEnergy</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                      </DATA-SEND-POINTS>
+                      <PARAMETER-ACCESSS>
+                        <PARAMETER-ACCESS UUID="284b1d96-07ae-5098-1d74-dda400bdec59">
+                          <SHORT-NAME>CALPRM_SOER_Rport_KeSOER_b_OvrdCond_BattRmngEnergy</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOER_Code_pkg/SOER_Code_swc/SOER_Code/SOER_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOER_if/KeSOER_b_OvrdCond_BattRmngEnergy</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="52b73321-87ee-58bb-6bfa-83b37198774b">
+                          <SHORT-NAME>CALPRM_SOER_Rport_KeSOER_kE_BattRmngEnergy_MaxVal</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOER_Code_pkg/SOER_Code_swc/SOER_Code/SOER_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOER_if/KeSOER_kE_BattRmngEnergy_MaxVal</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="babb440e-d457-55ef-168f-0c4e3e0037dc">
+                          <SHORT-NAME>CALPRM_SOER_Rport_KeSOER_kE_BattRmngEnergy_minVal</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOER_Code_pkg/SOER_Code_swc/SOER_Code/SOER_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOER_if/KeSOER_kE_BattRmngEnergy_minVal</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="dd21fce8-b1ef-52de-524b-74f0ebf3d0b9">
+                          <SHORT-NAME>CALPRM_SOER_Rport_KeSOER_kE_OvrdValue_BattRmngEnergy</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <AUTOSAR-PARAMETER-IREF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOER_Code_pkg/SOER_Code_swc/SOER_Code/SOER_Rport</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="PARAMETER-DATA-PROTOTYPE">/CalibrationComponents/SOER_if/KeSOER_kE_OvrdValue_BattRmngEnergy</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-PARAMETER-IREF>
+                          </ACCESSED-PARAMETER>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="a0d49a44-ceba-59ad-a894-91176a39ec9f">
+                          <SHORT-NAME>SCALPRM_KtSOER_kE_AvailableEnergy_Table</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <LOCAL-PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/SOER_Code_pkg/SOER_Code_swc/SOER_Code/SOER_Code/KtSOER_kE_AvailableEnergy_Table</LOCAL-PARAMETER-REF>
+                          </ACCESSED-PARAMETER>
+                          <SW-DATA-DEF-PROPS>
+                            <SW-DATA-DEF-PROPS-VARIANTS>
+                              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                <SW-CALPRM-AXIS-SET>
+                                  <SW-CALPRM-AXIS>
+                                    <SW-AXIS-INDEX>1</SW-AXIS-INDEX>
+                                    <SW-AXIS-GROUPED>
+                                      <AR-PARAMETER>
+                                        <LOCAL-PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/SOER_Code_pkg/SOER_Code_swc/SOER_Code/SOER_Code/KxSOER_kE_AvailableEnergy</LOCAL-PARAMETER-REF>
+                                      </AR-PARAMETER>
+                                    </SW-AXIS-GROUPED>
+                                  </SW-CALPRM-AXIS>
+                                </SW-CALPRM-AXIS-SET>
+                              </SW-DATA-DEF-PROPS-CONDITIONAL>
+                            </SW-DATA-DEF-PROPS-VARIANTS>
+                          </SW-DATA-DEF-PROPS>
+                        </PARAMETER-ACCESS>
+                        <PARAMETER-ACCESS UUID="d6f542b7-1701-5856-ab6a-dd2cd45cbd25">
+                          <SHORT-NAME>SCALPRM_KxSOER_kE_AvailableEnergy</SHORT-NAME>
+                          <ACCESSED-PARAMETER>
+                            <LOCAL-PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/SOER_Code_pkg/SOER_Code_swc/SOER_Code/SOER_Code/KxSOER_kE_AvailableEnergy</LOCAL-PARAMETER-REF>
+                          </ACCESSED-PARAMETER>
+                          <SW-DATA-DEF-PROPS>
+                            <SW-DATA-DEF-PROPS-VARIANTS>
+                              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                <SW-CALPRM-AXIS-SET>
+                                  <SW-CALPRM-AXIS>
+                                    <SW-AXIS-INDIVIDUAL>
+                                      <SW-VARIABLE-REFS>
+                                        <AUTOSAR-VARIABLE>
+                                          <AUTOSAR-VARIABLE-IREF>
+                                            <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/SOER_Code_pkg/SOER_Code_swc/SOER_Code/VeCSCR_T_MinCellTempMod</PORT-PROTOTYPE-REF>
+                                            <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/SOER_Code_pkg/SOER_Code_if/VeCSCR_T_MinCellTempMod/VeCSCR_T_MinCellTempMod</TARGET-DATA-PROTOTYPE-REF>
+                                          </AUTOSAR-VARIABLE-IREF>
+                                        </AUTOSAR-VARIABLE>
+                                      </SW-VARIABLE-REFS>
+                                    </SW-AXIS-INDIVIDUAL>
+                                  </SW-CALPRM-AXIS>
+                                </SW-CALPRM-AXIS-SET>
+                              </SW-DATA-DEF-PROPS-CONDITIONAL>
+                            </SW-DATA-DEF-PROPS-VARIANTS>
+                          </SW-DATA-DEF-PROPS>
+                        </PARAMETER-ACCESS>
+                      </PARAMETER-ACCESSS>
+                      <SYMBOL>Run_SOER_800ms</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                  </RUNNABLES>
+                  <SHARED-PARAMETERS>
+                    <PARAMETER-DATA-PROTOTYPE UUID="01f99eaf-d818-5321-2d57-005f6e8be08a">
+                      <SHORT-NAME>KtSOER_kE_AvailableEnergy_Table</SHORT-NAME>
+                      <CATEGORY>CURVE</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOER_Code_pkg/SOER_Code_dt/ApplDataTypes/Appl_KtSOER_kE_AvailableEnergy_Table</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KtSOER_kE_AvailableEnergy_Table</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/SOER_Code_pkg/SOER_Code_dt/Ground/KtSOER_kE_AvailableEnergy_Table</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                    <PARAMETER-DATA-PROTOTYPE UUID="556a61b3-d5f2-5a5f-9ac0-e0ebcc4a4245">
+                      <SHORT-NAME>KxSOER_kE_AvailableEnergy</SHORT-NAME>
+                      <CATEGORY>COM_AXIS</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/SOER_Code_pkg/SOER_Code_dt/ApplDataTypes/Appl_KxSOER_kE_AvailableEnergy</TYPE-TREF>
+                      <INIT-VALUE>
+                        <CONSTANT-REFERENCE>
+                          <SHORT-LABEL>KxSOER_kE_AvailableEnergy</SHORT-LABEL>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/SOER_Code_pkg/SOER_Code_dt/Ground/KxSOER_kE_AvailableEnergy</CONSTANT-REF>
+                        </CONSTANT-REFERENCE>
+                      </INIT-VALUE>
+                    </PARAMETER-DATA-PROTOTYPE>
+                  </SHARED-PARAMETERS>
+                  <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+                </SWC-INTERNAL-BEHAVIOR>
+              </INTERNAL-BEHAVIORS>
+            </APPLICATION-SW-COMPONENT-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

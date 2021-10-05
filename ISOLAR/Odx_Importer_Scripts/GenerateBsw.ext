@@ -1,0 +1,140 @@
+
+/*
+    The Extension General.ext is used to act as utility. This fetches the data which is configured
+    from AUTOSAR System and creating and updating the Can Modules.
+
+    History:-
+
+    Created On      : 09-01-2013
+    Modified By     :
+    Modified On     :
+
+*/
+
+
+/* Importing of AUTOSAR system packages. */
+import system::fibexcore::corecommunication;
+import system::fibexcore::coretopology;
+import system::cantopology;
+import system::cancommunication;
+import system::flexraycommunication;
+import system::flexraytopology;
+import system::swmapping;
+import system::datamapping;
+import system::lincommunication;
+import system::lintopology;
+import system::ethernetcommunication;
+import system::ethernettopology;
+import ecucdescription;
+
+/* Importing of AUTOSAR BSW packages based on Parameter Definitions configured. */
+import AUTOSAR_PduR::EcucModuleDefs;
+import AUTOSAR_Com::EcucModuleDefs;
+import AUTOSAR_Com::EcucModuleDefs::Com;
+import AUTOSAR_IpduM::EcucModuleDefs;
+
+
+ extension Com_CreateCom;
+ extension ComM_CreateComM;
+ extension Ecuc_CreateEcuc;
+ extension PduR_CreatePduR;
+ extension Can_Util;
+ extension Lin_Util;
+ extension Flexray_Util;
+ /*extension Ethernet_Util;*/
+ //extension IpduM_CreateIpduM;
+
+ extension EcuExtractor;
+ extension org::eclipse::xtend::util::stdlib::io;
+
+ /* The Inclusion of built-in OAW specific Extensions. used to find the "getReferencingObjects()" for Containers */
+ extension org::eclipse::xtend::util::stdlib::crossref;
+
+//This Method initiates the creation of COMSTACK BSW modules from the selected ECU Instance from AR system/ EcuExtract
+start(EcuInstance ecu):
+    if(ecu!=null)
+        then
+        (
+        	setMap(DataMapping, "dataMappings", ((SwcToEcuMapping)ecu.getReferencingObjects().selectFirst(e|SwcToEcuMapping.isInstance(e))).systemMapping.dataMappings)->
+			info("dataMappings : "+getMap(DataMapping, "dataMappings"))->
+            createBswStack(ecu)
+        )
+;
+
+//This method returns the list of BSW Modules
+private List[EcucModuleConfigurationValues] createBswStack(EcuInstance ecu):
+   let bswModuleList = (List[EcucModuleConfigurationValues]){}:
+   // If there are any exceptions thrown during the BSW transformation then the
+   // Static Map used internally to hold Pdu, Signals will not be cleared so to make
+   // sure that all the used maps are cleared before use.
+   	clearGlobalList()->
+    createBswModules(bswModuleList, ecu)->
+    clearGlobalList()->
+    bswModuleList
+;
+
+//This method checks whether the connectors specific to the Protocol is present and create Protocol-specific modules
+private List[EcucModuleConfigurationValues] createBswModules(List[EcucModuleConfigurationValues] modulesList, EcuInstance ecu):
+	if(ecu.connectors!=null && ecu.connectors.size>0)
+	then(
+	    let canCommConnectors=(List[CanCommunicationConnector])ecu.connectors.typeSelect(CanCommunicationConnector):
+	    let flexrayCommConnectors=(List[FlexrayCommunicationConnector])ecu.connectors.typeSelect(FlexrayCommunicationConnector):
+	    let linCommConnectors=(List[LinCommunicationConnector])ecu.connectors.typeSelect(LinCommunicationConnector):
+	    let ethernetCommConnectors=(List[EthernetCommunicationConnector])ecu.connectors.typeSelect(EthernetCommunicationConnector):
+	    let com=(Com)createCom(ecu):
+	    let pduR=(PduR)createPdur():
+	    let ecuC=(EcuC)createEcuC():
+        let comM = (ComM)createComMModule():
+	    (
+		    if(canCommConnectors.size > 0)
+		    then
+		        (
+		        info("Creating CAN Modules in COM Stack")->
+		        createCanModules(canCommConnectors,ecu,pduR,com,modulesList)
+		        )
+	    )->
+	    (
+		    if(flexrayCommConnectors.size > 0)
+		    then
+		        (
+		        createFlexrayModules(flexrayCommConnectors,ecu,pduR,com,modulesList)
+		        )
+	    )->
+
+
+    	/*(
+		    if(ethernetCommConnectors.size > 0)
+		    then
+		        (
+		        createEthernetModules(ethernetCommConnectors,ecu,pduR,com,modulesList)
+		        )
+    	 )->
+    	 */
+
+
+    	(
+		    if(linCommConnectors.size > 0)
+		    	then
+		        	(
+                    createLinModules(linCommConnectors,ecu,pduR,com,modulesList, comM)
+		        )
+     	)-> 
+    	if(com != null && com.ComConfig !=null && com.ComConfig.ComIPdus.size>0) then
+    	(
+		        modulesList.add(com)->
+		        modulesList.add(pduR)->
+		        modulesList.add(ecuC)
+        )
+
+        /*if (getIpduM() != null) then
+			(
+				modulesList.add(getIpduM())
+			)*/
+
+    )->
+
+
+    modulesList
+;
+
+

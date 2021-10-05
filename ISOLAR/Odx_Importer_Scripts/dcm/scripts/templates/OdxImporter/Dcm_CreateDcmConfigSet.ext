@@ -1,0 +1,26 @@
+/**
+ * Creates DCMConfigSet container
+ *
+ * @author raa3cob
+ */
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+
+extension  Dcm_CreateDcmDsp;
+extension  Dcm_CreateDcmDsd;
+extension  Dcm_CreateDcmDsl;
+extension  Dcm_CreateDcmGeneral;
+extension OdxConstants; extension OdxShortNames;
+/*
+creates the DcmConfigSet module
+*/
+create DcmConfigSet this dcmConfigSetCreation(Dcm dcm):
+setShortName("DcmConfigSet")->
+//setDcmDsp(DcmDspCreation(dcm))->
+setDcmDsd(dcmDsdCreation(dcm))
+//setDcmDsl(dcmDslCreation(dcm))
+//setDcmGeneral(dcmGeneralCreation())
+;
+
+
+

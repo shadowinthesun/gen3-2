@@ -1,0 +1,453 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp;
+import OdxXhtml;
+import OdxXhtml::DIAGSERVICE;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspPeriodicTransmission;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspPeriodicTransmission::DcmDspPeriodicTransmissionFastRate;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspPeriodicTransmission::DcmDspPeriodicTransmissionMediumRate;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspPeriodicTransmission::DcmDspPeriodicTransmissionSlowRate;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspPeriodicDidTransmission;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspPeriodicDidTransmission::DcmDspMaxPeriodicDidScheduler;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspMaxDidToRead;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspMaxPeriodicDidToRead;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDid;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDid::DcmDspDidSignal;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDid::DcmDspDidUsed;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDid::DcmDspDidMaxNumberOfRecords;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDid::DcmDspDidMaxNumberOfRecords::DcmDspDidMaxNumRecords;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspData;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDataInfo;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDidInfo;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDidInfo::DcmDspDidAccess;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDidInfo::DcmDspDidAccess::DcmDspDidRead;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDidInfo::DcmDspDidAccess::DcmDspDidControl;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDid::DcmDspDidSignal;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSession;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSession::DcmDspSessionRow;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSecurity;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSecurity::DcmDspSecurityRow;
+
+
+extension templates::mathlib;
+extension org::eclipse::xtend::util::stdlib::io;
+extension org::eclipse::xtend::util::stdlib::props;
+extension org::eclipse::xtend::util::stdlib::globalvar;
+extension OdxUtils;
+extension GenerateBsw_Odx_V201;
+extension DcmServicesCreation;
+extension OdxConstants; extension OdxShortNames;
+createRDBPIService(Dcm dcm,List requestList,List listRdbpi):
+let identifierList=(List[String]){}:
+let existingIdentifierList=dcm.DcmConfigSet.DcmDsp.DcmDspDids.DcmDspDidIdentifier.value.toInteger():
+let finalIdentifierList=(List[String]){}:
+/* converting to String*/
+existingIdentifierList.forAll(e|finalIdentifierList.add(e.toString())->true)->
+storeGlobalVar("shortNameList",(List[String]){})->
+/*fetching identifiers for RDBPI request list*/
+listRdbpi.forAll(e|getIdentifiers(e,requestList,identifierList)->true)->
+
+identifierList.forAll(identifier|
+(
+let id=61952+identifier.asInteger():
+if(!finalIdentifierList.contains(id.toString()))then  //Checking if DcmDspDid with this identifer is created
+(
+mapSubFunction(dcm,identifier,requestList,listRdbpi)
+)
+)->
+true
+)->
+createDcmDspPeriodicTransmission(dcm,requestList)
+;
+
+create DcmDspDid this mapSubFunction(Dcm dcm,String identifier,List requestList,List listRdbpi):
+let serviceList = {}:
+let dcmDspDataInfo=DcmDspDataInfo.newInstance():
+let dcmDspDataList={}:
+listRdbpi.forAll(e|filterService(identifier,e,requestList,serviceList)->true)->
+//61952=F200
+setShortName(RDPI_DcmDspDid_PREFIX()+(61952+identifier.asInteger()).convertDecimalToHex())->
+setDcmDspDidMaxNumberOfRecords(createDcmDspDidMaxNumberOfRecords(this))->
+//*********************** CONVERT TO HEXA F20 ************************//
+setDcmDspDidIdentifier(createDcmDspDidIdentifier(this,(61952+identifier.asInteger())))->
+setDcmDspDidInfoRef(createDcmDspDidInfoRef(this,serviceList,requestList,dcm,identifier))->
+DcmDspDidUseds.add(createDcmDspDidUsed(this,RDPI_DcmDspDidUsed_VALUE()))->
+serviceList.forAll(e|mapService(this,dcm,e,requestList,dcmDspDataList,identifier.asInteger())->true)->
+
+//dcmDspDataList.forAll(e|createDcmDspDidSignal(this,this.DcmDspDidSignals.size,e)->true)->
+dcm.DcmConfigSet.DcmDsp.DcmDspDids.add(this)//->
+//dcm.DcmConfigSet.DcmDsp.DcmDspDatas.add(dcmDspData)->
+//dcm.DcmConfigSet.DcmDsp.DcmDspDidInfos.add(dcmDspDidInfo)//->
+;
+
+create DcmDspDidMaxNumberOfRecords this createDcmDspDidMaxNumberOfRecords(DcmDspDid dcmDspDid):
+setShortName(CONSTANT_DCM_DSP_DID_MAXNUM_RECORDS())->
+setDcmDspDidMaxNumRecords(createDcmDspDidMaxNumRecords(this,RDPI_DcmDspDidMaxNumRecords_VALUE()))->
+dcmDspDid.setDcmDspDidMaxNumberOfRecords(this)
+;
+
+create DcmDspDidMaxNumRecords this createDcmDspDidMaxNumRecords(DcmDspDidMaxNumberOfRecords dcmDspDidMaxNumberOfRecords,Integer value):
+setValue(value)
+;
+
+create DcmDspDidSignal this createDcmDspDidSignal(DcmDspDid dcmDspDid,Integer value,DcmDspData dcmDspData,PARAM param):
+setShortName(validateShortName(CONST_DCM_DSP_DID_SIGNAL_PREFIX()+value))->
+//setDcmDspDidDataPos(createDcmDspDidDataPos(this,getBytePosition(param)))->
+setDcmDspDidDataPos(createDcmDspDidDataPos(this, getBitLength(((CODEDCONST)param).dIAGCODEDTYPE)))->
+
+if(dcmDspData!=null) then
+(
+setDcmDspDidDataRef(createDcmDspDidDataRef(this,dcmDspData))
+)->
+dcmDspDid.DcmDspDidSignals.add(this)
+;
+
+mapService(DcmDspDid dcmDspDid,Dcm dcm,DIAGSERVICE service,List requestList,List dcmDspDataList,Integer identifier):
+let request=(REQUEST)requestList.selectFirst(e|e.iD==service.rEQUESTREF.iDREF):
+let posResponseList=getPosResponse(getecuVariant(),getbaseVariant(),getOdxRoot().dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.selectFirst(e|e.iD==getbaseVariant().pARENTREFS.pARENTREF.selectFirst(p|PROTOCOLREF.isInstance(p)).iDREF)):
+let posResponse=posResponseList.selectFirst(e|e.iD==service.pOSRESPONSEREFS.pOSRESPONSEREF.get(0).iDREF):
+/*posResponse.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()&&VALUE.isInstance(e)).forAll(e|
+let data=createDcmDspData(dcm,e):
+if(dcm.DcmConfigSet.DcmDsp.DcmDspDatas.select(e|e.shortName==data.shortName).size==0)then(
+(DcmDspData)dcmDspDataList.add(data)->
+((DcmDspData)data).setDcmDspDataInfoRef(createDcmDspDataInfoRef(dcm,e,service))->
+createDcmDspDidSignal(dcmDspDid,dcmDspDid.DcmDspDidSignals.size,data,e)->
+dcm.DcmConfigSet.DcmDsp.DcmDspDatas.add(data)//->
+)->
+true
+)
+*/
+
+posResponse.pARAMS.pARAM.select(e|e.sEMANTIC=="ID"&&CODEDCONST.isInstance(e)&&e.sHORTNAME=="RecordIdentifier").forAll(e|
+
+let data=createDcmDspData(dcm,e,identifier):
+if(dcm.DcmConfigSet.DcmDsp.DcmDspDatas.select(e|e.shortName==data.shortName).size==0)then(
+(DcmDspData)dcmDspDataList.add(data)->
+((DcmDspData)data).setDcmDspDataInfoRef(createDcmDspDataInfoRef(dcm,e,service))->
+createDcmDspDidSignal(dcmDspDid,dcmDspDid.DcmDspDidSignals.size,data,e)->
+dcm.DcmConfigSet.DcmDsp.DcmDspDatas.add(data)//->
+)->
+true
+)
+;
+
+create DcmDspData this createDcmDspData(Dcm dcm,PARAM param,Integer identifier):
+setShortName(validateShortName(CONST_DCM_DSP_DATA_PREFIX()+identifier+param.dIAGCODEDTYPE.bASEDATATYPE.toString()))->
+setDcmDspDataReadFnc(createDcmDspDataReadFnc(this,param.dIAGCODEDTYPE.bASEDATATYPE.toString()))->
+setDcmDspDataUsePort(createDcmDspDataUsePort(this,CONST_RDPI_DcmDspDataUsePort()))//->
+//info(param.sHORTNAME)
+;
+
+create DcmDspDataReadFnc this createDcmDspDataReadFnc(DcmDspData dcmDspData,String shortName):
+setValue(shortName)->
+dcmDspData.setDcmDspDataReadFnc(this)
+;
+
+create DcmDspDataUsePort this createDcmDspDataUsePort(DcmDspData dcmDspData,String value):
+setValue(value)->
+dcmDspData.setDcmDspDataUsePort(this)
+;
+create DcmDspDataInfoRef this createDcmDspDataInfoRef(Dcm dcm,PARAM param,DIAGSERVICE service):
+setValue(createDcmDspDataInfo(dcm,param))
+;
+
+create DcmDspDataInfo this createDcmDspDataInfo(Dcm dcm,PARAM param):
+setShortName(CONST_DCM_DSP_DATA_INFO_PREFIX()+param.sHORTNAME)->
+setDcmDspDataFixedLength(createDcmDspDataFixedLength(this,false))->
+dcm.DcmConfigSet.DcmDsp.DcmDspDataInfos.add(this)
+;
+
+
+
+create DcmDspDataFixedLength this createDcmDspDataFixedLength(DcmDspDataInfo dcmDspDataInfo,Boolean value):
+setValue(value)->
+dcmDspDataInfo.setDcmDspDataFixedLength(this)
+;
+
+create DcmDspDidDataRef this createDcmDspDidDataRef(DcmDspDidSignal dcmDspDidSignal, DcmDspData dcmDspData):
+setValue(dcmDspData)
+;
+
+create DcmDspDidIdentifier this createDcmDspDidIdentifier(DcmDspDid dcmDspDid,Integer value):
+setValue(value)->
+dcmDspDid.setDcmDspDidIdentifier(this)
+;
+
+create DcmDspDidInfoRef this createDcmDspDidInfoRef(DcmDspDid dcmDspDid,List serviceList,List requestList,Dcm dcm,String identifier):
+setValue(createDcmDspDidInfo(dcmDspDid,serviceList,requestList,dcm,identifier))->
+dcmDspDid.setDcmDspDidInfoRef(this)
+;
+
+create DcmDspDidInfo this createDcmDspDidInfo(DcmDspDid dcmDspDid,List serviceList,List requestList,Dcm dcm,String identifier):
+setShortName(validateShortName(CONST_DCM_DSP_DID_INFO_PREFIX()+(61952+identifier.asInteger()).convertDecimalToHex()))->
+setDcmDspDidDynamicallyDefined(createDcmDspDidDynamicallyDefined(this))->
+setDcmDspDidAccess(createDcmDspDidAccess(this,serviceList,requestList,dcm))->
+dcm.DcmConfigSet.DcmDsp.DcmDspDidInfos.add(this)
+;
+
+
+create DcmDspDidDynamicallyDefined this createDcmDspDidDynamicallyDefined(DcmDspDidInfo dcmDspDidInfo):
+setValue(RDPI_DcmDspDidDynamicallyDefined_VALUE())->
+dcmDspDidInfo.setDcmDspDidDynamicallyDefined(this)
+;
+
+create DcmDspDidAccess this createDcmDspDidAccess(DcmDspDidInfo dcmDspDidInfo,List serviceList,List requestList,Dcm dcm):
+setDcmDspDidRead(createDcmDspDidRead(serviceList,this,requestList,dcm))
+;
+
+create DcmDspDidRead this createDcmDspDidRead(List serviceList,DcmDspDidAccess dcmDspDidAccess,List requestList,Dcm dcm):
+createDcmDspDidReadSessionRef(this,serviceList,requestList,dcm)->
+//DcmDspDidReadSecurityLevelRefs.add(createDcmDspDidReadSecurityLevelRef(service))->
+dcmDspDidAccess.setDcmDspDidRead(this)
+;
+
+createDcmDspDidReadSessionRef(DcmDspDidRead dcmDspDidRead,List serviceList,List requestList,Dcm dcm):
+//let sessionList=(List)getGlobalVar(SESSION_ROWLIST_SHORTNAME()):
+let sessionReferedList={}:
+let securityReferedList={}:
+serviceList.forAll(service|updateSessionRef(dcmDspDidRead,service,dcm,sessionReferedList,securityReferedList)->true)
+;
+
+updateSessionRef(DcmDspDidRead dcmDspDidRead,DIAGSERVICE service,Dcm dcm,List sessionReferedList,List securityReferedList):
+let stateModelSDG= service.sDGS.sDG.selectFirst(e|e.sDGCAPTION.sHORTNAME==CONST_STATE_MODEL()):
+let sessionSDG=stateModelSDG.sDG.selectFirst(e|e.sD.get(0).value==CONST_SESSION()):
+let securitySDG=stateModelSDG.sDG.select(e|e.sD.get(0).value==CONST_SECURITY_ACCESS()):
+let securityList=(List)getGlobalVar(SecurityRowList_SHORTNAME()):
+if(sessionSDG!=null) then
+(
+sessionSDG.sDG.forAll(sdg|createSessionRef(sdg,dcm,dcmDspDidRead,sessionReferedList)->true)
+)->
+if(securitySDG!=null) then
+(
+createSecurityReference(dcmDspDidRead,securitySDG,securityList,securityReferedList)
+)
+;
+
+createSessionRef(SDG sdg,Dcm dcm,DcmDspDidRead dcmDspDidRead,List sessionReferedList):
+if(programmingCheck(sdg) && !sessionReferedList.contains(CONST_PROGRAMMING_SESSION())) then
+(
+let dcmDspDidReadSessionRef=DcmDspDidReadSessionRef.newInstance():
+sessionReferedList.add(CONST_PROGRAMMING_SESSION())->
+dcmDspDidReadSessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_PROGRAMMING_SESSION()))->
+dcmDspDidRead.DcmDspDidReadSessionRefs.add(dcmDspDidReadSessionRef)
+)->
+if(extendedDiagnosticCheck(sdg) && !sessionReferedList.contains(CONST_EXTENDED_DIAGNOSTIC_SESSION())) then
+(
+let dcmDspDidReadSessionRef=DcmDspDidReadSessionRef.newInstance():
+sessionReferedList.add(CONST_EXTENDED_DIAGNOSTIC_SESSION())->
+dcmDspDidReadSessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_EXTENDED_DIAGNOSTIC_SESSION()))->
+dcmDspDidRead.DcmDspDidReadSessionRefs.add(dcmDspDidReadSessionRef)
+)->
+if(serviceDiagnosticCheck(sdg) && !sessionReferedList.contains(CONST_SERVICE_DIAG_SESSION()))then
+(
+let dcmDspDidReadSessionRef=DcmDspDidReadSessionRef.newInstance():
+sessionReferedList.add(CONST_SERVICE_DIAG_SESSION())->
+dcmDspDidReadSessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_SERVICE_DIAG_SESSION()))->
+dcmDspDidRead.DcmDspDidReadSessionRefs.add(dcmDspDidReadSessionRef)
+)->
+//DEFAULT_SESSION should not be configured for RDBPI service
+if(defaultCheck(sdg) && !sessionReferedList.contains(CONST_DEFAULT_SESSION())&&false)then
+(
+let dcmDspDidReadSessionRef=DcmDspDidReadSessionRef.newInstance():
+sessionReferedList.add(CONST_DEFAULT_SESSION())->
+dcmDspDidReadSessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_DEFAULT_SESSION()))->
+dcmDspDidRead.DcmDspDidReadSessionRefs.add(dcmDspDidReadSessionRef)
+)->
+if(eCUProgrammingCheck(sdg) && !sessionReferedList.contains(CONST_ECU_PROGRAMMING())) then
+(
+let dcmDspDidReadSessionRef=DcmDspDidReadSessionRef.newInstance():
+sessionReferedList.add(CONST_ECU_PROGRAMMING())->
+dcmDspDidReadSessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_ECU_PROGRAMMING()))->
+dcmDspDidRead.DcmDspDidReadSessionRefs.add(dcmDspDidReadSessionRef)
+)->
+if(eCUProgrammingCaptureCheck(sdg) && !sessionReferedList.contains(CONST_ECU_PROGRAMMING_CAPTURE())) then
+(
+let dcmDspDidReadSessionRef=DcmDspDidReadSessionRef.newInstance():
+sessionReferedList.add(CONST_ECU_PROGRAMMING_CAPTURE())->
+dcmDspDidReadSessionRef.setValue(dcm.DcmConfigSet.DcmDsp.DcmDspSession.DcmDspSessionRows.selectFirst(e|e.shortName==CONST_ECU_PROGRAMMING_CAPTURE()))->
+dcmDspDidRead.DcmDspDidReadSessionRefs.add(dcmDspDidReadSessionRef)
+)
+;
+
+
+createSecurityReference(DcmDspDidRead dcmDspDidRead,List securitySdgList,List securityList,List securityReferedList):
+if((List)securitySdgList.sDG.sD.select(e|e.value==CONST_SECURITY_LEVEL_3()).size>0 && !securityReferedList.contains(CONST_DCM_SECURITY_LEVEL("3")))then
+(
+securityReferedList.add(CONST_DCM_SECURITY_LEVEL("3"))->
+securityList.get(0).forAll(security|if(security.shortName==CONST_DCM_SECURITY_LEVEL("3"))then(createDcmDspDidReadSecurityLevelRef(dcmDspDidRead,security))->true)
+)->
+if((List)securitySdgList.sDG.sD.select(e|e.value==CONST_SECURITY_LEVEL_27()).size>0&& !securityReferedList.contains(CONST_DCM_SECURITY_LEVEL("27")))then
+(
+securityReferedList.add(CONST_DCM_SECURITY_LEVEL("27"))->
+securityList.get(0).forAll(security|if(security.shortName==CONST_DCM_SECURITY_LEVEL("27"))then(createDcmDspDidReadSecurityLevelRef(dcmDspDidRead,security))->true)
+)->
+if((List)securitySdgList.sDG.sD.select(e|e.value==CONST_SECURITY_LEVEL_28()).size>0&& !securityReferedList.contains(CONST_DCM_SECURITY_LEVEL("28")))then
+(
+securityReferedList.add(CONST_DCM_SECURITY_LEVEL("28"))->
+securityList.get(0).forAll(security|if(security.shortName==CONST_DCM_SECURITY_LEVEL("28"))then(createDcmDspDidReadSecurityLevelRef(dcmDspDidRead,security))->true)
+)->
+if((List)securitySdgList.sDG.sD.select(e|e.value==CONST_SECURITY_LEVEL_4()).size>0 && !securityReferedList.contains(CONST_DCM_SECURITY_LEVEL("4")))then
+(
+securityReferedList.add(CONST_DCM_SECURITY_LEVEL("4"))->
+securityList.get(0).forAll(security|if(security.shortName==CONST_DCM_SECURITY_LEVEL("4"))then(createDcmDspDidReadSecurityLevelRef(dcmDspDidRead,security))->true)
+)->
+if((List)securitySdgList.sDG.sD.select(e|e.value==CONST_SECURITY_LEVEL_65()).size>0 && !securityReferedList.contains(CONST_DCM_SECURITY_LEVEL("65")))then
+(
+securityReferedList.add(CONST_DCM_SECURITY_LEVEL("65"))->
+securityList.get(0).forAll(security|if(security.shortName==CONST_DCM_SECURITY_LEVEL("65"))then(createDcmDspDidReadSecurityLevelRef(dcmDspDidRead,security))->true)
+)->
+if((List)securitySdgList.sDG.sD.select(e|e.value==CONST_SECURITY_LEVEL_66()).size>0 && !securityReferedList.contains(CONST_DCM_SECURITY_LEVEL("66")))then
+(
+securityReferedList.add(CONST_DCM_SECURITY_LEVEL("66"))->
+securityList.get(0).forAll(security|if(security.shortName==CONST_DCM_SECURITY_LEVEL("66"))then(createDcmDspDidReadSecurityLevelRef(dcmDspDidRead,security))->true)
+)->
+if((List)securitySdgList.sDG.sD.select(e|e.value==CONST_SECURITY_LEVEL_7()).size>0 && !securityReferedList.contains(CONST_DCM_SECURITY_LEVEL("7")))then
+(
+securityReferedList.add(CONST_DCM_SECURITY_LEVEL("7"))->
+securityList.get(0).forAll(security|if(security.shortName==CONST_DCM_SECURITY_LEVEL("7"))then(createDcmDspDidReadSecurityLevelRef(dcmDspDidRead,security))->true)
+)->
+if((List)securitySdgList.sDG.sD.select(e|e.value==CONST_SECURITY_LEVEL_8()).size>0 && !securityReferedList.contains(CONST_DCM_SECURITY_LEVEL("8")))then
+(
+securityReferedList.add(CONST_DCM_SECURITY_LEVEL("8"))->
+securityList.get(0).forAll(security|if(security.shortName==CONST_DCM_SECURITY_LEVEL("8"))then(createDcmDspDidReadSecurityLevelRef(dcmDspDidRead,security))->true)
+)
+;
+
+create DcmDspDidReadSecurityLevelRef this createDcmDspDidReadSecurityLevelRef(DcmDspDidRead dcmDspDidRead, DcmDspSecurityRow dcmDspSecurityRow) :
+setValue(dcmDspSecurityRow)->
+dcmDspDidRead.DcmDspDidReadSecurityLevelRefs.add(this)
+;
+
+
+create DcmDspDidUsed this createDcmDspDidUsed(DcmDspDid dcmDspDid,boolean value):
+setValue(value)->
+dcmDspDid.DcmDspDidUseds.add(this)
+;
+
+create DcmDspDidDataPos this createDcmDspDidDataPos(DcmDspDidSignal dcmDspDidSignal,Integer value):
+setValue(value)->
+dcmDspDidSignal.setDcmDspDidDataPos(this)
+;
+getIdentifiers(DIAGSERVICE service, List requestList,List list):
+let request=requestList.selectFirst(e|e.iD==service.rEQUESTREF.iDREF):
+let idParam =request.pARAMS.pARAM.selectFirst(e|e.sEMANTIC=="ID" && CODEDCONST.isInstance(e)&& e.sHORTNAME=="RecordIdentifier"):
+if(idParam!=null)then(
+let identifier=((CODEDCONST)idParam).cODEDVALUE:
+if(list.contains(identifier)) then
+(
+list
+)
+else
+(
+list.add(identifier)->
+list
+)
+)
+;
+
+filterService(String identifierValue,DIAGSERVICE service,List requestList,List serviceList):
+let request=requestList.selectFirst(e|e.iD==service.rEQUESTREF.iDREF):
+let idParam =request.pARAMS.pARAM.selectFirst(e|e.sEMANTIC=="ID" && CODEDCONST.isInstance(e)&& e.sHORTNAME=="RecordIdentifier"):
+if(idParam!=null)then(
+let identifier=((CODEDCONST)idParam).cODEDVALUE:
+//info(service)->
+//info(identifier)->
+//info(identifierValue)->
+//info(" ")->
+if(identifierValue==identifier) then
+(
+//info(service)->
+serviceList.add(service)
+)
+)
+;
+
+dcmDspMaxPeriodicDidToReadcreation(Dcm dcm,List listService):
+let paramList=listService.pARAMS.pARAM.select(e|e.sEMANTIC=="ID"&& e.sHORTNAME=="RecordIdentifier"):
+if(paramList!=null&& paramList.size>0)then(
+createDcmDspMaxPeriodicDidToRead(paramList.size)
+)
+;
+
+
+create DcmDspPeriodicTransmission this createDcmDspPeriodicTransmission(Dcm dcm,List listService):
+let fastRate=listService.pARAMS.pARAM.select(e|e.sEMANTIC=="ID"&& e.sHORTNAME==CONST_RDPI_SendAtFastRate()):
+let mediumRate=listService.pARAMS.pARAM.select(e|e.sEMANTIC=="ID"&& e.sHORTNAME==CONST_RDPI_SendAtMediumRate()):
+let slowRate=listService.pARAMS.pARAM.select(e|e.sEMANTIC=="ID"&& e.sHORTNAME==CONST_RDPI_SendAtSlowRate()):
+setShortName(CONST_RDPI_DcmDspPeriodicTransmission())->
+if(fastRate!=null&&fastRate.size>0)then
+(
+//setDcmDspPeriodicTransmissionFastRate(createDcmDspPeriodicTransmissionFastRate(((CODEDCONST)fastRate.get(0)).cODEDVALUE.asInteger()))
+setDcmDspPeriodicTransmissionFastRate(createDcmDspPeriodicTransmissionFastRate(RDPI_DcmDspPeriodicTransmissionFastRate_VALUE()*dcm.DcmConfigSet.DcmGeneral.DcmTaskTime.value))
+)->
+if(mediumRate!=null&&mediumRate.size>0)then
+(
+//setDcmDspPeriodicTransmissionMediumRate(createDcmDspPeriodicTransmissionMediumRate(((CODEDCONST)mediumRate.get(0)).cODEDVALUE.asInteger()))
+setDcmDspPeriodicTransmissionMediumRate(createDcmDspPeriodicTransmissionMediumRate(RDPI_DcmDspPeriodicTransmissionMediumRate_VALUE()*dcm.DcmConfigSet.DcmGeneral.DcmTaskTime.value))
+)->
+if(slowRate!=null&&slowRate.size>0)then
+(
+//setDcmDspPeriodicTransmissionSlowRate(createDcmDspPeriodicTransmissionSlowRate(((CODEDCONST)slowRate.get(0)).cODEDVALUE.asInteger()))
+setDcmDspPeriodicTransmissionSlowRate(createDcmDspPeriodicTransmissionSlowRate(RDPI_DcmDspPeriodicTransmissionSlowRate_VALUE()*dcm.DcmConfigSet.DcmGeneral.DcmTaskTime.value))
+)
+;
+
+
+create DcmDspPeriodicTransmissionFastRate this createDcmDspPeriodicTransmissionFastRate(Real value):
+setValue(value)
+;
+
+create DcmDspPeriodicTransmissionMediumRate this createDcmDspPeriodicTransmissionMediumRate(Real value):
+setValue(value)
+;
+
+create DcmDspPeriodicTransmissionSlowRate this createDcmDspPeriodicTransmissionSlowRate(Real value):
+setValue(value)
+;
+
+
+create DcmDspPeriodicDidTransmission this createDcmDspPeriodicDidTransmission(Dcm dcm):
+setShortName(CONST_RDPI_DcmDspPeriodicDidTransmission())->
+setDcmDspMaxPeriodicDidScheduler(createDcmDspMaxPeriodicDidScheduler(this,RDPI_DcmDspMaxPeriodicDidScheduler_VALUE()))
+;
+
+create DcmDspMaxPeriodicDidScheduler this createDcmDspMaxPeriodicDidScheduler(DcmDspPeriodicDidTransmission dcmDspPeriodicDidTransmission,Integer value):
+setValue(value)->
+dcmDspPeriodicDidTransmission.setDcmDspMaxPeriodicDidScheduler(this)
+;
+
+
+create DcmDspMaxPeriodicDidToRead this createDcmDspMaxPeriodicDidToRead(Integer value):
+setValue(value)
+;
+
+create DcmDspMaxDidToRead this createDcmDspMaxDidToRead(Dcm dcm,List listService):
+setValue(RDPI_DcmDspMaxDidToRead_VALUE())
+;
+getBitLength(DIAGCODEDTYPE diagCodedType):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getBitLength(OdxXhtml.DIAGCODEDTYPE)
+;
+
+getBytePosition(PARAM param):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getBytePos(OdxXhtml.PARAM)
+;
+/*
+List getPosResponse(ECUVARIANT ecuVariant, BASEVARIANT baseVariant, PROTOCOL protocol):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getPosResponse(OdxXhtml.ECUVARIANT,OdxXhtml.BASEVARIANT,OdxXhtml.PROTOCOL);
+*/

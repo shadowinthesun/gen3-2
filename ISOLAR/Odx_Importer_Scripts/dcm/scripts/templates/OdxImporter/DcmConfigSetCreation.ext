@@ -1,0 +1,62 @@
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspReadDTC;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd::DcmDsdServiceTable;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd::DcmDsdServiceTable::DcmDsdService;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmGeneral;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmPageBufferCfg;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsl;
+
+extension DcmGeneralCreation;
+extension DcmConfigSetCreation;
+extension OdxConstants; extension OdxShortNames;
+create DcmConfigSet this dcmConfigSetCreation(Dcm dcm):
+setShortName(DcmConfigSet_SHORTNAME())->
+setDcmDsp(createDcmDsp())->
+setDcmDsd(createDcmDsd())->
+setDcmGeneral(createDcmGeneral())->
+
+setDcmPageBufferCfg(createDcmPageBufferCfg())
+;
+
+create DcmDsp this createDcmDsp():
+setShortName(DcmDsp_SHORTNAME())->
+setDcmDspSesSecUsedInProtocol(createDcmDspSesSecUsedInProtocol(DcmDspSesSecUsedInProtocol_VALUE()))
+;
+create DcmDspSesSecUsedInProtocol this createDcmDspSesSecUsedInProtocol(String value):
+setValue(value)
+;
+create DcmDspReadDTC this createDcmDspReadDTC():
+setShortName(DcmDspReadDTC_SHORTNAME())
+;
+
+create DcmDsd this createDcmDsd():
+setShortName(DcmDsd_SHORTNAME())->
+DcmDsdServiceTables.add(createDcmDsdServiceTable())
+;
+
+create DcmDsdServiceTable this createDcmDsdServiceTable():
+ setShortName(CONST_SRVTABLE_UDS_CAN())->
+ setDcmDsdSidTabId(id())->
+ setNRCForService(createNRCForService())
+ ;
+
+create DcmDsdSidTabId this id():
+setValue(DcmDsdSidTabId_VALUE())
+;
+
+create NRCForService this createNRCForService():
+setValue(NRCForService_VALUE())
+;
+
+create DcmPageBufferCfg this createDcmPageBufferCfg():
+setShortName(DcmPageBufferCfg_SHORTNAME())->
+setDcmPagedBufferEnabled(dcmPagedBufferEnabledValue())
+;
+
+create DcmPagedBufferEnabled this dcmPagedBufferEnabledValue():
+setValue(DcmPagedBufferEnabled_VALUE())
+;

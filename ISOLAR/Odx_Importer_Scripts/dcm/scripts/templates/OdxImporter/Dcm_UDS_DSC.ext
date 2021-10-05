@@ -1,0 +1,245 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp;
+import OdxXhtml;
+import OdxXhtml::DIAGSERVICE;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSession;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSession::DcmDspSessionRow;
+
+extension org::eclipse::xtend::util::stdlib::globalvar;
+extension OdxUtils;
+extension org::eclipse::xtend::util::stdlib::io;
+extension org::eclipse::xtend::util::stdlib::props;
+extension GenerateBsw_Odx_V201;
+extension OdxConstants; extension OdxShortNames;
+extension templates::mathlib;
+
+
+/********************************************************************************************************
+*************************************DCMDSP CREATION******************************************************
+**********************************************************************************************************/
+
+//create DcmDsp this DcmDspCreation(Dcm dcm,BASEVARIANT selectedBaseVariant,ECUVARIANT selectedEcuVariant,List listrequest):
+//setShortName("DcmDsp")->
+//setDcmDspSession(DcmDspSessionCreation(dcm,selectedBaseVariant,selectedEcuVariant,listrequest))
+//;
+
+/********************************************************************************************************
+*************************************DcmDspSession CREATION******************************************************
+**********************************************************************************************************/
+
+create DcmDspSession this DcmDspSessionCreation(Dcm dcm,BASEVARIANT selectedBaseVariant,ECUVARIANT selectedEcuVariant,List listrequest,ODX commOdxRoot,ODX odxRoot):
+setShortName(DCM_DSP_SESSION())->
+
+if(!listrequest.isEmpty) then
+(
+let listOfPositiveResponse=getPosResponse(selectedEcuVariant,selectedBaseVariant,null):
+listrequest.DcmDspSessionRowCreation(this,selectedBaseVariant,selectedEcuVariant,commOdxRoot,odxRoot,listOfPositiveResponse)
+)
+;
+
+
+
+/********************************************************************************************************
+*************************************DcmDspSessionRow CREATION for given requirements**************************************************
+**********************************************************************************************************/
+create DcmDspSessionRow this DcmDspSessionRowCreation(REQUEST request,DcmDspSession dcmdspSession,BASEVARIANT selectedBaseVariant,ECUVARIANT selectedEcuVariant,ODX commOdxRoot,ODX odxRoot,List listOfPositiveResponse):
+
+
+   let paramsId=request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION()&&e.sHORTNAME=="DiagSessionType"):
+   let codedValue= (CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger():
+   let dcmDspSessionRowList=(List[DcmDspSessionRow]){}:
+   let posResponse = listOfPositiveResponse.selectFirst(e|e.iD==getDiagSessionList().selectFirst(e|e.rEQUESTREF.iDREF==request.iD).pOSRESPONSEREFS.pOSRESPONSEREF.get(0).iDREF):
+   setShortName(validateShortName(getShortName(codedValue,request)))->
+   createDcmDspSessionForBoot(this)->
+   setDcmDspSessionLevel(createDcmDspSessionLevel(paramsId))->
+   setDcmDspSessionP2ServerMax (createDcmDspSessionP2ServerMax(this,selectedBaseVariant,selectedEcuVariant,commOdxRoot,odxRoot))->
+   setDcmDspSessionP2StarServerMax(createDcmDspSessionP2StarServerMax(this,selectedBaseVariant,selectedEcuVariant,commOdxRoot,odxRoot))->
+   if(posResponse.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA() && e.sHORTNAME=="P2").size>0 ) then
+   (
+	setDcmDspSessionP2ServerMax (createDcmDspSessionP2ServerMax(posResponse.pARAMS.pARAM.selectFirst(e|e.sEMANTIC==CONST_DATA() && e.sHORTNAME=="P2")))
+   )->
+   if(posResponse.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA() && e.sHORTNAME=="P2Ex").size>0) then
+   (
+   setDcmDspSessionP2StarServerMax(createDcmDspSessionP2StarServerMax(posResponse.pARAMS.pARAM.selectFirst(e|e.sEMANTIC==CONST_DATA() && e.sHORTNAME=="P2Ex")))
+   )->
+    if((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==1||((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==2)||((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==3)||((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==4)||((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()==73)||(((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()>40) && ((CODEDCONST)paramsId.get(0).cODEDVALUE.asInteger()<126)))then
+    (
+      dcmdspSession.DcmDspSessionRows.add(this)->
+      dcmDspSessionRowList.add(dcmdspSession.DcmDspSessionRows)
+     )->
+     if(dcmDspSessionRowList.size>0)then
+     (
+      storeGlobalVar(SESSION_ROWLIST_SHORTNAME(),dcmDspSessionRowList)
+      )
+;
+
+String getShortName(Integer codedValue,REQUEST request):
+if(codedValue==1) then
+(
+CONST_DEFAULT_SESSION()
+)
+else if(codedValue==2) then
+(
+CONST_PROGRAMMING_SESSION()
+)
+else if(codedValue==3) then
+(
+CONST_EXTENDED_DIAGNOSTIC_SESSION()
+)
+else if(codedValue==4) then
+(
+CONST_SAFETY_SYSTEM_DIAGNOSTIC_SESSION()
+)
+else if(codedValue==73) then
+(
+CONST_SERVICE_DIAG_SESSION()
+)
+else if(codedValue >=40 && codedValue<=126) then
+(
+getDiagSessionList().selectFirst(e|e.rEQUESTREF.iDREF==request.iD).sHORTNAME
+)
+;
+//addToList(DcmDspSessionRow sessionRow):
+
+//;
+
+/********************************************************************************************************
+*************************************DcmDspSessionLevel CREATION - setting coded constant as Session Level*
+**********************************************************************************************************/
+create DcmDspSessionLevel this createDcmDspSessionLevel(List[PARAM] paramsId):
+let paramIdentifier=paramsId.get(0):
+let codedValue = (CODEDCONST) paramIdentifier:
+let value=codedValue.cODEDVALUE:
+setValue(value.asInteger())
+;
+
+
+
+/********************************************************************************************************
+*************************************DcmDspSessionForBoot CREATION*************************************
+**********************************************************************************************************/
+create DcmDspSessionForBoot this createDcmDspSessionForBoot(DcmDspSessionRow dcmDspSessionRow):
+setValue(CONST_DCM_NO_BOOT())->
+dcmDspSessionRow.setDcmDspSessionForBoot(this)
+;
+
+
+
+/********************************************************************************************************
+*************************************DcmDspSessionP2ServerMax CREATION*****************************************
+**********************************************************************************************************/
+//ISO_15765_3.CP_P2Max
+
+create DcmDspSessionP2ServerMax this createDcmDspSessionP2ServerMax (DcmDspSessionRow dcmDspSessionRow,BASEVARIANT selectedBaseVariant,ECUVARIANT selectedEcuVariant,ODX commOdxRoot,ODX odxRoot):
+let listOfBVComparam=(COMPARAMREF)selectedBaseVariant.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==CONST_ID_REF_SESSION_P2SERVER_MAX()):
+let listOfEVcomparam=(COMPARAMREF)selectedEcuVariant.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==CONST_ID_REF_SESSION_P2SERVER_MAX()):
+let listProtocolComparam=odxRoot.dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==CONST_ID_REF_SESSION_P2SERVER_MAX()):
+let listCommComparam=(COMPARAM)commOdxRoot.cOMPARAMSPEC.cOMPARAMS.cOMPARAM.select(e|e.iD==CONST_ID_REF_SESSION_P2SERVER_MAX()):
+let baseVarmax=getMaxValue(listOfBVComparam):
+let ecuVarMax=getMaxValue(listOfEVcomparam):  // added for ecu
+let protocolMax=getMaxValue(listProtocolComparam):
+if(ecuVarMax!=-1)then
+(
+setValue(ecuVarMax/10000)
+
+)else
+if(baseVarmax!=-1)then
+(
+setValue(baseVarmax/10000)
+)
+else
+if(protocolMax!=-1)then
+(
+setValue(protocolMax/10000)
+)
+
+else if(listCommComparam.size>0)then
+(
+setValue((listCommComparam.get(0).pHYSICALDEFAULTVALUE.asInteger())/10000)
+
+)else
+(
+setValue(0.05)
+)->
+dcmDspSessionRow.setDcmDspSessionP2ServerMax(this)
+;
+
+create DcmDspSessionP2ServerMax this createDcmDspSessionP2ServerMax(DcmDspSessionRow dcmDspSessionRow,PHYSCONST param):
+let value = param.pHYSCONSTANTVALUE.asInteger()/1000.0:
+(	
+	if(value == 0.025)then
+	(
+	setValue(0.05)
+	)
+	else
+	(
+	setValue(value)
+	)
+)->
+dcmDspSessionRow.setDcmDspSessionP2ServerMax(this)
+;
+
+/********************************************************************************************************
+*************************************DcmDspSessionP2StarServerMax CREATION*******************************
+**********************************************************************************************************/
+
+
+create DcmDspSessionP2StarServerMax this createDcmDspSessionP2StarServerMax (DcmDspSessionRow dcmDspSessionRow,BASEVARIANT selectedBaseVariant,ECUVARIANT selectedEcuVariant,ODX commOdxRoot,ODX odxRoot):
+let listOfBVComparam=(COMPARAMREF)selectedBaseVariant.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==CONST_ID_REF_SESSION_P2STAR_SERVER_MAX()):
+let listOfEVcomparam=(COMPARAMREF)selectedEcuVariant.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==CONST_ID_REF_SESSION_P2STAR_SERVER_MAX()):
+let listProtocolComparam=odxRoot.dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==CONST_ID_REF_SESSION_P2STAR_SERVER_MAX()):
+let listCommComparam=(COMPARAM)commOdxRoot.cOMPARAMSPEC.cOMPARAMS.cOMPARAM.select(e|e.iD==CONST_ID_REF_SESSION_P2STAR_SERVER_MAX()):
+let baseVarmax=getMaxValue(listOfBVComparam):
+let ecuVarMax=getMaxValue(listOfEVcomparam):  // added for ecu
+let protocolMax=getMaxValue(listProtocolComparam):
+ if(ecuVarMax!=-1)then
+(
+setValue(ecuVarMax/10000)
+
+)else
+if(baseVarmax!=-1)then
+(
+setValue(baseVarmax/10000)
+)
+else
+if(protocolMax!=-1)then
+(
+setValue(protocolMax/10000)
+)
+
+else if(listCommComparam.size>0)then
+(
+setValue((listCommComparam.get(0).pHYSICALDEFAULTVALUE.asInteger())/10000)
+
+)else
+(
+setValue(5.0)
+)->
+dcmDspSessionRow.setDcmDspSessionP2StarServerMax(this)
+;
+
+create DcmDspSessionP2StarServerMax this createDcmDspSessionP2StarServerMax(DcmDspSessionRow dcmDspSessionRow,PHYSCONST param):
+setValue(param.pHYSCONSTANTVALUE.asInteger()/1000.0)->
+dcmDspSessionRow.setDcmDspSessionP2StarServerMax(this)
+;
+
+getMaxValue(List[COMPARAMREF] param):
+JAVA  com.bosch.autosartool.importer.odx.mapper.v201.util.MapperUtil.getMaxOfList(java.util.List)
+;

@@ -1,0 +1,53 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)         
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp;
+import OdxXhtml;
+import OdxXhtml::DIAGSERVICE;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspControlDTCSetting;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspControlDTCSetting::ControlDTCSettingReEnableModeRuleRef;
+
+extension org::eclipse::xtend::util::stdlib::io;
+extension org::eclipse::xtend::util::stdlib::props;
+extension org::eclipse::xtend::util::stdlib::globalvar;
+extension OdxConstants; extension OdxShortNames;
+ControlDTCSettingcreation(Dcm dcm,List listService):
+if(listService.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SERVICE_ID()&& e.sHORTNAME==CONST_SID_RQ())!=null)then
+(
+ControlDTCSettingcreations(dcm,listService)
+)
+;
+
+create DcmDspControlDTCSetting this ControlDTCSettingcreations(Dcm dcm,List listService):
+setShortName(DCM_DSP_CONTROL_DTC())->
+setDcmDspCDTCRecordLength(createDcmDspCDTCRecordLength(DcmDspCDTCRecordLength_VALUE()))->
+if(listService.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SUBFUNCTION()&& e.sHORTNAME=="ControlDTCSetting")!=null)then
+(
+//setDcmDspControlDTCSettingReEnableModeRuleRef(createDcmDspControlDTCSettingReEnableModeRuleRef())
+""
+)
+;
+
+create DcmDspCDTCRecordLength this createDcmDspCDTCRecordLength(Integer value):
+setValue(value)
+;
+
+create DcmDspControlDTCSettingReEnableModeRuleRef this createDcmDspControlDTCSettingReEnableModeRuleRef():
+setValue(getGlobalVar(DCM_MODE_RULE()))
+;
+

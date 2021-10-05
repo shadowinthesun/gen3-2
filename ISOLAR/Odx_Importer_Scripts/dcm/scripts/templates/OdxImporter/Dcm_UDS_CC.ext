@@ -1,0 +1,69 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp;
+import OdxXhtml;
+import OdxXhtml::DIAGSERVICE;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspComControl;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspComControl::DcmDspComControlAllChannel;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspComControl::DcmDspComControlSetting;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspComControl::DcmDspComControlSpecificChannel;
+import AUTOSAR_ComM::EcucModuleDefs;
+import AUTOSAR_ComM::EcucModuleDefs::ComM;
+import AUTOSAR_ComM::EcucModuleDefs::ComM::ComMChannel;
+extension org::eclipse::xtend::util::stdlib::io;
+extension org::eclipse::xtend::util::stdlib::props;
+extension org::eclipse::xtend::util::stdlib::globalvar;
+extension OdxConstants; extension OdxShortNames;
+createCCService(Dcm dcm,List listService):
+if(listService.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SERVICE_ID()&& e.sHORTNAME==CONST_SID_RQ())!=null)then
+(
+createComControl(dcm,listService)
+)
+;
+
+create DcmDspComControl this createComControl(Dcm dcm,List listService):
+let listParam=(List)listService.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_DATA()&& e.sHORTNAME=="commType"&&/*e.tYPE=="VALUE"*/ VALUE.isInstance(e)):
+setShortName(CC_DCM_DSP_COM_CONTROL())->
+
+if(listParam!=null&&listParam.size>0)then
+(
+DcmDspComControlAllChannels.add(createDcmDspComControlAllChannel())->
+setDcmDspComControlSetting(createDcmDspComControlSetting())//->
+//setDcmDspComControlSpecificChannel(createDcmDspComControlSpecificChannel())
+)
+;
+
+
+create DcmDspComControlAllChannel this createDcmDspComControlAllChannel():
+setDcmDspAllComMChannelRef(createDcmDspAllComMChannelRef())
+;
+
+create DcmDspAllComMChannelRef this createDcmDspAllComMChannelRef():
+//setValue(getGlobalVar("ComMChannel"))
+info("")
+;
+
+create DcmDspComControlSetting this createDcmDspComControlSetting():
+""
+;
+
+
+create DcmDspComControlSpecificChannel this createDcmDspComControlSpecificChannel():
+""
+;

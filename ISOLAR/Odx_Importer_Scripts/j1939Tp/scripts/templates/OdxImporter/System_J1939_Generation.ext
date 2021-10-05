@@ -1,0 +1,744 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+import autosar40;
+import autosar40::genericstructure::generaltemplateclasses::arpackage;
+import autosar40::system::fibex::fibexcore::coretopology;
+import autosar40::system::cantopology;
+import autosar40::system::transportprotocols;
+import autosar40::system::cancommunication;
+import autosar40::primitivetypes;
+import OdxXhtml;
+import OdxXhtml::ECUVARIANT;
+import OdxXhtml::PARAM;
+extension GenerateBsw_Odx_V201;
+extension org::eclipse::xtend::util::stdlib::io;
+extension org::eclipse::xtend::util::stdlib::globalvar;
+extension OdxUtils;
+extension OdxConstants; extension OdxShortNames;
+/************************************************************************************************
+                            Pkg_EcuInstance
+*************************************************************************************************/
+
+create EcuInstance this createJ1939EcuInstance(ECUVARIANT selectedEcuVariant):
+setShortName(getEcuVarShortName(selectedEcuVariant))->
+storeGlobalVar("selectedEcuVariant",selectedEcuVariant)->
+commControllers.add(createCanComController())->
+connectors.add(createCanCommConnector())->
+setTpAddress(createJ1939TpAddresses())->
+setComConfigurationGwTimeBase(0.2)->
+setSleepModeSupported(false)->
+setWakeUpOverBusSupported(false)->
+storeGlobalVar("ecuInstance",this)
+;
+
+
+getEcuVarShortName(ECUVARIANT selectedEcuVariant):
+JAVA  com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getEcuVarShortName(OdxXhtml.ECUVARIANT)
+;
+
+create CanCommunicationController this createCanComController():
+setShortName("CanCommunicationController")->
+CanCommunicationControllerVariants.add(createCanCommunicationControllerConditional(this))->
+storeGlobalVar("canCommController",this)
+;
+
+create CanCommunicationControllerConditional this createCanCommunicationControllerConditional(CanCommunicationController controller):
+setCanControllerAttributes(createCanControllerConfigurationRequirements())
+;
+
+create CanControllerConfigurationRequirements this createCanControllerConfigurationRequirements():
+let maxSamplePt = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),"ISO_11898_2_DWCAN.CP_BitSamplePoint")/1.0:
+let maxSyncWidth = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),"ISO_11898_2_DWCAN.CP_SyncJumpWidth")/1.0:
+let maxNumTimeQuan=getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),"ISO_11898_2_DWCAN.CP_SamplesPerBit")/1.0:
+if(maxSamplePt != -1) then
+(
+setMaxSamplePoint(maxSamplePt)
+)->
+if(maxSyncWidth != -1) then
+(
+setMaxSyncJumpWidth(maxSyncWidth)
+)->
+if(maxNumTimeQuan != -1)then
+(
+MaxNumberOfTimeQuantraPerBit(maxNumTimeQuan)
+)
+;
+
+create CanCommunicationConnector this createCanCommConnector():
+let ecuShortName=getEcuVarShortName(getGlobalVar("selectedEcuVariant")):
+setShortName("CanCommunicationConnector")->
+setCommController(getGlobalVar("canCommController"))->
+ecuCommPortInstances.add(createFramePort("ACK_"+ecuShortName+"_OUT", "out"))->
+
+if(getlistDM1()!=null&&getlistDM1().size>0)then
+(
+ecuCommPortInstances.add(createFramePort("RX_DM1_META_J1939_"+ecuShortName+"_IN", "in"))->
+
+ecuCommPortInstances.add(createFramePort("DM01_"+ecuShortName+"_OUT", "out"))->
+
+ecuCommPortInstances.add(createFramePort("RX_DM1_META_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createFramePort("TX_DM1_META_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_RX_DM1_META_J1939_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_DM01_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_RX_DM1_META_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_TX_DM1_META_"+ecuShortName+"_OUT", "out"))
+
+
+)->
+
+
+if(getlistDM2()!=null&&getlistDM2().size>0)then
+(
+ecuCommPortInstances.add(createFramePort("DM02_"+ecuShortName+"_OUT", "out"))->
+
+ecuCommPortInstances.add(createFramePort("RX_DM2_META_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createFramePort("TX_DM2_META_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_RX_DM2_META_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_DM02_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_TX_DM2_META_"+ecuShortName+"_OUT", "out"))//->
+
+
+)->
+if(getlistDM3()!=null&&getlistDM3().size>0)then
+(
+
+ecuCommPortInstances.add(createFramePort("DM03_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createFramePort("RX_DM03_META_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createFramePort("TX_DM03_META_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_DM03_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_RX_DM03_META_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_TX_DM03_META_"+ecuShortName+"_OUT", "out"))//->
+
+
+)->
+
+if(getlistDM4()!=null&&getlistDM4().size>0)then
+(
+
+ecuCommPortInstances.add(createFramePort("DM04_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createFramePort("RX_DM4_META_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createFramePort("TX_DM4_META_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_DM04_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_RX_DM4_META_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_TX_DM4_META_"+ecuShortName+"_OUT", "out"))//->
+
+
+)->
+if(getlistDM5()!=null&&getlistDM5().size>0)then
+(
+
+ecuCommPortInstances.add(createFramePort("DM05_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createFramePort("RX_DM05_META_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createFramePort("TX_DM05_META_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_DM05_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_RX_DM05_META_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_TX_DM05_META_"+ecuShortName+"_OUT", "out"))//->
+
+
+)->
+if(getlistDM11()!=null&&getlistDM11().size>0)then
+(
+
+ecuCommPortInstances.add(createFramePort("DM11_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createFramePort("RX_DM11_META_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createFramePort("TX_DM11_META_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_DM11_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_RX_DM11_META_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_TX_DM11_META_"+ecuShortName+"_OUT", "out"))//->
+
+
+)->
+
+if(getlistDM31()!=null&&getlistDM31().size>0)then
+(
+
+ecuCommPortInstances.add(createFramePort("DM31_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createFramePort("RX_DM31_META_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createFramePort("TX_DM31_META_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_DM31_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_RX_DM31_META_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_TX_DM31_META_"+ecuShortName+"_OUT", "out"))//->
+
+
+)->
+ecuCommPortInstances.add(createFramePort("RQST_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createFramePort("RX_DM_DIRECT_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createFramePort("TX_DM_DIRECT_META_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createFramePort("TX_DM_DIRECT_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createFramePort("TX_CM_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createFramePort("TX_DT_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createFramePort("RX_CM_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createFramePort("RX_DT_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_ACK_"+ecuShortName+"_OUT","out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_RQST_"+ecuShortName+"_IN","in"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_RX_DM_DIRECT_META_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_RX_DM_DIRECT_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_TX_DM_DIRECT_META_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_TX_DM_DIRECT_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_TX_CM_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_TX_DT_"+ecuShortName+"_OUT", "out"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_RX_CM_"+ecuShortName+"_IN", "in"))->
+ecuCommPortInstances.add(createIpduPort("IpduPort_RX_DT_"+ecuShortName+"_IN", "in"))->
+storeGlobalVar("canComConnector",this)
+;
+
+
+create FramePort this createFramePort(String portName,String direction):
+setShortName(portName)->
+if(direction.matches("in"))then
+(
+setCommunicationDirection(CommunicationDirectionType::in)
+)->
+if(direction.matches("out")) then
+(
+setCommunicationDirection(CommunicationDirectionType::out)
+)->
+storeGlobalVar(portName,this)
+;
+
+
+create IPduPort this createIpduPort(String shortName,String direction):
+setShortName(shortName)->
+if(direction.matches("in")) then
+(
+setCommunicationDirection(CommunicationDirectionType::in)
+)->
+if(direction.matches("out")) then
+(
+setCommunicationDirection(CommunicationDirectionType::out)
+)->
+storeGlobalVar(shortName,this)
+;
+
+/***********************************************************************************************
+                                    Pkg_Cluster
+************************************************************************************************/
+
+create J1939Cluster this createJ1939Cluster(EcuInstance ecu):
+setShortName("J1939Cluster_0")->
+J1939ClusterVariants.add(createJ1939ClusterConditional())->
+storeGlobalVar("J1939Cluster",this)
+;
+
+create J1939ClusterConditional this createJ1939ClusterConditional():
+let baudRate = getPhyDefaultVal(getecuVariant(),getbaseVariant(),getOdxRoot(),getOdxComRoot(),"SAE_J1939_73_on_SAE_J1939_21"):
+if(baudRate != -1) then
+(
+setbaudRate(baudRate,this)
+)->
+
+setProtocolName("J1939")->
+physicalChannels.add(createCanPhysicalChannel())
+;
+
+create CanPhysicalChannel this createCanPhysicalChannel():
+let ecuShortName=getEcuVarShortName(getGlobalVar("selectedEcuVariant")):
+setShortName("Default_CanChannel")->
+commConnectors.add(createCommRefConditional())->
+if(getlistDM1()!=null&&getlistDM1().size>0)then
+(
+pduTriggerings.add(createPduTriggering("PduTrig_RX_DM1_META_J1939","RX_DM1_META_J1939","IpduPort_RX_DM1_META_J1939_"+ecuShortName+"_IN"))->
+pduTriggerings.add(createPduTriggering("PduTrig_DM01","DM01","IpduPort_DM01_"+ecuShortName+"_OUT"))->
+frameTriggerings.add(createJ1939FrameTriggering("RX_DM1_META_J1939_Trgr","Frm_RX_DM1_META_J1939","RX_DM1_META_J1939_"+ecuShortName+"_IN","PduTrig_RX_DM1_META_J1939",0))->
+frameTriggerings.add(createJ1939FrameTriggering("DM01_Trgr","Frm_DM01","DM01_"+ecuShortName+"_OUT","PduTrig_DM01",createCANIDs(getlistDM1())))->
+""
+)->
+
+if(getlistDM2()!=null&&getlistDM2().size>0)then
+(
+pduTriggerings.add(createPduTriggering("PduTrig_DM02","DM02","IpduPort_DM02_"+ecuShortName+"_OUT"))->
+frameTriggerings.add(createJ1939FrameTriggering("DM02_Trgr","Frm_DM02","DM02_"+ecuShortName+"_OUT","PduTrig_DM02",createCANIDs(getlistDM2())))->
+""
+)->
+
+if(getlistDM3()!=null&&getlistDM3().size>0)then
+(
+pduTriggerings.add(createPduTriggering("PduTrig_DM03","DM03","IpduPort_DM03_"+ecuShortName+"_OUT"))->
+frameTriggerings.add(createJ1939FrameTriggering("DM03_Trgr","Frm_DM03","DM03_"+ecuShortName+"_OUT","PduTrig_DM03",createCANIDs(getlistDM3())))->
+""
+)->
+
+if(getlistDM4()!=null&&getlistDM4().size>0)then
+(
+pduTriggerings.add(createPduTriggering("PduTrig_DM04","DM04","IpduPort_DM04_"+ecuShortName+"_OUT"))->
+frameTriggerings.add(createJ1939FrameTriggering("DM04_Trgr","Frm_DM04","DM04_"+ecuShortName+"_OUT","PduTrig_DM04",createCANIDs(getlistDM4())))->
+""
+
+)->
+
+if(getlistDM5()!=null&&getlistDM5().size>0)then
+(
+pduTriggerings.add(createPduTriggering("PduTrig_DM05","DM05","IpduPort_DM05_"+ecuShortName+"_OUT"))->
+
+frameTriggerings.add(createJ1939FrameTriggering("DM05_Trgr","Frm_DM05","DM05_"+ecuShortName+"_OUT","PduTrig_DM05",createCANIDs(getlistDM5())))->
+""
+)->
+
+if(getlistDM11()!=null&&getlistDM11().size>0)then
+(
+pduTriggerings.add(createPduTriggering("PduTrig_DM11","DM11","IpduPort_DM11_"+ecuShortName+"_OUT"))->
+
+frameTriggerings.add(createJ1939FrameTriggering("DM11_Trgr","Frm_DM11","DM11_"+ecuShortName+"_OUT","PduTrig_DM11",createCANIDs(getlistDM11())))->
+""
+)->
+if(getlistDM31()!=null&&getlistDM31().size>0)then
+(
+pduTriggerings.add(createPduTriggering("PduTrig_DM31","DM31","IpduPort_DM31_"+ecuShortName+"_OUT"))->
+
+frameTriggerings.add(createJ1939FrameTriggering("DM31_Trgr","Frm_DM31","DM31_"+ecuShortName+"_OUT","PduTrig_DM31",createCANIDs(getlistDM31())))->
+""
+)->
+
+
+
+pduTriggerings.add(createPduTriggering("PduTrig_ACK","ACK","IpduPort_ACK_"+ecuShortName+"_OUT"))->
+pduTriggerings.add(createPduTriggering("PduTrig_RQST","RQST_","IpduPort_RQST_"+ecuShortName+"_IN"))->
+pduTriggerings.add(createPduTriggering("PduTrig_RX_DM_DIRECT","RX_DM_DIRECT","IpduPort_RX_DM_DIRECT_"+ecuShortName+"_IN"))->
+pduTriggerings.add(createPduTriggering("PduTrig_TX_DM_DIRECT","TX_DM_DIRECT","IpduPort_TX_DM_DIRECT_"+ecuShortName+"_OUT"))->
+pduTriggerings.add(createPduTriggering("PduTrig_TX_CM","TX_CM","IpduPort_TX_CM_"+ecuShortName+"_OUT"))->
+pduTriggerings.add(createPduTriggering("PduTrig_TX_DT","TX_DT","IpduPort_TX_DT_"+ecuShortName+"_OUT"))->
+pduTriggerings.add(createPduTriggering("PduTrig_RX_CM","RX_CM","IpduPort_RX_CM_"+ecuShortName+"_IN"))->
+pduTriggerings.add(createPduTriggering("PduTrig_RX_DT","RX_DT","IpduPort_RX_DT_"+ecuShortName+"_IN"))->
+frameTriggerings.add(createJ1939FrameTriggering("ACK_Trgr","Frm_ACK","ACK_"+ecuShortName+"_OUT","PduTrig_ACK",getCanIdAckAndRqst(59392)))->
+frameTriggerings.add(createJ1939FrameTriggering("RQST_Trgr","Frm_RQST","RQST_"+ecuShortName+"_IN","PduTrig_RQST",getCanIdAckAndRqst(59904)))->
+frameTriggerings.add(createJ1939FrameTriggering("RX_DM_DIRECT_Trgr","Frm_RX_DM_DIRECT","RX_DM_DIRECT_"+ecuShortName+"_IN","PduTrig_RX_DM_DIRECT",0))->
+frameTriggerings.add(createJ1939FrameTriggering("TX_DM_DIRECT_Trgr","Frm_TX_DM_DIRECT","TX_DM_DIRECT_"+ecuShortName+"_OUT","PduTrig_TX_DM_DIRECT",0))->
+frameTriggerings.add(createJ1939FrameTriggering("TX_CM_Trgr","Frm_TX_CM","TX_CM_"+ecuShortName+"_OUT","PduTrig_TX_CM",0))->
+frameTriggerings.add(createJ1939FrameTriggering("TX_DT_Trgr","Frm_TX_DT","TX_DT_"+ecuShortName+"_OUT","PduTrig_TX_DT",0))->
+frameTriggerings.add(createJ1939FrameTriggering("RX_CM_Trgr","Frm_RX_CM","RX_CM_"+ecuShortName+"_IN","PduTrig_RX_CM",0))->
+frameTriggerings.add(createJ1939FrameTriggering("RX_DT_Trgr","Frm_RX_DT","RX_DT_"+ecuShortName+"_IN","PduTrig_RX_DT",0))->
+""
+;
+
+create CommunicationConnectorRefConditional createCommRefConditional():
+setCommunicationConnector(getGlobalVar("canComConnector"))
+;
+
+create CanFrameTriggering this createJ1939FrameTriggering(String shortName, String frame, String framePort,String pduTrigger,Integer identifier):
+setShortName(shortName)->
+setCanAddressingMode(CanAddressingModeType::extended)->
+setIdentifier(getIntValue(identifier))->
+setFrame(getGlobalVar(frame))->
+framePorts.add(getGlobalVar(framePort))->
+pduTriggerings.add(createPduRefCondn(this,pduTrigger))
+;
+
+create PduTriggeringRefConditional this createPduRefCondn(CanFrameTriggering canFrameTriggering,String pduTrigger):
+setPduTriggering(getGlobalVar(pduTrigger))->
+canFrameTriggering.pduTriggerings.add(this)
+;
+
+create PduTriggering this createPduTriggering(String shortName, String ipdu, String ipduPort):
+setShortName(shortName)->
+setIPdu(getGlobalVar(ipdu))->
+iPduPorts.add(getGlobalVar(ipduPort))->
+storeGlobalVar(shortName,this)
+;
+
+create J1939TpConfig  this createJ1939TpConfig(EcuInstance ecu):
+let selectedCluster=getGlobalVar("J1939Cluster"):
+let commConnRefCond=(List)((J1939Cluster)selectedCluster).J1939ClusterVariants.get(0).physicalChannels.get(0).commConnectors:
+//setShortName("J1939TPConfig")->
+setShortName(validateShortName("J1939TPConfig_"+ecu.shortName+"_"+commConnRefCond.get(0).communicationConnector.shortName))->
+setCommunicationCluster(selectedCluster)->
+setTpConnections(createTpConnections())
+;
+
+
+
+
+
+List createJ1939TpNodes():
+let list = {}:
+list.add(createJ1939TpNode("TX_CDMT_NODE_SA","TX_CDMT_SA"))->
+list.add(createJ1939TpNode("TX_CDMT_NODE_DA","TX_CDMT_DA"))->
+list
+;
+
+
+create J1939TpNode this createJ1939TpNode(String shortName,String j1939TpAddrRef):
+
+setShortName(shortName)->
+setConnector(getGlobalVar("canComConnector"))->
+setTpAddress(getGlobalVar(j1939TpAddrRef))->
+storeGlobalVar(shortName,this)
+;
+
+
+List J1939TpAddressList():
+let list={}:
+list.add(getGlobalVar("TX_CDMT_SA"))->
+list.add(getGlobalVar("TX_CDMT_DA"))->
+
+list
+;
+
+
+List createJ1939TpAddresses():
+let list= {}:
+list.add(createJ1939TpAddress("TX_CDMT_SA",244))->
+list.add(createJ1939TpAddress("TX_CDMT_DA",255))->
+list
+;
+
+create TpAddress this createJ1939TpAddress(String shortName,Integer tpAddr):
+setShortName(shortName)->
+setTpAddress(getIntValue(tpAddr))->
+storeGlobalVar(shortName,this)
+;
+
+
+
+create J1939TPChannel this createJ1939TPChannel():
+setShortName("J1939TPChannel")->
+setTpConnections(createTpConnections())->
+//setchannelId(0,this)->
+setchannelId(getLongValue(0))->
+setChannelMode(J1939TPChannelModeType::fullDuplexMode)->
+storeGlobalVar("J1939TPChannel",this)
+;
+
+
+
+
+
+List createTpConnections():
+let list= {}:
+list.add(createJ1939TPConnection("J1939TpConnection_Tx_META", 		"TX_DT","TX_DM_DIRECT",		"RX_CM",false,"TX_DM_DIRECT","TX_DM_DIRECT","TX_DM_DIRECT","DM01","DM02","DM04"))->
+
+list.add(createJ1939TPConnection("J1939TpConnection_Rx_META", 		"RX_DT","TX_DM_DIRECT",		"TX_CM",false,"RX_DM_DIRECT","RX_DM_DIRECT","RX_DM_DIRECT","RX_DM1_META_J1939","DM02","DM04"))->
+list
+;
+
+create J1939TpConnection this createJ1939TPConnection(String shortName, String dataPdu,String directPdu,String flowControlPdu,boolean broadcast,String tpDirectPduDm1,String tpDirectPduDm2,String tpDirectPduDm4,String tpSduDm1,String tpSduDm2,String tpSduDm4):
+
+setDataPdu(getGlobalVar(dataPdu))->
+setBroadcast(broadcast)->
+if(flowControlPdu!="")then
+(
+flowControlPdus.add(getGlobalVar(flowControlPdu))
+)->
+if(!shortName.matches("J1939TpConnection_Rx_META")) then(
+if(getlistDM1()!=null&&getlistDM1().size>0)then
+(
+tpPgs.add(createJ1939TpPg(this,65226,tpDirectPduDm1,tpSduDm1))
+)->
+if(getlistDM2()!=null&&getlistDM2().size>0)then
+(
+tpPgs.add(createJ1939TpPg(this,65227,tpDirectPduDm2,tpSduDm2))
+)->
+if(getlistDM3()!=null&&getlistDM3().size>0)then
+(
+tpPgs.add(createJ1939TpPg(this,65228,"TX_DM_DIRECT","DM03"))
+)->
+if(getlistDM4()!=null&&getlistDM4().size>0)then
+(
+tpPgs.add(createJ1939TpPg(this,65229,tpDirectPduDm4,tpSduDm4))
+)->
+if(getlistDM5()!=null&&getlistDM5().size>0)then
+(
+tpPgs.add(createJ1939TpPg(this,65230,"TX_DM_DIRECT","DM05"))
+)->
+if(getlistDM11()!=null&&getlistDM11().size>0)then
+(
+tpPgs.add(createJ1939TpPg(this,65235,"TX_DM_DIRECT","DM11"))
+)->
+if(getlistDM31()!=null&&getlistDM31().size>0)then
+(
+tpPgs.add(createJ1939TpPg(this,41728,"TX_DM_DIRECT","DM31"))
+)
+
+)else
+(
+tpPgs.add(createJ1939TpPg(this,1000,tpDirectPduDm1,tpSduDm1))
+)
+;
+
+List getReceiverList(String receiver):
+let list = {}:
+list.add(getGlobalVar(receiver))->
+list
+;
+
+create J1939TpPg this createJ1939TpPg(J1939TpConnection tpConnection,Integer pgn,String nPdu, String iSignalIpdu):
+setPgn(getIntValue(pgn))->
+setDirectPdu(getGlobalVar(nPdu))->
+setTpSdu(getGlobalVar(iSignalIpdu))->
+tpConnection.tpPgs.add(this)
+
+;
+
+/***********************************************************************************************
+                                    Pkg_Pdu
+************************************************************************************************/
+
+List createIPdus(EcuInstance ecu):
+let list={}:
+//list.add(createIPdu("ACK"))->
+//list.add(createIPdu("RQST_"))->
+list
+;
+
+
+
+create ISignalIPdu this createIPdu(String shortName):
+setShortName(shortName)->
+setLength(getIntValue(8))->
+storeGlobalVar(shortName,this)
+;
+
+
+List createJ1939DcmIPdus(EcuInstance ecu):
+let list ={}:
+if(getlistDM1()!=null&&getlistDM1().size>0)then(
+list.add(createJ1939DcmIPdu("RX_DM1_META_J1939"))->
+list.add(createJ1939DcmIPdu("DM01"))->
+""
+
+)->
+if(getlistDM2()!=null&&getlistDM2().size>0)then(
+list.add(createJ1939DcmIPdu("DM02"))->
+""
+
+)->
+
+if(getlistDM3()!=null&&getlistDM3().size>0)then(
+list.add(createJ1939DcmIPdu("DM03"))->
+""
+
+)->
+if(getlistDM4()!=null&&getlistDM4().size>0)then(
+list.add(createJ1939DcmIPdu("DM04"))->
+""
+)->
+
+if(getlistDM5()!=null&&getlistDM5().size>0)then(
+list.add(createJ1939DcmIPdu("DM05"))->
+""
+
+)->
+if(getlistDM11()!=null&&getlistDM11().size>0)then(
+list.add(createJ1939DcmIPdu("DM11"))->
+""
+)->
+if(getlistDM31()!=null&&getlistDM31().size>0)then(
+list.add(createJ1939DcmIPdu("DM31"))->
+""
+)->
+list
+;
+
+
+create J1939DcmIPdu this createJ1939DcmIPdu(String shortName):
+setShortName(shortName)->
+setLength(getIntValue(8))->
+setmetaDataLength(getIntValue(4),this)->
+storeGlobalVar(shortName,this)
+;
+List createNpdus(EcuInstance ecu):
+let list ={}:
+if(getlistDM1()!=null&&getlistDM1().size>0)then(
+""
+)->
+
+
+if(getlistDM2()!=null&&getlistDM2().size>0)then(
+""
+)->
+
+if(getlistDM4()!=null&&getlistDM4().size>0)then(
+""
+)->
+
+list.add(createNpdu("RX_DM_DIRECT"))->
+list.add(createNpdu("TX_DM_DIRECT"))->
+list.add(createNpdu("TX_CM"))->
+list.add(createNpdu("TX_DT"))->
+list.add(createNpdu("RX_CM"))->
+list.add(createNpdu("RX_DT"))->
+list.add(createNpdu("ACK"))->
+list.add(createNpdu("RQST_"))->
+
+list
+;
+
+create NPdu this createNpdu(String shortName):
+setShortName(shortName)->
+setLength(getIntValue(8))->
+setmetaDataLength(getIntValue(4),this)->
+storeGlobalVar(shortName,this)
+;
+
+/**********************************************************************************************************************
+											Pkg_Frame
+***********************************************************************************************************************/
+List createJ1939Frames(EcuInstance ecu):
+let list = {}:
+
+if(getlistDM1()!=null&&getlistDM1().size>0)then(
+list.add(createJ1939Frame("Frm_RX_DM1_META_J1939"))->
+list.add(createJ1939Frame("Frm_DM01"))->
+""
+)->
+
+if(getlistDM2()!=null&&getlistDM2().size>0)then(
+list.add(createJ1939Frame("Frm_DM02"))
+
+)->
+
+if(getlistDM3()!=null&&getlistDM3().size>0)then(
+list.add(createJ1939Frame("Frm_DM03"))//->
+
+)->
+
+if(getlistDM4()!=null&&getlistDM4().size>0)then(
+list.add(createJ1939Frame("Frm_DM04"))//->
+)->
+
+if(getlistDM5()!=null&&getlistDM5().size>0)then(
+list.add(createJ1939Frame("Frm_DM05"))//->
+
+)->
+if(getlistDM11()!=null&&getlistDM11().size>0)then(
+list.add(createJ1939Frame("Frm_DM11"))//->
+
+)->
+if(getlistDM31()!=null&&getlistDM31().size>0)then(
+list.add(createJ1939Frame("Frm_DM31"))//->
+
+)->
+list.add(createJ1939Frame("Frm_ACK"))->
+list.add(createJ1939Frame("Frm_RQST"))->
+list.add(createJ1939Frame("Frm_TX_DM_DIRECT"))->
+list.add(createJ1939Frame("Frm_RX_DM_DIRECT"))->
+list.add(createJ1939Frame("Frm_TX_CM"))->
+list.add(createJ1939Frame("Frm_TX_DT"))->
+list.add(createJ1939Frame("Frm_RX_CM"))->
+list.add(createJ1939Frame("Frm_RX_DT"))->
+list
+;
+
+create CanFrame this createJ1939Frame(String shortName):
+setShortName(shortName)->
+setFrameLength(getIntValue(8))->
+if(shortName.matches("Frm_RQST")) then
+(
+pduToFrameMappings.add(createPduToFrameMapping("RQST_"))
+
+)->
+if(!shortName.matches("Frm_RQST")) then
+(
+pduToFrameMappings.add(createPduToFrameMapping(shortName.replaceAll("Frm_","")))
+)->
+//ends
+storeGlobalVar(shortName,this)
+;
+create PduToFrameMapping this createPduToFrameMapping(String pdu):
+setShortName("PduToFrameMapping")->
+setPackingByteOrder(ByteOrderEnum::mostSignificantByteLast)->
+setStartPosition(getIntValue(0))->
+setPdu(getGlobalVar(pdu))
+;
+
+getParamShortName(PARAM param):
+JAVA  com.bosch.autosartool.importer.odx.mapper.v201.util.OdxMapperUtil.getParamShortName(OdxXhtml.PARAM)
+;
+
+cached getPhyDefaultVal(ECUVARIANT ecuVariant,BASEVARIANT baseVariant,ODX odxRoot, ODX commOdxRoot, String id):
+let listOfBVComparam=(COMPARAMREF)baseVariant.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==id):
+let listOfEVcomparam=(COMPARAMREF)ecuVariant.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==id):
+let listProtocolComparam=odxRoot.dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==id):
+let listCommComparam=(COMPARAM)commOdxRoot.cOMPARAMSPEC.cOMPARAMS.cOMPARAM.select(e|e.iD==id):
+let baseVarmax=getMaxValue(listOfBVComparam):
+let ecuVarMax=getMaxValue(listOfEVcomparam):  // added for ecu
+let protocolMax=getMaxValue(listProtocolComparam):
+
+if(ecuVarMax!=-1)then
+(
+ecuVarMax
+
+)else
+if(baseVarmax!=-1)then
+(
+baseVarmax
+)
+else
+if(protocolMax!=-1)then
+(
+protocolMax
+)
+
+else if(listCommComparam.size>0)then
+(
+getComParamValue(listCommComparam)
+)
+else(
+-1
+)
+;
+
+cached getAddrVal(ECUVARIANT ecuVariant,BASEVARIANT baseVariant,ODX odxRoot, ODX commOdxRoot, String id):
+let listOfBVComparam=(COMPARAMREF)baseVariant.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==id):
+let listOfEVcomparam=(COMPARAMREF)ecuVariant.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==id):
+let listProtocolComparam=odxRoot.dIAGLAYERCONTAINER.pROTOCOLS.pROTOCOL.cOMPARAMREFS.cOMPARAMREF.select(e|e.iDREF==id):
+let listCommComparam=(COMPARAM)commOdxRoot.cOMPARAMSPEC.cOMPARAMS.cOMPARAM.select(e|e.iD==id):
+let baseVarmax=getMaxValue(listOfBVComparam):
+let ecuVarMax=getMaxValue(listOfEVcomparam):  // added for ecu
+let protocolMax=getMaxValue(listProtocolComparam):
+
+if(ecuVarMax!=-1)then
+(
+ecuVarMax
+
+)else
+if(baseVarmax!=-1)then
+(
+baseVarmax
+)
+else
+if(protocolMax!=-1)then
+(
+protocolMax
+)
+
+else if(listCommComparam.size>0)then
+(
+getComParamValue(listCommComparam)
+)
+else(
+-1
+)
+;
+
+
+getInteger(String value):
+JAVA  com.bosch.autosartool.importer.odx.mapper.v201.util.MapperUtil.getInteger(java.lang.String)
+;
+
+getComParamValue(List[COMPARAM]comparam):
+JAVA  com.bosch.autosartool.importer.odx.mapper.v201.util.MapperUtil.getCommParamValue(java.util.List)
+;
+
+getMaxValue(List[COMPARAMREF] param):
+JAVA  com.bosch.autosartool.importer.odx.mapper.v201.util.MapperUtil.getMaxOfList(java.util.List)
+;
+setmetaDataLength(Integer value,Pdu pdu):
+JAVA  com.bosch.autosartool.importer.odx.mapper.v201.util.MapperUtil.setMetaDataLength(java.lang.Integer,autosar40.system.fibex.fibexcore.corecommunication.Pdu)
+;
+
+setchannelId(Integer value,J1939TpChannel J1939TpChannel):
+JAVA  com.bosch.autosartool.importer.odx.mapper.v201.util.MapperUtil.setchannelId(java.lang.Integer, autosar40.system.transportprotocols.J1939TpChannel)
+;

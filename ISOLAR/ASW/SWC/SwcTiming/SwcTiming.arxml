@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-2-2.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>Timing_Components</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE>
+          <SHORT-NAME>SwcTiming</SHORT-NAME>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="844ee2f6-5587-4714-a751-8fbe978e111d">
+              <SHORT-NAME>IB_SwcTiming</SHORT-NAME>
+              <EVENTS>
+                <TIMING-EVENT UUID="ef2da5a4-4905-4f7e-b884-1fd115904613">
+                  <SHORT-NAME>TimingEvent_100ms</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/Timing_Components/SwcTiming/IB_SwcTiming/RE_Timing_Analysis_100ms_Processing</START-ON-EVENT-REF>
+                  <PERIOD>0.1</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="a322126f-2c2c-46eb-b8f1-6cbe95324668">
+                  <SHORT-NAME>TimingEvent_0</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/Timing_Components/SwcTiming/IB_SwcTiming/Re_SBC</START-ON-EVENT-REF>
+                  <PERIOD>0.025</PERIOD>
+                </TIMING-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="e1060653-8739-4cd3-93e8-624eea85ab14">
+                  <SHORT-NAME>RE_Timing_Analysis_100ms_Processing</SHORT-NAME>
+                  <SYMBOL>RE_Timing_Analysis_100ms_Processing_func</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="b89c2ba6-30c5-4452-a283-cdd282413c9f">
+                  <SHORT-NAME>Re_SBC</SHORT-NAME>
+                  <SYMBOL>Safety_Device_Process</SYMBOL>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-3-0.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>CAN_System</SHORT-NAME>
+      <ELEMENTS>
+        <SENDER-RECEIVER-INTERFACE>
+          <SHORT-NAME>Uint16</SHORT-NAME>
+          <IS-SERVICE>false</IS-SERVICE>
+          <DATA-ELEMENTS>
+            <VARIABLE-DATA-PROTOTYPE>
+              <SHORT-NAME>Uint16</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint16</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+        </SENDER-RECEIVER-INTERFACE>
+      </ELEMENTS>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>Pkg_Ecu</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="bd320108-74ef-4d8a-b1c0-0369fcb22b17">
+              <SHORT-NAME>TestComponent</SHORT-NAME>
+              <ELEMENTS>
+                <APPLICATION-SW-COMPONENT-TYPE UUID="3da6f1fc-4eb6-41fd-8e95-0820f1fd8aa2">
+                  <SHORT-NAME>CAN_Signals</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="Master">
+                        <SD>true</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <PORTS>
+                    <R-PORT-PROTOTYPE UUID="6e9978d6-4243-4923-8972-9151f7ccab28">
+                      <SHORT-NAME>VeLLSR_t_UpTime</SHORT-NAME>
+                      <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/RTCR/VeLLSR_t_UpTime</REQUIRED-INTERFACE-TREF>
+                    </R-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="94a28f2b-b0c7-4fbd-b0bb-21c948c74494">
+                      <SHORT-NAME>VeCANR_k_CALVer</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/CAN_System/Pkg_Ecu/Interfaces/ETAS_SenderReceiverInterface_uint8</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="a4becbc2-d433-4e62-8d96-3ea62c0c4028">
+                      <SHORT-NAME>VeCANR_k_SWVer</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/CAN_System/Pkg_Ecu/Interfaces/ETAS_SenderReceiverInterface_uint8</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="304b460c-d825-47e1-bfde-47d422210382">
+                      <SHORT-NAME>PPort_BATT_HEAT_PTC_POW</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/CAN_System/Pkg_Ecu/Interfaces/ETAS_SenderReceiverInterface_uint16</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <R-PORT-PROTOTYPE UUID="ffee55af-0e81-4fa5-b486-1123a8f741cf">
+                      <SHORT-NAME>RPort_VCU_CrashOutputSts</SHORT-NAME>
+                      <REQUIRED-COM-SPECS>
+                        <NONQUEUED-RECEIVER-COM-SPEC>
+                          <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean/boolean</DATA-ELEMENT-REF>
+                          <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                        </NONQUEUED-RECEIVER-COM-SPEC>
+                      </REQUIRED-COM-SPECS>
+                      <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean</REQUIRED-INTERFACE-TREF>
+                    </R-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="9a683ad2-ed7e-4823-9d98-2784506bb567">
+                      <SHORT-NAME>PPort_IntEEP_Invalid</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="445d5d2a-4027-46e8-9c1a-585bc3830ddb">
+                      <SHORT-NAME>PPort_ExtEEP_Invalid</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="245ebbdb-e268-4cb2-a168-ecc735554caf">
+                      <SHORT-NAME>PPort_KL30Loss</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="8f862575-33e7-48a1-9861-d47df85112c8">
+                      <SHORT-NAME>PPort_Abnormal_Shutdown</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="15198518-aa8b-4fb4-93e6-e4defbf79fa0">
+                      <SHORT-NAME>PPort_SOCR_EEP_Only</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="4b49245f-1fcf-4218-b161-cc96b43ef3e0">
+                      <SHORT-NAME>PPort_SOCR_Ocv_Only</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="c3cecce4-4db2-4b04-8811-59b8bf5856c8">
+                      <SHORT-NAME>PPort_SOCR_Comb</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="560405ca-ad3f-42fe-ae8a-5462e187bd05">
+                      <SHORT-NAME>PPort_IntEEP_ReadFailCntr</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/CAN_System/Pkg_Ecu/Interfaces/ETAS_SenderReceiverInterface_uint8</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="eca8137f-7a35-463e-891d-34f627f6d906">
+                      <SHORT-NAME>PPort_IntEEP_WriteFailCntr</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/CAN_System/Pkg_Ecu/Interfaces/ETAS_SenderReceiverInterface_uint8</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="732d889d-c214-4eed-b544-861949cc617b">
+                      <SHORT-NAME>PPort_ExtEEP_FailCntr</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/CAN_System/Pkg_Ecu/Interfaces/ETAS_SenderReceiverInterface_uint8</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                  </PORTS>
+                  <INTERNAL-BEHAVIORS>
+                    <SWC-INTERNAL-BEHAVIOR UUID="678e7f0b-f23e-4c56-b504-e723bd02d217">
+                      <SHORT-NAME>IB_Test</SHORT-NAME>
+                      <DATA-TYPE-MAPPING-REFS>
+                        <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/CSCR_Code_pkg/CSCR_Code_dt/DataTypeMappings/CSCR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                        <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/VSDR_Code_pkg/VSDR_Code_dt/DataTypeMappings/VSDR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                        <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/THMR_Code_pkg/THMR_Code_dt/DataTypeMappings/THMR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                        <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/ISLR_Code_pkg/ISLR_Code_dt/DataTypeMappings/ISLR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                        <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/HVIR_Code_pkg/HVIR_Code_dt/DataTypeMappings/HVIR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                        <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/CPLR_Code_pkg/CPLR_Code_dt/DataTypeMappings/CPLR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                        <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/CFLR_Code_pkg/CFLR_Code_dt/DataTypeMappings/CFLR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                        <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/DHSR_Code_pkg/DHSR_Code_dt/DataTypeMappings/DHSR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                        <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/SOCR_Code_pkg/SOCR_Code_dt/DataTypeMappings/SOCR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                        <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/SOPR_Code_pkg/SOPR_Code_dt/DataTypeMappings/SOPR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                        <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/CHMR_Code_pkg/CHMR_Code_dt/DataTypeMappings/CHMR_CodeDataTypeMappingsSet</DATA-TYPE-MAPPING-REF>
+                      </DATA-TYPE-MAPPING-REFS>
+                      <EVENTS>
+                        <TIMING-EVENT UUID="a24ad90e-0af2-4f6b-8291-4beb70f9eee8">
+                          <SHORT-NAME>TE_CAN_1000ms</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/IB_Test/RE_CAN_Signals_1000ms</START-ON-EVENT-REF>
+                          <PERIOD>1.0</PERIOD>
+                        </TIMING-EVENT>
+                        <TIMING-EVENT UUID="6110ad93-77e5-4aa0-81e9-3d9b25ec665d">
+                          <SHORT-NAME>TE_CAN_10ms</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/IB_Test/RE_CAN_Signals_10ms</START-ON-EVENT-REF>
+                          <PERIOD>0.01</PERIOD>
+                        </TIMING-EVENT>
+                        <TIMING-EVENT UUID="e6541825-7f81-40ee-ad72-0b4bf9f302cd">
+                          <SHORT-NAME>TE_CAN_500ms</SHORT-NAME>
+                          <PERIOD>0.5</PERIOD>
+                        </TIMING-EVENT>
+                        <TIMING-EVENT>
+                          <SHORT-NAME>TE_CAN_100ms</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/IB_Test/RE_CAN_Signals_100ms</START-ON-EVENT-REF>
+                          <PERIOD>0.1</PERIOD>
+                        </TIMING-EVENT>
+                      </EVENTS>
+                      <PER-INSTANCE-MEMORYS>
+                        <PER-INSTANCE-MEMORY>
+                          <SHORT-NAME>NvRamMirror</SHORT-NAME>
+                          <SW-DATA-DEF-PROPS>
+                            <SW-DATA-DEF-PROPS-VARIANTS>
+                              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint32</IMPLEMENTATION-DATA-TYPE-REF>
+                              </SW-DATA-DEF-PROPS-CONDITIONAL>
+                            </SW-DATA-DEF-PROPS-VARIANTS>
+                          </SW-DATA-DEF-PROPS>
+                          <TYPE>NvRamMirrorType</TYPE>
+                          <TYPE-DEFINITION>uint32</TYPE-DEFINITION>
+                        </PER-INSTANCE-MEMORY>
+                      </PER-INSTANCE-MEMORYS>
+                      <RUNNABLES>
+                        <RUNNABLE-ENTITY UUID="35213ca3-70ec-44ab-9789-8b5f890346f3">
+                          <SHORT-NAME>RE_CAN_Signals_1000ms</SHORT-NAME>
+                          <DATA-RECEIVE-POINT-BY-VALUES>
+                            <VARIABLE-ACCESS UUID="6820d062-f55a-4f3c-b827-9b813eb94602">
+                              <SHORT-NAME>DRPV_VeLLSR_t_UpTime_0</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/VeLLSR_t_UpTime</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/RTCR/VeLLSR_t_UpTime/VeLLSR_t_UpTime</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                          </DATA-RECEIVE-POINT-BY-VALUES>
+                          <DATA-SEND-POINTS>
+                            <VARIABLE-ACCESS UUID="cc8a2430-8aa3-4000-9544-ede3c777ff0e">
+                              <SHORT-NAME>DSP_uint8_0</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/VeCANR_k_CALVer</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/CAN_System/Pkg_Ecu/Interfaces/ETAS_SenderReceiverInterface_uint8/uint8</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                            <VARIABLE-ACCESS UUID="5489b2da-b0e0-4bab-ac64-f71d8e2df32d">
+                              <SHORT-NAME>DSP_uint8_1</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/VeCANR_k_SWVer</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/CAN_System/Pkg_Ecu/Interfaces/ETAS_SenderReceiverInterface_uint8/uint8</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                            <VARIABLE-ACCESS UUID="63488a67-60e4-4e5f-9d21-4d18959246be">
+                              <SHORT-NAME>DSP_uint16_0</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/PPort_BATT_HEAT_PTC_POW</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/CAN_System/Pkg_Ecu/Interfaces/ETAS_SenderReceiverInterface_uint16/uint16</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                          </DATA-SEND-POINTS>
+                          <PARAMETER-ACCESSS>
+                            <PARAMETER-ACCESS>
+                              <SHORT-NAME>PAP_Ke_WinterTestingDbcFeatures</SHORT-NAME>
+                              <ACCESSED-PARAMETER>
+                                <LOCAL-PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/IB_Test/Ke_WinterTestingDbcFatures</LOCAL-PARAMETER-REF>
+                              </ACCESSED-PARAMETER>
+                            </PARAMETER-ACCESS>
+                          </PARAMETER-ACCESSS>
+                          <SYMBOL>RE_CAN_Signals_1000msfunc</SYMBOL>
+                        </RUNNABLE-ENTITY>
+                        <RUNNABLE-ENTITY UUID="ec4b8e4a-0461-454e-96e0-da3f905097a9">
+                          <SHORT-NAME>RE_CAN_Signals_10ms</SHORT-NAME>
+                          <DATA-RECEIVE-POINT-BY-VALUES>
+                            <VARIABLE-ACCESS UUID="3e30c4c4-e9dd-4a21-a813-9ce322a4d0eb">
+                              <SHORT-NAME>DRPV_boolean_0</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/RPort_VCU_CrashOutputSts</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean/boolean</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                          </DATA-RECEIVE-POINT-BY-VALUES>
+                          <DATA-WRITE-ACCESSS>
+                            <VARIABLE-ACCESS UUID="1f17415b-d74c-4411-9e53-c0edbfca0676">
+                              <SHORT-NAME>DWA_boolean_0</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/PPort_SOCR_Comb</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean/boolean</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                            <VARIABLE-ACCESS UUID="299c183f-a2f8-4417-81ca-6fffceeec5e3">
+                              <SHORT-NAME>DWA_boolean_1</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/PPort_SOCR_EEP_Only</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean/boolean</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                            <VARIABLE-ACCESS UUID="0bd9da5a-1a9e-4e39-af59-6b0831255ad3">
+                              <SHORT-NAME>DWA_boolean_2</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/PPort_Abnormal_Shutdown</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean/boolean</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                            <VARIABLE-ACCESS UUID="1f2a6f2f-bc7a-44ef-a1b5-b20b5406d46f">
+                              <SHORT-NAME>DWA_boolean_3</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/PPort_KL30Loss</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean/boolean</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                            <VARIABLE-ACCESS UUID="7a3565be-8c16-4589-8035-9dc93a5b3de2">
+                              <SHORT-NAME>DWA_uint8_0</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/PPort_IntEEP_ReadFailCntr</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/CAN_System/Pkg_Ecu/Interfaces/ETAS_SenderReceiverInterface_uint8/uint8</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                            <VARIABLE-ACCESS UUID="5a08761e-6428-4013-87e8-7f8a210d1b7e">
+                              <SHORT-NAME>DWA_uint8_4</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/PPort_IntEEP_WriteFailCntr</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/CAN_System/Pkg_Ecu/Interfaces/ETAS_SenderReceiverInterface_uint8/uint8</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                            <VARIABLE-ACCESS UUID="105c773c-7ae5-4387-aedd-4653f142d021">
+                              <SHORT-NAME>DWA_boolean_4</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/PPort_IntEEP_Invalid</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean/boolean</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                            <VARIABLE-ACCESS UUID="cb1415fa-4e00-4702-b484-92a71c4c63af">
+                              <SHORT-NAME>DWA_boolean_5</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/PPort_SOCR_Ocv_Only</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean/boolean</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                            <VARIABLE-ACCESS UUID="0b10d896-eab9-4509-82b9-81515d7f1010">
+                              <SHORT-NAME>DWA_uint8_5</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/PPort_ExtEEP_FailCntr</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/CAN_System/Pkg_Ecu/Interfaces/ETAS_SenderReceiverInterface_uint8/uint8</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                            <VARIABLE-ACCESS UUID="6a66f113-8df3-4000-8810-c6f5ec49efe6">
+                              <SHORT-NAME>DWA_boolean_6</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/CAN_Signals/PPort_ExtEEP_Invalid</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/CAN_System/Pkg_Ecu/TestComponent/ETAS_SenderReceiverInterface_boolean/boolean</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                          </DATA-WRITE-ACCESSS>
+                          <SYMBOL>RE_CAN_Signals_10ms</SYMBOL>
+                        </RUNNABLE-ENTITY>
+                        <RUNNABLE-ENTITY UUID="09d2066d-b6d4-4b20-894d-00623048224f">
+                          <SHORT-NAME>RE_CAN_Signals_100ms</SHORT-NAME>
+                          <SYMBOL>RE_CAN_Signals_100ms</SYMBOL>
+                        </RUNNABLE-ENTITY>
+                      </RUNNABLES>
+                      <SHARED-PARAMETERS>
+                        <PARAMETER-DATA-PROTOTYPE>
+                          <SHORT-NAME>Ke_WinterTestingDbcFatures</SHORT-NAME>
+                          <SW-DATA-DEF-PROPS>
+                            <SW-DATA-DEF-PROPS-VARIANTS>
+                              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/CSCR_Code_pkg/CSCR_Code_dt/Boolean</IMPLEMENTATION-DATA-TYPE-REF>
+                              </SW-DATA-DEF-PROPS-CONDITIONAL>
+                            </SW-DATA-DEF-PROPS-VARIANTS>
+                          </SW-DATA-DEF-PROPS>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/CSCR_Code_pkg/CSCR_Code_dt/Boolean</TYPE-TREF>
+                          <INIT-VALUE>
+                            <APPLICATION-VALUE-SPECIFICATION>
+                              <SHORT-LABEL>Ke_WinterTestingDbcFeatures</SHORT-LABEL>
+                              <CATEGORY>VALUE</CATEGORY>
+                              <SW-VALUE-CONT>
+                                <UNIT-REF DEST="UNIT">/CSCR_Code_pkg/CSCR_Code_dt/NoUnit</UNIT-REF>
+                                <SW-VALUES-PHYS>
+                                  <V>0</V>
+                                </SW-VALUES-PHYS>
+                              </SW-VALUE-CONT>
+                            </APPLICATION-VALUE-SPECIFICATION>
+                          </INIT-VALUE>
+                        </PARAMETER-DATA-PROTOTYPE>
+                      </SHARED-PARAMETERS>
+                    </SWC-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </APPLICATION-SW-COMPONENT-TYPE>
+                <SENDER-RECEIVER-INTERFACE>
+                  <SHORT-NAME>ETAS_SenderReceiverInterface_boolean</SHORT-NAME>
+                  <IS-SERVICE>false</IS-SERVICE>
+                  <DATA-ELEMENTS>
+                    <VARIABLE-DATA-PROTOTYPE>
+                      <SHORT-NAME>boolean</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/boolean</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                  </DATA-ELEMENTS>
+                </SENDER-RECEIVER-INTERFACE>
+                <SENDER-RECEIVER-INTERFACE>
+                  <SHORT-NAME>SenderReceiverInterface_0</SHORT-NAME>
+                  <IS-SERVICE>false</IS-SERVICE>
+                  <DATA-ELEMENTS>
+                    <VARIABLE-DATA-PROTOTYPE>
+                      <SHORT-NAME>DataElements_0</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/boolean</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                  </DATA-ELEMENTS>
+                </SENDER-RECEIVER-INTERFACE>
+                <SENDER-RECEIVER-INTERFACE>
+                  <SHORT-NAME>SenderReceiverInterface_1</SHORT-NAME>
+                  <IS-SERVICE>false</IS-SERVICE>
+                  <DATA-ELEMENTS>
+                    <VARIABLE-DATA-PROTOTYPE>
+                      <SHORT-NAME>DataElements_0</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/boolean</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                  </DATA-ELEMENTS>
+                </SENDER-RECEIVER-INTERFACE>
+                <APPLICATION-PRIMITIVE-DATA-TYPE>
+                  <SHORT-NAME>ApplicationPrimitiveDataType_1</SHORT-NAME>
+                  <CATEGORY>VALUE</CATEGORY>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL/>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                </APPLICATION-PRIMITIVE-DATA-TYPE>
+                <APPLICATION-PRIMITIVE-DATA-TYPE>
+                  <SHORT-NAME>ApplicationPrimitiveDataType_2</SHORT-NAME>
+                  <CATEGORY>VALUE</CATEGORY>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL/>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                </APPLICATION-PRIMITIVE-DATA-TYPE>
+              </ELEMENTS>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="d8d31b3e-c5b1-4645-a102-fa769718b39b">
+              <SHORT-NAME>Interfaces</SHORT-NAME>
+              <ELEMENTS>
+                <SENDER-RECEIVER-INTERFACE UUID="bffa2af2-7422-4aa7-bf6c-44b4d215023b">
+                  <SHORT-NAME>ETAS_SenderReceiverInterface_uint16</SHORT-NAME>
+                  <IS-SERVICE>false</IS-SERVICE>
+                  <DATA-ELEMENTS>
+                    <VARIABLE-DATA-PROTOTYPE UUID="895c1c93-cb27-4030-b4ef-c31adaf196dc">
+                      <SHORT-NAME>uint16</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint16</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                  </DATA-ELEMENTS>
+                </SENDER-RECEIVER-INTERFACE>
+                <SENDER-RECEIVER-INTERFACE UUID="782f9dff-0ece-4cb2-b2d9-c5235e773fbd">
+                  <SHORT-NAME>ETAS_SenderReceiverInterface_uint32</SHORT-NAME>
+                  <IS-SERVICE>false</IS-SERVICE>
+                  <DATA-ELEMENTS>
+                    <VARIABLE-DATA-PROTOTYPE UUID="42dbae72-1d6c-4fa9-8760-966a5c3d0df5">
+                      <SHORT-NAME>uint32</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint32</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                  </DATA-ELEMENTS>
+                </SENDER-RECEIVER-INTERFACE>
+                <SENDER-RECEIVER-INTERFACE UUID="99ecc9be-9386-426f-ad50-5408564370ff">
+                  <SHORT-NAME>ETAS_SenderReceiverInterface_uint8</SHORT-NAME>
+                  <IS-SERVICE>false</IS-SERVICE>
+                  <DATA-ELEMENTS>
+                    <VARIABLE-DATA-PROTOTYPE UUID="29556db1-4e51-4236-922f-d3dfd20e7c1f">
+                      <SHORT-NAME>uint8</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint8</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                  </DATA-ELEMENTS>
+                </SENDER-RECEIVER-INTERFACE>
+                <SENDER-RECEIVER-INTERFACE>
+                  <SHORT-NAME>ETAS_SenderReceiverInterface_sint16</SHORT-NAME>
+                  <IS-SERVICE>false</IS-SERVICE>
+                  <DATA-ELEMENTS>
+                    <VARIABLE-DATA-PROTOTYPE>
+                      <SHORT-NAME>sint16</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/sint16</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                  </DATA-ELEMENTS>
+                </SENDER-RECEIVER-INTERFACE>
+                <SENDER-RECEIVER-INTERFACE>
+                  <SHORT-NAME>ETAS_SenderReceiverInterface_Float</SHORT-NAME>
+                  <IS-SERVICE>false</IS-SERVICE>
+                  <DATA-ELEMENTS>
+                    <VARIABLE-DATA-PROTOTYPE>
+                      <SHORT-NAME>Float</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/CSCR_Code_pkg/CSCR_Code_dt/Float</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                  </DATA-ELEMENTS>
+                </SENDER-RECEIVER-INTERFACE>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+        <AR-PACKAGE>
+          <SHORT-NAME>ARPackage</SHORT-NAME>
+          <ELEMENTS>
+            <SENDER-RECEIVER-INTERFACE>
+              <SHORT-NAME>VeCANR_CellVoltageValue_Out</SHORT-NAME>
+              <IS-SERVICE>false</IS-SERVICE>
+              <DATA-ELEMENTS>
+                <VARIABLE-DATA-PROTOTYPE>
+                  <SHORT-NAME>DataElements_VariableDataPrototype_0</SHORT-NAME>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                        <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/CSCR_Code_pkg/CSCR_Code_dt/UInt8</IMPLEMENTATION-DATA-TYPE-REF>
+                        <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint16</TYPE-TREF>
+                </VARIABLE-DATA-PROTOTYPE>
+              </DATA-ELEMENTS>
+            </SENDER-RECEIVER-INTERFACE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

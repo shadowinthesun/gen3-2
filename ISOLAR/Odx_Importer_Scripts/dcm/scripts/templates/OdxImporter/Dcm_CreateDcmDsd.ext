@@ -1,0 +1,76 @@
+/**
+ * Creates DCMDsd container
+ *
+ * @author raa3cob
+ */
+import fibexcore::corecommunication;
+import fibexcore::coretopology;
+import system::cancommunication;
+import system::cantopology;
+
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd::DcmDsdServiceTable;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd::DcmDsdServiceTable::DcmDsdService;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd::DcmDsdServiceTable::DcmDsdService::DcmDsdSubService;
+extension org::eclipse::xtend::util::stdlib::globalvar;
+
+extension Ecuc_CreateEcuc;
+extension EcuExtractor;
+extension OdxUtils;
+extension OdxConstants; extension OdxShortNames;
+/*
+creates the DcmDsd module
+*/
+create DcmDsd this dcmDsdCreation(Dcm dcm):
+	setShortName("DcmDsd")->
+	this.DcmDsdServiceTables.add(dcmDsdServiceTableCreation(dcm))
+
+;
+/*
+creates the DcmDsdServiceTable module
+*/
+create DcmDsdServiceTable this dcmDsdServiceTableCreation(Dcm dcm):
+
+	//let dcmConfigSet=dcm.DcmConfigSet:
+	//let dcmDsp=dcmConfigSet.DcmDsp:
+	setShortName(validateShortName(CONST_SRVTABLE_UDS_CAN()))->
+	storeGlobalVar("serviceTable",this)
+//	setAttributeValue(this,"NRCForService","127")->
+	//setAttributeValue(this,"DcmDsdSidTabId", ((dcm.DcmConfigSet.DcmDsd.DcmDsdServiceTables == null) ? 0 : dcm.DcmConfigSet.DcmDsd.DcmDsdServiceTables.size))->
+//	DcmDsdServices.add(dcmDsdServiceCreation(dcmDsp))
+;
+
+
+/*
+creates the DcmDsdService module
+*/
+create DcmDsdService this dcmDsdServiceCreation(DcmDsp dcmDsp):
+	let dcmDspSessions=dcmDsp.DcmDspSessions:
+	setShortName("DcmDsdService")->
+	setAttributeValue(this,"DcmDsdSidTabFnc","Dcm_DcmDiagnosticSessionControl")->
+	setAttributeValue(this,"DcmDsdSidTabSidInitFunction","NULL_PTR")->
+	setAttributeValue(this,"DcmDsdSidTabScheduler",CONST_DCM_MAIN_SCHEDULER())->
+	setAttributeValue(this,"DcmDsdSidTabServiceId",16)->
+	setAttributeValue(this,"DcmDsdSidTabSubfuncAvail",false)->
+	setContainerReference(this,"DcmDsdSidTabSecurityLevelRef",dcmDsp.DcmDspSecurity)->
+	dcmDspSessions.sessionRefCreation(this)->
+	DcmDsdSubServices.add(dcmDsdSubServiceCreation())
+;
+
+/*
+Reference Creation for DcmDsdSidTabSessionLevelRef
+*/
+private void sessionRefCreation(DcmDspSession dcmDspSession,DcmDsdService dcmDsdService):
+	setContainerReference(dcmDsdService,"DcmDsdSidTabSessionLevelRef",dcmDspSession)
+;
+
+/*
+creates the DcmDsdSubService module
+*/
+private create DcmDsdSubService this dcmDsdSubServiceCreation():
+	setShortName("DcmDsdSubService")//->
+	//setAttributeValue(this,"",)->
+;

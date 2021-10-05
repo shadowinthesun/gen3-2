@@ -1,0 +1,759 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+
+/**
+ * Creates DCM container
+ *
+ * @author amt5kor
+ */
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd::DcmDsdServiceTable;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd::DcmDsdServiceTable::DcmDsdService;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDidGeneral;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDid;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDid::DcmDspDidSignal;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspData;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDidSignal::DcmDspDidDataRef;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspData::DcmDspDataUsePort;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspData::DcmDspDiagnosisScaling;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDidInfo;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSession;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSession::DcmDspSessionRow;
+import autosar40::genericstructure::generaltemplateclasses::arpackage;
+import AUTOSAR_Dem::EcucModuleDefs;
+import AUTOSAR_Dem::EcucModuleDefs::Dem;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemConfigSet;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral;
+import AUTOSAR_Dem::EcucModuleDefs::Dem::DemGeneral::DemGeneralJ1939;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspMaxDidToRead;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspMaxPeriodicDidToRead;
+import AUTOSAR_ComM::EcucModuleDefs;
+import AUTOSAR_ComM::EcucModuleDefs::ComM;
+import AUTOSAR_ComM::EcucModuleDefs::ComM::ComMChannel;
+import AUTOSAR_J1939Nm::EcucModuleDefs;
+import AUTOSAR_J1939Nm::EcucModuleDefs::J1939Nm;
+import AUTOSAR_J1939Nm::EcucModuleDefs::J1939Nm::J1939NmConfigSet;
+import OdxXhtml;
+import emf;
+extension Dcm_CreateDcmDsl;
+extension DcmConfigSetCreation;
+extension DcmServicesCreation;
+extension Dem_UDS_RDTC;
+extension Dcm_UDS_RDBI;
+extension Dcm_UDS_WDBI;
+extension Dem_UDS_CDI;
+extension Dcm_UDS_SA;
+extension Dcm_UDS_DSC;
+extension Dcm_UDS_RC;
+extension Dcm_UDS_DDDI;
+extension Dcm_UDS_CDTCS;
+extension Dcm_UDS_IOCI;
+extension Dcm_UDS_CC;
+extension Dcm_UDS_RDBPI;
+extension Dem_J1939_DM1;
+extension Dcm_ProcessingConditionCreation;
+extension DemGeneralCreation;
+extension System_Can_Generation;
+extension cantp::CanTp_CreateCanTp;
+extension can::Can_CreateCan;
+extension canif::CanIf_CreateCanIf;
+extension ecuc::Ecuc_CreateEcuc;
+extension pdur::PduR_CreatePduR;
+extension org::eclipse::xtend::util::stdlib::io;
+extension org::eclipse::xtend::util::stdlib::globalvar;
+extension GenerateBsw_J1939_Odx_V201;
+extension templates::EcuExtractor;
+extension OdxUtils;
+extension OdxConstants; extension OdxShortNames;
+/*
+Calls the function which creates Dcm module
+*/
+createBswModules(Object selectedEcuInstance,Object selectedCluster,boolean isSystemDesc):
+let listHashMap= (List){}:
+let list={}:
+let listJ1939Nm= {}:
+clearOdxMap()->
+clearGlobalList()->
+//ComMCreation()->
+listJ1939Nm.add(j1939Creation())->
+setOdxMap(List[EObject],"J1939Nm",listJ1939Nm)->
+list.addAll(getOdxMap(List[EObject],"J1939Nm"))->
+storeGlobalVar("J1939Nm", listJ1939Nm.get(0))->
+DcmCreation(selectedEcuInstance,selectedCluster,isSystemDesc)->
+if(getRDTCList().size>0 || getclearDiagInfoList().size>0) then
+(
+let listDem={}:
+listDem.add(demCreation())->
+setOdxMap(List[EObject],CONST_DEM(),listDem)
+)->
+list.addAll((getOdxMap(List[EObject],CONST_DCM())))->
+//list.addAll((getOdxMap(List[EObject],CONST_COMM())))->
+if(getOdxMap(List[EObject],CONST_DEM())!=null)then(
+list.addAll((getOdxMap(List[EObject],CONST_DEM())))
+)->
+setOdxMap(List[EObject],CONST_BSW(),list)->
+
+// to clear global list variables
+clearGlobalList()->
+listHashMap.add(getOdxHashMap())->
+listHashMap
+;
+
+createJ1939Modules(boolean isSystemDesc):
+createJ1939BswModules(isSystemDesc)
+;
+
+updateEcuInstance(Object ecuInstance,Object selectedCluster):
+
+updateJ1939EcuInstance(ecuInstance,selectedCluster)
+;
+
+
+ComMCreation():
+let comM=ComM.newInstance():
+let comMchannel=ComMChannel.newInstance():
+let listComM={}:
+comMchannel.setShortName(CONST_COMM_CHANNEL_SHORTNAME())->
+comM.ComMChannels.add(comMchannel)->
+storeGlobalVar("ComMChannel",comMchannel)->
+listComM.add(comM)->
+setOdxMap(List[EObject],CONST_COMM(),listComM)->
+comM
+;
+
+
+/*
+creates the Dcm module
+*/
+List DcmCreation(Object selectedEcuInstance,Object selectedCluster,boolean isSystemDesc):
+    let dcm=Dcm.newInstance():
+    let listDcm={}:
+	let list={}:
+	listDcm.add(dcm)->
+ 	setOdxMap(List[EObject],CONST_DCM(),listDcm)->
+    dcm.setShortName(Dcm_SHORTNAME())->
+    dcm.setDcmConfigSet(dcmConfigSetCreation(dcm))->
+
+  if(getDiagSessionList().size>0) then
+  (
+	 createDcmDspSession(dcm,getbaseVariant(),getecuVariant(),getDiagSessionRequestList(),getOdxComRoot(),getOdxRoot())
+  )->
+  if(getDiagSecurityList().size>0) then
+  (
+  createDcmDspSecurity(dcm,getbaseVariant(),getecuVariant(),getDiagSecurityRequestList())
+  )->
+  if(getDiagTesterList().size>0) then
+  (
+  createTesterService(dcm,getDiagTesterRequestList(),62)
+  )->
+  /************************adding ControlDTC ******************************/
+  /************************************************************************/
+  if(getcontrolDTCList().size>0) then
+  (
+  createControlDtcSetting(dcm,getcontrolDTCListRequestList())
+
+  )->
+
+   /************************ CommunicationControl Service******************************/
+  /************************************************************************/
+  if(getlistCCS().size>0) then
+  (
+  createCCServices(dcm,getlistCCSRequestList())->
+  if(getlistCCSRequestList().pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SERVICE_ID()&& e.sHORTNAME==CONST_SID_RQ())!=null)then(
+  createCCServiceTables(dcm,getlistCCSRequestList(),40)
+  )
+
+  )->
+
+
+/************************adding IOCI service******************************/
+  /************************************************************************/
+  if(getlistIOCI().size>0)then
+	(
+	createIOCIservice(dcm,getlistIOCI(), getlistIOCIRequestList())
+
+	)->
+  if(getDiagSessionList().size>0) then
+  (
+  createSessionService(dcm,getDiagSessionRequestList(),16)
+   )->
+   /************************adding ControlDTC service table******************************/
+  /************************************************************************/
+        if(getcontrolDTCList().size>0) then
+  (
+  createControlDtcService(dcm,getcontrolDTCListRequestList(),133)
+
+  )->
+   /************************DDDI******************************/
+  /************************************************************************/
+  if(getDDDIServiceList().size>0) then
+ (
+  createDDDIService(dcm,getDDDIServiceList(),getDDDIRequestList())->
+  dcm.DcmConfigSet.DcmDsp.setDcmDspDidGeneral(createDcmDspDidGeneral())
+ )->
+
+/************************ ReadDataByPeriodicIdentifier Service******************************/
+  /************************************************************************/
+
+   if(getlistRDPI().size>0) then
+  (
+
+  if(getlistRDPIRequestList().pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SERVICE_ID()&& e.sHORTNAME==CONST_SID_RQ())!=null)then(
+
+  createRDBPIServices(dcm,getlistRDPIRequestList())->
+  createRDBPIServiceTables(dcm,getlistRDPI(),getlistRDPIRequestList(),42)->
+ dcm.DcmConfigSet.DcmDsp.setDcmDspPeriodicDidTransmission(createDcmDspPeriodicDidTransmission(dcm))
+  )
+
+  )->
+/************************adding IOCI service table******************************/
+  /************************************************************************/
+	if(getlistIOCI().size>0)then
+	(
+	createIOCIserviceTable(dcm, getlistIOCIRequestList(),47)
+
+	)->
+
+   if(getDiagSecurityList().size>0) then
+  (
+   createSecurityService(dcm,getDiagSecurityRequestList(),39)
+   )->
+   if(getListRDBI().size>0) then
+  (
+  	storeGlobalVar("DcmDspDidList", (List[DcmDspDid]){})->
+    createRDBIService(dcm,getListRDBI(),34,RDBI_DcmDsdSidTabFnc())
+  )->
+  if(getListWDBI().size>0) then
+  (
+    createWDBIService(dcm, getListWDBI(),46,WDBI_DcmDsdSidTabFnc())
+  )->
+  if(getRoutineControlServiceList().size>0) then
+  (
+    createRoutineControlService(dcm,getRoutineControlServiceList(),getRoutineControlRequestList())
+
+  )->
+
+ if(getclearDiagInfoList().size>0) then
+ (
+  createClearDiagnosticInformationService(dcm,20)
+  )->
+  if(getRDTCList().size>0) then
+  (
+  dcm.DcmConfigSet.DcmDsp.setDcmDspReadDTC(createDcmDspReadDTC())->
+  createRDTCServices(dcm, getRDTCList())
+  )->
+
+if(isSystemDesc)then
+  (
+ let ecuInstance={}:
+ let clusterList={}:
+ let tpConfig={}:
+ let listPdus={}:
+
+ storeGlobalVar(CONST_SELECTED_CLUSTER(),selectedCluster)->
+ storeGlobalVar(CONST_SELECTED_ECUINSTANCE(),selectedEcuInstance)->
+ ecuInstance.add(createEcuInstance(getecuVariant(),selectedEcuInstance,selectedCluster))->
+ setOdxMap(List[EObject],CONST_ECUINSTANCE(),ecuInstance)->
+ //list.addAll(createNpdus())->
+ listPdus.addAll(createNpdus())->
+ listPdus.addAll(createDcmIpdus())->
+ setOdxMap(List[EObject],CONST_PDUS(),listPdus)->
+ //list.addAll(createDcmIpdus())->
+// list.addAll(createCanFrames())->
+ setOdxMap(List[EObject],CONST_FRAMES(),createCanFrames())->
+ clusterList.add(createJ1939Cluster(selectedCluster))->
+ if(selectedCluster==null)then(
+ setOdxMap(List[EObject],CONST_CLUSTER(),clusterList)
+ )->
+ tpConfig.add(createCanTpConfig(selectedEcuInstance))->
+ setOdxMap(List[EObject],CONST_TPCONFIG(),tpConfig)
+ )->
+ list
+;
+
+create List this createList(Dcm dcm):
+add(dcm)->
+this
+;
+
+Dem demCreation():
+let dem=createDem():
+if(getclearDiagInfoList().size>0) then
+ (
+  createClearDiagnosticInformation(dem,getclearDiagInfoList(),getecuVariant(),getbaseVariant(),getOdxRoot())
+  )->
+if(getRDTCList().size>0) then
+  (
+  mapRDTCservices(dem,getRDTCList(),getRDTCRequestList(),getecuVariant(),getbaseVariant(),getOdxRoot())
+  )->
+dem
+;
+
+
+create J1939Nm j1939Creation():
+setShortName("J1939Nm")->
+setJ1939NmConfigSet(createJ1939NmConfigSet(this))
+;
+
+create J1939NmConfigSet this createJ1939NmConfigSet(J1939Nm j1939Nm):
+setShortName("J1939NmConfigSet")->
+j1939Nm.setJ1939NmConfigSet(this)
+;
+/*************************************************************************************************************
+                                    GLOBALVAR Declaration
+*************************************************************************************************************/
+
+BASEVARIANT getbaseVariant():
+GLOBALVAR baseVariant
+;
+
+ECUVARIANT getecuVariant():
+GLOBALVAR ecuVariant
+;
+
+ODX getOdxRoot():
+GLOBALVAR odxRoot
+;
+
+ODX getOdxComRoot():
+GLOBALVAR odxComRoot
+;
+List getListRDBI():
+GLOBALVAR List_34
+;
+
+List getRDBIRequestList():
+GLOBALVAR RequestList_34
+;
+
+List getListWDBI():
+GLOBALVAR List_46
+;
+
+List getWDBIRequestList():
+GLOBALVAR RequestList_46
+;
+
+List getDiagSessionList():
+GLOBALVAR List_16
+;
+
+List getDiagSessionRequestList():
+GLOBALVAR RequestList_16
+;
+
+List getDiagSecurityList():
+GLOBALVAR List_39
+;
+
+List getDiagSecurityRequestList():
+GLOBALVAR RequestList_39
+;
+
+List getDiagTesterList():
+GLOBALVAR List_62
+;
+
+List getDiagTesterRequestList():
+GLOBALVAR RequestList_62
+;
+
+List getRDTCList():
+GLOBALVAR List_25
+;
+
+List getRDTCRequestList():
+GLOBALVAR RequestList_25
+;
+
+List getclearDiagInfoList():
+GLOBALVAR List_20
+;
+
+List getclearDiagInfoListRequestList():
+GLOBALVAR RequestList_20
+;
+
+List getRoutineControlServiceList():
+GLOBALVAR List_49
+;
+
+List getRoutineControlRequestList():
+GLOBALVAR RequestList_49
+;
+
+List getDDDIServiceList():
+GLOBALVAR List_44
+;
+
+List getDDDIRequestList():
+GLOBALVAR RequestList_44
+;
+
+List getcontrolDTCList():
+GLOBALVAR List_133
+;
+
+List getcontrolDTCListRequestList():
+GLOBALVAR RequestList_133
+;
+
+List getlistIOCI():
+GLOBALVAR List_47
+;
+
+List getlistIOCIRequestList():
+GLOBALVAR RequestList_47
+;
+
+List getlistCCS():
+GLOBALVAR List_40
+;
+
+List getlistCCSRequestList():
+GLOBALVAR RequestList_40
+;
+
+List getlistRDPI():
+GLOBALVAR List_42
+;
+
+List getlistRDPIRequestList():
+GLOBALVAR RequestList_42
+;
+
+
+List getlistDM1():
+GLOBALVAR list_65226
+;
+
+List getDM1RequestList():
+GLOBALVAR RequestList_65226
+;
+
+List getlistDM2():
+GLOBALVAR list_65227
+;
+
+List getDM2RequestList():
+GLOBALVAR RequestList_65227
+;
+
+List getlistDM3():
+GLOBALVAR list_65228
+;
+
+List getDM3RequestList():
+GLOBALVAR RequestList_65228
+;
+
+List getlistDM11():
+GLOBALVAR list_65235
+;
+
+List getDM11RequestList():
+GLOBALVAR RequestList_65235
+;
+
+List getlistDM4():
+GLOBALVAR list_65229
+;
+
+List getlistDM5():
+GLOBALVAR list_65230
+;
+
+List getDM4RequestList():
+GLOBALVAR RequestList_65229
+;
+
+List getDM5RequestList():
+GLOBALVAR RequestList_65230
+;
+
+List getlistDM31():
+GLOBALVAR list_41728
+;
+
+List getDM31RequestList():
+GLOBALVAR RequestList_41728
+;
+
+List getlistDM14():
+GLOBALVAR list_55552
+;
+
+List getDM14RequestList():
+GLOBALVAR RequestList_55552
+;
+
+List getlistDM15():
+GLOBALVAR list_55296
+;
+
+List getDM15RequestList():
+GLOBALVAR RequestList_55296
+;
+
+List getlistDM7():
+GLOBALVAR list_58112
+;
+
+List getDM7RequestList():
+GLOBALVAR RequestList_58112
+;
+
+/*************************************************************************************************************
+                                    END of GLOBALVAR Declaration
+*************************************************************************************************************/
+
+
+/************************************************************************************************************
+                                    RDBI SERVICES
+*************************************************************************************************************/
+createRDBIService(Dcm dcm, List listRDBI,Integer serviceID,String TabFnc):
+    let table=dcm.DcmConfigSet.DcmDsd.DcmDsdServiceTables.select(e|e.shortName==CONST_SRVTABLE_UDS_CAN()):
+    createRBBIcontainer(getServiceTable(table),serviceID,TabFnc,listRDBI)->
+    createDID(dcm,listRDBI,getRDBIRequestList())
+;
+
+createDID(Dcm dcm,List listRDBI, List requestList):
+    ((List)getGlobalVar("DcmDspDidList")).addAll(createDcmDspDid(dcm,listRDBI,requestList))
+;
+
+/*************************************************************************************************************
+                                    END OF RDBI SERVICES
+*************************************************************************************************************/
+
+
+
+
+
+/*************************************************************************************************************
+                                    WDBI SERVICES
+*************************************************************************************************************/
+
+createWDBIService(Dcm dcm, List listWDBI,Integer serviceID,String TabFnc):
+    let table=dcm.DcmConfigSet.DcmDsd.DcmDsdServiceTables.select(e|e.shortName==CONST_SRVTABLE_UDS_CAN()):
+    createWDBIcontainer(dcm,getServiceTable(table),serviceID,TabFnc,listWDBI)->
+    createWDBIDcmDspDid(dcm.DcmConfigSet.DcmDsp,listWDBI,getWDBIRequestList(),((List)getGlobalVar("DcmDspDidList")))
+;
+
+
+/*************************************************************************************************************
+                                   END OF WDBI SERVICES
+*************************************************************************************************************/
+
+
+
+
+createSecurityService(Dcm dcm, List listService,Integer serviceID):
+let table=dcm.DcmConfigSet.DcmDsd.DcmDsdServiceTables.select(e|e.shortName==CONST_SRVTABLE_UDS_CAN()):
+createSecurityServices(dcm,getServiceTable(table),listService,serviceID)
+;
+
+createDcmDspSecurity(Dcm dcm,BASEVARIANT selectedBaseVariant,ECUVARIANT selectedEcuVariant,List listRequest):
+dcm.DcmConfigSet.DcmDsp.setDcmDspSecurity(DcmDspSecurityCreation(dcm,selectedBaseVariant,selectedEcuVariant,listRequest))
+;
+
+
+/*******************************************************************************************************
+ControlDtc Service Creation
+*****************************************************************************************************/
+
+createControlDtcService(Dcm dcm, List listService,Integer serviceID):
+let table=dcm.DcmConfigSet.DcmDsd.DcmDsdServiceTables.select(e|e.shortName==CONST_SRVTABLE_UDS_CAN()):
+createControlDtcServices(dcm,getServiceTable(table),listService,serviceID,getcontrolDTCList())
+;
+
+createControlDtcSetting(Dcm dcm, List listService):
+//dcm.DcmConfigSet.setDcmProcessingConditions(DcmProcessingConditionsCreation(dcm,listService))->
+dcm.DcmConfigSet.DcmDsp.setDcmDspControlDTCSetting(ControlDTCSettingcreation(dcm,listService))
+;
+
+
+createCCServices(Dcm dcm, List listService):
+dcm.DcmConfigSet.DcmDsp.setDcmDspComControl(createCCService(dcm,listService))
+;
+
+createRDBPIServices(Dcm dcm, List listService):
+dcm.DcmConfigSet.DcmDsp.setDcmDspPeriodicTransmission(createRDBPIService(dcm,listService,getlistRDPI()))->
+dcm.DcmConfigSet.DcmDsp.setDcmDspMaxDidToRead(createDcmDspMaxDidToRead(dcm,listService))->
+dcm.DcmConfigSet.DcmDsp.setDcmDspMaxPeriodicDidToRead(dcmDspMaxPeriodicDidToReadcreation(dcm,listService))
+
+;
+
+/*******************************************************************************************************
+IOCI Service Creation
+*****************************************************************************************************/
+
+createIOCIserviceTable(Dcm dcm, List listService,Integer serviceID):
+let table=dcm.DcmConfigSet.DcmDsd.DcmDsdServiceTables.select(e|e.shortName==CONST_SRVTABLE_UDS_CAN()):
+createIOCIserviceTableServices(dcm,getServiceTable(table),listService,serviceID,getlistIOCI())
+;
+
+/*******************************************************************************************************
+Communication Control serviceTable Creation
+*****************************************************************************************************/
+
+createCCServiceTables(Dcm dcm, List listService,Integer serviceID):
+let table=dcm.DcmConfigSet.DcmDsd.DcmDsdServiceTables.select(e|e.shortName==CONST_SRVTABLE_UDS_CAN()):
+createCCServiceTable(dcm,getServiceTable(table),listService,serviceID,getlistCCS())
+;
+
+/*******************************************************************************************************
+RDBPI serviceTable Creation
+*****************************************************************************************************/
+createRDBPIServiceTables(Dcm dcm,List rdbpiServiceList,List listService,Integer serviceID):
+let table=dcm.DcmConfigSet.DcmDsd.DcmDsdServiceTables.select(e|e.shortName==CONST_SRVTABLE_UDS_CAN()):
+createRDBPIServiceTable(rdbpiServiceList,getServiceTable(table),listService,serviceID)
+;
+/*******************************************************************************************************
+DcmDspSession Creation
+*****************************************************************************************************/
+
+createSessionService(Dcm dcm, List listService,Integer serviceID):
+let table=dcm.DcmConfigSet.DcmDsd.DcmDsdServiceTables.select(e|e.shortName==CONST_SRVTABLE_UDS_CAN()):
+createSessionServices(getServiceTable(table),listService,serviceID)
+;
+getServiceTable(List[DcmDsdServiceTable] table):
+table.get(0)
+;
+
+
+createDcmDspSession(Dcm dcm,BASEVARIANT selectedBaseVariant,ECUVARIANT selectedEcuVariant,List listRequest,ODX commOdxRoot,ODX odxRoot ):
+dcm.DcmConfigSet.DcmDsp.setDcmDspSession(DcmDspSessionCreation(dcm,selectedBaseVariant,selectedEcuVariant,listRequest,commOdxRoot,odxRoot))
+;
+
+/*******************************************************************************************************
+DcmDspSecurity Creation
+*****************************************************************************************************/
+
+
+
+
+
+/*********************************************************************************************************
+
+
+********************************************************************************************************
+
+
+
+
+/****************************************************************************************************
+                            Tester Present Service Creation
+*****************************************************************************************************/
+
+createTesterService(Dcm dcm, List listTesterRequest,Integer serviceID):
+let table=dcm.DcmConfigSet.DcmDsd.DcmDsdServiceTables.select(e|e.shortName==CONST_SRVTABLE_UDS_CAN()):
+createTesterServices(getServiceTable(table),listTesterRequest,serviceID)
+;
+
+
+
+
+
+
+
+
+
+
+/********************************************************************************************************
+                                   RDTC DEM Services
+********************************************************************************************************/
+
+createRDTCServices(Dcm dcm,List listRDTC):
+let table=dcm.DcmConfigSet.DcmDsd.DcmDsdServiceTables.select(e|e.shortName==CONST_SRVTABLE_UDS_CAN()):
+createRDTCcontainer(dcm,getServiceTable(table),25,RDTC_DcmDsdSidTabFnc(),listRDTC,getRDTCRequestList())
+;
+
+
+createDem():
+DemCreation()
+;
+
+create Dem this DemCreation():
+setShortName(CONST_DEM())->
+setDemConfigSet(createDemConfigSet())->
+setDemGeneral(createDemGeneral())
+;
+
+create DemConfigSet this createDemConfigSet():
+setShortName(DemConfigSet_SHORTNAME())
+;
+
+mapRDTCservices(Dem dem, List listRDTC,List requestList,ECUVARIANT ecuVariant,BASEVARIANT baseVariant, ODX odxRoot):
+createRDTCDemDataElement(dem,listRDTC,requestList,ecuVariant,baseVariant,odxRoot)
+;
+
+create DemClearDTCBehavior this createDemClearDTCBehavior():
+setValue(DemClearDTCBehavior_VALUE())
+;
+
+create DemClearDTCLimitation this createDemClearDTCLimitation():
+setValue(DemClearDTCLimitation_VALUE())
+;
+
+createClearDiagnosticInformationService(Dcm dcm,Integer serviceID):
+let table= dcm.DcmConfigSet.DcmDsd.DcmDsdServiceTables.select(e|e.shortName==CONST_SRVTABLE_UDS_CAN()):
+createClearDiagnosticInformationServices(getServiceTable(table),serviceID)
+;
+
+createClearDiagnosticInformation(Dem dem, List listClearDiag,ECUVARIANT ecuVariant,BASEVARIANT baseVariant, ODX odxRoot):
+//createDemClearDTCBehavior(dem,listClearDiag,ecuVariant,baseVariant,odxRoot)
+dem.DemGeneral.setDemClearDTCBehavior(createDemClearDTCBehavior())
+//dem.DemGeneral.setDemClearDTCLimitation(createDemClearDTCLimitation())
+;
+/********************************************************************************************************************************************
+                                            System template
+*********************************************************************************************************************************************/
+
+List getParams(ECUVARIANT ecuVariant,BASEVARIANT baseVariant):
+JAVA com.bosch.autosartool.importer.odx.loader201.util.OdxMapperUtil.getParams(OdxXhtml.ECUVARIANT,OdxXhtml.BASEVARIANT);
+
+
+/******************************************************************************************************************************************
+                                        Routine Control Services
+********************************************************************************************************************************************/
+
+createRoutineControlService(Dcm dcm, List rcServiceList, List rcRequestList):
+let table= dcm.DcmConfigSet.DcmDsd.DcmDsdServiceTables.select(e|e.shortName==CONST_SRVTABLE_UDS_CAN()):
+createRCContainer(dcm,getServiceTable(table),49,RC_DcmDsdSidTabFnc(),getRoutineControlServiceList(),getRoutineControlRequestList())->
+mapRCServices(dcm,rcServiceList,rcRequestList)
+;
+
+/******************************************************************************************************************************************
+                                        DDDI Services
+********************************************************************************************************************************************/
+
+createDDDIService(Dcm dcm, List serviceList, List requestList):
+let table= dcm.DcmConfigSet.DcmDsd.DcmDsdServiceTables.select(e|e.shortName==CONST_SRVTABLE_UDS_CAN()):
+createDDDIContainer(dcm,getServiceTable(table),44,DDDI_DcmDsdSidTabFnc(),getDDDIServiceList(),getDDDIRequestList())->
+mapDDDIServices(dcm,serviceList,requestList)
+;
+
+create DcmDspDidGeneral this createDcmDspDidGeneral():
+setDcmDspDidBuffer(createDcmDspDidBuffer())
+;
+
+
+create DcmDspDidBuffer this createDcmDspDidBuffer():
+setValue("DCM_RAM_BUFFER")
+;

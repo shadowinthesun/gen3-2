@@ -1,0 +1,467 @@
+/* *****************************************************************************
+ * BEGIN: Banner
+ *-----------------------------------------------------------------------------
+ *                                 ETAS GmbH
+ *                      D-70469 Stuttgart, Borsigstr. 14
+ *-----------------------------------------------------------------------------
+ *    Administrative Information (automatically filled in by ISOLAR)
+ *-----------------------------------------------------------------------------
+ * Name: ODX Importer feature
+ * Description: ODX Importer scripts
+ * Version: 9.1
+ *-----------------------------------------------------------------------------
+ * END: Banner
+ *****************************************************************************/
+/**
+ * Creates DCMDsl container
+ *
+ * @author raa3cob
+ */
+
+import system::cancommunication;
+import system::cantopology;
+import system::transportprotocols;
+import fibexcore::corecommunication;
+import fibexcore::coretopology;
+import system::fibexcore::corecommunication;
+import AUTOSAR_EcuC::EcucModuleDefs::EcuC;
+import AUTOSAR_EcuC::EcucModuleDefs::EcuC::EcucPduCollection;
+import AUTOSAR_EcuC::EcucModuleDefs::EcuC::EcucPduCollection::Pdu;
+import AUTOSAR_ComM::EcucModuleDefs;
+import AUTOSAR_ComM::EcucModuleDefs::ComM;
+import AUTOSAR_ComM::EcucModuleDefs::ComM::ComMUser;
+import AUTOSAR_ComM::EcucModuleDefs::ComM::ComMChannel;
+import AUTOSAR_CanTp::EcucModuleDefs;
+import AUTOSAR_CanTp::EcucModuleDefs::CanTp;
+import AUTOSAR_CanTp::EcucModuleDefs::CanTp::CanTpConfig;
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsl;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd::DcmDsdServiceTable;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsl::DcmDslBuffer;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsl::DcmDslProtocol;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsl::DcmDslProtocol::DcmDslProtocolRow;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsl::DcmDslProtocol::DcmDslProtocolRow::DcmDslConnection;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsl::DcmDslProtocol::DcmDslProtocolRow::DcmDslConnection::DcmDslPeriodicTransmission;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsl::DcmDslProtocol::DcmDslProtocolRow::DcmDslConnection::DcmDslPeriodicTransmission::DcmDslPeriodicConnection;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsl::DcmDslProtocol::DcmDslProtocolRow::DcmDslConnection::DcmDslMainConnection;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsl::DcmDslProtocol::DcmDslProtocolRow::DcmDslConnection::DcmDslMainConnection::DcmDslProtocolRx;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsl::DcmDslProtocol::DcmDslProtocolRow::DcmDslConnection::DcmDslMainConnection::DcmDslProtocolTx;
+extension org::eclipse::xtend::util::stdlib::globalvar;
+
+
+extension  EcuExtractor;
+extension  PduR_CreatePduR;
+extension  Ecuc_CreateEcuc;
+extension Can_Util;
+extension OdxUtils;
+extension OdxConstants; extension OdxShortNames;
+ /*	The Inclusion of built-in OAW specific Extensions. used to find the "getReferencingObjects()" for Containers */
+extension org::eclipse::xtend::util::stdlib::crossref;
+extension org::eclipse::xtend::util::stdlib::io;
+
+void updateDcmModule(Dcm dcm, ComM comM, List[CanTpConnection] canTpConnectionList):
+	
+	dcm.DcmConfigSet.setDcmDsl(dcmDslCreation(dcm))->
+	createDcmDslConnection(comM.ComMChannels.last(), dcm.DcmConfigSet.DcmDsl.DcmDslProtocol.DcmDslProtocolRows.first(), canTpConnectionList)
+	//createDcmDslConnection(dcm.DcmConfigSet.DcmDsl.DcmDslProtocol.DcmDslProtocolRows.get(0),canTpConnection)
+;
+
+create DcmDsl this dcmDslCreation(Dcm dcm):
+
+	setShortName(CONST_DCMDSL_SHORTNAME())->	
+	this.setDcmDslDiagResp(createDcmDslDiagResp())->
+	this.setDcmDslProtocol(dcmDslProtocolCreation(dcm,this))->	
+	this
+;
+
+/**/
+create DcmDslDiagResp this createDcmDslDiagResp():
+setShortName(DcmDslDiagResp_SHORTNAME())->
+setAttributeValue(this,"DcmDslDiagRespMaxNumRespPend",DcmDslDiagRespMaxNumRespPend_VALUE())->
+this
+;
+
+
+/*
+creates the DcmDslProtocol module
+*/
+private create DcmDslProtocol this dcmDslProtocolCreation(Dcm dcm,DcmDsl dcmDsl):
+
+	setShortName(DcmDslProtocol_SHORTNAME())->	
+	DcmDslProtocolRows.add(dcmDslProtocolRowCreation( dcm,dcmDsl))->
+	DcmDslProtocolRows.add(dcmDslProtocolRowForPeriodicCreation(dcm,dcmDsl))->
+	this
+;
+
+
+/*
+creates the DcmDslProtocolRow module
+*/
+private create DcmDslProtocolRow this dcmDslProtocolRowCreation(Dcm dcm,DcmDsl dcmDsl):
+
+	let dcmDslBufferRx=dcmDslBufferCreation(dcmDsl,dcmDslBuffer0_SHORTNAME()):
+	let dcmDslBufferTx=dcmDslBufferCreation(dcmDsl,dcmDslBuffer1_SHORTNAME()):
+	dcmDsl.DcmDslBuffers.add(dcmDslBufferRx)->
+	dcmDsl.DcmDslBuffers.add(dcmDslBufferTx)->
+
+	if(dcmDslBufferRx!=null)then
+	(
+	setContainerReference(this,"DcmDslProtocolRxBufferID",dcmDslBufferRx)
+	)->
+	if(dcmDslBufferTx!=null)then
+	(
+	setContainerReference(this,"DcmDslProtocolTxBufferID",dcmDslBufferTx)
+	)->
+	setShortName(validateShortName(CONST_PROTOCOL_UDS_SHORTNAME()))->
+	
+	//DcmDslConnections.add(createDcmDslConnection(this,comMChannel))->
+	//setAttributeValue(this,"DcmDslProtocolRxBufferID",)
+	setDcmDslProtocolSIDTable(createDcmDslProtocolSIDTable())->
+	//setAttributeValue(this,"DcmDslProtocolSIDTable",getGlobalVar("serviceTable"))->
+	setAttributeValue(this,"DcmDslProtocolEndiannessConvEnabled",UDS_DcmDslProtocolEndiannessConvEnabled_VALUE())->
+	setAttributeValue(this,"DcmDslProtocolID",UDS_DcmDslProtocolID_VALUE())->
+	setAttributeValue(this,"DcmDslProtocolIsParallelExecutab",UDS_DcmDslProtocolIsParallelExecutab_VALUE())->
+	setAttributeValue(this,"DcmDslProtocolNRC21OnPriorityAssessmentReject",UDS_DcmDslProtocolNRC21OnPriorityAssessmentReject_VALUE())->
+	setAttributeValue(this,"DcmDslProtocolPriority",UDS_DcmDslProtocolPriority_VALUE())->
+	setAttributeValue(this,"DcmSendRespPendOnTransToBoot",UDS_DcmSendRespPendOnTransToBoot_VALUE())->
+	setAttributeValue(this,"DcmTimStrP2ServerAdjust",UDS_DcmTimStrP2ServerAdjust_VALUE())->
+	setAttributeValue(this,"DcmTimStrP2StarServerAdjust",UDS_DcmTimStrP2StarServerAdjust_VALUE())
+
+;
+
+
+/*
+creates the DcmDslProtocolRow module
+*/
+create DcmDslProtocolRow this dcmDslProtocolRowForPeriodicCreation(Dcm dcm,DcmDsl dcmDsl):
+
+	let dcmDslBufferRx=dcmDslBufferCreation(dcmDsl,dcmDslBuffer2_SHORTNAME()):
+	let dcmDslBufferTx=dcmDslBufferCreation(dcmDsl,dcmDslBuffer3_SHORTNAME()):
+	dcmDsl.DcmDslBuffers.add(dcmDslBufferRx)->
+	dcmDsl.DcmDslBuffers.add(dcmDslBufferTx)->
+
+	if(dcmDslBufferRx!=null)then
+	(
+	//bufferRefCreation(this,dcmDslBuffer)
+	setContainerReference(this,"DcmDslProtocolRxBufferID",dcmDslBufferRx)
+	)->
+	if(dcmDslBufferTx!=null)then
+	(
+	//bufferRefCreation(this,dcmDslBuffer)
+	setContainerReference(this,"DcmDslProtocolTxBufferID",dcmDslBufferTx)
+	)->
+
+	setShortName(validateShortName(CONST_PROTOCOL_RDPI_SHORTNAME()))->
+	DcmDslConnections.add(createDcmDslConnectionPeriodic(this))->
+	//setAttributeValue(this,"DcmDslProtocolRxBufferID",)
+	//setDcmDslProtocolSIDTable(createDcmDslProtocolSIDTable())->
+	//setAttributeValue(this,"DcmDslProtocolSIDTable",getGlobalVar("serviceTable"))->
+	setAttributeValue(this,"DcmDslProtocolEndiannessConvEnabled",PERIODIC_DcmDslProtocolEndiannessConvEnabled_VALUE())->
+	setAttributeValue(this,"DcmDslProtocolID",PERIODIC_DcmDslProtocolID_VALUE())->
+	setAttributeValue(this,"DcmDslProtocolIsParallelExecutab",PERIODIC_DcmDslProtocolIsParallelExecutab_VALUE())->
+	setAttributeValue(this,"DcmDslProtocolNRC21OnPriorityAssessmentReject",PERIODIC_DcmDslProtocolNRC21OnPriorityAssessmentReject_VALUE())->
+	setAttributeValue(this,"DcmDslProtocolPriority",PERIODIC_DcmDslProtocolPriority_VALUE())->
+	setAttributeValue(this,"DcmSendRespPendOnTransToBoot",PERIODIC_DcmSendRespPendOnTransToBoot_VALUE())->
+	setAttributeValue(this,"DcmDslProtocolTransType",PERIODIC_DcmDslProtocolTransType_VALUE())->
+	setAttributeValue(this,"DcmTimStrP2ServerAdjust",PERIODIC_DcmTimStrP2ServerAdjust_VALUE())->
+	setAttributeValue(this,"DcmTimStrP2StarServerAdjust",PERIODIC_DcmTimStrP2StarServerAdjust_VALUE())
+;
+
+/**/
+create DcmDslProtocolSIDTable this createDcmDslProtocolSIDTable():
+setValue(getGlobalVar("serviceTable"))
+;
+
+create DcmDslConnection this createDcmDslConnectionPeriodic(DcmDslProtocolRow dcmDslProtocolRow):
+setShortName(DcmDslConnection_SHORTNAME())->
+if(dcmDslProtocolRow.shortName.contains(CONST_PROTOCOL_RDPI_SHORTNAME()))then
+(
+	this.setDcmDslPeriodicTransmission(createDcmDslPeriodicTransmission(this))
+)
+;
+
+
+/**/
+create DcmDslConnection this createDcmDslConnection(ComMChannel comMChannel, DcmDslProtocolRow dcmDslProtocolRow, List[Object] tpConnectionList):
+
+setShortName(DcmDslConnection_SHORTNAME()+ "_" + comMChannel.shortName)->
+if(dcmDslProtocolRow.shortName.contains(CONST_PROTOCOL_UDS_SHORTNAME()))then
+(
+setDcmDslMainConnection(createDcmDslMainConnection(comMChannel, tpConnectionList))
+)->
+dcmDslProtocolRow.DcmDslConnections.add(this)
+;
+
+
+create DcmDslPeriodicTransmission this createDcmDslPeriodicTransmission(DcmDslConnection dcmDslConnection):
+setShortName(DcmDslPeriodicTransmission_SHORTNAME())->
+setMap(DcmDslPeriodicTransmission,"DcmDslPeriodicTransmission",this)->
+this
+//dcmDslConnection.setDcmDslPeriodicTransmission(createDcmDslPeriodicTranmissionConRef(this))
+//((DcmDslMainConnection)getGlobalVar("DcmDslMainConnection")).setDcmDslPeriodicTranmissionConRef(createDcmDslPeriodicTranmissionConRef(this))
+//DcmDslPeriodicConnections.add(createDcmDslPeriodicConnection(this,Rdpi_DcmIPdu_Phy_Res_SHORTNAME()+"_Dcm2PduR"))->
+//DcmDslPeriodicConnections.add(createDcmDslPeriodicConnection(this,Rdpi_DcmIPdu_Phy_Res_SHORTNAME()+"_PduR2CanTp"))
+;
+
+create DcmDslPeriodicTranmissionConRef this createDcmDslPeriodicTranmissionConRef(DcmDslPeriodicTransmission dcmDslPeriodicTransmission):
+setValue(dcmDslPeriodicTransmission)
+;
+
+
+create DcmDslPeriodicConnection this createDcmDslPeriodicConnection(DcmDslPeriodicTransmission dcmDslPeriodicTransmission,String pduShortName):
+
+setShortName(validateShortName("DcmDslProtocolTx"+"_"+pduShortName+"ProtocolTx"))->
+setDcmDslPeriodicTxPduRef(createDcmDslPeriodicTxPduRef(this,pduShortName))->
+dcmDslPeriodicTransmission.DcmDslPeriodicConnections.add(this)
+;
+
+create DcmDslPeriodicTxPduRef this createDcmDslPeriodicTxPduRef(DcmDslPeriodicConnection dcmDslPeriodicConnection,String value):
+setValue(getEcuCPdu(value))->
+dcmDslPeriodicConnection.setDcmDslPeriodicTxPduRef(this)
+;
+
+create DcmDslMainConnection this createDcmDslMainConnection(ComMChannel comMChannel , List[Object] tpConnectionList):
+setShortName(DcmDslMainConnection_SHORTNAME())->
+setContainerReference(this,"DcmDslProtocolComMChannelRef",comMChannel)->
+tpConnectionList.forAll(e|createDcmDslProtocolPdusForCan(e,this,"CanTpConnection"))->
+setContainerReference(this,"DcmDslPeriodicTranmissionConRef",getMap(DcmDslPeriodicTransmission,"DcmDslPeriodicTransmission"))
+//storeGlobalVar("DcmDslMainConnection",this)
+;
+
+create DcmDslProtocolRxTesterSourceAddr this createDcmDslProtocolRxTesterSourceAddr(Integer value):
+setValue(value)
+;
+create DcmDslProtocolRx this createDcmDslProtocolRx(String shortName,String addrType,Integer value):
+setShortName(validateShortName(shortName))->
+setDcmDslProtocolRxAddrType(createDcmDslProtocolRxAddrType(this,addrType))->
+setDcmDslProtocolRxPduRef(createDcmDslProtocolRxPduRef(this,getGlobalVar("ecucRoot").EcucPduCollection.Pdus.select(e|e.shortName==shortName).get(0)))->
+setDcmDslProtocolRxPduId(createDcmDslProtocolRxPduId(this,value))
+;
+
+create DcmDslProtocolRxAddrType this createDcmDslProtocolRxAddrType(DcmDslProtocolRx protocolRx,String addrType):
+setValue(addrType)->
+protocolRx.setDcmDslProtocolRxAddrType(this)
+;
+create DcmDslProtocolRxPduRef this createDcmDslProtocolRxPduRef(DcmDslProtocolRx protocolRx,Pdu pdu):
+setValue(pdu)->
+protocolRx.setDcmDslProtocolRxPduRef(this)
+;
+create DcmDslProtocolRxPduId this createDcmDslProtocolRxPduId(DcmDslProtocolRx protocolRx,Integer value):
+setValue(value)->
+protocolRx.setDcmDslProtocolRxPduId(this)
+;
+
+
+create DcmDslProtocolTx this createDcmDslProtocolTx(String shortName,Integer value):
+setShortName(validateShortName(shortName))->
+setDcmDslProtocolTxPduRef(createDcmDslProtocolTxPduRef(this,getGlobalVar("ecucRoot").EcucPduCollection.Pdus.select(e|e.shortName==shortName).get(0)))
+//setAttributeValue(this,"DcmDslTxConfirmationPduId",value)
+;
+
+create DcmDslProtocolTxPduRef this createDcmDslProtocolTxPduRef(DcmDslProtocolTx dcmDslProtocolTx,Pdu pdu):
+setValue(pdu)->
+dcmDslProtocolTx.setDcmDslProtocolTxPduRef(this)
+;
+
+
+/*
+Reference Creation for DcmDslProtocolSIDTable
+*/
+private boolean serviceTableRefCreation(DcmDslProtocolRow dcmDslProtocolRow,DcmDsdServiceTable dcmDsdServiceTable):
+	setContainerReference(dcmDslProtocolRow,"DcmDslProtocolSIDTable",dcmDsdServiceTable)->
+	true
+;
+
+/*
+Reference Creation for DcmDslProtocolRxBufferID,DcmDslProtocolTxBufferID
+*/
+private boolean bufferRefCreation(DcmDslProtocolRow dcmDslProtocolRow,DcmDslBuffer dcmDslBuffer):
+	setContainerReference(dcmDslProtocolRow,"DcmDslProtocolRxBufferID",dcmDslBuffer)->
+	setContainerReference(dcmDslProtocolRow,"DcmDslProtocolTxBufferID",dcmDslBuffer)->
+	true
+;
+
+/*
+Calls the function which creates DcmDslConnection Module
+
+boolean createDcmDslConnection(DcmDslProtocolRow dcmDslProtocolRow,Object tpConnection):
+	//dcmDslProtocolRow.DcmDslConnections.add(dcmDslConnectionCreation(tpConnection))->
+	createDcmDslProtocolPdusForCan(getGlobalVar("DcmDslMainConnection"),tpConnection,"CanTpConnection")->
+	true
+;
+*/
+
+
+/*
+creates the DcmDslConnection module
+*/
+private create DcmDslConnection  this dcmDslConnectionCreation(Object tpConnection):
+	dcmDslMainConnectionCreation(this,tpConnection)
+	//setShortName(frTpConnection.shortName)->
+;
+
+
+
+/*
+creates the DcmDslMainConnection module
+*/
+create DcmDslMainConnection  this dcmDslMainConnectionCreation(DcmDslConnection dcmDslConnection,Object tpConnection):
+	(
+	if(CanTpConnection.isInstance(tpConnection))
+	then
+		(
+		createDcmDslProtocolPdusForCan(this,tpConnection,"CanTpConnection")
+		)
+	else if(FlexrayTpConnection.isInstance(tpConnection))
+	then
+		(
+		createDcmDslProtocolPdusForFr(this,tpConnection,"FlexrayTpConnection")
+	    )
+	)->
+	dcmDslConnection.setDcmDslMainConnection(this)
+	;
+
+
+private boolean createDcmDslProtocolPdusForFr(DcmDslMainConnection dcmDslMainConnection,Object tpConnection,String ConnectionType):
+	let frTpConnection=(FlexrayTpConnection)tpConnection:
+	let nPduListRx=frTpConnection.rxPduPool.nPdus:
+	let nPduListTx=frTpConnection.txPduPool.nPdus:
+	if(frTpConnection.rxPduPool!=null)
+	then(
+		if(!(nPduListRx.isEmpty))
+		then(
+			nPduListRx.createDcmDslProtocolRx(dcmDslMainConnection,ConnectionType)
+			)
+		)->
+	if((frTpConnection.txPduPool!=null))
+	then(
+		if(!(nPduListTx.isEmpty))
+		then(
+			dcmDslMainConnection.setDcmDslProtocolTx(dcmDslProtocolTxCreation(nPduListTx.first(),ConnectionType))
+			)
+		)
+;
+
+private boolean  createDcmDslProtocolPdusForCan(Object tpConnection, DcmDslMainConnection dcmDslMainConnection,String connectionType):
+	let canTpConnection=(CanTpConnection)tpConnection:
+	let tpSdu=canTpConnection.tpSdu:
+	let tpSduReferencingObjects=tpSdu.getReferencingObjects():
+	if(!(tpSduReferencingObjects.isEmpty))
+	then
+	(
+		let pduToFrameMappingsList=tpSduReferencingObjects.typeSelect(PduToFrameMapping):
+		let frameList={}:
+		if(!(pduToFrameMappingsList.isEmpty))
+		then
+		(
+			pduToFrameMappingsList.forAll(pduToFrameMapping|(pduToFrameMapping.frame!=null && CanFrame.isInstance(pduToFrameMapping.frame)) ? frameList.add(pduToFrameMapping.frame):false)->
+			if(!(frameList.isEmpty))
+			then
+			(
+				let canFrameTriggeringList={}:
+				frameList.forAll(frame|(frame.getReferencingObjects()!=null &&  frame.getReferencingObjects().typeSelect(CanFrameTriggering)!=null ) ? canFrameTriggeringList.addAll(frame.getReferencingObjects().typeSelect(CanFrameTriggering)):false )->
+				if(!(canFrameTriggeringList.isEmpty))
+				then
+					(
+					canFrameTriggeringList.collectFramePorts(tpSdu,canTpConnection,dcmDslMainConnection,connectionType)
+					)
+			)
+		)
+	)->
+	true
+;
+
+
+/*
+*BCT-3544
+*/
+private collectFramePorts(CanFrameTriggering canFrameTriggering,IPdu  tpSdu,Object canTpConnection,DcmDslMainConnection dcmDslMainConnection,String connectionType):
+	let framePorts=canFrameTriggering.framePorts:
+	(
+	if(!(framePorts.isEmpty))
+	then
+		(
+		framePorts.dcmRxTxCreation(dcmDslMainConnection,tpSdu,connectionType,canTpConnection)
+		)
+	)->
+	true
+;
+
+
+
+private void dcmRxTxCreation(FramePort framePort,DcmDslMainConnection dcmDslMainConnection,IPdu tpPdu,String connectionType,Object canTpConnection):
+	(if(framePort.isSetCommunicationDirection())
+	then(
+	if(framePort.isSetCommunicationDirection())then(
+	   let portDirection=framePort.communicationDirection:
+		if(portDirection.toString()=="OUT" && !tpPdu.shortName.contains("Rdpi"))
+		then(
+			dcmDslMainConnection.setDcmDslProtocolTx(dcmDslProtocolTxCreation(tpPdu,connectionType))
+			)
+	    else if(portDirection.toString()=="IN")
+		then(
+		createDcmDslProtocolRx(dcmDslMainConnection,tpPdu,connectionType, canTpConnection)
+		)
+		)
+		)
+		//no else part since it deals with Container level
+		)
+;
+
+/*
+Calls the function which creates DcmDslProtocolRx Module
+*/
+ boolean createDcmDslProtocolRx(DcmDslMainConnection dcmDslMainConnection,IPdu iPdu,String connectionType,Object canTpConnection):
+	dcmDslMainConnection.DcmDslProtocolRxs.add(dcmDslProtocolRxCreation(dcmDslMainConnection,iPdu,connectionType, canTpConnection))->
+	true
+;
+
+
+/*
+creates the DcmDslProtocolRx module
+*/
+create DcmDslProtocolRx this dcmDslProtocolRxCreation(DcmDslMainConnection dcmDslMainConnection,IPdu iPdu,String connectionType,Object canTpConnection):
+	let iPduName=iPdu.shortName:
+	if(canTpConnection.taType.toString().compareTo("FUNCTIONAL")==0)
+	then(
+	setShortName(validateShortName("DcmDslProtocol_Func_Rx_"+iPduName+"ProtocolRx"))->
+	setAttributeValue(this,"DcmDslProtocolRxAddrType","DCM_FUNCTIONAL_TYPE")->
+	setAttributeValue(this,"DcmDslProtocolRxPduId","17")->
+	setContainerReference(this,"DcmDslProtocolRxPduRef",getEcuCPdu(iPduName+"_PduR2Dcm"))
+
+	)
+	else if(canTpConnection.taType.toString().compareTo("PHYSICAL")==0)
+	then(
+	setShortName(validateShortName("DcmDslProtocol_Phy_Rx_"+iPduName+"ProtocolRx"))->
+	setAttributeValue(this,"DcmDslProtocolRxAddrType","DCM_PHYSICAL_TYPE")->
+	setAttributeValue(this,"DcmDslProtocolRxPduId","0")->
+	setContainerReference(this,"DcmDslProtocolRxPduRef",getEcuCPdu(iPduName+"_PduR2Dcm"))
+	//setAttributeValue(this,"CanTpRxTaType","CANTP_PHYSICAL")
+	)//->
+	//invoking repeatdly
+	//getGlobalVar("dcmDslMainConnection").DcmDslProtocolRxs.add(this)
+	;
+
+
+/*
+creates the DcmDslProtocolTx module
+*/
+create DcmDslProtocolTx this dcmDslProtocolTxCreation(IPdu iPdu,String connectionType):
+	let iPduName=iPdu.shortName:
+	setShortName(validateShortName("DcmDslProtocolTx"+"_"+iPduName+"ProtocolTx"))->
+	setContainerReference(this,"DcmDslProtocolTxPduRef",getEcuCPdu(iPduName+"_Dcm2PduR"))//->
+	//getGlobalVar("dcmDslMainConnection").DcmDslProtocolTxs.add(this)
+	;
+
+
+/*
+creates the DcmDslBuffer module
+*/
+create DcmDslBuffer this dcmDslBufferCreation(DcmDsl dcmDsl,String shortName):
+	setShortName(shortName)->
+	//setAttributeValue(this,"DcmDslBufferID",dcmDsl.DcmDslBuffers.size)->
+	setAttributeValue(this,"DcmDslBufferSize",DcmDslBufferSize_VALUE())
+;

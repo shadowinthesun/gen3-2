@@ -1,0 +1,1576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>CAN_System</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>Pkg_Ecu</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE>
+              <SHORT-NAME>SystemComposition</SHORT-NAME>
+              <ELEMENTS>
+                <COMPOSITION-SW-COMPONENT-TYPE>
+                  <SHORT-NAME>TopLevelComposition</SHORT-NAME>
+                  <CONNECTORS>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Cell_Overvoltage_1_CPT_DTC_Component_RP_DiagInfo_Cell_Overvoltage_1</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Cell_Overvoltage_1</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Cell_Overvoltage_1</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Cell_Overvoltage_1_CPT_DTC_Component_RP_Monitor_Cell_Overvoltage_1</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Cell_Overvoltage_1</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Cell_Overvoltage_1</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CPLR_Code_VeCPLR_k_OverCV_L1_flt_CPT_DTC_Component_RP_FaultStatus_Cell_Overvoltage_1</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CPLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CPLR_Code_pkg/CPLR_Code_swc/CPLR_Code/VeCPLR_k_OverCV_L1_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_Cell_Overvoltage_1</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Cell_Overvoltage_2_CPT_DTC_Component_RP_DiagInfo_Cell_Overvoltage_2</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Cell_Overvoltage_2</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Cell_Overvoltage_2</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Cell_Overvoltage_2_CPT_DTC_Component_RP_Monitor_Cell_Overvoltage_2</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Cell_Overvoltage_2</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Cell_Overvoltage_2</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CPLR_Code_VeCPLR_k_OverCV_L3_flt_CPT_DTC_Component_RP_FaultStatus_Cell_Overvoltage_2</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CPLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CPLR_Code_pkg/CPLR_Code_swc/CPLR_Code/VeCPLR_k_OverCV_L3_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_Cell_Overvoltage_2</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Cell_Overvoltage_3_CPT_DTC_Component_RP_DiagInfo_Cell_Overvoltage_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Cell_Overvoltage_3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Cell_Overvoltage_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Cell_Overvoltage_3_CPT_DTC_Component_RP_Monitor_Cell_Overvoltage_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Cell_Overvoltage_3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Cell_Overvoltage_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CPLR_Code_VeCPLR_k_OverCV_L4_flt_CPT_DTC_Component_RP_FaultStatus_Cell_Overvoltage_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CPLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CPLR_Code_pkg/CPLR_Code_swc/CPLR_Code/VeCPLR_k_OverCV_L4_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_Cell_Overvoltage_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Cell_Undervoltage_1_CPT_DTC_Component_RP_DiagInfo_Cell_Undervoltage_1</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Cell_Undervoltage_1</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Cell_Undervoltage_1</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Cell_Undervoltage_1_CPT_DTC_Component_RP_Monitor_Cell_Undervoltage_1</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Cell_Undervoltage_1</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Cell_Undervoltage_1</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CPLR_Code_VeCPLR_k_UnderCV_L2_flt_CPT_DTC_Component_RP_FaultStatus_Cell_Undervoltage_1</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CPLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CPLR_Code_pkg/CPLR_Code_swc/CPLR_Code/VeCPLR_k_UnderCV_L2_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_Cell_Undervoltage_1</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Cell_Undervoltage_2_CPT_DTC_Component_RP_DiagInfo_Cell_Undervoltage_2</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Cell_Undervoltage_2</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Cell_Undervoltage_2</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Cell_Undervoltage_2_CPT_DTC_Component_RP_Monitor_Cell_Undervoltage_2</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Cell_Undervoltage_2</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Cell_Undervoltage_2</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CPLR_Code_VeCPLR_k_UnderCV_L3_flt_CPT_DTC_Component_RP_FaultStatus_Cell_Undervoltage_2</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CPLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CPLR_Code_pkg/CPLR_Code_swc/CPLR_Code/VeCPLR_k_UnderCV_L3_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_Cell_Undervoltage_2</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Cell_Undervoltage_3_CPT_DTC_Component_RP_DiagInfo_Cell_Undervoltage_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Cell_Undervoltage_3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Cell_Undervoltage_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Cell_Undervoltage_3_CPT_DTC_Component_RP_Monitor_Cell_Undervoltage_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Cell_Undervoltage_3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Cell_Undervoltage_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CPLR_Code_VeCPLR_k_UnderCV_L4_flt_CPT_DTC_Component_RP_FaultStatus_Cell_Undervoltage_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CPLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CPLR_Code_pkg/CPLR_Code_swc/CPLR_Code/VeCPLR_k_UnderCV_L4_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_Cell_Undervoltage_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Cell_Deltavoltage3_CPT_DTC_Component_RP_DiagInfo_Cell_Deltavoltage3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Cell_Deltavoltage3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Cell_Deltavoltage3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Cell_Deltavoltage3_CPT_DTC_Component_RP_Monitor_Cell_Deltavoltage3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Cell_Deltavoltage3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Cell_Deltavoltage3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CPLR_Code_VeCPLR_k_DeltaCV_L3_flt_CPT_DTC_Component_RP_FaultStatus_Cell_Deltavoltage3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CPLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CPLR_Code_pkg/CPLR_Code_swc/CPLR_Code/VeCPLR_k_DeltaCV_L3_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_Cell_Deltavoltage3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Batt_Overvoltage_2_CPT_DTC_Component_RP_DiagInfo_Batt_Overvoltage_2</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Batt_Overvoltage_2</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Batt_Overvoltage_2</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Batt_Overvoltage_2_CPT_DTC_Component_RP_Monitor_Batt_Overvoltage_2</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Batt_Overvoltage_2</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Batt_Overvoltage_2</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CPLR_Code_VeCPLR_k_PackOverVolt_L3_flt_CPT_DTC_Component_RP_FaultStatus_Batt_Overvoltage_2</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CPLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CPLR_Code_pkg/CPLR_Code_swc/CPLR_Code/VeCPLR_k_PackOverVolt_L3_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_Batt_Overvoltage_2</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Batt_Undervoltage_2_CPT_DTC_Component_RP_DiagInfo_Batt_Undervoltage_2</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Batt_Undervoltage_2</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Batt_Undervoltage_2</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Batt_Undervoltage_2_CPT_DTC_Component_RP_Monitor_Batt_Undervoltage_2</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Batt_Undervoltage_2</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Batt_Undervoltage_2</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CPLR_Code_VeCPLR_k_PackUnderVolt_L3_flt_CPT_DTC_Component_RP_FaultStatus_Batt_Undervoltage_2</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CPLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CPLR_Code_pkg/CPLR_Code_swc/CPLR_Code/VeCPLR_k_PackUnderVolt_L3_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_Batt_Undervoltage_2</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Batt_Overtemp_3_CPT_DTC_Component_RP_DiagInfo_Batt_Overtemp_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Batt_Overtemp_3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Batt_Overtemp_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Batt_Overtemp_3_CPT_DTC_Component_RP_Monitor_Batt_Overtemp_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Batt_Overtemp_3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Batt_Overtemp_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CPLR_Code_VeCPLR_k_OverCT_L4_flt_CPT_DTC_Component_RP_FaultStatus_Batt_Overtemp_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CPLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CPLR_Code_pkg/CPLR_Code_swc/CPLR_Code/VeCPLR_k_OverCT_L4_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_Batt_Overtemp_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Batt_Undertemp_3_CPT_DTC_Component_RP_DiagInfo_Batt_Undertemp_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Batt_Undertemp_3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Batt_Undertemp_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Batt_Undertemp_3_CPT_DTC_Component_RP_Monitor_Batt_Undertemp_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Batt_Undertemp_3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Batt_Undertemp_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CPLR_Code_VeCPLR_k_UnderCT_L4_flt_CPT_DTC_Component_RP_FaultStatus_Batt_Undertemp_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CPLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CPLR_Code_pkg/CPLR_Code_swc/CPLR_Code/VeCPLR_k_UnderCT_L4_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_Batt_Undertemp_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Batt_Deltatemp_3_CPT_DTC_Component_RP_DiagInfo_Batt_Deltatemp_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Batt_Deltatemp_3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Batt_Deltatemp_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Batt_Deltatemp_3_CPT_DTC_Component_RP_Monitor_Batt_Deltatemp_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Batt_Deltatemp_3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Batt_Deltatemp_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CPLR_Code_VeCPLR_k_DeltaCT_L3_flt_CPT_DTC_Component_RP_FaultStatus_Batt_Deltatemp_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CPLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CPLR_Code_pkg/CPLR_Code_swc/CPLR_Code/VeCPLR_k_DeltaCT_L3_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_Batt_Deltatemp_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Pack_OverDchrgPower_3_CPT_DTC_Component_RP_DiagInfo_Pack_OverDchrgPower_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Pack_OverDchrgPower_3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Pack_OverDchrgPower_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Pack_OverDchrgPower_3_CPT_DTC_Component_RP_Monitor_Pack_OverDchrgPower_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Pack_OverDchrgPower_3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Pack_OverDchrgPower_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_SOPR_Code_VeSOPR_k_PackOverDchrgPower3_flt_CPT_DTC_Component_RP_FaultStatus_Pack_OverDchrgPower_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_SOPR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/SOPR_Code_pkg/SOPR_Code_swc/SOPR_Code/VeSOPR_k_PackOverDchrgPower3_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_Pack_OverDchrgPower_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Pack_OverRegenPower_3_CPT_DTC_Component_RP_DiagInfo_Pack_OverRegenPower_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Pack_OverRegenPower_3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Pack_OverRegenPower_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Pack_OverRegenPower_3_CPT_DTC_Component_RP_Monitor_Pack_OverRegenPower_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Pack_OverRegenPower_3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Pack_OverRegenPower_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_SOPR_Code_VeSOPR_k_PackOverChrgPower3_flt_CPT_DTC_Component_RP_FaultStatus_Pack_OverRegenPower_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_SOPR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/SOPR_Code_pkg/SOPR_Code_swc/SOPR_Code/VeSOPR_k_PackOverChrgPower3_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_Pack_OverRegenPower_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_BMS_ACChrgOverCurrent_CPT_DTC_Component_RP_DiagInfo_BMS_ACChrgOverCurrent</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_BMS_ACChrgOverCurrent</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_BMS_ACChrgOverCurrent</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_BMS_ACChrgOverCurrent_CPT_DTC_Component_RP_Monitor_BMS_ACChrgOverCurrent</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_BMS_ACChrgOverCurrent</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_BMS_ACChrgOverCurrent</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CHMR_Code_VeCHMR_k_ChrgOverCurr_level3_flt_CPT_DTC_Component_RP_FaultStatus_BMS_ACChrgOverCurrent</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CHMR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CHMR_Code_pkg/CHMR_Code_swc/CHMR_Code/VeCHMR_k_ChrgOverCurr_level3_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_BMS_ACChrgOverCurrent</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_SOC_low_3_CPT_DTC_Component_RP_DiagInfo_SOC_low_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_SOC_low_3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_SOC_low_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_SOC_low_3_CPT_DTC_Component_RP_Monitor_SOC_low_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_SOC_low_3</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_SOC_low_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_SOCR_Code_VeSOCR_k_SOC_low3_flt_CPT_DTC_Component_RP_FaultStatus_SOC_low_3</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_SOCR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/SOCR_Code_pkg/SOCR_Code_swc/SOCR_Code/VeSOCR_k_SOC_low3_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_SOC_low_3</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_IsoResistor_Error_1_CPT_DTC_Component_RP_DiagInfo_IsoResistor_Error_1</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_IsoResistor_Error_1</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_IsoResistor_Error_1</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_IsoResistor_Error_1_CPT_DTC_Component_RP_Monitor_IsoResistor_Error_1</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_IsoResistor_Error_1</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_IsoResistor_Error_1</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_ISLR_Code_VeISLR_k_Isolation_L1_flt_CPT_DTC_Component_RP_FaultStatus_IsoResistor_Error_1</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_ISLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ISLR_Code_pkg/ISLR_Code_swc/ISLR_Code/VeISLR_k_Isolation_L1_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_IsoResistor_Error_1</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_IsoResistor_Error_2_CPT_DTC_Component_RP_DiagInfo_IsoResistor_Error_2</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_IsoResistor_Error_2</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_IsoResistor_Error_2</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_IsoResistor_Error_2_CPT_DTC_Component_RP_Monitor_IsoResistor_Error_2</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_IsoResistor_Error_2</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_IsoResistor_Error_2</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_ISLR_Code_VeISLR_k_Isolation_L2_flt_CPT_DTC_Component_RP_FaultStatus_IsoResistor_Error_2</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_ISLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ISLR_Code_pkg/ISLR_Code_swc/ISLR_Code/VeISLR_k_Isolation_L2_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_IsoResistor_Error_2</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Crash_states_CPT_DTC_Component_RP_DiagInfo_Crash_states</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Crash_states</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Crash_states</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Crash_states_CPT_DTC_Component_RP_Monitor_Crash_states</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Crash_states</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Crash_states</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_ThermalRunaway_Error_CPT_DTC_Component_RP_DiagInfo_ThermalRunaway_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_ThermalRunaway_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_ThermalRunaway_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_ThermalRunaway_Error_CPT_DTC_Component_RP_Monitor_ThermalRunaway_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_ThermalRunaway_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_ThermalRunaway_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CPLR_Code_VeCPLR_k_ThermalRunaway_flt_CPT_DTC_Component_RP_FaultStatus_ThermalRunaway_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CPLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CPLR_Code_pkg/CPLR_Code_swc/CPLR_Code/VeCPLR_k_ThermalRunaway_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_ThermalRunaway_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_BatteryHeatingFault_CPT_DTC_Component_RP_DiagInfo_BatteryHeatingFault</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_BatteryHeatingFault</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_BatteryHeatingFault</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_BatteryHeatingFault_CPT_DTC_Component_RP_Monitor_BatteryHeatingFault</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_BatteryHeatingFault</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_BatteryHeatingFault</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_THMR_Code_VeTHMR_k_BatteryHeatingOverCurrt_flt_CPT_DTC_Component_RP_FaultStatus_BatteryHeatingFault</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_THMR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/THMR_Code_pkg/THMR_Code_swc/THMR_Code/VeTHMR_k_BatteryHeatingOverCurrt_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_BatteryHeatingFault</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_BatteryCoolingFault_CPT_DTC_Component_RP_DiagInfo_BatteryCoolingFault</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_BatteryCoolingFault</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_BatteryCoolingFault</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_BatteryCoolingFault_CPT_DTC_Component_RP_Monitor_BatteryCoolingFault</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_BatteryCoolingFault</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_BatteryCoolingFault</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_THMR_Code_VeTHMR_k_BatteryCooling_flt_CPT_DTC_Component_RP_FaultStatus_BatteryCoolingFault</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_THMR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/THMR_Code_pkg/THMR_Code_swc/THMR_Code/VeTHMR_k_BatteryCooling_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_BatteryCoolingFault</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_BatteryCircuitOverCurrent_CPT_DTC_Component_RP_DiagInfo_BatteryCircuitOverCurrent</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_BatteryCircuitOverCurrent</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_BatteryCircuitOverCurrent</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_BatteryCircuitOverCurrent_CPT_DTC_Component_RP_Monitor_BatteryCircuitOverCurrent</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_BatteryCircuitOverCurrent</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_BatteryCircuitOverCurrent</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_VSDR_Code_VeVSDR_k_HVOverCurrent_flt_CPT_DTC_Component_RP_FaultStatus_BatteryCircuitOverCurrent</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_VSDR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/VSDR_Code_pkg/VSDR_Code_swc/VSDR_Code/VeVSDR_k_HVOverCurrent_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_BatteryCircuitOverCurrent</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_PosCont_StuckClose_CPT_DTC_Component_RP_DiagInfo_PosCont_StuckClose</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_PosCont_StuckClose</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_PosCont_StuckClose</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_PosCont_StuckClose_CPT_DTC_Component_RP_Monitor_PosCont_StuckClose</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_PosCont_StuckClose</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_PosCont_StuckClose</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CFLR_Code_VeCFLR_k_PositiveStuckClose_flt_CPT_DTC_Component_RP_FaultStatus_PosCont_StuckClose</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CFLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CFLR_Code_pkg/CFLR_Code_swc/CFLR_Code/VeCFLR_k_PositiveStuckClose_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_PosCont_StuckClose</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_PosCont_StuckOpen_CPT_DTC_Component_RP_DiagInfo_PosCont_StuckOpen</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_PosCont_StuckOpen</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_PosCont_StuckOpen</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_PosCont_StuckOpen_CPT_DTC_Component_RP_Monitor_PosCont_StuckOpen</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_PosCont_StuckOpen</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_PosCont_StuckOpen</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CFLR_Code_VeCFLR_k_PositiveStuckOpen_flt_CPT_DTC_Component_RP_FaultStatus_PosCont_StuckOpen</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CFLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CFLR_Code_pkg/CFLR_Code_swc/CFLR_Code/VeCFLR_k_PositiveStuckOpen_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_PosCont_StuckOpen</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_NegCont_StuckClose_CPT_DTC_Component_RP_DiagInfo_NegCont_StuckClose</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_NegCont_StuckClose</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_NegCont_StuckClose</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_NegCont_StuckClose_CPT_DTC_Component_RP_Monitor_NegCont_StuckClose</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_NegCont_StuckClose</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_NegCont_StuckClose</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CFLR_Code_VeCFLR_k_NegativeStuckClose_flt_CPT_DTC_Component_RP_FaultStatus_NegCont_StuckClose</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CFLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CFLR_Code_pkg/CFLR_Code_swc/CFLR_Code/VeCFLR_k_NegativeStuckClose_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_NegCont_StuckClose</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_NegCont_StuckOpen_CPT_DTC_Component_RP_DiagInfo_NegCont_StuckOpen</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_NegCont_StuckOpen</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_NegCont_StuckOpen</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_NegCont_StuckOpen_CPT_DTC_Component_RP_Monitor_NegCont_StuckOpen</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_NegCont_StuckOpen</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_NegCont_StuckOpen</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CFLR_Code_VeCFLR_k_NegativeStuckOpen_flt_CPT_DTC_Component_RP_FaultStatus_NegCont_StuckOpen</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CFLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CFLR_Code_pkg/CFLR_Code_swc/CFLR_Code/VeCFLR_k_NegativeStuckOpen_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_NegCont_StuckOpen</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_PrechrgCont_StuckClose_CPT_DTC_Component_RP_DiagInfo_PrechrgCont_StuckClose</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_PrechrgCont_StuckClose</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_PrechrgCont_StuckClose</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_PrechrgCont_StuckClose_CPT_DTC_Component_RP_Monitor_PrechrgCont_StuckClose</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_PrechrgCont_StuckClose</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_PrechrgCont_StuckClose</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CFLR_Code_VeCFLR_k_PrechargeStuckClose_flt_CPT_DTC_Component_RP_FaultStatus_PrechrgCont_StuckClose</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CFLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CFLR_Code_pkg/CFLR_Code_swc/CFLR_Code/VeCFLR_k_PrechargeStuckClose_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_PrechrgCont_StuckClose</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_PrechrgCont_StuckOpen_CPT_DTC_Component_RP_DiagInfo_PrechrgCont_StuckOpen</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_PrechrgCont_StuckOpen</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_PrechrgCont_StuckOpen</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_PrechrgCont_StuckOpen_CPT_DTC_Component_RP_Monitor_PrechrgCont_StuckOpen</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_PrechrgCont_StuckOpen</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_PrechrgCont_StuckOpen</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CFLR_Code_VeCFLR_k_PrechargeStuckOpen_flt_CPT_DTC_Component_RP_FaultStatus_PrechrgCont_StuckOpen</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CFLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CFLR_Code_pkg/CFLR_Code_swc/CFLR_Code/VeCFLR_k_PrechargeStuckOpen_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_PrechrgCont_StuckOpen</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_MainFuse1_Open_CPT_DTC_Component_RP_DiagInfo_MainFuse1_Open</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_MainFuse1_Open</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_MainFuse1_Open</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_MainFuse1_Open_CPT_DTC_Component_RP_Monitor_MainFuse1_Open</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_MainFuse1_Open</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_MainFuse1_Open</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CFLR_Code_VeCFLR_k_MainFuse1Open_flt_CPT_DTC_Component_RP_FaultStatus_MainFuse1_Open</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CFLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CFLR_Code_pkg/CFLR_Code_swc/CFLR_Code/VeCFLR_k_MainFuse1Open_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_MainFuse1_Open</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_MainFuse2_Open_CPT_DTC_Component_RP_DiagInfo_MainFuse2_Open</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_MainFuse2_Open</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_MainFuse2_Open</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_MainFuse2_Open_CPT_DTC_Component_RP_Monitor_MainFuse2_Open</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_MainFuse2_Open</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_MainFuse2_Open</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CFLR_Code_VeCFLR_k_MainFuse2Open_flt_CPT_DTC_Component_RP_FaultStatus_MainFuse2_Open</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CFLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CFLR_Code_pkg/CFLR_Code_swc/CFLR_Code/VeCFLR_k_MainFuse2Open_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_MainFuse2_Open</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_VehicleHVInterlockError_CPT_DTC_Component_RP_DiagInfo_VehicleHVInterlockError</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_VehicleHVInterlockError</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_VehicleHVInterlockError</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_VehicleHVInterlockError_CPT_DTC_Component_RP_Monitor_VehicleHVInterlockError</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_VehicleHVInterlockError</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_VehicleHVInterlockError</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_HVIR_Code_VeHVIR_k_MainHVIL2_flt_CPT_DTC_Component_RP_FaultStatus_VehicleHVInterlockError</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_HVIR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/HVIR_Code_pkg/HVIR_Code_swc/HVIR_Code/VeHVIR_k_MainHVIL2_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_VehicleHVInterlockError</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_BatteryHVInterlockError_CPT_DTC_Component_RP_DiagInfo_BatteryHVInterlockError</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_BatteryHVInterlockError</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_BatteryHVInterlockError</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_BatteryHVInterlockError_CPT_DTC_Component_RP_Monitor_BatteryHVInterlockError</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_BatteryHVInterlockError</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_BatteryHVInterlockError</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_HVIR_Code_VeHVIR_k_MainHVIL_flt_CPT_DTC_Component_RP_FaultStatus_BatteryHVInterlockError</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_HVIR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/HVIR_Code_pkg/HVIR_Code_swc/HVIR_Code/VeHVIR_k_MainHVIL_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_BatteryHVInterlockError</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_BatteryInsulationFault_CPT_DTC_Component_RP_DiagInfo_BatteryInsulationFault</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_BatteryInsulationFault</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_BatteryInsulationFault</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_BatteryInsulationFault_CPT_DTC_Component_RP_Monitor_BatteryInsulationFault</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_BatteryInsulationFault</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_BatteryInsulationFault</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_ISLR_Code_VeISLR_InterIsolation_flt_CPT_DTC_Component_RP_FaultStatus_BatteryInsulationFault</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_ISLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ISLR_Code_pkg/ISLR_Code_swc/ISLR_Code/VeISLR_InterIsolation_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_BatteryInsulationFault</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_VehicleInsulationFault_CPT_DTC_Component_RP_DiagInfo_VehicleInsulationFault</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_VehicleInsulationFault</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_VehicleInsulationFault</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_VehicleInsulationFault_CPT_DTC_Component_RP_Monitor_VehicleInsulationFault</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_VehicleInsulationFault</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_VehicleInsulationFault</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_ISLR_Code_VeISLR_ExterIsolation_flt_CPT_DTC_Component_RP_FaultStatus_VehicleInsulationFault</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_ISLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ISLR_Code_pkg/ISLR_Code_swc/ISLR_Code/VeISLR_ExterIsolation_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_VehicleInsulationFault</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Precharge_Resistor_Open_CPT_DTC_Component_RP_DiagInfo_Precharge_Resistor_Open</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Precharge_Resistor_Open</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Precharge_Resistor_Open</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Precharge_Resistor_Open_CPT_DTC_Component_RP_Monitor_Precharge_Resistor_Open</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Precharge_Resistor_Open</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Precharge_Resistor_Open</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CFLR_Code_VeCFLR_k_PreResistorStuckOpen_flt_CPT_DTC_Component_RP_FaultStatus_Precharge_Resistor_Open</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CFLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CFLR_Code_pkg/CFLR_Code_swc/CFLR_Code/VeCFLR_k_PreResistorStuckOpen_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_Precharge_Resistor_Open</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_Precharge_Error_CPT_DTC_Component_RP_DiagInfo_Precharge_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_Precharge_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_Precharge_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_Precharge_Error_CPT_DTC_Component_RP_Monitor_Precharge_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_Precharge_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_Precharge_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CFLR_Code_VeCFLR_k_PreChargeFail_flt_CPT_DTC_Component_RP_FaultStatus_Precharge_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CFLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CFLR_Code_pkg/CFLR_Code_swc/CFLR_Code/VeCFLR_k_PreChargeFail_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_Precharge_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_PrechargeShortCircuit_CPT_DTC_Component_RP_DiagInfo_PrechargeShortCircuit</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_PrechargeShortCircuit</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_PrechargeShortCircuit</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_PrechargeShortCircuit_CPT_DTC_Component_RP_Monitor_PrechargeShortCircuit</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_PrechargeShortCircuit</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_PrechargeShortCircuit</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_CFLR_Code_VeCFLR_k_PreChargeOvCur_flt_CPT_DTC_Component_RP_FaultStatus_PrechargeShortCircuit</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_CFLR_Code</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/CFLR_Code_pkg/CFLR_Code_swc/CFLR_Code/VeCFLR_k_PreChargeOvCur_flt</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_FaultStatus_PrechargeShortCircuit</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_CAN_VCU_error_CPT_DTC_Component_RP_DiagInfo_CAN_VCU_error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_CAN_VCU_error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_CAN_VCU_error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_CAN_VCU_error_CPT_DTC_Component_RP_Monitor_CAN_VCU_error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_CAN_VCU_error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_CAN_VCU_error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_CAN_MCUF_Error_CPT_DTC_Component_RP_DiagInfo_CAN_MCUF_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_CAN_MCUF_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_CAN_MCUF_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_CAN_MCUF_Error_CPT_DTC_Component_RP_Monitor_CAN_MCUF_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_CAN_MCUF_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_CAN_MCUF_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_CAN_MCUR_Error_CPT_DTC_Component_RP_DiagInfo_CAN_MCUR_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_CAN_MCUR_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_CAN_MCUR_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_CAN_MCUR_Error_CPT_DTC_Component_RP_Monitor_CAN_MCUR_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_CAN_MCUR_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_CAN_MCUR_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_CAN_ISG_Error_CPT_DTC_Component_RP_DiagInfo_CAN_ISG_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_CAN_ISG_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_CAN_ISG_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_CAN_ISG_Error_CPT_DTC_Component_RP_Monitor_CAN_ISG_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_CAN_ISG_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_CAN_ISG_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_CAN_CDU_Error_CPT_DTC_Component_RP_DiagInfo_CAN_CDU_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_CAN_CDU_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_CAN_CDU_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_CAN_CDU_Error_CPT_DTC_Component_RP_Monitor_CAN_CDU_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_CAN_CDU_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_CAN_CDU_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_CAN_CLM_Error_CPT_DTC_Component_RP_DiagInfo_CAN_CLM_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_CAN_CLM_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_CAN_CLM_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_CAN_CLM_Error_CPT_DTC_Component_RP_Monitor_CAN_CLM_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_CAN_CLM_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_CAN_CLM_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_CAN_ABM_Error_CPT_DTC_Component_RP_DiagInfo_CAN_ABM_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_CAN_ABM_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_CAN_ABM_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_CAN_ABM_Error_CPT_DTC_Component_RP_Monitor_CAN_ABM_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_CAN_ABM_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_CAN_ABM_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_CAN_ICM_Error_CPT_DTC_Component_RP_DiagInfo_CAN_ICM_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_CAN_ICM_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_CAN_ICM_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_CAN_ICM_Error_CPT_DTC_Component_RP_Monitor_CAN_ICM_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_CAN_ICM_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_CAN_ICM_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_CAN_TBOX_Error_CPT_DTC_Component_RP_DiagInfo_CAN_TBOX_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_CAN_TBOX_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_CAN_TBOX_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_CAN_TBOX_Error_CPT_DTC_Component_RP_Monitor_CAN_TBOX_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_CAN_TBOX_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_CAN_TBOX_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_CAN_BSM_Error_CPT_DTC_Component_RP_DiagInfo_CAN_BSM_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_CAN_BSM_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_CAN_BSM_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_CAN_BSM_Error_CPT_DTC_Component_RP_Monitor_CAN_BSM_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_CAN_BSM_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_CAN_BSM_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_CAN_EMS_Error_CPT_DTC_Component_RP_DiagInfo_CAN_EMS_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_CAN_EMS_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_CAN_EMS_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_CAN_EMS_Error_CPT_DTC_Component_RP_Monitor_CAN_EMS_Error</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_CAN_EMS_Error</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_CAN_EMS_Error</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_PTCAN_BusOff_CPT_DTC_Component_RP_DiagInfo_PTCAN_BusOff</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_PTCAN_BusOff</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_PTCAN_BusOff</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_PTCAN_BusOff_CPT_DTC_Component_RP_Monitor_PTCAN_BusOff</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_PTCAN_BusOff</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_PTCAN_BusOff</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_LV_UnderVoltage_CPT_DTC_Component_RP_DiagInfo_LV_UnderVoltage</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_LV_UnderVoltage</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_LV_UnderVoltage</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_LV_UnderVoltage_CPT_DTC_Component_RP_Monitor_LV_UnderVoltage</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_LV_UnderVoltage</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_LV_UnderVoltage</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_EvtInfo_Event_LV_OverVoltage_CPT_DTC_Component_RP_DiagInfo_LV_OverVoltage</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/EvtInfo_Event_LV_OverVoltage</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_DiagInfo_LV_OverVoltage</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                    <ASSEMBLY-SW-CONNECTOR>
+                      <SHORT-NAME>ASC_CPT_Dem_Event_Event_LV_OverVoltage_CPT_DTC_Component_RP_Monitor_LV_OverVoltage</SHORT-NAME>
+                      <PROVIDER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_Dem</CONTEXT-COMPONENT-REF>
+                        <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/AUTOSAR_Dem/SwComponentTypes/Dem/Event_Event_LV_OverVoltage</TARGET-P-PORT-REF>
+                      </PROVIDER-IREF>
+                      <REQUESTER-IREF>
+                        <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/CAN_System/Pkg_Ecu/SystemComposition/TopLevelComposition/CPT_DTC_Component</CONTEXT-COMPONENT-REF>
+                        <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/DTC_Component/DTCComponent/RP_Monitor_LV_OverVoltage</TARGET-R-PORT-REF>
+                      </REQUESTER-IREF>
+                    </ASSEMBLY-SW-CONNECTOR>
+                  </CONNECTORS>
+                </COMPOSITION-SW-COMPONENT-TYPE>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

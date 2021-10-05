@@ -1,0 +1,20 @@
+
+import AUTOSAR_J1939Dcm::EcucModuleDefs;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm::J1939DcmConfigSet;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm::J1939DcmConfigSet::J1939DcmNode;
+import AUTOSAR_J1939Dcm::EcucModuleDefs::J1939Dcm::J1939DcmConfigSet::J1939DcmNode::J1939DcmTestServiceSPN;
+
+extension org::eclipse::xtend::util::stdlib::io;
+extension J1939Dcm_createJ1939DcmTIDSupport;
+
+create J1939DcmTestServiceSPN this createJ1939DcmTestServiceSPN(J1939DcmNode j1939DcmNode,Integer value):
+
+    setShortName("J1939DcmTestServiceSPN")->
+    setValue(value)
+    //info("J1939DcmTestServiceSPN: "+value)
+   // j1939DcmNode.add(this)->
+    //j1939DcmNode.J1939DcmTestServiceSPNs.add(this)
+;
+
+

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>SOHR_Code_datatype_AVS_pkg</SHORT-NAME>
+      <ELEMENTS>
+        <CONSTANT-SPECIFICATION>
+          <SHORT-NAME>KtSOHR_r_SOHCoefficient_Table_AVS</SHORT-NAME>
+          <VALUE-SPEC>
+            <ARRAY-VALUE-SPECIFICATION>
+              <ELEMENTS>
+                <NUMERICAL-VALUE-SPECIFICATION>
+                  <VALUE>1</VALUE>
+                </NUMERICAL-VALUE-SPECIFICATION>
+                <NUMERICAL-VALUE-SPECIFICATION>
+                  <VALUE>0.98000001907348633</VALUE>
+                </NUMERICAL-VALUE-SPECIFICATION>
+                <NUMERICAL-VALUE-SPECIFICATION>
+                  <VALUE>0.949999988079071</VALUE>
+                </NUMERICAL-VALUE-SPECIFICATION>
+                <NUMERICAL-VALUE-SPECIFICATION>
+                  <VALUE>0.89999997615814209</VALUE>
+                </NUMERICAL-VALUE-SPECIFICATION>
+                <NUMERICAL-VALUE-SPECIFICATION>
+                  <VALUE>0.85000002384185791</VALUE>
+                </NUMERICAL-VALUE-SPECIFICATION>
+                <NUMERICAL-VALUE-SPECIFICATION>
+                  <VALUE>0.800000011920929</VALUE>
+                </NUMERICAL-VALUE-SPECIFICATION>
+              </ELEMENTS>
+            </ARRAY-VALUE-SPECIFICATION>
+          </VALUE-SPEC>
+        </CONSTANT-SPECIFICATION>
+        <CONSTANT-SPECIFICATION>
+          <SHORT-NAME>KxSOHR_r_SOHCoefficient_AVS</SHORT-NAME>
+          <VALUE-SPEC>
+            <ARRAY-VALUE-SPECIFICATION>
+              <ELEMENTS>
+                <NUMERICAL-VALUE-SPECIFICATION>
+                  <VALUE>0</VALUE>
+                </NUMERICAL-VALUE-SPECIFICATION>
+                <NUMERICAL-VALUE-SPECIFICATION>
+                  <VALUE>18340</VALUE>
+                </NUMERICAL-VALUE-SPECIFICATION>
+                <NUMERICAL-VALUE-SPECIFICATION>
+                  <VALUE>35850</VALUE>
+                </NUMERICAL-VALUE-SPECIFICATION>
+                <NUMERICAL-VALUE-SPECIFICATION>
+                  <VALUE>70730</VALUE>
+                </NUMERICAL-VALUE-SPECIFICATION>
+                <NUMERICAL-VALUE-SPECIFICATION>
+                  <VALUE>93650</VALUE>
+                </NUMERICAL-VALUE-SPECIFICATION>
+                <NUMERICAL-VALUE-SPECIFICATION>
+                  <VALUE>104950</VALUE>
+                </NUMERICAL-VALUE-SPECIFICATION>
+              </ELEMENTS>
+            </ARRAY-VALUE-SPECIFICATION>
+          </VALUE-SPEC>
+        </CONSTANT-SPECIFICATION>
+        <CONSTANT-SPECIFICATION-MAPPING-SET>
+          <SHORT-NAME>SOHR_Code_datatype_AVS_MappingSet</SHORT-NAME>
+          <MAPPINGS>
+            <CONSTANT-SPECIFICATION-MAPPING>
+              <APPL-CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/SOHR_Code_pkg/SOHR_Code_dt/Ground/KtSOHR_r_SOHCoefficient_Table</APPL-CONSTANT-REF>
+              <IMPL-CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/SOHR_Code_datatype_AVS_pkg/KtSOHR_r_SOHCoefficient_Table_AVS</IMPL-CONSTANT-REF>
+            </CONSTANT-SPECIFICATION-MAPPING>
+            <CONSTANT-SPECIFICATION-MAPPING>
+              <APPL-CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/SOHR_Code_pkg/SOHR_Code_dt/Ground/KxSOHR_r_SOHCoefficient</APPL-CONSTANT-REF>
+              <IMPL-CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/SOHR_Code_datatype_AVS_pkg/KxSOHR_r_SOHCoefficient_AVS</IMPL-CONSTANT-REF>
+            </CONSTANT-SPECIFICATION-MAPPING>
+          </MAPPINGS>
+        </CONSTANT-SPECIFICATION-MAPPING-SET>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,69 @@
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd::DcmDsdServiceTable;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsd::DcmDsdServiceTable::DcmDsdService;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDid;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDid::DcmDspDidSignal;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspData;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDataInfo;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDidInfo;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDidSignal::DcmDspDidDataRef;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspData::DcmDspDataUsePort;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspData::DcmDspDiagnosisScaling;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDidInfo::DcmDspDidAccess;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDidInfo::DcmDspDidAccess::DcmDspDidWrite;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspDidInfo::DcmDspDidAccess::DcmDspDidWrite::DcmDspDidWriteSessionRef;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspData::DcmDspDiagnosisScaling::DcmDspAlternativeDataProps;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspData::DcmDspDiagnosisScaling::DcmDspAlternativeDataProps::DcmDspLinearScale;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSession;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSession::DcmDspSessionRow;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSecurity;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSecurity::DcmDspSecurityRow;
+import com::bosch::autosartool::importer::odx::core::model;
+import org::eclipse::emf::ecore;
+
+import OdxXhtml;
+extension GenerateBsw_Odx_V201;
+extension org::eclipse::xtend::util::stdlib::io;
+extension org::eclipse::xtend::util::stdlib::globalvar;
+extension templates::dcm::Dcm_UDS_DSC;
+extension OdxUtils;
+extension OdxConstants; extension OdxShortNames;
+
+
+/********************************************************************************************
+set parameters based on PARAM semantic of requests
+*********************************************************************************************/
+calculateServiceID(REQUEST request):
+    let params=request.pARAMS.pARAM.select(e|e.sEMANTIC==CONST_SERVICE_ID()):
+    let paramsId=request.pARAMS.pARAM.select(e|e.sEMANTIC=="ID" && CODEDCONST.isInstance(e)):
+    createDcmDspDidIdentifier(paramsId)
+;
+
+/********************************************************************************************
+ Create Parameter DcmDspDidIdentifier
+
+*********************************************************************************************/
+createDcmDspDidIdentifier(List[PARAM] paramsId):
+if(paramsId.size==1) then
+(
+let paramIdentifier=paramsId.get(0):
+let codedValue = (CODEDCONST) paramIdentifier:
+let value=codedValue.cODEDVALUE:
+value.asInteger()
+)
+else if(paramsId.size>1) then
+(
+let hiByteParam =paramsId.selectFirst(e|e.sHORTNAME.contains("_HiByte")):
+let loByteParam =paramsId.selectFirst(e|e.sHORTNAME.contains("_LoByte")):
+let dynDid_HiByte=convertIntegerToHexString(((CODEDCONST)hiByteParam).cODEDVALUE.asInteger()):
+let dynDid_LoByte= convertIntegerToHexString(((CODEDCONST)loByteParam).cODEDVALUE.asInteger()):
+let identifier= dynDid_HiByte+dynDid_LoByte:
+convertHexToDecimal(identifier).asInteger()
+)
+
+;

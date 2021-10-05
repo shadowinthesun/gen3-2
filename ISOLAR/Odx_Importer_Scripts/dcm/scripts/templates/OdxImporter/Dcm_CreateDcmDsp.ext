@@ -1,0 +1,84 @@
+/**
+ * Creates DCMDsp container
+ *
+ * @author raa3cob
+ */
+import fibexcore::corecommunication;
+import fibexcore::coretopology;
+import system::cancommunication;
+import system::cantopology;
+
+import AUTOSAR_Dcm::EcucModuleDefs;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSecurity;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSecurity::DcmDspSecurityRow;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSession;
+import AUTOSAR_Dcm::EcucModuleDefs::Dcm::DcmConfigSet::DcmDsp::DcmDspSession::DcmDspSessionRow;
+
+extension Ecuc_CreateEcuc;
+extension EcuExtractor;
+extension OdxConstants; extension OdxShortNames;
+
+
+/*
+creates the DcmDsp module
+*/
+create DcmDsp this DcmDspCreation(Dcm dcm):
+	setShortName("DcmDsp")->
+	setDcmDspSession(dcmDspSessionCreation(dcm))->
+	setDcmDspSecurity(dcmDspSecurityCreation(dcm))
+;
+
+
+/*
+creates the DcmDspSecurity module
+*/
+private create DcmDspSecurity this dcmDspSecurityCreation(Dcm dcm):
+	let dcmConfigSet=dcm.DcmConfigSet:
+	let dcmDsp=(DcmDsp)dcmConfigSet.DcmDsp:
+	setShortName(CONST_DcmDspSecurity())->
+	DcmDspSecurityRows.add(dcmDspSecurityRowCreation(dcmDsp))
+;
+
+
+/*
+creates the DcmDspSecurityRow module
+*/
+private create DcmDspSecurityRow this dcmDspSecurityRowCreation(DcmDsp dcmDsp):
+	let dcmDspSessions=dcmDsp.DcmDspSessions:
+	setShortName("DefaultSecurity")->
+	setAttributeValue(this,"DcmDspSecurityNumAttDelay",1)->
+	setAttributeValue(this,"DcmDspSecurityNumAttLock",0)->
+	setAttributeValue(this,"DcmDspSecurityKeySize",1)->
+	setAttributeValue(this,"DcmDspSecuritySeedSize",1)->
+	setAttributeValue(this,"DcmDspSecurityLevel",1)->
+	dcmDspSessions.refCreation(this)
+;
+
+
+/*
+Reference Creation for DcmDspSecuritySessionRef
+*/
+private void refCreation(DcmDspSession dcmDspSession,DcmDspSecurityRow dcmDspSecurityRow):
+	setContainerReference(dcmDspSecurityRow,"DcmDspSecuritySessionRef",dcmDspSession)
+;
+
+/*
+creates the DcmDspSession module
+*/
+private create DcmDspSession this dcmDspSessionCreation(Dcm dcm):
+	setShortName("DcmDspSession")->
+	DcmDspSessionRows.add(dcmDcmDspSessionRowCreation())
+;
+
+
+/*
+creates the DcmDspSessionRow module
+*/
+private create DcmDspSessionRow this dcmDcmDspSessionRowCreation():
+	setAttributeValue(this,"DcmDspSessionLevel",1)->
+	setAttributeValue(this,"DcmDspSessionP2ServerMax","50E-3")->
+	setAttributeValue(this,"DcmDspSessionP2StarServerMax","5000E-3")
+;
