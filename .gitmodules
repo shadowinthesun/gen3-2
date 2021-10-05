@@ -1,0 +1,6 @@
+[submodule "platform"]
+	path = platform
+	url = http://gitlab.private.gotion.local/m.kamel/platform
+[submodule "SCUR_A2"]
+	path = SCUR_A2
+	url = http://gitlab.private.gotion.local/APP_SW/SCUR_A2
